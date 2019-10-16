@@ -24,7 +24,7 @@
 	-->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@ync2019_tp?TNS_ADMIN=G:\Wallet_ync2019"></property>
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@ync2019_tp?TNS_ADMIN=D:\Wallet_ync2019"></property>
 		<property name="username" value="admin"></property>
 		<property name="password" value="Yncit2019@$*"></property>
 		<property name="maximumPoolSize" value="5"></property>
