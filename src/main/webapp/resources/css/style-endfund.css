@@ -4015,6 +4015,18 @@ p {
   background-image: url("/resources/img/tlge.jpg");
   height: 200px;
 }
+.demo-card-square > .mdl-card__title7 {
+  background-image: url("/resources/img/riskofrain2.png");
+  height: 200px;
+}
+.demo-card-square > .mdl-card__title8 {
+  background-image: url("/resources/img/beatsaber.jpg");
+  height: 200px;
+}
+.demo-card-square > .mdl-card__title9 {
+  background-image: url("/resources/img/vallhalla.jpg");
+  height: 200px;
+}
 .col-md-4:nth-child(2n) .demo-card-square.mdl-card > .mdl-card__title {
   background-image: url("https://tumblbug-pci.imgix.net/6e9a642e6e4d5d647835e62e1f0158aec00ba4ff/f8dc82c6624c96c17c3b4c84ca2a1cd7d6b85b29/b6e28b0bff688bdc570e938aeffc26df8554c143/2680c548-3a3d-4823-ae89-3c8f81076fa4.jpg?ixlib=rb-1.1.0&w=1240&h=930&auto=format%2Ccompress&lossless=true&fit=crop&s=bc0bc29e0f790087e40bf35981c1e8a8") !important;
   background-size: cover;
