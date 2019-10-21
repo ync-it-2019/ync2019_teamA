@@ -152,8 +152,8 @@ to {
 <body>
 	<!--/main-header-->
 	<div>
-		<jsp:include page="header-for_front(nobg).jsp" flush="false" />
-	</div>
+   <jsp:include page="/WEB-INF/views/include/header-for_front(nobg).jsp" flush="false" />
+</div>
 	<!-- breadcrumb -->
 	<div class="w3_breadcrumb">
 		<div class="breadcrumb-inner">
