@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 <div>
-   <jsp:include page="header-for_front(nobg).jsp" flush="false" />
+   <jsp:include page="/WEB-INF/views/include/header-for_front(nobg).jsp" flush="false" />
 </div>
 
 
