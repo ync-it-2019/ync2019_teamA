@@ -1,6 +1,5 @@
 package com.ync.project.domain;
 
-import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
@@ -9,7 +8,7 @@ import lombok.Data;
   * @FileName	: MemberVO.java
   * @Date		: 2019. 10. 21. 
   * @Author		: 김정현
-  * @프로그램 설명 :
+  * @프로그램 설명 : MemberVO 멤버테이블 DB 변수담는곳
   */
 @Data
 public class MemberVO {
