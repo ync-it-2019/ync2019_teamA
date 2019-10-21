@@ -269,7 +269,7 @@ ul {
 
 /*-- //Reset-Code --*/
 body {
-  background: url(../images/b1.jpg), no-repeat, center;
+  background: url(../img/b1.jpg), no-repeat, center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -592,7 +592,7 @@ a {
   text-decoration: none;
     height: 53px;
     width: 53px;
-  background:rgba(230, 230, 230, 0) url("../images/left-arrow.png") no-repeat left top;
+  background:rgba(230, 230, 230, 0) url("../img/left-arrow.png") no-repeat left top;
   margin-top: -45px;
   }*/
 /*.callbacks_nav:active {
@@ -600,7 +600,7 @@ a {
   }*/
 /*.callbacks_nav.next {
   left: auto;
-   background:rgba(230, 230, 230, 0)  url("../images/right-arrow.png") no-repeat 0px 0px;
+   background:rgba(230, 230, 230, 0)  url("../img/right-arrow.png") no-repeat 0px 0px;
   background-position: right top;
   right: 0;
   }*/
