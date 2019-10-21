@@ -1,5 +1,48 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!--/banner-section-->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>헤더 파일</title>
+  <!-- for-mobile-apps -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Movies Pro Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  <script type="application/x-javascript">
+    addEventListener("load", function() {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <!-- //for-mobile-apps -->
+  <link href="/resources/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <!-- pop-up -->
+  <link href="/resources/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+  <!-- //pop-up -->
+  <link href="/resources/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" type="text/css" href="/resources/css/zoomslider.css" />
+  <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+  <link href="/resources/css/font-awesome.css" rel="stylesheet">
+  <script type="text/javascript" src="/resources/js/modernizr-2.6.2.min.js"></script>
+  <!--/web-fonts-->
+  <link href='https://fonts.googleapis.com/css/?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css/?family=Lato:100,100i,300,300i,400,400i,700,700i,900" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css/?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <!--//web-fonts-->
+</head>
+
+<body>
+  <!--/main-header-->
   <!--/banner-section-->
   <div id="demo-1" class="banner-inner">
     <div class="banner-inner-dott">
@@ -196,7 +239,8 @@
     </div>
   </div>
   <!-- //Modal1 -->
-
+  <!-- breadcrumb -->
+  
   <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
   <script src="/resources/js/jquery-1.11.1.min.js"></script>
@@ -353,3 +397,9 @@
   </script>
   <!--end-smooth-scrolling-->
   <script src="/resources/js/bootstrap.js"></script>
+
+
+
+</body>
+
+</html>
