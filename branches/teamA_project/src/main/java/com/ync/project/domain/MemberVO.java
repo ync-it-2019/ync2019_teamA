@@ -8,7 +8,7 @@ import lombok.Data;
   * @FileName	: MemberVO.java
   * @Date		: 2019. 10. 21. 
   * @Author		: 김정현
-  * @프로그램 설명 : MemberVO 멤버테이블 DB 변수담는곳
+  * @프로그램 설명 	: 회원 테이블 변수 저장
   */
 @Data
 public class MemberVO {
@@ -29,7 +29,10 @@ public class MemberVO {
 	private String sns; //SNS 계정
 	private String other_address; //추가 연락처
 	
-	
+//	private boolean enabled;
+//
+//	private Date regDate;
+//	private Date updateDate;
 	private List<AuthVO> authList;
 
 }
