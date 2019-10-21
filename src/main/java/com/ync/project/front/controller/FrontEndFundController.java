@@ -29,4 +29,19 @@ public class FrontEndFundController {
 	
 		return "front/endfund";
 	}
+	
+	/**
+	  * @Method 설명 :
+	  * @Method Name : funding_main
+	  * @Date : 2019. 10. 21.
+	  * @작성자 : 석준영
+	  * @return
+	  */
+	@GetMapping(value = "/funding")
+	public String fund_() {
+
+		log.info("funding!");
+	
+		return "front/funding";
+	}
 }
