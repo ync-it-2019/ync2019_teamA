@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 
-<%@include file="includes/header.jsp"%>
+<%@include file="include /header.jsp"%>
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">Tables</h1>
@@ -26,4 +26,4 @@
 <!-- /.row -->
 
 
-<%@include file="includes/footer.jsp"%>
+<%@include file="include/footer.jsp"%>
