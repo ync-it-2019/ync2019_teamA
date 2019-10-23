@@ -31,36 +31,5 @@ public class AdminHomeController {
 	
 		return "admin/index";
 	}
-	
-	/**
-	  * @Method 설명 : admin/member_donation.jsp 호출
-	  * @Method Name : donation
-	  * @Date : 2019. 10. 23.
-	  * @작성자 : 석준영
-	  * @return call jsp view
-	  */
-	@GetMapping(value = "/donation")
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String donation() {
 
-		log.info("Welcome Admin home!");
-	
-		return "admin/member_donation";
-	}
-	
-	/**
-	  * @Method 설명 : admin/member_donation_detail.jsp 호출
-	  * @Method Name : donation
-	  * @Date : 2019. 10. 23.
-	  * @작성자 : 석준영
-	  * @return call jsp view
-	  */
-	@GetMapping(value = "/donation/detail")
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String donation_detail() {
-
-		log.info("Welcome Admin home!");
-	
-		return "admin/member_donation_detail";
-	}
 }
