@@ -15,12 +15,12 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/admin/*")
 public class AdminBoardController {
-	@GetMapping(value = "/ccontent")
+	@GetMapping(value = "/acontent")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String donation_detail() {
 
 		log.info("Welcome Creator Content!");
 	
-		return "admin/CContent";
+		return "admin/content_acontent";
 	}
 }
