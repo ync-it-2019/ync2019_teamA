@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-  <title>관리자 생성</title>
+  <title>관리자 수정</title>
   <!-- Meta Tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
@@ -201,8 +201,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </nav>
             <!--// top-bar -->
 
-            <!-- main-heading -->
+			<!-- main-heading -->
+			<section class="grids-section bd-content">
 
+				<!-- Grids Info -->
+				<div class="outer-w3-agile mt-3">
+					<h4>관리자 관리 > 관리자 조회 > 관리자 수정</h4>
+				</div>
+			</section>
             <!--// main-heading -->
 
             <!-- Grids Content -->
