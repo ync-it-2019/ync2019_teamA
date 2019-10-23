@@ -229,6 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="outer-w3-agile mt-3">
 					<h4>회원관리 > 후원관리</h4>
 				</div>
+			</section>
 
 				<%-- content table --%>
 				<div class="outer-w3-agile mt-3" data-example-id="contextual-table">

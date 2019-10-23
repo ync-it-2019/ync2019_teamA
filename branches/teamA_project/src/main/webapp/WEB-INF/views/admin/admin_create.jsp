@@ -201,8 +201,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </nav>
             <!--// top-bar -->
 
-            <!-- main-heading -->
+			<!-- main-heading -->
+			<section class="grids-section bd-content">
 
+				<!-- Grids Info -->
+				<div class="outer-w3-agile mt-3">
+					<h4>관리자 관리 > 관리자 생성</h4>
+				</div>
+			</section>
             <!--// main-heading -->
 
             <!-- Grids Content -->
