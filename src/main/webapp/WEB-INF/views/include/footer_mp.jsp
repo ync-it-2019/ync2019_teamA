@@ -10,7 +10,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>푸터</title>
 <!-- for-mobile-apps -->
-<link rel="stylesheet" type="text/css" href="/resources/css/style-endfund.css" />
 <body>
 <!--/main-header-->
 
