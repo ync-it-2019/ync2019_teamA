@@ -147,16 +147,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <!--// top-bar -->
           <!-- Stats -->
           <!-- main-heading -->
-          <h3 class="main-title-w3layouts mb-2 text-center">창작자 관리</h3>
           <!--// main-heading -->
           <!-- Tables content -->
           <section class="tables-section">
               <!-- table1 -->
+              <div class="outer-w3-agile mt-3">
+                                          <h4>창작자 관리 > 창작자 권한수정</h4>
+                                        </div>
               <div class="outer-w3-agile mt-3" align="center">
                   <h3 class="tittle-w3-agileits mb-4">창작자 정보</h3>
-                  <table class="table table-striped" style="width:700px; margin:auto;">
-
-                      <tbody class="info2">
+                  <table class="table">
+                      <tbody>
                           <tr>
                               <th scope="col">이름</th>
                               <td>김상덕</td>
