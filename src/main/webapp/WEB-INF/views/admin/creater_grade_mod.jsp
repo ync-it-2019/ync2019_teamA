@@ -24,21 +24,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       window.scrollTo(0, 1);
     }
   </script>
-  <!-- //for-mobile-apps -->
-  <link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
-  <!-- pop-up -->
-  <link href="/resources/css/popuo-box-admin.css" rel="stylesheet" type="text/css" media="all" />
-  <!-- //pop-up -->
-  <link href="/resources/css/easy-responsive-tabs-admin.css" rel='stylesheet' type='text/css'/>
-  <link rel="stylesheet" type="text/css" href="/resources/css/zoomslider-admin.css" />
-  <link rel="stylesheet" type="text/css" href="/resources/css/style-admin.css" />
-  <link href="/resources/css/font-awesome-admin.css" rel="stylesheet">
-  <script type="text/javascript" src="/resources/js/modernizr-2.6.2.min.js"></script>
-  <!--/web-fonts-->
-  <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <!-- //Meta Tags -->
 
   <!-- Style-sheets -->
   <!-- Bootstrap Css -->
@@ -72,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
   <div class="se-pre-con"></div>
   <div class="wrapper">
-    <jsp:include page="/WEB-INF/views/include/side_bar-admin.jsp"></jsp:include>
+    <jsp:include page="/WEB-INF/views/include/side_bar-admin.jsp" flush="false" />
     <!-- Page Content Holder -->
     <div id="content">
       <!-- top-bar -->
@@ -178,10 +163,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               <td>
                                   <input type="button"
                                    value="수락"
-                                   onclick=alert("수락했습니다.")>
+                                   onclick=alert("수락했습니다.")/>
                                    <input type="button"
                                     value="거절"
-                                    onclick=alert("거절했습니다.")>
+                                    onclick=alert("거절했습니다.")/>
                               </td>
                           </tr>
                           <tr>
@@ -195,10 +180,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               <td>
                                   <input type="button"
                                    value="수락"
-                                   onclick=alert("수락했습니다.")>
+                                   onclick=alert("수락했습니다.")/>
                                    <input type="button"
                                     value="거절"
-                                    onclick=alert("거절했습니다.")>
+                                    onclick=alert("거절했습니다.")/>
                               </td>
                           </tr>
                           <tr>
@@ -212,10 +197,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               <td>
                                   <input type="button"
                                    value="수락"
-                                   onclick=alert("수락했습니다.")>
+                                   onclick=alert("수락했습니다.")/>
                                    <input type="button"
                                     value="거절"
-                                    onclick=alert("거절했습니다.")>
+                                    onclick=alert("거절했습니다.")/>
                               </td>
                           </tr>
                           <tr>
@@ -229,10 +214,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               <td>
                                   <input type="button"
                                    value="수락"
-                                   onclick=alert("수락했습니다.")>
+                                   onclick=alert("수락했습니다.")/>
                                    <input type="button"
                                     value="거절"
-                                    onclick=alert("거절했습니다.")>
+                                    onclick=alert("거절했습니다.")/>
                               </td>
                           </tr>
                           <tr>
@@ -246,10 +231,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               <td>
                                   <input type="button"
                                    value="수락"
-                                   onclick=alert("수락했습니다.")>
+                                   onclick=alert("수락했습니다.")/>
                                    <input type="button"
                                     value="거절"
-                                    onclick=alert("거절했습니다.")>
+                                    onclick=alert("거절했습니다.")/>
                               </td>
                           </tr>
                           <tr>
@@ -263,10 +248,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               <td>
                                   <input type="button"
                                    value="수락"
-                                   onclick=alert("수락했습니다.")>
+                                   onclick=alert("수락했습니다.")/>
                                    <input type="button"
                                     value="거절"
-                                    onclick=alert("거절했습니다.")>
+                                    onclick=alert("거절했습니다.")/>
                               </td>
                           </tr>
                           <tr>
@@ -281,10 +266,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <td>
                                     <input type="button"
                                      value="수락"
-                                     onclick=alert("수락했습니다.")>
+                                     onclick=alert("수락했습니다.")/>
                                      <input type="button"
                                       value="거절"
-                                      onclick=alert("거절했습니다.")>
+                                      onclick=alert("거절했습니다.")/>
                                 </td>
                             </tr>
                       </tbody>
@@ -597,7 +582,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- //dropdown nav -->
 
   <!-- Js for bootstrap working-->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="/resources/js/bootstrap.min.js"></script>
   <!-- //Js for bootstrap working -->
 
 </body>
