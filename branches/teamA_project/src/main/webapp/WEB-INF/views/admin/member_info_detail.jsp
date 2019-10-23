@@ -151,13 +151,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <!-- Tables content -->
           <section class="tables-section">
               <!-- table1 -->
-              <div class="outer-w3-agile mt-3">
+              <div class="outer-w3-agile mt-3" align="center">
                   <h4 class="tittle-w3-agileits mb-4">회원 상세 정보</h4>
-                  <table class="table table-striped" style="width:700px; margin:auto;">
-
-                      <tbody class="info">
+                  <table class="table">
+                      <tbody>
                           <tr>
-                              <th scope="col" >이름</th>
+                              <th scope="col">이름</th>
                               <td>아메바</td>
                           </tr>
                           <tr>
