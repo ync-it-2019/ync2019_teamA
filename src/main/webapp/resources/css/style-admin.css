@@ -1193,6 +1193,25 @@ a.btn.more {
 	width: 50%;
 }
 
+/* 창작자정보수정 테이블 부분 추가  10-23 석준영*/
+.info2 th,
+.info2 td {
+	padding: 0.74rem;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+	font-size: 13px;
+	text-align: center;
+	border: 1px solid;
+}
+
+.info2 th {
+	color: #252525;
+	font-size: 15px;
+	text-align: center;
+	width : 150px;
+	background-color:skyblue;
+}
+
 /* 업로드 부분 추가 10-23김길재 */
 .upload th,
 .upload td {
