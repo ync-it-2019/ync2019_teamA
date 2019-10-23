@@ -8,9 +8,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
-  <title>회원 통계 페이지</title>
+  <title>회원 관리 페이지</title>
   <!-- Meta Tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
@@ -25,7 +25,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       window.scrollTo(0, 1);
     }
   </script>
-
 
   <!-- Style-sheets -->
   <!-- Bootstrap Css -->
@@ -142,42 +141,90 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <section class="tables-section">
               <!-- table1 -->
               <div class="outer-w3-agile mt-3">
-                  <h4 class="tittle-w3-agileits mb-4">회원 통계</h4>
+                  <h4 class="tittle-w3-agileits mb-4">회원 상세 정보</h4>
                   <table class="table table-striped">
                       <thead class="thead-dark">
                           <tr>
-                              <th scope="col">항목</th>
-                              <th scope="col">통계</th>
+                              <th scope="col">NO</th>
+                              <th scope="col">이메일</th>
+                              <th scope="col">이름</th>
+                              <th scope="col">생년월일</th>
+                              <th scope="col">전화번호</th>
+                              <th scope="col">후원한 금액</th>
+                              <th scope="col">후원받은 금액</th>
+                              <th scope="col">사용자 레벨</th>
                           </tr>
                       </thead>
                       <tbody>
                           <tr>
-                              <th scope="col">총 유저 수</th>
+                              <th scope="col">10</th>
+                              <th scope="col">hgd@mail.com</th>
+                              <td>홍길동</td>
+                              <td>19990909</td>
+                              <td>01099999999</td>
                               <td>50000</td>
+                              <td>70000</td>
+                              <th scope="col">창작자</th>
                           </tr>
                           <tr>
-                              <th scope="col">현 활동 유저 수</th>
+                              <th scope="col">9</th>
+                              <th scope="col">hgd@mail.com</th>
+                              <td>홍길동</td>
+                              <td>19990909</td>
+                              <td>01099999999</td>
                               <td>50000</td>
+                              <td>70000</td>
+                              <th scope="col">창작자</th>
                           </tr>
                           <tr>
-                              <th scope="col">현 창작자 수</th>
+                            <th scope="col">8</th>
+                              <th scope="col">hgd@mail.com</th>
+                              <td>홍길동</td>
+                              <td>19990909</td>
+                              <td>01099999999</td>
                               <td>50000</td>
+                              <td>70000</td>
+                              <th scope="col">창작자</th>
                           </tr>
                           <tr>
-                              <th scope="col">현 게임 등록 수</th>
+                            <th scope="col">7</th>
+                              <th scope="col">hgd@mail.com</th>
+                              <td>홍길동</td>
+                              <td>19990909</td>
+                              <td>01099999999</td>
                               <td>50000</td>
+                              <td>70000</td>
+                              <th scope="col">창작자</th>
                           </tr>
                           <tr>
-                              <th scope="col">총 후원금액</th>
+                            <th scope="col">6</th>
+                              <th scope="col">hgd@mail.com</th>
+                              <td>홍길동</td>
+                              <td>19990909</td>
+                              <td>01099999999</td>
                               <td>50000</td>
+                              <td>70000</td>
+                              <th scope="col">창작자</th>
                           </tr>
                           <tr>
-                              <th scope="col">창작자가 받은 후원 금액</th>
-                              <td>5000000</td>
+                            <th scope="col">5</th>
+                              <th scope="col">hgs@mail.com</th>
+                              <td>홍길순</td>
+                              <td>20050909</td>
+                              <td>01012345678</td>
+                              <td>40000</td>
+                              <td></td>
+                              <th scope="col">일반 사용자</th>
                           </tr>
                           <tr>
-                              <th scope="col">순이익</th>
-                              <td>5000000</td>
+                            <th scope="col">4</th>
+                              <th scope="col">gwanri@mail.com</th>
+                              <td>관리자</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th scope="col">관리자</th>
                           </tr>
                       </tbody>
                   </table>
