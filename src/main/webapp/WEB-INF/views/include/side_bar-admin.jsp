@@ -19,7 +19,7 @@
           </a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>
-              <a href="cards.html">· 회원정보</a>
+              <a href="cards.html">· 회원조회</a>
             </li>
             <li>
               <a href="carousels.html">· 후원관리</a>
@@ -40,6 +40,9 @@
               <a href="contentsman.html">· 업로드 컨텐츠 관리</a>
             </li>
             <li>
+              <a href="http://localhost:8080/admin/acontent">· 관리자 게시물 관리</a>
+            </li>
+            <li>
               <a href="carousels.html">· 게시물 등록</a>
             </li>
           </ul>
@@ -52,7 +55,7 @@
           </a>
           <ul class="collapse list-unstyled" id="customer-center">
             <li>
-              <a href="cards.html">· QnA</a>
+              <a href="cards.html">· FAQ</a>
             </li>
             <li>
               <a href="carousels.html">· 1대1 문의</a>
