@@ -7,7 +7,7 @@
         <h2>
           <a href="index.html">관리자 페이지</a>
         </h2>
-        <span><i class="far fa-list-alt"></i></span>
+        <span></span>
       </div>
       <div class="profile-bg"></div> <!-- 왼쪽 관리자 매뉴 시작 -->
       <ul class="list-unstyled components">
