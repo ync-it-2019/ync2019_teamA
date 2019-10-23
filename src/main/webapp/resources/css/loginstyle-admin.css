@@ -30,7 +30,7 @@ img{max-width:100%;}
 /****-----start-body----****/
 body{
 text-align: center;
-background: url("../loginimg/admin/1.jpg") 0px 0px no-repeat;
+background: url("/resources/img/login.jpg") 0px 0px no-repeat;
 background-size:cover;
 background-attachment: fixed;
 }
