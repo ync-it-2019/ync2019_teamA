@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.log4j.Log4j;
 /**
- * @FileName	: HomeController.java
+ * @FileName	: AdminDonationController.java
  * @Date		: 2019. 10. 23. 
  * @Author		: 석준영
  * @프로그램 설명 : admin 페이지 후원 controller
