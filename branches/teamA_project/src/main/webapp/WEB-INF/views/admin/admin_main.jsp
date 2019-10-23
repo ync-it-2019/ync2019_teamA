@@ -54,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <link href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap" rel="stylesheet">
   <!-- 폰트 링크 -->
 </head>
-
+ 
 <body>
   <div class="se-pre-con"></div>
   <div class="wrapper">
