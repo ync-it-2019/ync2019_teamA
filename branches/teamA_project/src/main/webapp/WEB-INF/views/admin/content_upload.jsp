@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
   <!--// Fontawesome Css -->
   <!--// Style-sheets -->
-
+<link rel="stylesheet" type="text/css" href="/resources/css/style-refund(button).css" />
   <!--web-fonts-->
   <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -147,18 +147,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <!--// top-bar -->
           <!-- Stats -->
           <!-- main-heading -->
-          <h2 class="main-title-w3layouts mb-2 text-center">컨텐츠 업로드</h2>
+               <!-- Grids Info -->
+            <div class="outer-w3-agile mt-3">
+            <h4>게시물 > 게시물 등록</h4>
+            </div>
           <!--// main-heading -->
           <!-- Tables content -->
           <section class="tables-section">
               <!-- table1 -->
               <div class="outer-w3-agile mt-3">
-                  <h4 class="tittle-w3-agileits mb-4">컨텐츠 업로드</h4>
-                  <table class="table table-striped">
+                  <h4 class="tittle-w3-agileits mb-4">게시물 등록</h4>
+                  <table class="table">
 
-                      <tbody class="upload" >
+                      <tbody >
                           <tr >
-                              <th scope="col" >제목</th>
+                              <th scope="col" width="150px">제목</th>
                               <td><textarea name="name" rows="1" cols="10"></textarea></td>
                           </tr>
                           <tr>
@@ -184,10 +187,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                       </tbody>
                   </table>
-                  <center>
-                  <input type="reset" name="" value="취소">
-                  <input type="submit" name="" value="확인">
-                  </center>
+                  <div align="center">
+				  	<input type="button" class="snip1535" name="submit" value="등록"/>
+      			  	<input type="button" class="snip1535" name="cancel" value="취소"/>
+				 </div>
               </div>
               </section>
           <!--// Stats -->

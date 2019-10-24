@@ -146,17 +146,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <!--// top-bar -->
           <!-- Stats -->
           <!-- main-heading -->
-          <h2 class="main-title-w3layouts mb-2 text-center">회원 관리</h2>
+                   <!-- Grids Info -->
+            <div class="outer-w3-agile mt-3">
+            <h4>회원관리 > 회원조회 > 회원 상세 정보</h4>
+            </div>
           <!--// main-heading -->
           <!-- Tables content -->
           <section class="tables-section">
               <!-- table1 -->
-              <div class="outer-w3-agile mt-3" align="center">
+              <div class="outer-w3-agile mt-3" >
                   <h4 class="tittle-w3-agileits mb-4">회원 상세 정보</h4>
-                  <table class="table">
+                  <table class="table" align="center">
                       <tbody>
                           <tr>
-                              <th scope="col">이름</th>
+                              <th scope="col" width="150px">이름</th>
                               <td>아메바</td>
                           </tr>
                           <tr>
@@ -165,7 +168,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           </tr>
                           <tr>
                               <th scope="col">아이디(이메일)</th>
-                              <td>ameba@sibal.com</td>
+                              <td>ameba@jju.ync.ac.kr</td>
                           </tr>
                           <tr>
                               <th scope="col">전화번호</th>
