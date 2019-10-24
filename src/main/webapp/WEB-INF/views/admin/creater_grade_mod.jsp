@@ -131,7 +131,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <!--// top-bar -->
           <!-- Stats -->
           <!-- main-heading -->
-          <h2 class="main-title-w3layouts mb-2 text-center">창작자 관리</h2>
+          <!-- Grids Info -->
+            <div class="outer-w3-agile mt-3">
+            <h4>창작자 관리 > 창작자 조회</h4>
+            </div>
           <!--// main-heading -->
           <!-- Tables content -->
           <section class="tables-section">
