@@ -15,12 +15,49 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/admin/*")
 public class AdminBoardController {
+	 /**
+	  * @Method 설명 : 관리자 게시물 관리 content_acontent.jsp 호출
+	  * @Method Name : content_acontent
+	  * @Date : 2019. 10. 26.
+	  * @작성자 : 석준영
+	  * @return
+	  */
 	@GetMapping(value = "/acontent")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String donation_detail() {
+	public String content_acontent() {
 
-		log.info("Welcome Creator Content!");
+		log.info("Welcome Content Acontent!");
 	
 		return "admin/content_acontent";
+	}
+	
+	 /**
+	  * @Method 설명 : 업로드된 컨텐츠 관리 content_management.jsp 호출
+	  * @Method Name : content_management
+	  * @Date : 2019. 10. 26.
+	  * @작성자 : 김길재
+	  * @return
+	  */
+	@GetMapping(value = "/management")
+	public String content_management() {
+
+		log.info("Welcome Content Management!");
+	
+		return "admin/content_management";
+	}
+	
+	 /**
+	  * @Method 설명 : 컨텐츠 업로드 content_upload.jsp 호출
+	  * @Method Name : content_upload
+	  * @Date : 2019. 10. 26.
+	  * @작성자 : 김길재
+	  * @return
+	  */
+	@GetMapping(value = "/upload")
+	public String content_upload() {
+
+		log.info("Welcome Content Upload!");
+	
+		return "admin/content_upload";
 	}
 }
