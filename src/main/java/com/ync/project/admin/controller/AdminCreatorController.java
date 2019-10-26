@@ -16,28 +16,35 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/admin/*")
 public class AdminCreatorController {
-	@GetMapping(value = "/generatecreator")
+	 /**
+	  * @Method 설명 : 창작자 권한 수정 admin_generate_creator.jsp 호출
+	  * @Method Name : creatorGenerate
+	  * @Date : 2019. 10. 26.
+	  * @작성자 : 석준영
+	  * @return
+	  */
+	@GetMapping(value = "/creatormodify")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String creatorGenerate() {
 
-		log.info("admin_generate_creator!");
+		log.info("Creator Modify!");
 	
-		return "admin/admin_generate_creator";
+		return "admin/creator_modify";
 	}
 	
 	 /**
-	  * @Method 설명 : 창작자 조회 Creator_grade_mod.jsp 호출
+	  * @Method 설명 : 창작자 조회 Creator_list.jsp 호출
 	  * @Method Name : grademod
 	  * @Date : 2019. 10. 24.
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/creatorgrademod")
+	@GetMapping(value = "/creatorinfo")
 	public String grade_mod() {
 
-		log.info("creator_grade_mod!");
+		log.info("Creator_List!");
 	
-		return "admin/creator_grade_mod";
+		return "admin/creator_info";
 	}
 	
 }

@@ -27,7 +27,7 @@ public class AdminMemberController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	@GetMapping(value = "/info")
+	@GetMapping(value = "/memberinfo")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String info() {
 
@@ -43,7 +43,7 @@ public class AdminMemberController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	@GetMapping(value = "/info/detail")
+	@GetMapping(value = "/memberinfo_detail")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String info_detail() {
 
