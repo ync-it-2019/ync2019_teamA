@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-<title>관리자 메인 페이지</title>
+<title>후원 관리</title>
 <!-- Meta Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
