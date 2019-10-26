@@ -18,11 +18,26 @@ import lombok.extern.log4j.Log4j;
 public class AdminCreatorController {
 	@GetMapping(value = "/generatecreator")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String donation() {
+	public String creatorGenerate() {
 
-		log.info("Welcome test!");
+		log.info("admin_generate_creator!");
 	
 		return "admin/admin_generate_creator";
+	}
+	
+	 /**
+	  * @Method 설명 : 창작자 조회 Creator_grade_mod.jsp 호출
+	  * @Method Name : grademod
+	  * @Date : 2019. 10. 24.
+	  * @작성자 : 김길재
+	  * @return
+	  */
+	@GetMapping(value = "/creatorgrademod")
+	public String grade_mod() {
+
+		log.info("creator_grade_mod!");
+	
+		return "admin/creator_grade_mod";
 	}
 	
 }
