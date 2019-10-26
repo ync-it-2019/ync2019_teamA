@@ -4,19 +4,21 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
-  <title>회원 통계 페이지</title>
-  <!-- Meta Tags -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <meta name="keywords" content="Modernize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+<title>회원 통계 페이지</title>
+<!-- Meta Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords"
+	content="Modernize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-  <script>
+<script>
     addEventListener("load", function() {
       setTimeout(hideURLbar, 0);
     }, false);
@@ -27,212 +29,306 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </script>
 
 
-  <!-- Style-sheets -->
-  <!-- Bootstrap Css -->
-  <link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
-  <!-- Bootstrap Css -->
-  <!-- Bars Css -->
-  <link rel="stylesheet" href="/resources/css/bar-admin.css">
-  <!--// Bars Css -->
-  <!-- Calender Css -->
-  <link rel="stylesheet" type="text/css" href="/resources/css/pignose.calender-admin.css" />
-  <!--// Calender Css -->
-  <!-- Common Css -->
-  <link href="/resources/css/style-admin.css" rel="stylesheet" type="text/css" media="all" />
-  <!--// Common Css -->
-  <!-- Nav Css -->
-  <link rel="stylesheet" href="/resources/css/style4-admin.css">
-  <!--// Nav Css -->
-  <!-- Fontawesome Css -->
-  <link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
-  <!--// Fontawesome Css -->
-  <!--// Style-sheets -->
+<!-- Style-sheets -->
+<!-- Bootstrap Css -->
+<link href="/resources/css/bootstrap-admin.css" rel="stylesheet"
+	type="text/css" media="all" />
+<!-- Bootstrap Css -->
+<!-- Bars Css -->
+<link rel="stylesheet" href="/resources/css/bar-admin.css">
+<!--// Bars Css -->
+<!-- Calender Css -->
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/pignose.calender-admin.css" />
+<!--// Calender Css -->
+<!-- Common Css -->
+<link href="/resources/css/style-admin.css" rel="stylesheet"
+	type="text/css" media="all" />
+<!--// Common Css -->
+<!-- Nav Css -->
+<link rel="stylesheet" href="/resources/css/style4-admin.css">
+<!--// Nav Css -->
+<!-- Fontawesome Css -->
+<link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
+<!--// Fontawesome Css -->
+<!--// Style-sheets -->
 
-  <!--web-fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <!--//web-fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap" rel="stylesheet">
-  <!-- 폰트 링크 -->
+<!--web-fonts-->
+<link href="https://fonts.googleapis.com/css?family=Poiret+One"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+	rel="stylesheet">
+<!--//web-fonts-->
+<link
+	href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap"
+	rel="stylesheet">
+<!-- 폰트 링크 -->
 </head>
 
 <body>
+	<div class="se-pre-con"></div>
+	<div class="wrapper">
+		<jsp:include page="/WEB-INF/views/include/side_bar-admin.jsp"></jsp:include>
 
-  <div class="se-pre-con"></div>
-  <div class="wrapper">
-    <!-- Sidebar Holder -->
-    <jsp:include page="/WEB-INF/views/include/side_bar-admin.jsp" flush="false" />
+		<!-- Page Content Holder -->
+		<div id="content">
+			<!-- top-bar -->
+			<nav class="navbar navbar-default mb-xl-5 mb-4">
+				<div class="container-fluid">
 
-    <!-- Page Content Holder -->
-    <div id="content">
-      <!-- top-bar -->
-      <nav class="navbar navbar-default mb-xl-5 mb-4">
-        <div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" id="sidebarCollapse"
+							class="btn btn-info navbar-btn">
+							<i class="fas fa-bars"></i>
+						</button>
+					</div>
+					<!-- Search-from -->
+					<form action="#" method="post"
+						class="form-inline mx-auto search-form">
+						<input class="form-control mr-sm-2" style="width: 60%;"
+							type="search" placeholder="Search" aria-label="Search"
+							required="">
+						<button class="btn btn-style my-2 my-sm-0" type="submit">Search</button>
+					</form>
+					<!--// Search-from -->
+					<ul class="top-icons-agileits-w3layouts float-right">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="far fa-bell"></i> <span
+								class="badge">4</span>
+						</a>
+							<div class="dropdown-menu top-grid-scroll drop-1">
+								<h3 class="sub-title-w3-agileits">User notifications</h3>
+								<a href="#" class="dropdown-item mt-3">
+									<div class="notif-img-agileinfo">
+										<img src="/resources/img/clone.jpg" class="img-fluid"
+											alt="Responsive image">
+									</div>
+									<div class="notif-content-wthree">
+										<p class="paragraph-agileits-w3layouts py-2">
+											<span class="text-diff">John Doe</span> Curabitur non nulla
+											sit amet nisl tempus convallis quis ac lectus.
+										</p>
+										<h6>4 mins ago</h6>
+									</div>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<div class="notif-img-agileinfo">
+										<img src="/resources/img/clone.jpg" class="img-fluid"
+											alt="Responsive image">
+									</div>
+									<div class="notif-content-wthree">
+										<p class="paragraph-agileits-w3layouts py-2">
+											<span class="text-diff">Diana</span> Curabitur non nulla sit
+											amet nisl tempus convallis quis ac lectus.
+										</p>
+										<h6>6 mins ago</h6>
+									</div>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<div class="notif-img-agileinfo">
+										<img src="/resources/img/clone.jpg" class="img-fluid"
+											alt="Responsive image">
+									</div>
+									<div class="notif-content-wthree">
+										<p class="paragraph-agileits-w3layouts py-2">
+											<span class="text-diff">Steffie</span> Curabitur non nulla
+											sit amet nisl tempus convallis quis ac lectus.
+										</p>
+										<h6>12 mins ago</h6>
+									</div>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<div class="notif-img-agileinfo">
+										<img src="/resources/img/clone.jpg" class="img-fluid"
+											alt="Responsive image">
+									</div>
+									<div class="notif-content-wthree">
+										<p class="paragraph-agileits-w3layouts py-2">
+											<span class="text-diff">Jack</span> Curabitur non nulla sit
+											amet nisl tempus convallis quis ac lectus.
+										</p>
+										<h6>1 days ago</h6>
+									</div>
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">view all notifications</a>
+							</div></li>
+						<li class="nav-item dropdown mx-3"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-spinner"></i>
+						</a>
+							<div class="dropdown-menu top-grid-scroll drop-2">
+								<h3 class="sub-title-w3-agileits">Shortcuts</h3>
+								<a href="#" class="dropdown-item mt-3">
+									<h4>
+										<i class="fas fa-chart-pie mr-3"></i>Sed feugiat
+									</h4>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<h4>
+										<i class="fab fa-connectdevelop mr-3"></i>Aliquam sed
+									</h4>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<h4>
+										<i class="fas fa-tasks mr-3"></i>Lorem ipsum
+									</h4>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<h4>
+										<i class="fab fa-superpowers mr-3"></i>Cras rutrum
+									</h4>
+								</a>
+							</div></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="far fa-user"></i>
+						</a>
+							<div class="dropdown-menu drop-3">
+								<div class="profile d-flex mr-o">
+									<div class="profile-l align-self-center">
+										<img src="/resources/img/profile.jpg" class="img-fluid mb-3"
+											alt="Responsive image">
+									</div>
+									<div class="profile-r align-self-center">
+										<h3 class="sub-title-w3-agileits">Will Smith</h3>
+										<a href="mailto:info@example.com">info@example.com</a>
+									</div>
+								</div>
+								<a href="#" class="dropdown-item mt-3">
+									<h4>
+										<i class="far fa-user mr-3"></i>My Profile
+									</h4>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<h4>
+										<i class="fas fa-link mr-3"></i>Activity
+									</h4>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<h4>
+										<i class="far fa-envelope mr-3"></i>Messages
+									</h4>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<h4>
+										<i class="far fa-question-circle mr-3"></i>Faq
+									</h4>
+								</a> <a href="#" class="dropdown-item mt-3">
+									<h4>
+										<i class="far fa-thumbs-up mr-3"></i>Support
+									</h4>
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="login.html">Logout</a>
+							</div></li>
+					</ul>
+				</div>
+			</nav>
+			<!--// top-bar -->
 
-          <div class="navbar-header">
-            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-              <i class="fas fa-bars"></i>
-            </button>
-          </div>
+			<!-- main-heading -->
+			<section class="grids-section bd-content">
 
-          <ul class="top-icons-agileits-w3layouts float-right">
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-search"></i>
-              </a><!-- Search-from -->
-
-
-              <div class="dropdown-menu drop-3">
-                <form action="#" method="post" class="form-inline mx-auto search-form">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required="">
-                  <button class="btn btn-style my-2 my-sm-0" type="submit">Search</button>
-                </form>
-              </div>
-
-            </li>
-            <!--// Search-from -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="far fa-user"></i>
-              </a>
-              <div class="dropdown-menu drop-3">
-                <div class="profile d-flex mr-o">
-                  <div class="profile-l align-self-center">
-                    <img src="/resources/img/profile.jpg" class="img-fluid mb-3" alt="Responsive image">
-                  </div>
-                  <div class="profile-r align-self-center">
-                    <h3 class="sub-title-w3-agileits">Will Smith</h3>
-                    <a href="mailto:info@example.com">info@example.com</a>
-                  </div>
-                </div>
-                <a href="#" class="dropdown-item mt-3">
-                  <h4>
-                    <i class="far fa-user mr-3"></i>My Profile</h4>
-                </a>
-                <a href="#" class="dropdown-item mt-3">
-                  <h4>
-                    <i class="fas fa-link mr-3"></i>Activity</h4>
-                </a>
-                <a href="#" class="dropdown-item mt-3">
-                  <h4>
-                    <i class="far fa-envelope mr-3"></i>Messages</h4>
-                </a>
-                <a href="#" class="dropdown-item mt-3">
-                  <h4>
-                    <i class="far fa-question-circle mr-3"></i>Faq</h4>
-                </a>
-                <a href="#" class="dropdown-item mt-3">
-                  <h4>
-                    <i class="far fa-thumbs-up mr-3"></i>Support</h4>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="login.html">Logout</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!--// top-bar -->
-          <!-- Stats -->
-          <!-- main-heading -->
-          <h2 class="main-title-w3layouts mb-2 text-center">회원 관리</h2>
-          <!--// main-heading -->
-          <!-- Tables content -->
-          <section class="tables-section">
-              <!-- table1 -->
-              <div class="outer-w3-agile mt-3">
-                  <h4 class="tittle-w3-agileits mb-4">회원 통계</h4>
-                  <table class="table table-striped">
-                      <thead class="thead-dark">
-                          <tr>
-                              <th scope="col">항목</th>
-                              <th scope="col">통계</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <th scope="col">총 유저 수</th>
-                              <td>50000</td>
-                          </tr>
-                          <tr>
-                              <th scope="col">현 활동 유저 수</th>
-                              <td>50000</td>
-                          </tr>
-                          <tr>
-                              <th scope="col">현 창작자 수</th>
-                              <td>50000</td>
-                          </tr>
-                          <tr>
-                              <th scope="col">현 게임 등록 수</th>
-                              <td>50000</td>
-                          </tr>
-                          <tr>
-                              <th scope="col">총 후원금액</th>
-                              <td>50000</td>
-                          </tr>
-                          <tr>
-                              <th scope="col">창작자가 받은 후원 금액</th>
-                              <td>5000000</td>
-                          </tr>
-                          <tr>
-                              <th scope="col">순이익</th>
-                              <td>5000000</td>
-                          </tr>
-                      </tbody>
-                  </table>
+				<!-- Grids Info -->
+				<div class="outer-w3-agile mt-3">
+					<h4>회원 관리 > 회원 통계</h4>
+				</div>
+			</section>
+			<!--// main-heading -->
+			<!-- Tables content -->
+			<section class="tables-section">
+				<!-- table1 -->
+				<div class="outer-w3-agile mt-3">
+					<h4 class="tittle-w3-agileits mb-4">회원 통계</h4>
+					<table class="table table-striped">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">항목</th>
+								<th scope="col">통계</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col">총 유저 수</th>
+								<td>50000</td>
+							</tr>
+							<tr>
+								<th scope="col">현 활동 유저 수</th>
+								<td>50000</td>
+							</tr>
+							<tr>
+								<th scope="col">현 창작자 수</th>
+								<td>50000</td>
+							</tr>
+							<tr>
+								<th scope="col">현 게임 등록 수</th>
+								<td>50000</td>
+							</tr>
+							<tr>
+								<th scope="col">총 후원금액</th>
+								<td>50000</td>
+							</tr>
+							<tr>
+								<th scope="col">창작자가 받은 후원 금액</th>
+								<td>5000000</td>
+							</tr>
+							<tr>
+								<th scope="col">순이익</th>
+								<td>5000000</td>
+							</tr>
+						</tbody>
+					</table>
 
 
-              </div>
-              </section>
-          <!--// Stats -->
-          <!-- Pie-chart -->
+				</div>
+			</section>
+			<!--// Stats -->
+			<!-- Pie-chart -->
 
-          <!--// Pie-chart -->
-      <!-- Simple-chart -->
+			<!--// Pie-chart -->
+			<!-- Simple-chart -->
 
-      <!--// Simple-chart -->
+			<!--// Simple-chart -->
 
-      <!--// Bar-Chart -->
+			<!--// Bar-Chart -->
 
-      <!--// Bar-Chart -->
+			<!--// Bar-Chart -->
 
-      <!--// three-grids -->
-      <div class="container-fluid">
-        <div class="row">
-          <!-- Calender -->
+			<!--// three-grids -->
+			<div class="container-fluid">
+				<div class="row">
+					<!-- Calender -->
 
-          <!--// Calender -->
-          <!-- Profile -->
+					<!--// Calender -->
+					<!-- Profile -->
 
-          <!--// Profile -->
-          <!-- Browser stats -->
+					<!--// Profile -->
+					<!-- Browser stats -->
 
-          <!--// Browser stats -->
-        </div>
-      </div>
-      <!--// Three-grids -->
-      <!-- Countdown -->
+					<!--// Browser stats -->
+				</div>
+			</div>
+			<!--// Three-grids -->
+			<!-- Countdown -->
 
-      <!--// Countdown -->
-      <!-- Copyright -->
-      <div class="copyright-w3layouts py-xl-3 py-2 mt-xl-5 mt-4 text-center">
-        <p>© 2018 Modernize . All Rights Reserved | Design by
-          <a href="http://w3layouts.com/"> W3layouts </a>
-        </p>
-      </div>
-      <!--// Copyright -->
-    </div>
-  </div>
+			<!--// Countdown -->
+			<!-- Copyright -->
+			<div
+				class="copyright-w3layouts py-xl-3 py-2 mt-xl-5 mt-4 text-center">
+				<p>
+					© 2018 Modernize . All Rights Reserved | Design by <a
+						href="http://w3layouts.com/"> W3layouts </a>
+				</p>
+			</div>
+			<!--// Copyright -->
+		</div>
+	</div>
 
 
-  <!-- Required common Js -->
-  <script src='/resources/js/jquery-2.2.3.min.js'></script>
-  <!-- //Required common Js -->
+	<!-- Required common Js -->
+	<script src='/resources/js/jquery-2.2.3.min.js'></script>
+	<!-- //Required common Js -->
 
-  <!-- loading-gif Js -->
-  <script src="/resources/js/modernizr.js"></script>
-  <script>
+	<!-- loading-gif Js -->
+	<script src="/resources/js/modernizr.js"></script>
+	<script>
     //paste this code under head tag or in a seperate js file.
     // Wait for window load
     $(window).load(function() {
@@ -240,21 +336,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       $(".se-pre-con").fadeOut("slow");;
     });
   </script>
-  <!--// loading-gif Js -->
+	<!--// loading-gif Js -->
 
-  <!-- Sidebar-nav Js -->
-  <script>
+	<!-- Sidebar-nav Js -->
+	<script>
     $(document).ready(function() {
       $('#sidebarCollapse').on('click', function() {
         $('#sidebar').toggleClass('active');
       });
     });
   </script>
-  <!--// Sidebar-nav Js -->
+	<!--// Sidebar-nav Js -->
 
-  <!-- Graph -->
-  <script src="/resources/js/SimpleChart.js"></script>
-  <script>
+	<!-- Graph -->
+	<script src="/resources/js/SimpleChart.js"></script>
+	<script>
     var graphdata4 = {
       linecolor: "Random",
       title: "Thursday",
@@ -369,15 +465,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       });
     });
   </script>
-  <!--// Graph -->
-  <!-- Bar-chart -->
-  <script src="/resources/js/rumcaJS.js"></script>
-  <script src="/resources/js/example.js"></script>
-  <!--// Bar-chart -->
-  <!-- Calender -->
-  <script src="/resources/js/moment.min.js"></script>
-  <script src="/resources/js/pignose.calender.js"></script>
-  <script>
+	<!--// Graph -->
+	<!-- Bar-chart -->
+	<script src="/resources/js/rumcaJS.js"></script>
+	<script src="/resources/js/example.js"></script>
+	<!--// Bar-chart -->
+	<!-- Calender -->
+	<script src="/resources/js/moment.min.js"></script>
+	<script src="/resources/js/pignose.calender.js"></script>
+	<script>
     //<![CDATA[
     $(function() {
       $('.calender').pignoseCalender({
@@ -401,16 +497,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
     //]]>
   </script>
-  <!--// Calender -->
+	<!--// Calender -->
 
-  <!-- profile-widget-dropdown js-->
-  <script src="/resources/js/script.js"></script>
-  <!--// profile-widget-dropdown js-->
+	<!-- profile-widget-dropdown js-->
+	<script src="/resources/js/script.js"></script>
+	<!--// profile-widget-dropdown js-->
 
-  <!-- Count-down -->
-  <script src="/resources/js/simplyCountdown.js"></script>
-  <link href="/resources/css/simplyCountdown-admin.css" rel='stylesheet' type='text/css' />
-  <script>
+	<!-- Count-down -->
+	<script src="/resources/js/simplyCountdown.js"></script>
+	<link href="/resources/css/simplyCountdown-admin.css" rel='stylesheet'
+		type='text/css' />
+	<script>
     var d = new Date();
     simplyCountdown('simply-countdown-custom', {
       year: d.getFullYear(),
@@ -418,11 +515,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       day: 25
     });
   </script>
-  <!--// Count-down -->
+	<!--// Count-down -->
 
-  <!-- pie-chart -->
-  <script src='/resources/js/amcharts.js'></script>
-  <script>
+	<!-- pie-chart -->
+	<script src='/resources/js/amcharts.js'></script>
+	<script>
     var chart;
     var legend;
 
@@ -469,10 +566,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       chart.write("chartdiv");
     });
   </script>
-  <!--// pie-chart -->
+	<!--// pie-chart -->
 
-  <!-- dropdown nav -->
-  <script>
+	<!-- dropdown nav -->
+	<script>
     $(document).ready(function() {
       $(".dropdown").hover(
         function() {
@@ -486,11 +583,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       );
     });
   </script>
-  <!-- //dropdown nav -->
+	<!-- //dropdown nav -->
 
-  <!-- Js for bootstrap working-->
-  <script src="/resources/js/bootstrap.min.js"></script>
-  <!-- //Js for bootstrap working -->
+	<!-- Js for bootstrap working-->
+	<script src="/resources/js/bootstrap.min.js"></script>
+	<!-- //Js for bootstrap working -->
 
 </body>
 
