@@ -3,6 +3,7 @@ package com.ync.project.front.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria;
@@ -13,8 +14,8 @@ import com.ync.project.domain.Criteria;
   * @Author		: 김정현
   * @프로그램 설명 :  게시판 Mapper interface
   */
-public interface BoardMapper {
-	// @Select("SELECT * FROM tbl_board WHERE bno > 0")
+public interface ContentMapper {
+	 	@Select("SELECT * FROM TEAMACREATERCONTENT WHERE content_id > 0")
 		public List<ContentVO> getList(); //게시글 목록
 
 		public List<ContentVO> getListWithPaging(Criteria cri); //게시글 페이징
