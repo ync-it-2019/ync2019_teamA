@@ -24,31 +24,40 @@ public class ContentServiceImpl implements ContentService{
 		// TODO Auto-generated method stub
 		
 		log.info("register........" + content);
+		
 		mapper.insertSelectKey(content);
 	}
 
 	@Override
-	public ContentVO get(Long bno) {
+	public ContentVO get(Long content_id) {
 		// TODO Auto-generated method stub
-		return null;
+		log.info("get........" + content_id);
+		
+		return mapper.read(content_id);
 	}
 
 	@Override
 	public boolean modify(ContentVO content) {
 		// TODO Auto-generated method stub
-		return false;
+		log.info("modify........" + content);
+		
+		return mapper.update(content) == 1;
 	}
 
 	@Override
-	public boolean remove(Long bno) {
+	public boolean remove(Long content_id) {
 		// TODO Auto-generated method stub
-		return false;
+		log.info("remove........" + content_id);
+		
+		return mapper.delete(content_id) == 1;
 	}
 
 	@Override
 	public List<ContentVO> getList() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		log.info("getList.......");
+		return mapper.getList();
 	}
 
 	@Override
