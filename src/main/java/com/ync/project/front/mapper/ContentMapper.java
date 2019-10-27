@@ -19,15 +19,15 @@ public interface ContentMapper {
 
 		public List<ContentVO> getListWithPaging(Criteria cri); //게시글 페이징
 
-		public void insert(ContentVO board); //게시글 추가
+		public void insert(ContentVO content); //게시글 추가
 
-		public Integer insertSelectKey(ContentVO board); //게시글 번호
+		public Integer insertSelectKey(ContentVO content); //게시글 번호
 
-		public ContentVO read(Long bno); //게시글 내용
+		public ContentVO read(Long content_id); //게시글 내용
 
-		public int delete(Long bno); //게시글 삭제
+		public int delete(Long content_id); //게시글 삭제
 
-		public int update(ContentVO board); //게시글 수정
+		public int update(ContentVO content); //게시글 수정
 
 		public int getTotalCount(Criteria cri); //게시글 전체 수
 

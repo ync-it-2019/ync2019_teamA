@@ -103,9 +103,9 @@ public class ContentMapperTests {
 		ContentVO content = new ContentVO();
 		// 실행전 존재하는 번호인지 확인할 것
 		content.setContent_id(44L);
-		content.setTitle("변경된 타이틀");
-		content.setContent_intro("재미없다");
-		content.setTag("서비스종료");
+		content.setTitle("변경된 타이틀2");
+		content.setContent_intro("재미있다");
+		content.setTag("클로즈베타");
 		content.setAge_rate(7L);
 		content.setGame_launch("naver.com");
 		content.setDon_attainment(7000000);
@@ -119,7 +119,6 @@ public class ContentMapperTests {
 		content.setGenre_id('1');
 		content.setHit(75);
 		content.setLike_cnt(16);
-		mapper.insert(content);	
 
 		int count = mapper.update(content);
 		log.info("UPDATE COUNT: " + count);
