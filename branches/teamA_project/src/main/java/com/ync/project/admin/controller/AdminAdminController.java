@@ -6,11 +6,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.log4j.Log4j;
 
+/**
+  * @FileName	: AdminAdminController.java
+  * @Date		: 2019. 10. 27. 
+  * @Author		: 김길재
+  * @프로그램 설명 : Admin 관리자 관리 Controller
+  */
 @Controller
 @Log4j
 @RequestMapping("/admin/*")
 public class AdminAdminController {
 
+	 /**
+	  * @Method 설명 : 관리자 등록 admin_create.jsp 호출
+	  * @Method Name : admin_create
+	  * @Date : 2019. 10. 27.
+	  * @작성자 : 김길재
+	  * @return
+	  */
 	@GetMapping(value = "/admincreate")
 	public String admin_create() {
 
@@ -19,10 +32,17 @@ public class AdminAdminController {
 		return "admin/admin_create";
 	}
 	
+	 /**
+	  * @Method 설명 : 관리자 조회 admin_management.jsp 호출
+	  * @Method Name : admin_management
+	  * @Date : 2019. 10. 27.
+	  * @작성자 : 김길재
+	  * @return
+	  */
 	@GetMapping(value = "/adminmanagement")
 	public String admin_management() {
 
-		log.info("Welcome Admin Create");
+		log.info("Welcome Admin Management");
 	
 		return "admin/admin_management";
 	}
