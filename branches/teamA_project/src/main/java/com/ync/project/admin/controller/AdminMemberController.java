@@ -22,16 +22,16 @@ public class AdminMemberController {
 
 	 /**
 	  * @Method 설명 : 회원관리 리스트 admin/member_info.jsp 호출
-	  * @Method Name : info
+	  * @Method Name : member_info
 	  * @Date : 2019. 10. 23.
 	  * @작성자 : 허 민
 	  * @return
 	  */
 	@GetMapping(value = "/memberinfo")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String info() {
+	public String member_info() {
 
-		log.info("Welcome Info!");
+		log.info("Welcome Member Info!");
 	
 		return "admin/member_info";
 	}
