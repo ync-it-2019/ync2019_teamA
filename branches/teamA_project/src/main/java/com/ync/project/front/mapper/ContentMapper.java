@@ -15,7 +15,6 @@ import com.ync.project.domain.Criteria;
   * @프로그램 설명 :  게시판 Mapper interface
   */
 public interface ContentMapper {
-	 	@Select("SELECT * FROM TEAMACREATERCONTENT WHERE content_id > 0")
 		public List<ContentVO> getList(); //게시글 목록
 
 		public List<ContentVO> getListWithPaging(Criteria cri); //게시글 페이징
