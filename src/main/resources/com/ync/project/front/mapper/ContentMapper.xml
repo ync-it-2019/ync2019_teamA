@@ -18,18 +18,23 @@
 		 #{like_cnt})
 	</insert>
 
-<!-- 	<insert id="insertSelectKey">
+	<insert id="insertSelectKey">
 
-		<selectKey keyProperty="bno" order="BEFORE"
+		<selectKey keyProperty="content_id" order="BEFORE"
 			resultType="long">
 			select seq_board.nextval from dual
 		</selectKey>
+		<![CDATA[
+		insert into teamacreatercontent (title,content_intro,reg_date,highlight,tag,age_rate,
+		don_reg,game_launch,don_attainment,userid,platform,languages,media1,media2,media3,
+		media4,content_id,genre_id,hit,like_cnt)
+		values (#{title}, #{content_intro}, sysdate, sysdate, #{tag}, #{age_rate},
+		 sysdate, #{game_launch}, #{don_attainment}, #{userid}, #{platform}, #{languages},
+		 #{media1}, #{media2}, #{media3}, #{media4}, seq_reply.nextval, #{genre_id}, #{hit},
+		 #{like_cnt})
+		 ]]>
+	</insert>
 
-		insert into tbl_board (bno,title,content, writer, file_1, file_2,
-		file_3)
-		values (#{bno}, #{title}, #{content}, #{writer}, #{file_1},
-		#{file_2}, #{file_3})
-	</insert> -->
 
 	<select id="read" resultType="com.ync.project.domain.ContentVO">
 		select * from teamacreatercontent where content_id = #{content_id}
@@ -39,7 +44,7 @@
 	<delete id="delete">
 		delete teamacreatercontent where content_id = #{content_id}
 	</delete>
-
+	
 	<update id="update">
 		update teamacreatercontent
 		set 
