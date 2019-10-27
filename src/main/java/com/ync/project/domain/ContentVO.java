@@ -8,6 +8,7 @@ import lombok.Data;
 public class ContentVO {
 
 	private Long content_id;
+	private Long age_rate;
 	private String title;
 	private String content_intro;
 	private String userid;
