@@ -239,7 +239,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
           <tr class="active">
             <th scope="row">1</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
+            <td style = "cursor:pointer;" onClick = " location.href='adminmodify' " onMouseOver = " window.status = 'index.html' "
             onMouseOut = " window.status = '' ">admin1</td>
             <td>2019-10-18</td>
             <td>
