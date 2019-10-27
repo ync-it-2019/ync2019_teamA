@@ -242,7 +242,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       <tbody>
                           <tr>
                               <th scope="col">10</th>
-                              <th scope="col">hgd@mail.com</th>
+                              <th scope="col"><a href="memberinfo_detail">hgd@mail.com</a></th>
                               <td>홍길동</td>
                               <td>19990909</td>
                               <td>01099999999</td>

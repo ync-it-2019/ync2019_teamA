@@ -214,12 +214,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- Grids Content -->
 
     	<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
+    	<h4 class="tittle-w3-agileits mb-4">관리자 수정</h4>
       <table class="table">
-        <thead>
-          <tr align="center">
-            <th colspan="4">관리자 정보 입력</th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
             <td width="150px">이름</td>
