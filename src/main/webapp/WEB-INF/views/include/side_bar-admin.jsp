@@ -5,7 +5,7 @@
     <nav id="sidebar">
       <div class="sidebar-header">
         <h2>
-          <a href="index.html">관리자 페이지</a>
+          <a href="main">관리자 페이지</a>
         </h2>
         <span></span>
       </div>
@@ -19,13 +19,13 @@
           </a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>
-              <a href="cards.html">· 회원조회</a>
+              <a href="memberinfo">· 회원 조회</a>
             </li>
             <li>
-              <a href="carousels.html">· 후원관리</a>
+              <a href="donation">· 후원 관리</a>
             </li>
             <li>
-              <a href="forms.html">· 회원통계</a>
+              <a href="statsall">· 회원 통계</a>
             </li>
           </ul>
         </li>
@@ -37,13 +37,13 @@
           </a>
           <ul class="collapse list-unstyled" id="list-menu">
             <li>
-              <a href="contentsman.html">· 업로드 컨텐츠 관리</a>
+              <a href="management">· 업로드 컨텐츠 관리</a>
             </li>
             <li>
-              <a href="http://localhost:8080/admin/acontent">· 관리자 게시물 관리</a>
+              <a href="acontent">· 관리자 게시물 관리</a>
             </li>
             <li>
-              <a href="carousels.html">· 게시물 등록</a>
+              <a href="upload">· 게시물 등록</a>
             </li>
           </ul>
         </li>
@@ -58,7 +58,7 @@
               <a href="cards.html">· FAQ</a>
             </li>
             <li>
-              <a href="carousels.html">· 1대1 문의</a>
+              <a href="qna">· 1대1 문의</a>
             </li>
             <li>
               <a href="carousels.html">· 공지사항</a>
@@ -68,15 +68,15 @@
         <li>
           <a href="#developer" data-toggle="collapse" aria-expanded="false">
             <i class="fas fa-address-card"></i>
-            게임창작자 관리
+            창작자 관리
             <i class="fas fa-angle-down fa-pull-right"></i>
           </a>
           <ul class="collapse list-unstyled" id="developer">
             <li>
-              <a href="cards.html">· 창작자 조회</a>
+              <a href="creatorinfo">· 창작자 조회</a>
             </li>
             <li>
-              <a href="carousels.html">· 창작자 권한 수정</a>
+              <a href="creatormodify">· 창작자 권한 수정</a>
             </li>
           </ul>
         </li>
@@ -88,10 +88,10 @@
           </a>
           <ul class="collapse list-unstyled" id="manager">
             <li>
-              <a href="cards.html">· 관리자 등록</a>
+              <a href="admincreate">· 관리자 등록</a>
             </li>
             <li>
-              <a href="adminman.html">· 관리자 조회</a>
+              <a href="adminmanagement">· 관리자 조회</a>
             </li>
           </ul>
         </li>
