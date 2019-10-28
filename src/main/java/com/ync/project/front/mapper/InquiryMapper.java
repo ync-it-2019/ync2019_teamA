@@ -13,11 +13,11 @@ import com.ync.project.domain.InquiryVO;
   */
 public interface InquiryMapper {
 	
-	public List<InquiryVO> getList(); //고객센터 목록 불러오기
+	public List<InquiryVO> getList(); //문의 목록 불러오기
 	
-	public InquiryVO read(Long inquiry_id); //고객센터 상세보기
+	public InquiryVO read(Long inquiry_id); //문의내용 상세보기
 	
-	public InquiryVO insert(Long inquiry_id); //고객센터 추가
+	public void insert(InquiryVO inquery); //문의목록 추가
 	
-	public int delete(Long inquiry_id); //고객센터 삭제
+	public int delete(Long inquiry_id); //문의 삭제
 }
