@@ -15,6 +15,12 @@ import com.ync.project.domain.Criteria;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
+ /**
+  * @FileName	: CommentMapperTests.java
+  * @Date		: 2019. 10. 28. 
+  * @Author		: 허 민
+  * @프로그램 설명 : 댓글매퍼테스트
+  */
 @RunWith(SpringRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 // Java Config
