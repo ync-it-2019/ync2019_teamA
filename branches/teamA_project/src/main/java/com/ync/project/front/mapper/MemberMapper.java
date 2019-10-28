@@ -10,5 +10,9 @@ import com.ync.project.domain.MemberVO;
   */
 public interface MemberMapper {
 
-	public MemberVO read(String userid);
+	public MemberVO read(String userid); //회원목록
+	
+	public MemberVO insert(MemberVO member); //회원추가
+	
+	public MemberVO update(MemberVO member); //회원수정
 }
