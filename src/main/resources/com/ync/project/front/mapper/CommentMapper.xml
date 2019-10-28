@@ -14,7 +14,7 @@
 								VALUES 
 								(
 								 teama_comment.nextval,
-								 seq_reply.nextval,
+								 #{content_id},
 								 #{userid},
 								 sysdate,
 								 #{content}
