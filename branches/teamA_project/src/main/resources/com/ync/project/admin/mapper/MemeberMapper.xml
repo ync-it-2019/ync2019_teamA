@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ync.project.admin.mapper.MemberMapper">
+
+		<select id="registMember"
+		resultType="com.ync.project.domain.MemberVO">
+		<![CDATA[
+			INSERT	INTO	teamamember(
+								userid,
+								name,
+								birth,
+								phone,
+								userpw,
+								creater_name,
+								bank_account,
+								donation_accept,
+								levels,
+								status,
+								sns,
+								other_address
+							)
+							VALUES(
+								#{uesrid},
+								#{name},
+								#{birth},
+								#{birth},
+								#{phone},
+								#{userpw},
+								#{creater_name},
+								#{bank_account},
+								#{donation_accept},
+								1,
+								#{status},
+								#{sns},
+								#{other_address}
+							)
+		]]>
+	</select>
+
+
+</mapper>
