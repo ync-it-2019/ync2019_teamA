@@ -75,40 +75,30 @@ public class NoticeMapperTests {
 //		log.info(notice);
 //
 //	}
-	@Test
-	public void testDelete() {
-
-		log.info("DELETE COUNT: " + mapper.delete(59L));
-	}
-
+//	@Test
+//	public void testDelete() {
+//
+//		log.info("DELETE COUNT: " + mapper.delete(59L));
+//	}
+//
 //	@Test
 //	public void testUpdate() {
 //
 //		NoticeVO notice = new NoticeVO();
 //		// 실행전 존재하는 번호인지 확인할 것
-//		notice.setnotice_id(44L);
-//		notice.setTitle("변경된 타이틀2");
-//		notice.setnotice_intro("재미있다");
-//		notice.setTag("클로즈베타");
-//		notice.setAge_rate(7L);
-//		notice.setGame_launch("naver.com");
-//		notice.setDon_attainment(7000000);
+//		notice.setNotice_id(58L);
+//		notice.setTitle("수정된 공지1");
+//		notice.setContent("수정된 공지1 내용");
+//		notice.setHit(99L);
+//		notice.setMedia1("1-1");
+//		notice.setMedia2("1-2");
 //		notice.setUserid("tjrwnsdud2@naver.com");
-//		notice.setPlatform("PC");
-//		notice.setLanguages("한국어");
-//		notice.setMedia1("미디어1");
-//		notice.setMedia2("미디어2");
-//		notice.setMedia3("미디어3");
-//		notice.setMedia4("미디어4");
-//		notice.setGenre_id('1');
-//		notice.setHit(75);
-//		notice.setLike_cnt(16);
 //
 //		int count = mapper.update(notice);
 //		log.info("UPDATE COUNT: " + count);
 //
 //	}
-
+//
 //	@Test
 //	public void testPaging() {
 //

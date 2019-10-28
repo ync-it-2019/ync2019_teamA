@@ -5,6 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,72 +29,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<th>Rating</th>
 					</tr>
 				</thead>
-
-					<tbody><tr class="active">
-						<th scope="row">1</th>
-						<td style="cursor:pointer;" onclick=" location.href=&#39;index.html&#39; " onmouseover=" window.status = &#39;index.html&#39; " onmouseout=" window.status = &#39;&#39; ">Risk of rain2</td>
-						<td>2019-10-17</td>
-						<td>Admin</td>
-						<td>9</td>
-					</tr>
-
-					<tr>
-						<th scope="row">2</th>
-						<td style="cursor:pointer;" onclick=" location.href=&#39;index.html&#39; " onmouseover=" window.status = &#39;index.html&#39; " onmouseout=" window.status = &#39;&#39; ">ori and the Blind Forest </td>
-						<td>2019-10-17</td>
-						<td>Admin</td>
-						<td>9</td>
-					</tr>
-					<tr class="success">
-						<th scope="row">3</th>
-						<td style="cursor:pointer;" onclick=" location.href=&#39;index.html&#39; " onmouseover=" window.status = &#39;index.html&#39; " onmouseout=" window.status = &#39;&#39; ">isaac</td>
-						<td>2019-10-17</td>
-						<td>Admin</td>
-						<td>9</td>
-					</tr>
-					<tr>
-						<th scope="row">4</th>
-						<td style="cursor:pointer;" onclick=" location.href=&#39;index.html&#39; " onmouseover=" window.status = &#39;index.html&#39; " onmouseout=" window.status = &#39;&#39; ">Stellar Fox</td>
-						<td>2019-10-17</td>
-						<td>Admin</td>
-						<td>9</td>
-					</tr>
-					<tr class="info">
-						<th scope="row">5</th>
-						<td style="cursor:pointer;" onclick=" location.href=&#39;index.html&#39; " onmouseover=" window.status = &#39;index.html&#39; " onmouseout=" window.status = &#39;&#39; ">After the end</td>
-						<td>2019-10-17</td>
-						<td>Admin</td>
-						<td>9</td>
-					</tr>
-					<tr>
-						<th scope="row">6</th>
-						<td style="cursor:pointer;" onclick=" location.href=&#39;index.html&#39; " onmouseover=" window.status = &#39;index.html&#39; " onmouseout=" window.status = &#39;&#39; ">DeadCells</td><td>2019-10-17</td>
-						<td>Admin</td>
-						<td>9</td>
-					</tr>
-					<tr class="warning">
-						<th scope="row">7</th>
-						<td style="cursor:pointer;" onclick=" location.href=&#39;index.html&#39; " onmouseover=" window.status = &#39;index.html&#39; " onmouseout=" window.status = &#39;&#39; ">선리스 스키즈</td>
-						<td>2019-10-17</td>
-							<td>Admin</td>
-							<td>9</td>
-					</tr>
-					<tr>
-						<th scope="row">8</th>
-						<td style="cursor:pointer;" onclick=" location.href=&#39;index.html&#39; " onmouseover=" window.status = &#39;index.html&#39; " onmouseout=" window.status = &#39;&#39; ">텍스터 시스트</td>
-						<td>2019-10-17</td>
-						<td>Admin</td>
-						<td>9</td>
-					</tr>
-					<tr class="danger">
-						<th scope="row">9</th>
-						<td style="cursor:pointer;" onclick=" location.href=&#39;index.html&#39; " onmouseover=" window.status = &#39;index.html&#39; " onmouseout=" window.status = &#39;&#39; ">아일랜더즈</td>
-						<td>2019-10-17</td>
-						<td>Admin</td>
-						<td>9</td>
-					</tr>
-
-			</tbody></table>
+				<tbody>
+					<c:forEach items="${list}" var="notice">
+						<tr>
+							<td><c:out value="${notice.notice_id}" /></td>
+							<%-- <td><a href='/board/get?bno=<c:out value="${board.bno}"/>'><c:out value="${board.title}"/></a></td> --%>
+							<td><a class='move' href='<c:out value="${notice.notice_id}"/>'><c:out value="${notice.title}" /></a></td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.reg_date}" /></td>
+							<td><c:out value="${notice.userid}" /></td>
+							<td><c:out value="${notice.hit}" /></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
      </div>
 			<!--//content-inner-section-->
 
@@ -116,7 +65,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 </div>
 				 <div class="col-md-2 footer-grid">
 						<ul>
-							 &nbsp;
 							 <li><a href="genre.html">FPS</a></li>
 							 <li><a href="comedy.html">음악</a></li>
 							 <li><a href="series.html">일러스트</a></li>
@@ -209,6 +157,67 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="w3agile_footer_copy">
 							<p>© 2017 Movies Pro. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 				</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var result = '<c:out value="${result}"/>';
+		
+		checkModal(result);
 
+		history.replaceState({}, null, null);
+
+		function checkModal(result) {
+
+			if (result === '' || history.state) {
+				return;
+			}
+
+			if (parseInt(result) > 0) {
+				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+			}
+
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location = "/board/register";
+		});
+		
+		var actionForm = $("#actionForm");
+
+		// 페이지 번호 클릭 이벤트
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			// console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		// 상세보기 클릭 이벤트
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/board/get");
+			actionForm.submit();
+		});
+		
+		// 검색 버튼 클릭 이벤트
+		var searchForm = $("#searchForm");
+		$("#searchForm button").on("click",	function(e) {
+			if (!searchForm.find("option:selected").val()) {
+				alert("검색종류를 선택하세요");
+				return false;
+			}
+
+			if (!searchForm.find("input[name='keyword']").val()) {
+				alert("키워드를 입력하세요");
+				return false;
+			}
+			
+			searchForm.find("input[name='pageNum']").val("1");
+			e.preventDefault();
+			searchForm.submit();
+		});
+	});
+</script>
 </body>
 </html>

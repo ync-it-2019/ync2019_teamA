@@ -1,4 +1,6 @@
 package com.ync.project.front.mapper;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,24 +29,24 @@ public class ContentMapperTests {
 	@Autowired
 	private ContentMapper mapper;
 	
-//	@Test
-//	public void testGetList() {
-//		
-//		// 기존 방식의 코드
-////		List<ContentVO> content = mapper.getList();
-//		
-////		for(ContentVO b : content) {
-////			log.info(b);
-////		}
-//		
-////		mapper.getList().forEach(content -> log.info(content));
-//		
+	@Test
+	public void testGetList() {
+		
+		// 기존 방식의 코드
+		List<ContentVO> content = mapper.getList();
+		
+//		for(ContentVO b : content) {
+//			log.info(b);
+//		}
+		
+//		mapper.getList().forEach(content -> log.info(content));
+		
 //		mapper.getList().forEach((content) -> {
 //			log.info("==================");
 //			log.info(content);
 //			});
-//
-//	}
+
+	}
 //	@Test
 //	public void testInsert() {
 //		ContentVO content = new ContentVO();
