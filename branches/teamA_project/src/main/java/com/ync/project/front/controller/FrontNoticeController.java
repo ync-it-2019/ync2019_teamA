@@ -1,8 +1,12 @@
 package com.ync.project.front.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ync.project.front.service.NoticeService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -16,7 +20,8 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/notice/*")
 public class FrontNoticeController {
-
+	@Autowired
+	private NoticeService service;
 	 /**
 	  * @Method 설명 :
 	  * @Method Name : notice
@@ -24,14 +29,22 @@ public class FrontNoticeController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/notice")
-	public String notice() {
+	@GetMapping("/list")
+	public String list(Model model) {
+		
+//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 
-		log.info("notice!");
-	
+//		int total = service.getTotal(cri);
+//		
+//		log.info("list:11111 " + cri);
+//		log.info("total:1111 " + total);
+//		model.addAttribute("list", service.getListWithPaging(cri));
+//		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		log.info("list");
+		model.addAttribute("list", service.getList());
+		
 		return "front/notice";
-	}
-	
+	}	
 	 /**
 	  * @Method 설명 : 빠른 답변 front/faq 호출
 	  * @Method Name : faq
