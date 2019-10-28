@@ -35,5 +35,37 @@
 	FROM	tbl_member
 	WHERE	userid = #{userid} 
 	</select>
-
+	<insert id="insert">
+		<![CDATA[
+			INSERT	INTO	teamamember(
+								userid,
+								name,
+								birth,
+								phone,
+								userpw,
+								creater_name,
+								bank_account,
+								donation_accept,
+								levels,
+								status,
+								sns,
+								other_address
+							)
+							VALUES(
+								#{uesrid},
+								#{name},
+								#{birth},
+								#{birth},
+								#{phone},
+								#{userpw},
+								#{creater_name},
+								#{bank_account},
+								#{donation_accept},
+								1,
+								#{status},
+								#{sns},
+								#{other_address}
+							)
+		]]>
+	</insert>
 </mapper>

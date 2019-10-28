@@ -19,7 +19,7 @@ public interface MemberMapper {
 
 	public int getTotalCount(Criteria cri);					//멤버 전체 수
 	
-	public MemberVO insert(MemberVO member); //회원추가
+	public void insert(MemberVO member); //회원추가
 	
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
