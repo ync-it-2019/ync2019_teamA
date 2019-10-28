@@ -147,10 +147,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     </table>
                     <center>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-              <button type="reset" class="btn btn-default">Reset</button>
-              </center>
+                    <button type="submit" class="btn btn-primary" align="center">Submit</button>
+              		<button type="reset" class="btn btn-default">Reset</button>
+              		</center>
                 </div>
 
                 <!--// Grids Info -->
