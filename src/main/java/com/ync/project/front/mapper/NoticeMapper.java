@@ -15,6 +15,8 @@ public interface NoticeMapper {
 	
 	public void insert(NoticeVO notice); //게시글 추가
 	
+	public int update(NoticeVO notice);
+	
 	public Integer insertSelectKey(NoticeVO notice); //게시글 번호
 
 	public NoticeVO read(Long notice_num); //게시글 내용
