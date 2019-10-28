@@ -1,13 +1,10 @@
 package com.ync.project.front.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.PageDTO;
@@ -23,7 +20,7 @@ import lombok.extern.log4j.Log4j;
   */
 @Controller
 @Log4j
-@RequestMapping("/notice/*")
+@RequestMapping("/front/*")
 public class FrontNoticeController {
 	@Autowired
 	private NoticeService service;
@@ -34,14 +31,15 @@ public class FrontNoticeController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping("/register")
-	@PreAuthorize("isAuthenticated()")
-	public void register() { 
-		log.info("register..............");
-	}
-
-	@GetMapping("/list")
-	public String list(Criteria cri, Model model) {
+//	@GetMapping("/register")
+//	@PreAuthorize("isAuthenticated()")
+//	public void register() { 
+//		log.info("register..............");
+//	}
+	
+	@GetMapping("/notice")
+//	@PreAuthorize("isAuthenticated()")
+	public void list(Criteria cri, Model model) {
 		
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 
@@ -51,8 +49,7 @@ public class FrontNoticeController {
 		log.info("total:1111 " + total);
 		model.addAttribute("list", service.getListWithPaging(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
-		
-		return "front/notice";
+	
 	}
 
 //	// file upload가 추가된 게시판 등록
@@ -87,12 +84,12 @@ public class FrontNoticeController {
 //		return "redirect:/board/list";
 //	}
 
-	@GetMapping({ "/get", "/modify" })
-	public void get(@RequestParam("notice_id") Long notice_id, @ModelAttribute("cri") Criteria cri, Model model) {
-
-		log.info("/get or modify");
-		model.addAttribute("notice", service.get(notice_id));
-	}
+//	@GetMapping({ "/get", "/modify" })
+//	public void get(@RequestParam("notice_id") Long notice_id, @ModelAttribute("cri") Criteria cri, Model model) {
+//
+//		log.info("/get or modify");
+//		model.addAttribute("notice", service.get(notice_id));
+//	}
 	
 //	@PostMapping("/modify")
 //	@PreAuthorize("principal.username == #board.writer")
