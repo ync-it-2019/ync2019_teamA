@@ -21,7 +21,7 @@ import lombok.extern.log4j.Log4j;
 public class FrontFundController {
 	
 	/**
-	  * @Method 설명 : 
+	  * @Method 설명 : 펀딩 메인 페이지 front/funding_main 호출
 	  * @Method Name : funding_main
 	  * @Date : 2019. 10. 21.
 	  * @작성자 : 석준영
