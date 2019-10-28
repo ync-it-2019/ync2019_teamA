@@ -1,11 +1,14 @@
 package com.ync.project.front.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.ync.project.domain.Criteria;
 import com.ync.project.domain.NoticeVO;
 
 import lombok.extern.log4j.Log4j;
@@ -21,24 +24,24 @@ public class NoticeMapperTests {
 	@Autowired
 	private NoticeMapper mapper;
 
-//	@Test
-//	public void testGetList() {
-//		
-//		// 기존 방식의 코드
-////		List<NoticeVO> notice = mapper.getList();
-//		
-////		for(NoticeVO b : notice) {
-////			log.info(b);
-////		}
-//		
-////		mapper.getList().forEach(notice -> log.info(notice));
-//		
-//		mapper.getList().forEach((notice) -> {
-//			log.info("==================");
-//			log.info(notice);
-//			});
-//
-//	}
+	@Test
+	public void testGetList() {
+		
+		// 기존 방식의 코드
+//		List<NoticeVO> notice = mapper.getList();
+		
+//		for(NoticeVO b : notice) {
+//			log.info(b);
+//		}
+		
+//		mapper.getList().forEach(notice -> log.info(notice));
+		
+		mapper.getList().forEach((notice) -> {
+			log.info("==================");
+			log.info(notice);
+			});
+
+	}
 //	@Test
 //	public void testInsert() {
 //		NoticeVO notice = new NoticeVO();
@@ -105,8 +108,8 @@ public class NoticeMapperTests {
 //		Criteria cri = new Criteria();
 //		
 //	    //10개씩 3페이지 
-//	    cri.setPageNum(3);
-//	    cri.setAmount(20);
+//	    cri.setPageNum(1);
+//	    cri.setAmount(10);
 //
 //		List<NoticeVO> list = mapper.getListWithPaging(cri);
 //		list.forEach(notice -> log.info(notice));
