@@ -9,10 +9,10 @@ import lombok.extern.log4j.Log4j;
 
 
 /**
-  * @FileName	: FrontEndFundController.java
+  * @FileName	: FrontFundController.java
   * @Date		: 2019. 10. 21. 
   * @Author		: 김길재
-  * @프로그램 설명 :
+  * @프로그램 설명 : front 펀딩 페이지 controller
   */
 @Controller
 @Log4j
