@@ -72,7 +72,7 @@ public class FrontGameContentController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	@GetMapping(value = "/game_intro")
+	@GetMapping(value = "/game_list")
 	public String gameList() {
 
 		log.info("gamelist!");
