@@ -21,7 +21,7 @@ public class MemberVO {
 	private String userpw; //비밀번호
 	private String birth; //생년월일
 	private String phone; //전화번호
-	private String level; //사용자 레벨(이용자/게임개발자)
+	private String levels; //사용자 레벨(이용자/게임개발자)
 	private String status; //계정 상태
 	private String creater_name;//창작자명
 	private String bank_account;//계좌
