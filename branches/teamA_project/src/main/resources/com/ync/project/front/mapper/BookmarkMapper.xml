@@ -10,15 +10,10 @@
 		WHERE	bookmark > 0 
 		]]>
 	</select>
-<!-- 	<insert id="insert">
-		insert into teamacreatercontent (title,content_intro,reg_date,highlight,tag,age_rate,
-		don_reg,game_launch,don_attainment,userid,platform,languages,media1,media2,media3,
-		media4,content_id,genre_id,hit,like_cnt)
-		values (#{title}, #{content_intro}, sysdate, sysdate, #{tag}, #{age_rate},
-		 sysdate, #{game_launch}, #{don_attainment}, #{userid}, #{platform}, #{languages},
-		 #{media1}, #{media2}, #{media3}, #{media4}, seq_reply.nextval, #{genre_id}, #{hit},
-		 #{like_cnt})
-	</insert> -->
+	<insert id="insert">
+		insert into teamabookmark (userid, content_id, bookmark)
+		values (#{userid}, #{content_id}, #{bookmark})
+	</insert> 
 
 	<!-- <insert id="insertSelectKey">
 
