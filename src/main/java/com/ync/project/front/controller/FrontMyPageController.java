@@ -26,7 +26,7 @@ public class FrontMyPageController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	@GetMapping(value = "/game_content")
+	@GetMapping(value = "/mp_bookmark")
 	public String mpBookmark() {
 
 		log.info("mpbookmark!");
