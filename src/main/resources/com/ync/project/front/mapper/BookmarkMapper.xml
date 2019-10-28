@@ -5,7 +5,9 @@
 	<select id="getList"
 		resultType="com.ync.project.domain.BookmarkVO">
 	<![CDATA[
-		select * from teamabookmark where bookmark > 0 
+		SELECT	*
+		FROM	teamabookmark
+		WHERE	bookmark > 0 
 		]]>
 	</select>
 <!-- 	<insert id="insert">
@@ -46,7 +48,8 @@
 
 
 	<delete id="delete">
-		delete teamabookmark where bookmark = #{bookmark}
+		DELETE	teamabookmark
+		WHERE	bookmark = #{bookmark}
 	</delete>
 	
 	<!-- <update id="update">
