@@ -1,5 +1,7 @@
 package com.ync.project.front.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +20,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/mypage/*")
 public class FrontMyPageController {
-
+	@Autowired
 	 /**
 	  * @Method 설명 : 북마크 한 컨텐츠 목록 front/mp_bookmark 호출
 	  * @Method Name : mpBookmark
@@ -27,6 +29,7 @@ public class FrontMyPageController {
 	  * @return
 	  */
 	@GetMapping(value = "/mp_bookmark")
+//	@PreAuthorize("hasRole('ROLE_USER')")
 	public String mpBookmark() {
 
 		log.info("mpbookmark!");
@@ -42,6 +45,7 @@ public class FrontMyPageController {
 	  * @return
 	  */
 	@GetMapping(value = "/mp_donation_game")
+//	@PreAuthorize("hasRole('ROLE_USER')")
 	public String mpDonationGame() {
 
 		log.info("mpdonationgame!");
@@ -57,6 +61,7 @@ public class FrontMyPageController {
 	  * @return
 	  */
 	@GetMapping(value = "/mp_funding")
+//	@PreAuthorize("hasRole('ROLE_USER')")
 	public String mpFunding() {
 
 		log.info("mpdonationgame!");
@@ -72,6 +77,7 @@ public class FrontMyPageController {
 	  * @return
 	  */
 	@GetMapping(value = "/mp_request_creator")
+//	@PreAuthorize("hasRole('ROLE_USER')")
 	public String mpRequestCreator() {
 
 		log.info("mprequestCreator!");
@@ -87,6 +93,7 @@ public class FrontMyPageController {
 	  * @return
 	  */
 	@GetMapping(value = "/withdraw")
+//	@PreAuthorize("hasRole('ROLE_USER')")
 	public String mpWithdraw() {
 
 		log.info("withdraw!");
@@ -102,6 +109,7 @@ public class FrontMyPageController {
 	  * @return
 	  */
 	@GetMapping(value = "/mp_selfcheck")
+//	@PreAuthorize("hasRole('ROLE_USER')")
 	public String mpSelfCheck() {
 
 		log.info("selfcheck!");
