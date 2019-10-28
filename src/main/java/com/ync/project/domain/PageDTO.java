@@ -3,6 +3,12 @@ package com.ync.project.domain;
 import lombok.Getter;
 import lombok.ToString;
 
+ /**
+  * @FileName	: PageDTO.java
+  * @Date		: 2019. 10. 28. 
+  * @Author		: 심재민
+  * @프로그램 설명 : 페이지 이동 변수 저장
+  */
 @Getter
 @ToString
 public class PageDTO {
