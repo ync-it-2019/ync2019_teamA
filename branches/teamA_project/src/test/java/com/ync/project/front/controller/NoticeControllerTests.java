@@ -43,7 +43,7 @@ public class NoticeControllerTests {
 	public void testList() throws Exception {
 
 		log.info(
-				mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
+				mockMvc.perform(MockMvcRequestBuilders.get("/notice/list"))
 				.andReturn()
 				.getModelAndView()
 				.getModelMap());
