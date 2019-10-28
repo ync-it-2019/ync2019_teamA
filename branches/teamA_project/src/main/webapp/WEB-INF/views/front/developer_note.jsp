@@ -46,12 +46,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <h3 class="agile_w3_title hor-t">컨텐츠 <span>개발노트</span> </h3>
       <div class="wthree_agile-requested-movies tv-movies">
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c1.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c1.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">Kevin Hart</a></h6>
+              <h6><a href="game_developer_note">Kevin Hart</a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
@@ -72,12 +72,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
         </div>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c2.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c2.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">Zootopia</a></h6>
+              <h6><a href="game_developer_note">Zootopia</a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
@@ -98,12 +98,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
         </div>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c3.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c3.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">Dirty Grandpa</a></h6>
+              <h6><a href="game_developer_note">Dirty Grandpa</a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
@@ -124,12 +124,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
         </div>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c4.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c4.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">Neighbors 2 </a></h6>
+              <h6><a href="game_developer_note">Neighbors 2 </a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
@@ -150,12 +150,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
         </div>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c5.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c5.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">Finding Dory</a></h6>
+              <h6><a href="game_developer_note">Finding Dory</a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
@@ -176,12 +176,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
         </div>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c6.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c6.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">Suicide Squad</a></h6>
+              <h6><a href="game_developer_note">Suicide Squad</a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
@@ -202,12 +202,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
         </div>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c7.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c7.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">Zoolander 2</a></h6>
+              <h6><a href="game_developer_note">Zoolander 2</a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
@@ -228,12 +228,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
         </div>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c8.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c8.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">Ride Along 2</a></h6>
+              <h6><a href="game_developer_note">Ride Along 2</a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
@@ -254,12 +254,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
         </div>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c9.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c9.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">Hail, Caesar! </a></h6>
+              <h6><a href="game_developer_note">Hail, Caesar! </a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
@@ -280,12 +280,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </div>
         </div>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
-          <a href="single.html" class="hvr-sweep-to-bottom"><img src="/resources/img/c10.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+          <a href="game_developer_note" class="hvr-sweep-to-bottom"><img src="/resources/img/c10.jpg" title="Movies Pro" class="img-responsive" alt=" ">
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           </a>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">The Nice Guys</a></h6>
+              <h6><a href="game_developer_note">The Nice Guys</a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p>2016</p>
