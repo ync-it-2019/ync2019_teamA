@@ -94,6 +94,21 @@ public class FrontMyPageController {
 		return "front/withdraw";
 	}
 	
+	 /**
+	  * @Method 설명 : 본인확인 front/mp_selfcheck 호출
+	  * @Method Name : mpSelfCheck
+	  * @Date : 2019. 10. 28.
+	  * @작성자 : 허 민
+	  * @return
+	  */
+	@GetMapping(value = "/mp_selfcheck")
+	public String mpSelfCheck() {
+
+		log.info("selfcheck!");
+
+		return "front/mp_selfcheck";
+	}
+	
 	
 	
 	
