@@ -33,6 +33,12 @@
 							<td><c:out value="${notice.userid}" /></td>
 							<td><c:out value="${notice.hit}" /></td>
 						</tr>
+						<c:if test="${param.notice_id==notice.notice_id}">
+						<tr>
+							<td></td>
+							<td colspan = "3"><h4 style="color:black; background-color:#c6f4ffbd; border:2px solid black"><c:out value="${notice.content}"/></h4></td>
+						</tr>
+						</c:if>
 					</c:forEach>
 				</tbody>
 			</table>
@@ -107,8 +113,8 @@
 		// 상세보기 클릭 이벤트
 		$(".move").on("click",function(e) {
 			e.preventDefault();
-			actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href")	+ "'>");
-			actionForm.attr("action", "/board/get");
+			actionForm.append("<input type='hidden' name='notice_id' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/front/notice");
 			actionForm.submit();
 		});
 		
