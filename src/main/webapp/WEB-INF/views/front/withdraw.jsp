@@ -24,272 +24,86 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             window.scrollTo(0, 1);
         }
     </script>
-    <!-- //Meta Tags -->
-
-    <!-- Style-sheets -->
-    <!-- Bootstrap Css -->
-    <link href="/resources/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- Bootstrap Css -->
-    <!-- Common Css -->
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!--// Common Css -->
-    <!-- Nav Css -->
-    <link rel="stylesheet" href="/resources/css/style4.css">
-    <!--// Nav Css -->
-    <!-- Fontawesome Css -->
-    <link href="/resources/css/fontawesome-all.css" rel="stylesheet">
-    <!--// Fontawesome Css -->
-    <!--// Style-sheets -->
-
-    <!--web-fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <!--//web-fonts-->
+<!-- Nav Css -->
+<link rel="stylesheet" href="/resources/css/style4-mp.css">
+<!--// Nav Css -->
+<!-- Fontawesome Css -->
+<link rel="stylesheet" href="/resources/css/fontawesome-all-mp.css">
+<!--// Fontawesome Css -->
+<!--// Style-sheets -->
+<!-- for-mobile-apps -->
+</head>
 </head>
 
 <body>
-    <div class="wrapper">
-      <!-- Sidebar Holder -->
-      <nav id="sidebar">
-        <div class="sidebar-header">
-          <h2>
-            <a href="index.html">마이 페이지</a>
-          </h2>
-          <span><i class="far fa-list-alt"></i></span>
-        </div>
-        <div class="profile-bg"></div> <!-- 왼쪽 MyMenu 매뉴 시작 -->
-        <ul class="list-unstyled components">
-              <li>
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-                  <i class="fas fa-address-book"></i>
-                    회원정보
-                  <i class="fas fa-angle-down fa-pull-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li>
-                    <a href="cards.html">· 개인정보 수정</a>
-                  </li>
+    
 
-                </ul>
-              </li>
-              <li>
-                <a href="#list-menu" data-toggle="collapse" aria-expanded="false">
-                  <i class="fas fa-align-justify"></i>
-                  게임 라이브러리
-                  <i class="fas fa-angle-down fa-pull-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="list-menu">
-                  <li>
-                    <a href="cards.html">· 즐겨찾기</a>
-                  </li>
-                  <li>
-                    <a href="carousels.html">· 업로드한 컨텐츠</a>
-                  </li>
-                  <li>
-                    <a href="carousels.html">· 후원 한 게임</a>
-                  </li>
-                  <li>
-                    <a href="carousels.html">· 후원 받은 게임</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#customer-center" data-toggle="collapse" aria-expanded="false">
-                  <i class="fas fa-edit"></i>
-                  고객센터 관리
-                  <i class="fas fa-angle-down fa-pull-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="customer-center">
-                  <li>
-                    <a href="cards.html">· QnA</a>
-                  </li>
-                  <li>
-                    <a href="carousels.html">· 1대1 문의</a>
-                  </li>
-                  <li>
-                    <a href="carousels.html">· 공지사항</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#developer" data-toggle="collapse" aria-expanded="false">
-                  <i class="fas fa-address-card"></i>
-                  게임창작자 신청
-                  <i class="fas fa-angle-down fa-pull-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="developer">
-                  <li>
-                    <a href="grids.html">· 창작자 신청하기</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#manager" data-toggle="collapse" aria-expanded="false">
-                  <i class="fas fa-address-card"></i>
-                  회원 탈퇴
-                  <i class="fas fa-angle-down fa-pull-right"></i>
-                </a>
-                <ul class="collapse list-unstyled" id="manager">
-                  <li>
-                    <a href="cards.html">· 탈퇴 신청</a>
-                  </li>
+	<div>
+		<jsp:include page="/WEB-INF/views/include/header-for_front(nobg).jsp"
+			flush="false" />
+	</div>
+	<div class="content">
+		<div class="wrapper">
+			<nav id="sidebar">
+				<div class="sidebar-header">
+					<h2>
+						<a href="index.html">마이 페이지</a>
+					</h2>
+					<span><i class="far fa-list-alt"></i></span>
+				</div>
+				<div class="profile-bg"></div>
+				<!-- 왼쪽 MyMenu 매뉴 시작 -->
+				<ul class="list-unstyled components">
+					<li><a href="#homeSubmenu" data-toggle="collapse"
+						aria-expanded="false"> <i class="fas fa-address-book"></i>
+							회원정보 <i class="fas fa-angle-down fa-pull-right"></i>
+					</a>
+						<ul class="collapse list-unstyled" id="homeSubmenu">
+							<li><a href="cards.html">· 개인정보 수정</a></li>
 
-                </ul>
-              </li>
-            </ul>
+						</ul></li>
+					<li><a href="#list-menu" data-toggle="collapse"
+						aria-expanded="false"> <i class="fas fa-align-justify"></i> 게임
+							라이브러리 <i class="fas fa-angle-down fa-pull-right"></i>
+					</a>
+						<ul class="collapse list-unstyled" id="list-menu">
+							<li><a href="bookmark.html">· 즐겨찾기</a></li>
+							<li><a href="carousels.html">· 업로드한 컨텐츠</a></li>
+							<li><a href="donation_game.html">· 후원 한 게임</a></li>
+							<li><a href="carousels.html">· 후원 받은 게임</a></li>
+						</ul></li>
+					<li><a href="#customer-center" data-toggle="collapse"
+						aria-expanded="false"> <i class="fas fa-edit"></i> 고객센터 관리 <i
+							class="fas fa-angle-down fa-pull-right"></i>
+					</a>
+						<ul class="collapse list-unstyled" id="customer-center">
+							<li><a href="cards.html">· QnA</a></li>
+							<li><a href="carousels.html">· 1대1 문의</a></li>
+							<li><a href="carousels.html">· 공지사항</a></li>
+						</ul></li>
+					<li><a href="request.html"> <i class="fas fa-address-card"></i>
+							창작자 신청
+					</a></li>
+					<li><a href="cards.html"> <i class="fas fa-address-card"></i>
+							회원 탈퇴
+					</a></li>
+				</ul>
+			</nav>
+			<!-- Page Content Holder -->
+			<div id="content">
+				<!-- top-bar -->
+				<nav class="navbar navbar-default mb-xl-5 mb-4">
+					<!--//content-inner-section-->
+					<!-- Grids Content -->
+					<section class="grids-section bd-content">
 
-        </nav>
+						<!-- Grids Info -->
+						<div class="outer-w3-agile mt-3">
+							<h4>My page > 회원 탈퇴</h4>
+						</div>
 
-        <!-- Page Content Holder -->
-        <div id="content">
-            <!-- top-bar -->
-            <nav class="navbar navbar-default mb-xl-5 mb-4">
-                <div class="container-fluid">
 
-                    <div class="navbar-header">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                    </div>
-                    <!-- Search-from -->
-                    <form action="#" method="post" class="form-inline mx-auto search-form">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required="">
-                        <button class="btn btn-style my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                    <!--// Search-from -->
-                    <ul class="top-icons-agileits-w3layouts float-right">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <i class="far fa-bell"></i>
-                                <span class="badge">4</span>
-                            </a>
-                            <div class="dropdown-menu top-grid-scroll drop-1">
-                                <h3 class="sub-title-w3-agileits">User notifications</h3>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <div class="notif-img-agileinfo">
-                                        <img src="images/clone.jpg" class="img-fluid" alt="Responsive image">
-                                    </div>
-                                    <div class="notif-content-wthree">
-                                        <p class="paragraph-agileits-w3layouts py-2">
-                                            <span class="text-diff">John Doe</span> Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
-                                        <h6>4 mins ago</h6>
-                                    </div>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <div class="notif-img-agileinfo">
-                                        <img src="images/clone.jpg" class="img-fluid" alt="Responsive image">
-                                    </div>
-                                    <div class="notif-content-wthree">
-                                        <p class="paragraph-agileits-w3layouts py-2">
-                                            <span class="text-diff">Diana</span> Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
-                                        <h6>6 mins ago</h6>
-                                    </div>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <div class="notif-img-agileinfo">
-                                        <img src="images/clone.jpg" class="img-fluid" alt="Responsive image">
-                                    </div>
-                                    <div class="notif-content-wthree">
-                                        <p class="paragraph-agileits-w3layouts py-2">
-                                            <span class="text-diff">Steffie</span> Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
-                                        <h6>12 mins ago</h6>
-                                    </div>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <div class="notif-img-agileinfo">
-                                        <img src="images/clone.jpg" class="img-fluid" alt="Responsive image">
-                                    </div>
-                                    <div class="notif-content-wthree">
-                                        <p class="paragraph-agileits-w3layouts py-2">
-                                            <span class="text-diff">Jack</span> Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
-                                        <h6>1 days ago</h6>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">view all notifications</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown mx-3">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <i class="fas fa-spinner"></i>
-                            </a>
-                            <div class="dropdown-menu top-grid-scroll drop-2">
-                                <h3 class="sub-title-w3-agileits">Shortcuts</h3>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <h4>
-                                        <i class="fas fa-chart-pie mr-3"></i>Sed feugiat</h4>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <h4>
-                                        <i class="fab fa-connectdevelop mr-3"></i>Aliquam sed</h4>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <h4>
-                                        <i class="fas fa-tasks mr-3"></i>Lorem ipsum</h4>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <h4>
-                                        <i class="fab fa-superpowers mr-3"></i>Cras rutrum</h4>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <i class="far fa-user"></i>
-                            </a>
-                            <div class="dropdown-menu drop-3">
-                                <div class="profile d-flex mr-o">
-                                    <div class="profile-l align-self-center">
-                                        <img src="images/profile.jpg" class="img-fluid mb-3" alt="Responsive image">
-                                    </div>
-                                    <div class="profile-r align-self-center">
-                                        <h3 class="sub-title-w3-agileits">Will Smith</h3>
-                                        <a href="mailto:info@example.com">info@example.com</a>
-                                    </div>
-                                </div>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <h4>
-                                        <i class="far fa-user mr-3"></i>My Profile</h4>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <h4>
-                                        <i class="fas fa-link mr-3"></i>Activity</h4>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <h4>
-                                        <i class="far fa-envelope mr-3"></i>Messages</h4>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <h4>
-                                        <i class="far fa-question-circle mr-3"></i>Faq</h4>
-                                </a>
-                                <a href="#" class="dropdown-item mt-3">
-                                    <h4>
-                                        <i class="far fa-thumbs-up mr-3"></i>Support</h4>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="login.html">Logout</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <!--// top-bar -->
-
-            <!-- main-heading -->
-
-            <!--// main-heading -->
-
-            <!-- Grids Content -->
-            <section class="grids-section bd-content">
-
-                <!-- Grids Info -->
-                <div class="outer-w3-agile mt-3">
-                    <h4>My page > 회원 탈퇴</h4>
-                </div>
                 <div class="outer-w3-agile mt-3">
 
                     <table class="table table-bordered table-striped">
@@ -394,15 +208,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="/resources/css/bootstrap.min.js"></script>
     <!-- //Js for bootstrap working -->
     <!-- 서약서 style -->
-    <style>
-  .wpcf7-form p input {width:100%;}
-  .wpcf7-form .wpcf7-textarea {width:100% !important; font-size:13px;}
-  .wpcf7-form .terms { padding: 30px 10px;background-color: #f6f6ee;margin-bottom: 30px;}
-  .wpcf7-form .terms .terms-title {text-align:center;margin-bottom:20px;}
-  .wpcf7-form .terms .terms-checkbox {margin-top:10px; text-align:center;}
-  .wpcf7-form .terms .wpcf7-not-valid-tip { width:146px; top:24px !important; right:-28px !important;}
-  .wpcf7-form .terms ol {margin-left:20px;}
-  </style>
+   <div>
+		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp"
+			flush="false" />
+	</div>
 
 </body>
 
