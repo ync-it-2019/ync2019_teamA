@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.ync.project.domain.EventVO;
+
 import lombok.extern.log4j.Log4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,5 +27,21 @@ public class EventMapperTests {
 			log.info(event_id);
 			});
 
+	}
+	
+	@Test
+	public void testRead() {
+
+		// 존재하는 게시물 번호로 테스트
+		EventVO event_id = mapper.read(1L);
+
+		log.info(event_id);
+
+	}
+	
+	@Test
+	public void testDelete() {
+
+		log.info("DELETE COUNT: " + mapper.delete(1L));
 	}
 }
