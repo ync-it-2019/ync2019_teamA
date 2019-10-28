@@ -51,7 +51,7 @@ public class ContentMapperTests {
 //		content.setTitle("월드챔피언쉽");
 //		content.setContent_intro("재밌겠다");
 //		content.setTag("앞서해보기");
-//		content.setAge_rate(9L);
+//		content.setAge_rate("9");
 //		content.setGame_launch("PC");
 //		content.setDon_attainment(9000000);
 //		content.setUserid("tjrwnsdud2@naver.com");
@@ -61,7 +61,7 @@ public class ContentMapperTests {
 //		content.setMedia2("미디어2");
 //		content.setMedia3("미디어3");
 //		content.setMedia4("미디어4");
-//		content.setGenre_id('1');
+//		content.setGenre_id(1);
 //		content.setHit(99);
 //		content.setLike_cnt(18);
 //		mapper.insert(content);	
@@ -106,7 +106,7 @@ public class ContentMapperTests {
 		content.setTitle("변경된 타이틀2");
 		content.setContent_intro("재미있다");
 		content.setTag("클로즈베타");
-		content.setAge_rate(7L);
+		content.setAge_rate("7");
 		content.setGame_launch("naver.com");
 		content.setDon_attainment(7000000);
 		content.setUserid("tjrwnsdud2@naver.com");
@@ -116,7 +116,7 @@ public class ContentMapperTests {
 		content.setMedia2("미디어2");
 		content.setMedia3("미디어3");
 		content.setMedia4("미디어4");
-		content.setGenre_id('1');
+		content.setGenre_id(1);
 		content.setHit(75);
 		content.setLike_cnt(16);
 
