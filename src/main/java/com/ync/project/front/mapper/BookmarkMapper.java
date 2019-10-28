@@ -14,6 +14,8 @@ import com.ync.project.domain.ContentVO;
 public interface BookmarkMapper {
 	public List<BookmarkVO> getList(); //북마크 목록 불러오기
 	
+	public void insert(BookmarkVO book); //북마크 추가하기
+	
 	public int delete(Long bookmark); //북마크 해제하기
 	
 }
