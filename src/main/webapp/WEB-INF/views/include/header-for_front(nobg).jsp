@@ -62,20 +62,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- navbar-header -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a href="index.html">메인</a></li>
-                <li><a href="info.html">게임 소식</a></li>
+                <li class="dropdown"><a href="game_patch.jsp"
+									class="dropdown-toggle" data-toggle="dropdown">게임소식 <b
+										class="caret"></b></a>
+									<ul class="dropdown-menu multi-column columns-3">
+										<li>
+											<div class="col-sm-4">
+												<ul class="multi-column-dropdown">
+													<li><a href="../develnote/developer_note">개발 노트</a></li>
+												</ul>
+											</div>
+											<div class="col-sm-4">
+												<ul class="multi-column-dropdown">
+													<li><a href="../notice/list">공지사항</a></li>
+												</ul>
+											</div>
+											<div class="clearfix"></div>
+										</li>
+									</ul></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">펀 딩<b class="caret"></b></a>
                   <ul class="dropdown-menu multi-column columns-3">
                     <li>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="funding_main">진행중인 펀딩</a></li>
+                          <li><a href="../fund/main">진행중인 펀딩</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="funding_end">종료된 펀딩</a></li>
+                          <li><a href="../fund/end">종료된 펀딩</a></li>
                         </ul>
                       </div>
                       <div class="clearfix"></div>
@@ -118,17 +134,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="faq">FAQ</a></li>
+                          <li><a href="../notice/faq">FAQ</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="notice">공지사항</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-sm-4">
-                        <ul class="multi-column-dropdown">
-                          <li><a href="inquiry">1:1 문의</a></li>
+                          <li><a href="../notice/inquiry">1:1 문의</a></li>
                         </ul>
                       </div>
                       <div class="clearfix"></div>
