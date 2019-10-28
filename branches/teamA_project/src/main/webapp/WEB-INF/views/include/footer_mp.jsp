@@ -72,37 +72,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									 <li>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="genre.html">게임소식</a></li>
+														<li><a href="../content/game_intro">게임소식</a></li>
 												 </ul>
 											</div>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="genre.html">펀딩</a></li>
+														<li><a href="../fund/main">펀딩</a></li>
 												 </ul>
 											</div>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="genre.html">고객센터</a></li>
+														<li><a href="../front/faq">고객센터</a></li>
 												 </ul>
 											</div>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="genre.html">개발노트</a></a></li>
+														<li><a href="../develnote/developer_note">개발노트</a></a></li>
 												 </ul>
 											</div>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="genre.html">게임업로드</a></li>
+														<li><a href="../content/game_content_writeform">게임업로드</a></li>
 												 </ul>
 											</div>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="genre.html">창작자신청</a></li>
+														<li><a href="../member/join">창작자신청</a></li>
 												 </ul>
 											</div>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="genre.html">후원</a></li>
+														<li><a href="">후원</a></li>
 												 </ul>
 											</div>
 											<div class="clearfix"></div>
