@@ -6,6 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+ /**
+  * @FileName	: Criteria.java
+  * @Date		: 2019. 10. 28. 
+  * @Author		: 허 민
+  * @프로그램 설명 : 페이지 기준 변수 저장
+  */
 @Getter
 @Setter
 @ToString
