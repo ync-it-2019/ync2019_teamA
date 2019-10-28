@@ -46,4 +46,19 @@ public class AdminAdminController {
 	
 		return "admin/admin_management";
 	}
+	
+	 /**
+	  * @Method 설명 : 관리자 권한 수정 admin_modify.jsp 호출
+	  * @Method Name : admin_modify
+	  * @Date : 2019. 10. 28.
+	  * @작성자 : 김길재
+	  * @return
+	  */
+	@GetMapping(value = "/adminmodify")
+	public String admin_modify() {
+
+		log.info("Welcome Admin Modify");
+	
+		return "admin/admin_modify";
+	}
 }
