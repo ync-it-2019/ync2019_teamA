@@ -42,9 +42,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</c:forEach>
 				</tbody>
 			</table>
+			<!--  Pagination 시작 -->
+				<div class='pull-right'>
+					<ul class="pagination">
+					
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+						</c:if>
+
+					</ul>
+				</div>
+				<!--  Pagination 끝 -->
      </div>
 			<!--//content-inner-section-->
-
+	&nbsp;
+	<div></div>
+	&nbsp;
 	<!--/footer-bottom-->
 	<div>
 		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp"
