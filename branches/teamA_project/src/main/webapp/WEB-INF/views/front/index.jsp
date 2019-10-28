@@ -96,7 +96,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="notice/list">공지 사항</a></li>
+													<li><a href="front/notice">공지 사항</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -157,12 +157,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="notice/faq">FAQ</a></li>
+													<li><a href="front/faq">FAQ</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="notice/inquiry">1:1 문의</a></li>
+													<li><a href="front/inquiry">1:1 문의</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
