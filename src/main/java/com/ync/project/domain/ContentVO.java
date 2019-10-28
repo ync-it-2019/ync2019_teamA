@@ -4,6 +4,12 @@ import java.util.Date;
 
 import lombok.Data;
 
+ /**
+  * @FileName	: ContentVO.java
+  * @Date		: 2019. 10. 28. 
+  * @Author		: 심재민
+  * @프로그램 설명 : 창작자 컨텐츠 테이블 저장
+  */
 @Data
 public class ContentVO {
 
