@@ -79,7 +79,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="dropdown"><a href="game_patch.jsp"
+								<li class="dropdown"><a href="content/game_intro"
 									class="dropdown-toggle" data-toggle="dropdown">게임소식 <b
 										class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
@@ -210,11 +210,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="w3_agilits_inner_bottom">
 			<div class="col-md-6 wthree_agile_login">
 				<ul>
-					<li><i class="fa fa-phone" aria-hidden="true"></i>
-						(+82)10-3835-8940</li>
-					<li><a href="login.jsp" class="login">로그인</a></li>
-					<li><a href="regist.jsp" class="login reg" data-toggle="modal"
-						data-target="#myModal5">회원가입</a></li>
+					<li><a href="member/login" class="login">LOGIN</a></li>
+					<li><a href="member/join" class="login reg" 
+						data-target="#myModal5">REGISTER</a></li>
 
 				</ul>
 			</div>

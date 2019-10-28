@@ -58,9 +58,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							라이브러리 <i class="fas fa-angle-down fa-pull-right"></i>
 					</a>
 						<ul class="collapse list-unstyled" id="list-menu">
-							<li><a href="bookmark.html">· 즐겨찾기</a></li>
+							<li><a href="mp_bookmark">· 즐겨찾기</a></li>
 							<li><a href="carousels.html">· 업로드한 컨텐츠</a></li>
-							<li><a href="donation_game.html">· 후원 한 게임</a></li>
+							<li><a href="mp_donation_game">· 후원 한 게임</a></li>
 							<li><a href="carousels.html">· 후원 받은 게임</a></li>
 						</ul></li>
 					<li><a href="#customer-center" data-toggle="collapse"
@@ -72,10 +72,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<li><a href="carousels.html">· 1대1 문의</a></li>
 							<li><a href="carousels.html">· 공지사항</a></li>
 						</ul></li>
-					<li><a href="request.html"> <i class="fas fa-address-card"></i>
+					<li><a href="mp_request_creator"> <i class="fas fa-address-card"></i>
 							창작자 신청
 					</a></li>
-					<li><a href="cards.html"> <i class="fas fa-address-card"></i>
+					<li><a href="withdraw"> <i class="fas fa-address-card"></i>
 							회원 탈퇴
 					</a></li>
 				</ul>
