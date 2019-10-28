@@ -1,18 +1,26 @@
 package com.ync.project.front.mapper;
 
+import java.util.List;
+
+import com.ync.project.domain.Criteria;
 import com.ync.project.domain.MemberVO;
 
-/**
-  * @FileName	: MemberMapper.java
-  * @Date		: 2019. 10. 16. 
-  * @Author		: 정진우
-  * @프로그램 설명 : 회원 정보 처리용 Mapper interface
-  */
 public interface MemberMapper {
 
-	public MemberVO read(String userid); //회원목록
+	public MemberVO read(String userid);					//멤버 상세 정보
+	
+	public List<MemberVO> getList();						//멤버 목록
+	
+	public List<MemberVO> getListWithPaging(Criteria cri);	//멤버 페이징
+
+	public int delete(Long userid);							//회원 탈퇴/삭제
+
+	public int update(MemberVO member); 					//회원정보 수정
+
+	public int getTotalCount(Criteria cri);					//멤버 전체 수
 	
 	public MemberVO insert(MemberVO member); //회원추가
 	
-	public MemberVO update(MemberVO member); //회원수정
+	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
+//	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 }
