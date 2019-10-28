@@ -15,6 +15,7 @@ public class CommentVO {
 	private Date reg_date;		//등록일자
 	private String content;		//내용
 	private String userid;		//회원이메일
+	
 	private Long content_id;	//컨텐트ID
 	private Long comment_id;	//댓글ID
 }
