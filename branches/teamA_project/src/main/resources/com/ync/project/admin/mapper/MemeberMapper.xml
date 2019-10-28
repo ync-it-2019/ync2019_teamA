@@ -23,7 +23,6 @@
 								#{userid},
 								#{name},
 								#{birth},
-								#{birth},
 								#{phone},
 								#{userpw},
 								#{creater_name},
