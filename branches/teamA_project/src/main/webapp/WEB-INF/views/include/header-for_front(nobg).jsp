@@ -67,6 +67,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
+										<div class="col-sm-4">
+												<ul class="multi-column-dropdown">
+													<li><a href="../content/game_intro">게임 소식</a></li>
+												</ul>
+											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
 													<li><a href="../develnote/developer_note">개발 노트</a></li>
@@ -179,8 +184,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="col-md-3 wthree_agile_login">
         <ul>
 
-          <li><a href="#" class="login" data-toggle="modal" data-target="#myModal4">Login</a></li>
-          <li><a href="#" class="login reg" data-toggle="modal" data-target="#myModal5">Register</a></li>
+          <li><a href="../member/login" class="login"  data-target="#myModal4">Login</a></li>
+          <li><a href="../member/join" class="login reg" data-target="#myModal5">Register</a></li>
 
         </ul>
       </div>
