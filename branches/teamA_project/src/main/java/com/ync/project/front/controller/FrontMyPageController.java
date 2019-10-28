@@ -20,7 +20,7 @@ import lombok.extern.log4j.Log4j;
 public class FrontMyPageController {
 
 	 /**
-	  * @Method 설명 : 마이페이지 front/mp_bookmark 호출
+	  * @Method 설명 : 북마크 한 컨텐츠 목록 front/mp_bookmark 호출
 	  * @Method Name : mpBookmark
 	  * @Date : 2019. 10. 28.
 	  * @작성자 : 허 민
@@ -33,6 +33,67 @@ public class FrontMyPageController {
 
 		return "front/mp_bookmark";
 	}
+	
+	/**
+	  * @Method 설명 : 펀딩한 게임 목록 front/mp_bookmark 호출
+	  * @Method Name : mpDonationGame
+	  * @Date : 2019. 10. 28.
+	  * @작성자 : 허 민
+	  * @return
+	  */
+	@GetMapping(value = "/mp_donation_game")
+	public String mpDonationGame() {
+
+		log.info("mpdonationgame!");
+
+		return "front/mp_donation_game";
+	}
+	
+	 /**
+	  * @Method 설명 : 펀딩중인 컨텐츠 목록 front/mp_funding
+	  * @Method Name : mpFunding
+	  * @Date : 2019. 10. 28.
+	  * @작성자 : 허 민
+	  * @return
+	  */
+	@GetMapping(value = "/mp_funding")
+	public String mpFunding() {
+
+		log.info("mpdonationgame!");
+
+		return "front/mp_funding";
+	}
+	
+	 /**
+	  * @Method 설명 : 창작자 신청 front/mp_request_creator
+	  * @Method Name : mpRequestCreator
+	  * @Date : 2019. 10. 28.
+	  * @작성자 : 허 민
+	  * @return
+	  */
+	@GetMapping(value = "/mp_request_creator")
+	public String mpRequestCreator() {
+
+		log.info("mprequestCreator!");
+
+		return "front/mp_request_creator";
+	}
+	
+	 /**
+	  * @Method 설명 : 회원탈퇴 front/withdraw
+	  * @Method Name : mpWithdraw
+	  * @Date : 2019. 10. 28.
+	  * @작성자 : 허 민
+	  * @return
+	  */
+	@GetMapping(value = "/withdraw")
+	public String mpWithdraw() {
+
+		log.info("withdraw!");
+
+		return "front/withdraw";
+	}
+	
 	
 	
 	
