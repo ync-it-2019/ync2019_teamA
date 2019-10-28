@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ync.project.front.mapper.NoticeMapper">
+
+	<select id="getList"
+		resultType="com.ync.project.domain.NoticeVO">
+	<![CDATA[
+		select * from teamanotice where notice_id >= 0 
+		]]>
+	</select>
+	<insert id="insert">
+		insert into teamanotice (notice_id,title,reg_date,content,highlight,hit,media1,media2,userid)
+		values (seq_reply.nextval, #{title}, sysdate, #{content}, sysdate, #{hit},
+		 #{media1}, #{media2}, #{userid})
+	</insert>
+
+	<insert id="insertSelectKey">
+
+		<selectKey keyProperty="notice_id" order="BEFORE"
+			resultType="long">
+			select seq_board.nextval from dual
+		</selectKey>
+		<![CDATA[
+		insert into teamanotice (notice_id,title,reg_date,content,highlight,hit,media1,media2,userid)
+		values (seq_reply.nextval, #{title}, sysdate, #{content}, sysdate, #{hit},
+		 #{media1}, #{media2}, #{userid})
+		 ]]>
+	</insert>
+
+
+	<select id="read" resultType="com.ync.project.domain.NoticeVO">
+		select * from teamanotice  where notice_id = #{notice_id}
+	</select>
+
+
+	<delete id="delete">
+		delete teamanotice where notice_id = #{notice_id}
+	</delete>
+	
+	<update id="update">
+		update teamanotice
+		set 
+		title = #{title},
+		reg_date = sysdate,
+		content = #{content},
+		highlight = sysdate,
+		hit = #{hit},
+		media1 = #{media1},
+		media2 = #{media2},
+		userid = #{userid}
+		where notice_id = #{notice_id}
+	</update>
+</mapper>
