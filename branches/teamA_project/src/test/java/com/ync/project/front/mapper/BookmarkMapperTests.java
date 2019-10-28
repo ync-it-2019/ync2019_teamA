@@ -30,15 +30,18 @@ public class BookmarkMapperTests {
 	}
 	
 	@Test
-	public void testRead() {
+	public void testInsert() {
 
-		// 존재하는 게시물 번호로 테스트
-		BookmarkVO content_id = mapper.read(1L);
-
-		log.info(content_id);
+		BookmarkVO content = new BookmarkVO();
+		content.setUserid("tjrwnsdud2@naver.com");
+		content.setContent_id(1L);
+		content.setBookmark(1L);
+	
+		mapper.insert(content);	
+		log.info(content);
 
 	}
-	
+	 
 	@Test
 	public void testDelete() {
 
