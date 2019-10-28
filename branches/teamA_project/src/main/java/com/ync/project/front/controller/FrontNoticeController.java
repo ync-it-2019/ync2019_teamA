@@ -44,4 +44,20 @@ public class FrontNoticeController {
 	
 		return "front/faq";
 	}
+	
+
+	 /**
+	  * @Method 설명 : 1대1문의 front/inquiry 호출
+	  * @Method Name : inquiry
+	  * @Date : 2019. 10. 28.
+	  * @작성자 : 허 민
+	  * @return
+	  */
+	@GetMapping(value = "/inquiry")
+	public String inquiry() {
+
+		log.info("inquiry!");
+	
+		return "front/inquiry";
+	}
 }
