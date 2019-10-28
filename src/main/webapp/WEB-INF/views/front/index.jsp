@@ -86,12 +86,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/developer_note">개발 노트</a></li>
+													<li><a href="develnote/developer_note">개발 노트</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="game_raw.jsp">최신 법률</a></li>
+													<li><a href="notice/list">공지사항</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -157,11 +157,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="notice/list">공지사항</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-4">
-												<ul class="multi-column-dropdown">
 													<li><a href="notice/inquiry">1:1 문의</a></li>
 												</ul>
 											</div>
@@ -197,9 +192,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					당신에게 맞는 <span>인디</span>게임을 <span>찾아</span>보세요
 				</h3>
 				<h4>당신의 후원이 더욱 재밌는 게임을 만듭니다.</h4>
-				<br />
-				<br /> <a class="w3_play_icon1" href="#small-dialog1"> 추천게임 플레이
-					영상 </a>
+				<br /> <br /> <a class="w3_play_icon1" href="#small-dialog1">
+					추천게임 플레이 영상 </a>
 			</div>
 			<!--/banner-ingo-->
 		</div>
