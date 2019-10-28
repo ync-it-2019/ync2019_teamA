@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ync.project.front.mapper.BookmarkMapper">
+
+	<select id="getList"
+		resultType="com.ync.project.domain.BookmarkVO">
+	<![CDATA[
+		select * from teamabookmark where bookmark > 0 
+		]]>
+	</select>
+<!-- 	<insert id="insert">
+		insert into teamacreatercontent (title,content_intro,reg_date,highlight,tag,age_rate,
+		don_reg,game_launch,don_attainment,userid,platform,languages,media1,media2,media3,
+		media4,content_id,genre_id,hit,like_cnt)
+		values (#{title}, #{content_intro}, sysdate, sysdate, #{tag}, #{age_rate},
+		 sysdate, #{game_launch}, #{don_attainment}, #{userid}, #{platform}, #{languages},
+		 #{media1}, #{media2}, #{media3}, #{media4}, seq_reply.nextval, #{genre_id}, #{hit},
+		 #{like_cnt})
+	</insert> -->
+
+	<!-- <insert id="insertSelectKey">
+
+		<selectKey keyProperty="content_id" order="BEFORE"
+			resultType="long">
+			select seq_board.nextval from dual
+		</selectKey>
+		<![CDATA[
+		insert into teamacreatercontent (title,content_intro,reg_date,highlight,tag,age_rate,
+		don_reg,game_launch,don_attainment,userid,platform,languages,media1,media2,media3,
+		media4,content_id,genre_id,hit,like_cnt)
+		values (#{title}, #{content_intro}, sysdate, sysdate, #{tag}, #{age_rate},
+		 sysdate, #{game_launch}, #{don_attainment}, #{userid}, #{platform}, #{languages},
+		 #{media1}, #{media2}, #{media3}, #{media4}, seq_reply.nextval, #{genre_id}, #{hit},
+		 #{like_cnt})
+		 ]]>
+	</insert> -->
+
+
+	<select id="read" resultType="com.ync.project.domain.BookmarkVO">
+	SELECT	content_id,
+			bookmark,
+			reg_date
+	FROM	teamabookmark
+	WHERE	content_id = #{content_id} 
+	</select>
+
+
+	<delete id="delete">
+		delete teamabookmark where bookmark = #{bookmark}
+	</delete>
+	
+	<!-- <update id="update">
+		update teamacreatercontent
+		set 
+		title = #{title},
+		content_intro = #{content_intro},
+		reg_date = sysdate,
+		highlight = sysdate,
+		tag = #{tag},
+		age_rate = #{age_rate},
+		don_reg = sysdate,
+		game_launch = #{game_launch},
+		don_attainment = #{don_attainment},
+		userid = #{userid},
+		platform = #{platform},
+		languages = #{languages},
+		media1 = #{media1},
+		media2 = #{media2},
+		media3 = #{media3},
+		media4 = #{media4},
+		genre_id = #{genre_id},
+		hit = #{hit},
+		like_cnt = #{like_cnt}
+		where content_id = #{content_id}
+	</update> -->
+</mapper>
