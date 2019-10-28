@@ -20,7 +20,7 @@
 								other_address
 							)
 							VALUES(
-								#{uesrid},
+								#{userid},
 								#{name},
 								#{birth},
 								#{birth},
