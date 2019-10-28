@@ -45,8 +45,8 @@ public class CommentMapperTests {
 			
 			// 게시물의 번호
 //			vo.setContent_id(contentArr[i % 5]);
-			vo.setContent_id(2L);
-			vo.setContent("댓글 테스트 " + i);
+			vo.setContent_id(54L);
+			vo.setContent("댓글 테스트1 " + i);
 			vo.setUserid("tjrwnsdud2@naver.com");
 			mapper.insert(vo);
 			log.info(vo);
