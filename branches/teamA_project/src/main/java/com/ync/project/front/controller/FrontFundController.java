@@ -27,7 +27,7 @@ public class FrontFundController {
 	  * @작성자 : 석준영
 	  * @return
 	  */
-	@GetMapping(value = "/funding_main")
+	@GetMapping(value = "/main")
 	public String fundingMain() {
 
 		log.info("funding!");
@@ -42,7 +42,7 @@ public class FrontFundController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	@GetMapping(value = "/funding_ing")
+	@GetMapping(value = "/funding")
 	public String fundingIng() {
 
 		log.info("Funding!");
@@ -57,7 +57,7 @@ public class FrontFundController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/funding_end")
+	@GetMapping(value = "/end")
 	public String fundingEnd() {
 
 		log.info("End Fund!");
