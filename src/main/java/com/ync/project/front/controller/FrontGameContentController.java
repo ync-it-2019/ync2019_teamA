@@ -1,7 +1,10 @@
 package com.ync.project.front.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.log4j.Log4j;
@@ -18,7 +21,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/content/*")
 public class FrontGameContentController {
-	
+	@Autowired
 	 /**
 	  * @Method 설명 : 게임 상세보기 front/game_content 호출
 	  * @Method Name : gameContent
@@ -42,7 +45,8 @@ public class FrontGameContentController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	@GetMapping(value = "/game_content_writeform")
+	@PostMapping(value = "/game_content_writeform")
+//	@PreAuthorize("hasRole('ROLE_USER')")
 	public String gameContentWriteForm() {
 
 		log.info("writeform!");

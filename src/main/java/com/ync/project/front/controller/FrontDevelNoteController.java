@@ -1,5 +1,6 @@
 package com.ync.project.front.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/develnote/*")
 public class FrontDevelNoteController {
-	
+	@Autowired
 
 	 /**
 	  * @Method 설명 : 개발노트 front/developer_note 호출
