@@ -26,7 +26,7 @@ public class FrontFundController {
 	  * @return
 	  */
 	@GetMapping(value = "/funding_main")
-	public String funding_main() {
+	public String fundingMain() {
 
 		log.info("funding!");
 	
@@ -41,7 +41,7 @@ public class FrontFundController {
 	  * @return
 	  */
 	@GetMapping(value = "/funding_ing")
-	public String funding_ing() {
+	public String fundingIng() {
 
 		log.info("Funding!");
 	
@@ -56,7 +56,7 @@ public class FrontFundController {
 	  * @return
 	  */
 	@GetMapping(value = "/funding_end")
-	public String funding_end() {
+	public String fundingEnd() {
 
 		log.info("End Fund!");
 	
