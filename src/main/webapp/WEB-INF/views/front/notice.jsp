@@ -1,9 +1,3 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -63,17 +57,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</ul>
 				</div>
 				<!--  Pagination 끝 -->
+				<!-- Form 시작 -->
+				<form id='actionForm' action="notice" method='get'>
+				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+				</form>
+				<!-- Form 끝 -->
      </div>
 			<!--//content-inner-section-->
 	&nbsp;
 	<div></div>
 	&nbsp;
 	<!--/footer-bottom-->
-	<div>
-		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp"
-			flush="false" />
-	</div>
-<script type="text/javascript">
+	<script type="text/javascript">
 	$(document).ready(function() {
 		var result = '<c:out value="${result}"/>';
 		
@@ -135,5 +131,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		});
 	});
 </script>
+	<div>
+		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp"
+			flush="false" />
+	</div>
+
 </body>
 </html>
