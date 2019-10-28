@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>게임 소개</title>
+<title>게임 소식</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -522,7 +522,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 								<!--//requested-movies-->
-				  <h3 class="agile_w3_title"> 게임계 <span>근황</span></h3>
+				  <h3 class="agile_w3_title"> 개발 <span>노트</span></h3>
 			<!--/movies-->
 			<div class="w3_agile_latest_movies">
 
