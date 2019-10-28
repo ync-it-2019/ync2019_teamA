@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ync.project.front.mapper.CommentMapper">
+
+	<insert id="insert">
+	
+		INSERT INTO teamacomment (comment_id,
+		 						  content_id,
+		 						  userid,
+		 						  reg_date,
+		 						  content
+		 						  )
+								VALUES 
+								(
+								 teama_comment.nextval,
+								 seq_reply.nextval,
+								 #{userid},
+								 sysdate,
+								 #{content}
+								 )
+		
+	</insert>
+	
+	<select id="read" resultType="com.ync.project.domain.CommentVO">
+	
+		SELECT * FROM teamacomment WHERE comment_id = #{comment_id}
+	
+	</select>
+	
+	<delete id="delete">
+	
+		DELETE FROM teamacomment WHERE comment_id = #{comment_id}
+	
+	</delete>
+	
+	<update id="update">
+	
+		UPDATE teamacomment 
+		SET content = #{content}, reg_date = sysdate 
+		WHERE comment_id = #{comment_id}
+	
+	</update>
+	
+	<select id = "getListWithPaging"
+		resultType="com.ync.project.domain.CommentVO">
+		
+		SELECT 	comment_id,
+		 		content_id,
+			  	userid,
+			  	reg_date,
+			  	content
+		FROM 	teamacomment
+		WHERE 	content_id = #{content_id}
+		ORDER 	BY comment_id DESC
+		
+	</select>
+	
+</mapper>
