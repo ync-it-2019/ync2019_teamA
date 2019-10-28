@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <h1><a href="index.html"><span>I</span>ndie <span>s</span>ponsor</a></h1>
+              <h1><a href="/"><span>I</span>ndie <span>s</span>ponsor</a></h1>
             </div>
             <!-- navbar-header -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -70,12 +70,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">진행중인 펀딩</a></li>
+                          <li><a href="funding_main">진행중인 펀딩</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">종료된 펀딩</a></li>
+                          <li><a href="funding_end">종료된 펀딩</a></li>
                         </ul>
                       </div>
                       <div class="clearfix"></div>
@@ -118,17 +118,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">FAQ</a></li>
+                          <li><a href="faq">FAQ</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">공지사항</a></li>
+                          <li><a href="notice">공지사항</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">1:1 문의</a></li>
+                          <li><a href="inquiry">1:1 문의</a></li>
                         </ul>
                       </div>
                       <div class="clearfix"></div>
