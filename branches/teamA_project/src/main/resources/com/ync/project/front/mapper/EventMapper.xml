@@ -5,7 +5,9 @@
 	<select id="getList"
 		resultType="com.ync.project.domain.EventVO">
 	<![CDATA[
-		select * from teamaevent where event_id > 0 
+		SELECT	*
+		FROM	teamaevent
+		WHERE event_id > 0 
 		]]>
 	</select>
 <!-- 	<insert id="insert">
@@ -51,9 +53,9 @@
 
 
 	<delete id="delete">
-		delete	
+		DELETE
 		FROM	teamaevent
-		where	event_id = #{event_id}
+		WHERE	event_id = #{event_id}
 	</delete>
 	
 	<!-- <update id="update">
