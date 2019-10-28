@@ -26,3 +26,4 @@ public interface CommentMapper {
 			@Param("cri") Criteria cri,
 			@Param("content_id") Long content_id);
 }
+
