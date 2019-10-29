@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="single video_agile_player">
 
 						<div class="video-grid-single-page-agileits">
-							<div data-video="mPDtElf6AXI" id="video"> <img src="resources/img/patch_beat_saber.jpg" alt="" class="img-responsive" /> </div>
+							<div data-video="mPDtElf6AXI" id="video"> <img src="/resources/img/patch_beat_saber.jpg" alt="" class="img-responsive" /> </div>
 						</div>
 						<h4>VR | 리듬 | 음악 | 웅장한 사운드트랙 | 인디 | 밈 | 빠른진행 | 싱글플레이 | 액션 | 어려움</h4>
 					</div>
@@ -79,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="admin-text">
 						<h5>작성자 :  makeUmove</h5>
 						<div class="admin-text-left">
-							<a href="#"><img src="resources/img/best_user.jpg" alt=""></a>
+							<a href="#"><img src="/resources/img/best_user.jpg" alt=""></a>
 						</div>
 						<div class="admin-text-right">
 							<p>리듬게임 청정수도 고인물도 모두 즐길 수 있는 좋은 게임입니다. VR을 가지고 있다면 반드시 사셔야 합니다.
@@ -165,7 +165,7 @@ Have fun!
 								<div class="w3ls-recent-grids">
 									<div class="w3l-recent-grid">
 										<div class="wom">
-											<a href="single.html"><img src="resources/img/patch_risk.jpg" alt=" " class="img-responsive"></a>
+											<a href="single.html"><img src="/resources/img/patch_risk.jpg" alt=" " class="img-responsive"></a>
 										</div>
 										<div class="wom-right">
 											<h5><a href="single.html">Risk Of Rain2</a></h5>
@@ -179,7 +179,7 @@ Have fun!
 									</div>
 									<div class="w3l-recent-grid">
 										<div class="wom">
-											<a href="single.html"><img src="resources/img/patch_fire.png" alt=" " class="img-responsive"></a>
+											<a href="single.html"><img src="/resources/img/patch_fire.png" alt=" " class="img-responsive"></a>
 										</div>
 										<div class="wom-right">
 											<h5><a href="single.html">A Dance of Fire and Ice</a></h5>
@@ -193,7 +193,7 @@ Have fun!
 									</div>
 									<div class="w3l-recent-grid">
 										<div class="wom">
-											<a href="single.html"><img src="resources/img/patch_beaks.gif" alt=" " class="img-responsive"></a>
+											<a href="single.html"><img src="/resources/img/patch_beaks.gif" alt=" " class="img-responsive"></a>
 										</div>
 										<div class="wom-right">
 											<h5><a href="single.html">Blazing Beaks</a></h5>
