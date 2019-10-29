@@ -250,9 +250,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <tr>
                               <th scope="col">카테고리</th>
                               <td><select name="mail" size="1">
-                                  <option value="daegu" selected>공지사항</option>
-                                  <option value="gukmin" selected>FAQ</option>
-                                  <option value="hana" selected>1대1 문의</option>
+                                  <option value="daegu" selected>공지사항</option><option value="gukmin" selected>FAQ</option>
+                                  <option value="hana" selected>Event</option>
                                 </select></td>
                           </tr>
                           <tr>
