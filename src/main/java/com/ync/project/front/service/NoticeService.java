@@ -8,18 +8,15 @@ import com.ync.project.domain.NoticeVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.NoticeVO;
 
+ /**
+  * @FileName	: NoticeService.java
+  * @Date		: 2019. 10. 29. 
+  * @Author		: 석준영
+  * @프로그램 설명 : 공지사항 서비스 인터페이스 생성
+  */
 public interface NoticeService {
 	// 글 등록
 	public void register(NoticeVO content);
-	
-	// 글 상세보기
-	public NoticeVO get(Long notice_id);
-	
-	// 글 수정
-	public boolean modify(NoticeVO content);
-	
-	// 글 삭제
-	public boolean remove(Long bno);
 	
 	// 전체 글 목록
 	public List<NoticeVO> getList();

@@ -27,15 +27,10 @@ public class FrontNoticeController {
 	 /**
 	  * @Method 설명 :
 	  * @Method Name : notice
-	  * @Date : 2019. 10. 21.
-	  * @작성자 : 김길재
+	  * @Date : 2019. 10. 28.
+	  * @작성자 : 석준영
 	  * @return
 	  */
-//	@GetMapping("/register")
-//	@PreAuthorize("isAuthenticated()")
-//	public void register() { 
-//		log.info("register..............");
-//	}
 	
 	@GetMapping("/notice")
 //	@PreAuthorize("isAuthenticated()")
@@ -51,70 +46,7 @@ public class FrontNoticeController {
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	
 	}
-
-//	// file upload가 추가된 게시판 등록
-//	@PostMapping("/register")
-//	@PreAuthorize("isAuthenticated()")
-//	public String register(MultipartFile[] uploadFile, NoticeVO notice, RedirectAttributes rttr) {
-//
-//		int index = 0;
-//		for (MultipartFile multipartFile : uploadFile) {
-//			// 실제로 upload된 file이 있을때만 upload 시킨다. 
-//			if (multipartFile.getSize() > 0) {
-//				switch (index) {
-//				case 0:
-//					board.setFile_1(UploadUtils.uploadFormPost(multipartFile));
-//					break;
-//				case 1:
-//					board.setFile_2(UploadUtils.uploadFormPost(multipartFile));
-//					break;
-//				default:
-//					board.setFile_3(UploadUtils.uploadFormPost(multipartFile));
-//					break;
-//				}
-//				//list.add(UploadUtils.uploadFormPost(multipartFile));
-//				index++;
-//			}
-//		}
-//		
-//		log.info("register: " + board);
-//		service.register(board);
-//		rttr.addFlashAttribute("result", board.getBno());
-//
-//		return "redirect:/board/list";
-//	}
-
-//	@GetMapping({ "/get", "/modify" })
-//	public void get(@RequestParam("notice_id") Long notice_id, @ModelAttribute("cri") Criteria cri, Model model) {
-//
-//		log.info("/get or modify");
-//		model.addAttribute("notice", service.get(notice_id));
-//	}
 	
-//	@PostMapping("/modify")
-//	@PreAuthorize("principal.username == #board.writer")
-//	public String modify(NoticeVO notice, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
-//		log.info("modify:" + notice);
-//
-//		if (service.modify(notice)) {
-//			rttr.addFlashAttribute("result", "success");
-//		}
-//
-//		return "redirect:/board/list" + cri.getListLink();
-//	}
-
-//	@PostMapping("/remove")
-//	@PreAuthorize("principal.username == #writer")
-//	public String remove(@RequestParam("bno") Long bno, Criteria cri,
-//							RedirectAttributes rttr, String writer) {
-//
-//		log.info("remove..." + bno);
-//		if (service.remove(bno)) {
-//			rttr.addFlashAttribute("result", "success");
-//		}
-//
-//		return "redirect:/board/list" + cri.getListLink();
-//	}
 	
 	 /**
 	  * @Method 설명 : 빠른 답변 front/faq 호출

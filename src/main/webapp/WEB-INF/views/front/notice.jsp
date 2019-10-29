@@ -36,7 +36,7 @@
 						<c:if test="${param.notice_id==notice.notice_id}">
 						<tr>
 							<td></td>
-							<td colspan = "3"><h4 style="color:black; background-color:#c6f4ffbd; border:2px solid black"><c:out value="${notice.content}"/></h4></td>
+							<td colspan = "3"><h4 style="color:black; background-color:#9e9e9e40; border:1px solid black"><c:out value="${notice.content}"/></h4></td>
 						</tr>
 						</c:if>
 					</c:forEach>

@@ -6,6 +6,12 @@ import com.ync.project.domain.ContentVO;
 
 import com.ync.project.domain.Criteria;
 
+ /**
+  * @FileName	: ContentService.java
+  * @Date		: 2019. 10. 29. 
+  * @Author		: 석준영
+  * @프로그램 설명 : 창작자 컨텐츠 서비스 파일 생성
+  */
 public interface ContentService {
 	// 글 등록
 		public void register(ContentVO content);
