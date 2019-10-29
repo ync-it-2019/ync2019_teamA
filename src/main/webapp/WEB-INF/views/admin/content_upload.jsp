@@ -249,17 +249,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           </tr>
                           <tr>
                               <th scope="col">카테고리</th>
-                              <td><select name="mail" size="1">
-                                  <option value="daegu" selected>공지사항</option><option value="gukmin" selected>FAQ</option>
-                                  <option value="hana" selected>Event</option>
+                              <td><select name="menu" size="1">
+                                  <option value="notice" selected>공지사항</option>
+                                  <option value="event" >Event</option>
                                 </select></td>
                           </tr>
                           <tr>
                               <th scope="col">첨부파일</th>
                               <td>
-                                <input type="button" name="" value="업로드">
-                                <input type="button" name="" value="업로드">
-                                <input type="button" name="" value="업로드">
+                                <div class="btn btn-default btn-file">
+									<i class="fa fa-paperclip"></i> 첨부파일1
+									<input type="file" name="attachment">
+								</div>
+                                <div class="btn btn-default btn-file">
+									<i class="fa fa-paperclip"></i> 첨부파일2
+									<input type="file" name="attachment">
+								</div>
+                                <div class="btn btn-default btn-file">
+									<i class="fa fa-paperclip"></i> 첨부파일3
+									<input type="file" name="attachment">
+								</div>
                               </td>
                           </tr>
                           <tr>
