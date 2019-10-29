@@ -11,6 +11,12 @@ import com.ync.project.front.mapper.NoticeMapper;
 
 import lombok.extern.log4j.Log4j;
 
+ /**
+  * @FileName	: NoticeServiceImpl.java
+  * @Date		: 2019. 10. 29. 
+  * @Author		: 석준영
+  * @프로그램 설명 :	공지사항 서비스 impl 파일 생성
+  */
 @Log4j
 @Service
 public class NoticeServiceImpl implements NoticeService{
@@ -25,32 +31,7 @@ public class NoticeServiceImpl implements NoticeService{
 		mapper.insertSelectKey(Notice);
 	}
 
-	@Override
-	public NoticeVO get(Long bno) {
 
-		log.info("get......" + bno);
-
-		return mapper.read(bno);
-
-	}
-
-	@Override
-	public boolean modify(NoticeVO Notice) {
-
-		log.info("modify......" + Notice);
-		
-		// SQL 성공 시 <update tag에서 update 된 갯수를 리턴. 따라서 mapper.update(Notice)의 값은 1이됨. 
-		// return true 가 됨.
-		return mapper.update(Notice) == 1;
-	}
-
-	@Override
-	public boolean remove(Long bno) {
-
-		log.info("remove...." + bno);
-
-		return mapper.delete(bno) == 1;
-	}
 
 	 @Override
 	 public List<NoticeVO> getList() {
@@ -74,6 +55,7 @@ public class NoticeServiceImpl implements NoticeService{
 		log.info("get total count");
 		return mapper.getTotalCount(cri);
 	}
+
 
 
 }

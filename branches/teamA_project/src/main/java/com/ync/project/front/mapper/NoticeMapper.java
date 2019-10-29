@@ -8,20 +8,21 @@ import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.NoticeVO;
 
+ /**
+  * @FileName	: NoticeMapper.java
+  * @Date		: 2019. 10. 29. 
+  * @Author		: 석준영
+  * @프로그램 설명 : 공지사항 mapper 파일 생성
+  */
 public interface NoticeMapper {
 	public List<NoticeVO> getList(); //게시글 목록
 
 	public List<NoticeVO> getListWithPaging(Criteria cri); //게시글 페이징\
 	
-	public void insert(NoticeVO notice); //게시글 추가
-	
-	public int update(NoticeVO notice);
 	
 	public Integer insertSelectKey(NoticeVO notice); //게시글 번호
 
 	public NoticeVO read(Long notice_num); //게시글 내용
-	
-	public int delete(Long content_id); // 게시글 삭제
 	
 	public int getTotalCount(Criteria cri); //게시글 전체 수
 

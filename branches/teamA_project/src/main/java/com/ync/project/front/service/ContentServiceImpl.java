@@ -11,6 +11,12 @@ import com.ync.project.front.mapper.ContentMapper;
 
 import lombok.extern.log4j.Log4j;
 
+ /**
+  * @FileName	: ContentServiceImpl.java
+  * @Date		: 2019. 10. 29. 
+  * @Author		: 석준영
+  * @프로그램 설명 : 창작자 컨텐츠 서비스 impl 파일 생성
+  */
 @Log4j
 @Service
 //@AllArgsConstructor
