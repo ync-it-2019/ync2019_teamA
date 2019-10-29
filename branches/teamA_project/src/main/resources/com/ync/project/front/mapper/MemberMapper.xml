@@ -35,6 +35,7 @@
 	FROM	tbl_member
 	WHERE	userid = #{userid} 
 	</select>
+	
 	<insert id="insert">
 		<![CDATA[
 			INSERT	INTO	teamamember(
@@ -67,4 +68,17 @@
 							)
 		]]>
 	</insert>
+	
+	
+	<update id="update">
+		<![CDATA[
+			UPDATE	teamamember
+			SET		phone = #{phone},
+					userpw = #{userpw},
+					bank_account = #{bank_account},
+					sns = #{sns},
+					other_address = #{other_address}
+			WHERE	userid = #{userid}
+		]]>
+	</update>
 </mapper>
