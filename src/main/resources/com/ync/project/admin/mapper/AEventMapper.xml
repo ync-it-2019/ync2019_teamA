@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ync.project.admin.mapper.EventMapper">
+<mapper namespace="com.ync.project.admin.mapper.AEventMapper">
 
 	<sql id="criteria">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
@@ -25,14 +25,14 @@
 	<select id="getList" resultType="com.ync.project.domain.EventVO">
 		<![CDATA[
 			SELECT	*
-			FROM	teamanotice
-			WHERE	notice_id >= 0 
+			FROM	teamaevent
+			WHERE	event_id >= 0 
 		]]>
 	</select>
 	
 	<insert id="insert">
-		INSERT INTO teamanotice(
-						notice_id,
+		INSERT INTO teamaevent(
+						event_id,
 						title,
 						reg_date,
 						content,
@@ -56,13 +56,13 @@
 	</insert>
 
 	<insert id="insertSelectKey">
-		<selectKey keyProperty="notice_id" order="BEFORE" resultType="long">
+		<selectKey keyProperty="event_id" order="BEFORE" resultType="long">
 			SELECT	seq_board.nextval
 			FROM	dual
 		</selectKey>
 		<![CDATA[
-			INSERT	INTO	teamanotice(
-								notice_id,
+			INSERT	INTO	teamaevent(
+								event_id,
 								title,
 								reg_date,
 								content,
@@ -89,18 +89,18 @@
 
 	<select id="read" resultType="com.ync.project.domain.EventVO">
 		SELECT	*
-		FROM 	teamanotice
-		WHERE	notice_id = #{notice_id}
+		FROM 	teamaevent
+		WHERE	event_id = #{event_id}
 	</select>
 
 
 	<delete id="delete">
-		DELETE	teamanotice
-		WHERE	notice_id = #{notice_id}
+		DELETE	teamaevent
+		WHERE	event_id = #{event_id}
 	</delete>
 
 	<update id="update">
-		UPDATE	teamanotice
+		UPDATE	teamaevent
 		SET
 			title = #{title},
 			reg_date = sysdate,
@@ -110,20 +110,20 @@
 			media1 = #{media1},
 			media2 = #{media2},
 			userid = #{userid}
-		WHERE	notice_id = #{notice_id}
+		WHERE	event_id = #{event_id}
 	</update>
 
 	<select id="getTotalCount" resultType="int">
 		SELECT	count(*) 
-		FROM	teamanotice
+		FROM	teamaevent
 		WHERE
 				<include refid="criteria"></include>
-				notice_id > 0
+				event_id > 0
 	</select>
 	
 	<select id="getListWithPaging" resultType="com.ync.project.domain.EventVO">
 		<![CDATA[
-			SELECT	notice_id,
+			SELECT	event_id,
 					title,
 					reg_date,
 					content,
@@ -132,9 +132,9 @@
 					media1,
 					media2,
 					userid
-			FROM	(SELECT /*+INDEX_DESC(teamanotice pk_board) */
+			FROM	(SELECT /*+INDEX_DESC(teamaevent pk_board) */
 						rownum rn,
-        				notice_id,
+        				event_id,
 						title,
 						reg_date,
 						content,
@@ -143,7 +143,7 @@
 						media1,
 						media2,
 						userid
-      				 FROM	teamanotice
+      				 FROM	teamaevent
 					 WHERE 
   		]]>
 							<include refid="criteria"></include> 
