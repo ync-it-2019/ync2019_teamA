@@ -42,7 +42,7 @@
 					<li><a href="mp_request_creator"> <i class="fas fa-address-card"></i>
 							창작자 신청
 					</a></li>
-					<li><a href="withdraw"> <i class="fas fa-address-card"></i>
+					<li><a href="mp_withdraw"> <i class="fas fa-address-card"></i>
 							회원 탈퇴
 					</a></li>
 				</ul>
