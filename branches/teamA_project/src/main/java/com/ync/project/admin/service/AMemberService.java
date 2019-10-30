@@ -8,7 +8,7 @@ import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.MemberVO;
 
-public interface AMemeberService {
+public interface AMemberService {
 	// 멤버 등록
 	public void register(MemberVO member);
 	
