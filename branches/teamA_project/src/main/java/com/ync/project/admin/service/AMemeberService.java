@@ -8,18 +8,18 @@ import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.MemberVO;
 
-public interface MemeberService {
+public interface AMemeberService {
 	// 멤버 등록
 	public void register(MemberVO member);
 	
 	// 멤버 상세보기
-	public MemberVO get(Long bno);
+	public MemberVO get(String userid);
 	
 	// 멤버 수정
 	public boolean modify(MemberVO member);
 	
 	// 멤버 삭제
-	public boolean remove(Long bno);
+	public boolean remove(String userid);
 	
 	// 전체 멤버 목록
 	public List<MemberVO> getList();
