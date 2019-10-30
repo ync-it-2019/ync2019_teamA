@@ -12,12 +12,15 @@ import com.ync.project.domain.Criteria;
   * @Author		: 석준영
   * @프로그램 설명 : 창작자 컨텐츠 서비스 파일 생성
   */
-public interface ContentService {
-	// 글 등록
+public interface HomeService {
+		// 글 등록
 		public void register(ContentVO content);
 		
 		// 글 상세보기
 		public ContentVO get(Long bno);
+		
+		// 글 상세보기
+		public ContentVO get1(Long bno);
 		
 		// 글 수정
 		public boolean modify(ContentVO content);
@@ -28,6 +31,8 @@ public interface ContentService {
 		// 전체 글 목록
 		public List<ContentVO> getList();
 		
+		// 전체 글 목록
+		public List<ContentVO> getList1();
 		
 		// 글 목록 페이징 
 		public List<ContentVO> getListWithPaging(Criteria cri);

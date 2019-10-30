@@ -20,7 +20,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 //@AllArgsConstructor
-public class ContentServiceImpl implements ContentService{
+public class HomeServiceImpl implements HomeService{
 	
 	@Autowired
 	private HomeMapper mapper;
@@ -78,5 +78,17 @@ public class ContentServiceImpl implements ContentService{
 		return 0;
 	}
 
+	@Override
+	public ContentVO get1(Long content_id) {
+		// TODO Auto-generated method stub
+		log.info("get........" + content_id);
+		return mapper.read(content_id);
+	}
+
+	@Override
+	public List<ContentVO> getList1() {
+		log.info("getList.......");
+		return mapper.getList1();
+	}
 	
 }

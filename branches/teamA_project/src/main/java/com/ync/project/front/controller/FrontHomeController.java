@@ -1,8 +1,12 @@
 package com.ync.project.front.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ync.project.front.service.HomeService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -14,8 +18,10 @@ import lombok.extern.log4j.Log4j;
   */
 @Controller
 @Log4j
+@RequestMapping("/front/*")
 public class FrontHomeController {
-	
+	@Autowired
+	private HomeService service;
 	
 	 /**
 	  * @Method 설명 : 메인 화면 index.jsp 호출
@@ -24,12 +30,13 @@ public class FrontHomeController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/")
-	public String home() {
-
-		log.info("Welcome Indie Sponsor!");
-	
-		return "front/index";
+	@GetMapping(value = "/index")
+	public void home(Model model) {
+		
+		model.addAttribute("content",service.get(1L));
+		model.addAttribute("content1",service.getList());
+		model.addAttribute("content2",service.get1(4L));
+		model.addAttribute("content3",service.getList1());
 	}
 	
 }
