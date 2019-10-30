@@ -16,7 +16,7 @@ public class EventVO {
 	private String title;		//이벤트 제목
 	private Date reg_date;		//이벤트 등록일자
 	private String content;		//이벤트 내용
-	private Long highlight;		//이벤트 하이라이트
+	private Date highlight;		//이벤트 하이라이트
 	private Long hit;			//이벤트 조회수
 	private String media1;		//이벤트 미디어1
 	private String media2;		//이벤트 미디어2
