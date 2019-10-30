@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Service
-public class AMemeberServiceImpl implements AMemeberService {
+public class AMemberServiceImpl implements AMemberService {
 	
 	@Autowired // @Inject
 	private MemberMapper mapper;
