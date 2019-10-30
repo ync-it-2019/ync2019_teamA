@@ -92,7 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</div>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="../content/game_content_writeform">게임업로드</a></li>
+														<li><a href="../content/game_content_writeform" method="post">게임 업로드</a></li>
 												 </ul>
 											</div>
 											<div class="col-sm-4">
