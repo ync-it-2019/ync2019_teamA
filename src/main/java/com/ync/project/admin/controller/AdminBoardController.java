@@ -65,16 +65,16 @@ public class AdminBoardController {
 	  * @return
 	  */
 	@GetMapping(value = "/management")
-	public String content_management(Criteria cri, Model model) {
+	public String content_management() {//Criteria cri, Model model) {
 		
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 
-		int total = nservice.getTotal(cri);
-		
-		log.info("list:11111 " + cri);
-		log.info("total:1111 " + total);
-		model.addAttribute("list", eservice.getListWithPaging(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, total));
+//		int total = nservice.getTotal(cri);
+//		
+//		log.info("list:11111 " + cri);
+//		log.info("total:1111 " + total);
+//		model.addAttribute("list", eservice.getListWithPaging(cri));
+//		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		
 		log.info("Welcome Content Management!");
 	
