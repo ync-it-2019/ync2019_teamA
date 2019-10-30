@@ -14,6 +14,12 @@ import org.springframework.web.context.WebApplicationContext;
 
 import lombok.extern.log4j.Log4j;
 
+ /**
+  * @FileName	: NoticeControllerTests.java
+  * @Date		: 2019. 10. 29. 
+  * @Author		: 석준영
+  * @프로그램 설명 : 공지사항 컨트롤러 테스트 파일 생성
+  */
 @RunWith(SpringJUnit4ClassRunner.class)
 
 // Test for Controller
@@ -43,74 +49,20 @@ public class NoticeControllerTests {
 	public void testList() throws Exception {
 
 		log.info(
-				mockMvc.perform(MockMvcRequestBuilders.get("/notice/list"))
+				mockMvc.perform(MockMvcRequestBuilders.get("/front/notice"))
 				.andReturn()
 				.getModelAndView()
 				.getModelMap());
 	}
 
 //	@Test
-//	public void testRegister() throws Exception {
-//
-//		String resultPage = mockMvc
-//				.perform(MockMvcRequestBuilders.post("/board/register")
-//				.param("title", "테스트 새글 제목")
-//				.param("content", "테스트 새글 내용")
-//				.param("writer", "user00"))
-//				.andReturn()
-//				.getModelAndView()
-//				.getViewName();
-//
-//		log.info("resultPage: " + resultPage);
-//
-//	}
-
-//	@Test
-//	public void tetGet() throws Exception {
-//
-//		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/get")
-//				.param("bno", "4"))
-//				.andReturn()
-//				.getModelAndView()
-//				.getModelMap());
-//	}
-
-//	@Test
-//	public void testModify() throws Exception {
-//
-//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/modify")
-//						.param("bno", "10")
-//						.param("title", "수정된 테스트 새글 제목")
-//						.param("content", "수정된 테스트 새글 내용")
-//						.param("writer", "user00"))
-//						.andReturn()
-//						.getModelAndView()
-//						.getViewName();
-//
-//		log.info(resultPage);
-//
-//	}
-
-//	@Test
-//	public void testRemove() throws Exception {
-//		// 삭제전 데이터베이스에 게시물 번호 확인할 것
-//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove")
-//				.param("bno", "4"))
-//				.andReturn()
-//				.getModelAndView()
-//				.getViewName();
-//
-//		log.info(resultPage);
-//	}
-
-//	@Test
 //	public void testListPaging() throws Exception {
 //		
 //		
 //		log.info(mockMvc.perform(
-//				MockMvcRequestBuilders.get("/board/list")
-//				.param("pageNum", "2")
-//				.param("amount", "50"))
+//				MockMvcRequestBuilders.get("/front/ntoice/list")
+//				.param("pageNum", "1")
+//				.param("amount", "10"))
 //				.andReturn()
 //				.getModelAndView()
 //				.getModelMap());

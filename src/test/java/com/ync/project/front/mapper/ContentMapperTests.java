@@ -1,4 +1,8 @@
 package com.ync.project.front.mapper;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -96,31 +100,34 @@ public class ContentMapperTests {
 //	@Test
 //	public void testDelete() {
 //
-//		log.info("DELETE COUNT: " + mapper.delete(45L));
+//		log.info("DELETE COUNT: " + mapper.delete(55L));
 //	}
 	
 	@Test
-	public void testUpdate() {
-
+	public void testUpdate() throws ParseException {
+		DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+		String StartDate = "2015-01-18";
+		Date Startday = format.parse(StartDate);
 		ContentVO content = new ContentVO();
 		// 실행전 존재하는 번호인지 확인할 것
-		content.setContent_id(44L);
-		content.setTitle("변경된 타이틀2");
-		content.setContent_intro("재미있다");
-		content.setTag("클로즈베타");
-		content.setAge_rate("7");
-		content.setGame_launch("naver.com");
-		content.setDon_attainment(7000000);
+		content.setContent_id(54L);
+		content.setTitle("공백게임");
+		content.setContent_intro("공백의 미");
+		content.setReg_date(Startday);
+		content.setTag("두둥탁");
+		content.setAge_rate("15");
+		content.setGame_launch("https://store.steampowered.com/app/977950/A_Dance_of_Fire_and_Ice/");
+		content.setDon_attainment(65000000);
 		content.setUserid("tjrwnsdud2@naver.com");
 		content.setPlatform("PC");
 		content.setLanguages("한국어");
-		content.setMedia1("미디어1");
-		content.setMedia2("미디어2");
-		content.setMedia3("미디어3");
-		content.setMedia4("미디어4");
+		content.setMedia1("6LAupbx_0QY");
+		content.setMedia2("/resources/img/dance.jpg");
+		content.setMedia3("찾아");
+		content.setMedia4("봐요");
 		content.setGenre_id(1);
-		content.setHit(75);
-		content.setLike_cnt(16);
+		content.setHit(77);
+		content.setLike_cnt(22);
 
 		int count = mapper.update(content);
 		log.info("UPDATE COUNT: " + count);
