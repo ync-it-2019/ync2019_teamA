@@ -13,7 +13,7 @@ public interface MemberMapper {
 	
 	public List<MemberVO> getListWithPaging(Criteria cri);	//멤버 페이징
 
-	public int delete(Long userid);							//회원 탈퇴/삭제
+	public int delete(String userid);							//회원 탈퇴/삭제
 
 	public int update(MemberVO member); 					//회원정보 수정
 
