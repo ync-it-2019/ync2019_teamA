@@ -30,6 +30,7 @@
 		WHERE	notice_id >= 0 
 		]]>
 	</select>
+	
 	<insert id="insert">
 		INSERT INTO teamanotice(
 		notice_id,
