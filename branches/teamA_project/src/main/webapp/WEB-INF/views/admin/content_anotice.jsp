@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-<title>관리자 업로드 관리</title>
+<title>공지사항 관리</title>
 <!-- Meta Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
@@ -222,13 +222,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!-- Grids Info -->
 				<div class="outer-w3-agile mt-3">
-					<h4>게시물 > 관리자 게시물 관리</h4>
+					<h4>게시물 > 관리자 게시물 관리 > 공지사항 관리</h4>
 				</div>
 			</section>
 
 				<%-- content table --%>
 				<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
-				<h4 class="tittle-w3-agileits mb-4">관리자 게시물 관리</h4>
+				<input type="button" value="공지사항" onClick="location.href='anotice'">
+				<input type="button" value="이벤트" onClick="location.href='aevent'">
+				<h4 class="tittle-w3-agileits mb-4">공지사항 관리</h4>
 					<table class="table">
 
 						<thead>
