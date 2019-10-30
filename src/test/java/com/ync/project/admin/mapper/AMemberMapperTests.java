@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.ync.project.domain.EventVO;
-import com.ync.project.admin.mapper.AEventMapper;
+import com.ync.project.domain.MemberVO;
+import com.ync.project.front.mapper.MemberMapper;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -23,11 +23,11 @@ import lombok.extern.log4j.Log4j;
 // Java Config
 // @ContextConfiguration(classes = {org.zerock.config.RootConfig.class} )
 @Log4j
-public class AdminEventMapperTests {
+public class AMemberMapperTests {
 
 	@Setter(onMethod_ = @Autowired)
 	@Autowired
-	private AEventMapper mapper;
+	private MemberMapper mapper;
 	
 //	@Test
 //	public void testGetList() {
@@ -37,21 +37,26 @@ public class AdminEventMapperTests {
 //		
 //	}
 	
-	// 이벤트 글 추가 테스트
+	// 회원추가 테스트
 	@Test
 	public void testInsert() {
 
-		EventVO content = new EventVO();
+		MemberVO member = new MemberVO();
 		
-		content.setUserid("hong@gildong.jun");
-		content.setTitle("The Second Testing Event content");
-		content.setContent("두번째 테스트 이름 바꾼후 확인");
-		content.setHit(1L);
-		content.setMedia1("adress/adress/adress/con1");
-		content.setMedia2("adress/adress/adress/con2");
+		member.setUserid("hong@gildong.jun");
+		member.setName("길동이형");
+		member.setBirth("14430101");
+		member.setPhone("+821012345678");
+		member.setUserpw("1234");
+		member.setCreater_name("호형호제");
+		member.setBank_account("1231231");
+		member.setDonation_accept("0");
+		member.setStatus("1");
+		member.setSns("sss");
+		member.setOther_address("qwe");
 		
-		mapper.insert(content);	
-		log.info(content);
+		mapper.insert(member);	
+		log.info(member);
 	}
 
 }
