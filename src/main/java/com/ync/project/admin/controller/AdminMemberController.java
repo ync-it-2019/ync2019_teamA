@@ -1,8 +1,14 @@
 package com.ync.project.admin.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ync.project.domain.Criteria;
+import com.ync.project.domain.PageDTO;
+import com.ync.project.admin.service.AMemberService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -17,8 +23,9 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/admin/*")
 public class AdminMemberController {
-	
 
+	@Autowired
+	private AMemberService service;
 
 	 /**
 	  * @Method 설명 : 회원관리 리스트 admin/member_info.jsp 호출
@@ -29,11 +36,20 @@ public class AdminMemberController {
 	  */
 	@GetMapping(value = "/memberinfo")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String member_info() {
+	public void member_info(Criteria cri, Model model) {
+		
+//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 
-		log.info("Welcome Member Info!");
-	
-		return "admin/member_info";
+		int total = service.getTotal(cri);
+		
+		log.info("list:11111 " + cri);
+		log.info("total:1111 " + total);
+		model.addAttribute("list", service.getListWithPaging(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+
+//		log.info("Welcome Member Info!");
+//	
+//		return "admin/member_info";
 	}
 	
 	 /**

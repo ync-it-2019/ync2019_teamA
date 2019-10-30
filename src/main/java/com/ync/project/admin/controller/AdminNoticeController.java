@@ -24,6 +24,8 @@ public class AdminNoticeController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
+
+	
 	@GetMapping(value = "/qna")
 	public String qna_list() {
 
