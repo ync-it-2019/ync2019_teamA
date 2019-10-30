@@ -36,20 +36,20 @@ public class AdminMemberController {
 	  */
 	@GetMapping(value = "/memberinfo")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public void member_info(Criteria cri, Model model) {
+	public String member_info() {
 		
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 
-		int total = service.getTotal(cri);
-		
-		log.info("list:11111 " + cri);
-		log.info("total:1111 " + total);
-		model.addAttribute("list", service.getListWithPaging(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, total));
+//		int total = service.getTotal(cri);
+//		
+//		log.info("list:11111 " + cri);
+//		log.info("total:1111 " + total);
+//		model.addAttribute("list", service.getListWithPaging(cri));
+//		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
-//		log.info("Welcome Member Info!");
-//	
-//		return "admin/member_info";
+		log.info("Welcome Member Info!");
+	
+		return "admin/member_info";
 	}
 	
 	 /**
