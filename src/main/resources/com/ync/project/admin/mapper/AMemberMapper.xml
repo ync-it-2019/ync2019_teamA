@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ync.project.admin.mapper.MemberMapper">
+<mapper namespace="com.ync.project.admin.mapper.AMemberMapper">
 
-<sql id="criteria">
+	<sql id="criteria">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
 			<foreach item='type' collection="typeArr">
 				<trim prefix="OR">
@@ -21,22 +21,6 @@
 			</foreach>
 		</trim>
 	</sql>
-	
-	<resultMap type="com.ync.project.domain.MemberVO" id="memberMap">
-		<id property="userid" column="userid"/>
-		<result property="userid" column="userid"/>
-		<result property="userpw" column="userpw"/>
-		<result property="userName" column="username"/>
-		<result property="regDate" column="regdate"/>
-		<result property="updateDate" column="updatedate"/>
-		<collection property="authList" resultMap="authMap">
-		</collection> 
-	</resultMap>
-	
-	<resultMap type="com.ync.project.domain.AuthVO" id="authMap">
-		<result property="userid" column="userid"/>
-		<result property="auth" column="auth"/>
-	</resultMap>
 
 	<!--
 	member_auth table은 사용 하지 않고 AuthVO만 사용한다.
@@ -44,7 +28,7 @@
 	Spring Security의 기본 사용법과 다르게 tbl_member에 권한 컴럼(auth)을
 	넣어서 사용하기에 기본 사용법과 달라진다.
 	-->
-	<select id="read" resultMap="memberMap">
+	<select id="read" resultType="com.ync.project.domain.MemberVO">
 		SELECT	userid,
 				userpw,
 				username,
@@ -55,40 +39,36 @@
 		FROM	tbl_member
 		WHERE	userid = #{userid} 
 	</select>
-
-	<select id="getListWithPaging" resultType="com.ync.project.domain.MemberVO">
-		<![CDATA[
-		SELECT	userid,
-				title,
-				reg_date,
-				content,
-				highlight,
-				hit,
-				media1,
-				media2,
-				userid
-		FROM	(SELECT /*+INDEX_DESC(teamanotice pk_board) */
-						rownum rn,
-        				userid,
-						title,
-						reg_date,
-						content,
-						highlight,
-						hit,
-						media1,
-						media2,
-						userid
-      			FROM	teamanotice
-				WHERE 
-  		]]>
-		<include refid="criteria"></include> 
-      
-		<![CDATA[    
-      			rownum <= #{pageNum} * #{amount}
-      			)
-  			WHERE rn > (#{pageNum} -1) * #{amount}   
+	
+	
+	<select id="getList"
+		resultType="com.ync.project.domain.MemberVO">
+	<![CDATA[
+			SELECT  m.userid,
+        			name,
+    	    		userpw,
+        			birth,
+        			phone,
+        			creater_name,
+        			bank_account,
+        			levels,
+        			status,
+        			sns,
+        			other_address,
+        			donations
+			FROM    teamamember m,
+		        	(SELECT userid,
+                			sum(donation) AS donations
+        			FROM    teamadonation d
+        			GROUP BY d.userid
+        			)d
+			WHERE   m.userid = d.userid;
 		]]>
 	</select>
+
+
+	
+
 
 	<insert id="insert">
 		<![CDATA[
