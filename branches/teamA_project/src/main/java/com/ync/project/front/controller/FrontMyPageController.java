@@ -98,7 +98,7 @@ public class FrontMyPageController {
 
 		log.info("withdraw!");
 
-		return "front/withdraw";
+		return "front/mp_withdraw";
 	}
 	
 	 /**
