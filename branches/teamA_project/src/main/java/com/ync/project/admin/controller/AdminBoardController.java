@@ -1,8 +1,16 @@
 package com.ync.project.admin.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+
+import com.ync.project.domain.Criteria;
+import com.ync.project.domain.PageDTO;
+import com.ync.project.front.service.NoticeService;
+import com.ync.project.admin.service.AEventService;
+
 import lombok.extern.log4j.Log4j;
 
 /**
@@ -15,6 +23,10 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/admin/*")
 public class AdminBoardController {
+	@Autowired
+	private NoticeService nservice;
+	private AEventService eservice;
+	
 	 /**
 	  * @Method 설명 : 관리자 게시물 관리 content_acontent.jsp 호출
 	  * @Method Name : content_acontent
@@ -53,8 +65,17 @@ public class AdminBoardController {
 	  * @return
 	  */
 	@GetMapping(value = "/management")
-	public String content_management() {
+	public String content_management(Criteria cri, Model model) {
+		
+//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 
+		int total = nservice.getTotal(cri);
+		
+		log.info("list:11111 " + cri);
+		log.info("total:1111 " + total);
+		model.addAttribute("list", eservice.getListWithPaging(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		
 		log.info("Welcome Content Management!");
 	
 		return "admin/content_management";
