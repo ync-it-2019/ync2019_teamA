@@ -22,13 +22,27 @@ public class AdminBoardController {
 	  * @작성자 : 석준영
 	  * @return
 	  */
-	@GetMapping(value = "/acontent")
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping(value = "/anotice")
 	public String content_acontent() {
 
-		log.info("Welcome Content Acontent!");
+		log.info("Welcome Content Anoitce!");
 	
-		return "admin/content_acontent";
+		return "admin/content_anotice";
+	}
+	
+	 /**
+	  * @Method 설명 : 이벤트 게시물 content_aevent.jsp 호출
+	  * @Method Name : content_aevent
+	  * @Date : 2019. 10. 30.
+	  * @작성자 : 김길재
+	  * @return
+	  */
+	@GetMapping(value = "/aevent")
+	public String content_aevent() {
+
+		log.info("Welcome Content Aevent!");
+	
+		return "admin/content_aevent";
 	}
 	
 	 /**
