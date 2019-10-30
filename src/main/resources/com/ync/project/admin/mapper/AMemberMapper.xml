@@ -2,6 +2,26 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ync.project.admin.mapper.MemberMapper">
 
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
 	<resultMap type="com.ync.project.domain.MemberVO" id="memberMap">
 		<id property="userid" column="userid"/>
 		<result property="userid" column="userid"/>
@@ -35,9 +55,38 @@
 		FROM	tbl_member
 		WHERE	userid = #{userid} 
 	</select>
+	
+	
+	<select id="getList"
+		resultType="com.ync.project.domain.MemberListVO">
+	<![CDATA[
+			SELECT  m.userid,
+        			name,
+    	    		userpw,
+        			birth,
+        			phone,
+        			creater_name,
+        			bank_account,
+        			levels,
+        			status,
+        			sns,
+        			other_address,
+        			donations
+			FROM    teamamember m,
+		        	(SELECT userid,
+                			sum(donation) AS donations
+        			FROM    teamadonation d
+        			GROUP BY d.userid
+        			)d
+			WHERE   m.userid = d.userid;
+		]]>
+	</select>
 
-	<select id="registMember"
-	resultType="com.ync.project.domain.MemberVO">
+
+	
+
+
+	<insert id="insert">
 		<![CDATA[
 			INSERT	INTO	teamamember(
 								userid,
@@ -68,7 +117,7 @@
 								#{other_address}
 							)
 		]]>
-	</select>
+	</insert>
 
 	<update id="update">
 		<![CDATA[
