@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ync.project.domain.Criteria;
+import com.ync.project.domain.MemberListVO;
 import com.ync.project.domain.MemberVO;
-import com.ync.project.front.mapper.MemberMapper;
+import com.ync.project.admin.mapper.AMemberMapper;
 
 import lombok.extern.log4j.Log4j;
 
@@ -16,7 +17,7 @@ import lombok.extern.log4j.Log4j;
 public class AMemberServiceImpl implements AMemberService {
 	
 	@Autowired // @Inject
-	private MemberMapper mapper;
+	private AMemberMapper mapper;
 	
 	// 멤버 등록
 	public void register(MemberVO member) {
@@ -51,7 +52,7 @@ public class AMemberServiceImpl implements AMemberService {
 	};
 	
 	// 전체 멤버 목록
-	public List<MemberVO> getList(){
+	public List<MemberListVO> getList(){
 
 		log.info("getList......");
 		return mapper.getList();

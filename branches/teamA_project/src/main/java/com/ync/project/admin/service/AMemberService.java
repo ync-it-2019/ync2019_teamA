@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria;
+import com.ync.project.domain.MemberListVO;
 import com.ync.project.domain.MemberVO;
 
 public interface AMemberService {
@@ -22,7 +23,7 @@ public interface AMemberService {
 	public boolean remove(String userid);
 	
 	// 전체 멤버 목록
-	public List<MemberVO> getList();
+	public List<MemberListVO> getList();
 	
 	// 멤버 목록 페이징 
 	public List<MemberVO> getListWithPaging(Criteria cri);
