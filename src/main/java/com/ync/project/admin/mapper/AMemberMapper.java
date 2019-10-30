@@ -3,14 +3,13 @@ package com.ync.project.admin.mapper;
 import java.util.List;
 
 import com.ync.project.domain.Criteria;
-import com.ync.project.domain.MemberListVO;
 import com.ync.project.domain.MemberVO;
 
 public interface AMemberMapper {
 
 	public MemberVO read(String userid);					//멤버 상세 정보
 	
-	public List<MemberListVO> getList();						//멤버 목록
+	public List<MemberVO> getList();						//멤버 목록
 	
 	public List<MemberVO> getListWithPaging(Criteria cri);	//멤버 페이징
 
