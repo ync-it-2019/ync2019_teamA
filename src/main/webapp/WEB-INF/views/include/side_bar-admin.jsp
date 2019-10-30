@@ -40,7 +40,7 @@
               <a href="management">· 업로드 컨텐츠 관리</a>
             </li>
             <li>
-              <a href="acontent">· 관리자 게시물 관리</a>
+              <a href="anotice">· 관리자 게시물 관리</a>
             </li>
             <li>
               <a href="upload">· 게시물 등록</a>
@@ -59,9 +59,6 @@
             </li>
             <li>
               <a href="qna">· 1대1 문의</a>
-            </li>
-            <li>
-              <a href="carousels.html">· 공지사항</a>
             </li>
           </ul>
         </li>
