@@ -1,7 +1,6 @@
 package com.ync.project.front.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +18,7 @@ import lombok.extern.log4j.Log4j;
   */
 @Controller
 @Log4j
-@RequestMapping("/content/*")
+@RequestMapping("/front/*")
 public class FrontGameContentController {
 	@Autowired
 	 /**
@@ -30,11 +29,10 @@ public class FrontGameContentController {
 	  * @return
 	  */
 	@GetMapping(value = "/game_content")
-	public String gameContent() {
+	public void gameContent() {
 
 		log.info("gamecontent!");
 
-		return "front/game_content";
 	}
 	
 
@@ -43,15 +41,14 @@ public class FrontGameContentController {
 	  * @Method Name : gameContentWriteForm
 	  * @Date : 2019. 10. 28.
 	  * @작성자 : 허 민
-	  * @return
+	  * @return 
 	  */
 	@PostMapping(value = "/game_content_writeform")
 //	@PreAuthorize("hasRole('ROLE_USER')")
-	public String gameContentWriteForm() {
+	public void gameContentWriteForm() {
 
 		log.info("writeform!");
 
-		return "front/game_content_writeform";
 	}
 	
 	 /**
@@ -62,11 +59,10 @@ public class FrontGameContentController {
 	  * @return
 	  */
 	@GetMapping(value = "/game_intro")
-	public String gameIntro() {
+	public void gameIntro() {
 
 		log.info("gameintro!");
 
-		return "front/game_intro";
 	}
 	
 	 /**
@@ -77,11 +73,10 @@ public class FrontGameContentController {
 	  * @return
 	  */
 	@GetMapping(value = "/game_list")
-	public String gameList() {
+	public void gameList() {
 
 		log.info("gamelist!");
 
-		return "front/game_list";
 	}
 	
 	
