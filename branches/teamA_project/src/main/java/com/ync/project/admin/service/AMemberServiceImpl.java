@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.ync.project.admin.mapper.AMemberMapper;
 import com.ync.project.domain.Criteria;
+import com.ync.project.domain.GetDonationVO;
+import com.ync.project.domain.GiveDonationVO;
 import com.ync.project.domain.MemberVO;
 
 import lombok.extern.log4j.Log4j;
@@ -68,7 +70,19 @@ public class AMemberServiceImpl implements AMemberService {
 	 public int getTotal(Criteria cri){
 			log.info("get total count");
 			return mapper.getTotalCount(cri);
-		};
+		}
+
+	@Override
+	public List<GetDonationVO> getGetDonations(Criteria cri) {
+		log.info("get total get donations");
+		return mapper.getGetDonation(cri);
+	}
+
+	@Override
+	public List<GiveDonationVO> getGiveDonations(Criteria cri) {
+		log.info("get total give donations");
+		return mapper.getGiveDonation(cri);
+	};
 
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);

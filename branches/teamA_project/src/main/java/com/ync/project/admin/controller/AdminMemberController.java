@@ -6,9 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ync.project.admin.service.AMemberService;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.PageDTO;
-import com.ync.project.admin.service.AMemberService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -36,20 +36,18 @@ public class AdminMemberController {
 	  */
 	@GetMapping(value = "/memberinfo")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String member_info() {
+	public void member_info(Criteria cri, Model model) {
 		
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 
-//		int total = service.getTotal(cri);
-//		
-//		log.info("list:11111 " + cri);
-//		log.info("total:1111 " + total);
-//		model.addAttribute("list", service.getListWithPaging(cri));
-//		model.addAttribute("pageMaker", new PageDTO(cri, total));
-
-		log.info("Welcome Member Info!");
-	
-		return "admin/member_info";
+		int total = service.getTotal(cri);
+		
+		log.info("list:11111 " + cri);
+		log.info("total:1111 " + total);
+		model.addAttribute("list", service.getListWithPaging(cri));
+		model.addAttribute("list_getdon", service.getGetDonations(cri));
+		model.addAttribute("list_givedon", service.getListWithPaging(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
 	 /**
