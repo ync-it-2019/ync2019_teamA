@@ -3,6 +3,8 @@ package com.ync.project.admin.service;
 import java.util.List;
 
 import com.ync.project.domain.Criteria;
+import com.ync.project.domain.GetDonationVO;
+import com.ync.project.domain.GiveDonationVO;
 import com.ync.project.domain.MemberVO;
 
 public interface AMemberService {
@@ -25,7 +27,11 @@ public interface AMemberService {
 	public List<MemberVO> getListWithPaging(Criteria cri);
 
 	// 멤버 전체 수
-	 public int getTotal(Criteria cri);
+	public int getTotal(Criteria cri);
+	
+	// 각 회원의 후원 합산정보를 얻기 위함
+	public List<GetDonationVO> getGetDonations(Criteria cri);
+	public List<GiveDonationVO> getGiveDonations(Criteria cri);
 
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
