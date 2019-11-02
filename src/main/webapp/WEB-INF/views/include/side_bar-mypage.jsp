@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
   <!-- side bar -->
     <nav id="sidebar">
 				<div class="sidebar-header">
@@ -27,18 +26,18 @@
 						<ul class="collapse list-unstyled" id="list-menu">
 							<li><a href="mp_bookmark">· 즐겨찾기</a></li>
 							<li><a href="carousels.html">· 업로드한 컨텐츠</a></li>
-							<li><a href="donation_game">· 후원 한 게임</a></li>
-							<li><a href="mp_funding">· 후원 받은 게임</a></li>
 						</ul></li>
 					<li><a href="#customer-center" data-toggle="collapse"
-						aria-expanded="false"> <i class="fas fa-edit"></i> 고객센터 관리 <i
-							class="fas fa-angle-down fa-pull-right"></i>
+						aria-expanded="false"> <i class="fas fa-edit"></i> 후원
+						 <i class="fas fa-angle-down fa-pull-right"></i>
 					</a>
 						<ul class="collapse list-unstyled" id="customer-center">
-							<li><a href="cards.html">· QnA</a></li>
-							<li><a href="carousels.html">· 1대1 문의</a></li>
-							<li><a href="carousels.html">· 공지사항</a></li>
+							<li><a href="mp_donation_game">· 후원 한 게임</a></li>
+							<li><a href="mp_funding">· 후원 받은 게임</a></li>
 						</ul></li>
+						<li><a href="mp_inquiry"> <i class="fas fa-address-card"></i>
+							1대1 문의
+					</a></li>
 					<li><a href="mp_request_creator"> <i class="fas fa-address-card"></i>
 							창작자 신청
 					</a></li>
