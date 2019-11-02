@@ -1,26 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ync.project.front.mapper.MemberMapper">
-
+	
+	<resultMap type="com.ync.project.domain.MemberVO" id="memberMap">
+		<id property="userid" column="userid"/>
+		<result property="userid" column="userid"/>
+		<result property="userpw" column="userpw"/>
+		<result property="name" column="name"/>
+		<result property="birth" column="birth"/>
+		<result property="creater_name" column="creater_name"/>
+		<result property="bank_account" column="bank_account"/>
+		<result property="donation_accept" column="donation_accept"/>
+		<result property="levels" column="levels"/>
+		<result property="status" column="status"/>
+		<result property="sns" column="sns"/>
+		<result property="other_address" column="other_address"/>
+		<collection property="authList" resultMap="authMap">
+		</collection> 
+	</resultMap>
+	
+	<resultMap type="com.ync.project.domain.AuthVO" id="authMap">
+		<result property="userid" column="userid"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+	
+	
 	<!--
 	member_auth table은 사용 하지 않고 AuthVO만 사용한다.
 	tbl_member 의 autho 컬럼 정보만 따로 담아는 객차이다.
 	Spring Security의 기본 사용법과 다르게 tbl_member에 권한 컴럼(auth)을
 	넣어서 사용하기에 기본 사용법과 달라진다.
 	-->
-	<select id="read" resultType="com.ync.project.domain.MemberVO">
+	<select id="read" resultMap="memberMap">
+	<![CDATA[
 	SELECT	userid,
+			name,
+			birth,
+			phone,
 			userpw,
-			username,
-			enabled,
-			regdate,
-			updatedate,
+			creater_name,
+			bank_account,
+			donation_accept,
+			levels,
+			status,
+			sns,
+			other_address,
 			auth
-	FROM	tbl_member
+	FROM	teamamember
 	WHERE	userid = #{userid} 
+		]]>
 	</select>
 	
-	<insert id="insert">
+	<!-- <insert id="insert">
 		<![CDATA[
 			INSERT	INTO	teamamember(
 								userid,
@@ -64,5 +95,5 @@
 					other_address = #{other_address}
 			WHERE	userid = #{userid}
 		]]>
-	</update>
+	</update> -->
 </mapper>

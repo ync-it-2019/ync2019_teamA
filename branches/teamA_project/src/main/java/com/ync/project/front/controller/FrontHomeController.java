@@ -1,6 +1,7 @@
 package com.ync.project.front.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,13 +31,17 @@ public class FrontHomeController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
+	
 	@GetMapping(value = "/index")
+//	@PreAuthorize("isAuthenticated()")
 	public void home(Model model) {
 		
-		model.addAttribute("content",service.get(1L));
+		model.addAttribute("content",service.get());
 		model.addAttribute("content1",service.getList());
-		model.addAttribute("content2",service.get1(4L));
+		model.addAttribute("content2",service.get1());
 		model.addAttribute("content3",service.getList1());
+		model.addAttribute("content4",service.get2());
+		model.addAttribute("content5",service.getList2());
 	}
 	
 }

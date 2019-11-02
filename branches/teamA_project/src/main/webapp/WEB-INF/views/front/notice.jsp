@@ -78,7 +78,7 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 		var result = '<c:out value="${result}"/>';
-		
+		 
 		checkModal(result);
 
 		history.replaceState({}, null, null);
