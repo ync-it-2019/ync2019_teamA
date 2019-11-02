@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria;
-import com.ync.project.front.mapper.HomeMapper;
+import com.ync.project.front.mapper.ContentMapper;
 
 import lombok.extern.log4j.Log4j;
 
@@ -23,7 +23,7 @@ import lombok.extern.log4j.Log4j;
 public class ContentServiceImpl implements ContentService{
 	
 	@Autowired
-	private HomeMapper mapper;
+	private ContentMapper mapper;
 	
 	@Override
 	public void register(ContentVO content) {

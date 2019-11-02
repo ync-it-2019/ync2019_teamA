@@ -28,11 +28,11 @@ public class MemberVO {
 	private String donation_accept; //후원여부
 	private String sns; //SNS 계정
 	private String other_address; //추가 연락처
-	
+	private List<AuthVO> authList;
 //	private boolean enabled;
 //
 //	private Date regDate;
 //	private Date updateDate;
-	private List<AuthVO> authList;
+
 
 }

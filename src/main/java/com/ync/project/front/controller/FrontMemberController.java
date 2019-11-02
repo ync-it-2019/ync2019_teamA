@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j;
   */
 @Controller
 @Log4j
-@RequestMapping("/member/*")
+@RequestMapping("/front/*")
 public class FrontMemberController {
 	@Autowired
 
@@ -27,28 +27,11 @@ public class FrontMemberController {
 	  * @return
 	  */
 	@GetMapping(value = "/join")
-	public String join() {
+	public void join() {
 
 		log.info("join!");
 
-		return "front/join";
 	}
-	
-	 /**
-	  * @Method 설명 : 로그인 front/login 호출
-	  * @Method Name : login
-	  * @Date : 2019. 10. 28.
-	  * @작성자 : 허 민
-	  * @return
-	  */
-	@GetMapping(value = "/login")
-	public String login() {
-
-		log.info("login!");
-
-		return "front/login";
-	}
-	
 	
 	 /**
 	  * @Method 설명 : 창작자 회원가입 front/request_creator 호출
@@ -58,10 +41,9 @@ public class FrontMemberController {
 	  * @return
 	  */
 	@GetMapping(value = "/request_creator")
-	public String requestCreator() {
+	public void requestCreator() {
 
 		log.info("requestcreator!");
-
-		return "front/request_creator";
+		
 	}	
 }

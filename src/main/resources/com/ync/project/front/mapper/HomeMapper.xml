@@ -95,7 +95,54 @@
 			WHERE	rank_num BETWEEN 2 AND 9
 		]]>
 	</select>
-
+	
+	<select id="getList2"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,like_cnt
+			FROM	(SELECT ROW_NUMBER() OVER(ORDER BY like_cnt DESC) AS rank_num,
+							title,
+							content_intro,
+							reg_date,
+							highlight,
+							tag,
+							age_rate,
+							don_reg,
+							game_launch,
+							don_attainment,
+							userid,
+							platform,
+							languages,
+							media1,
+							media2,
+							media3,
+							media4,
+							content_id,
+							genre_id,
+							hit,like_cnt
+							FROM TEAMACREATERCONTENT)
+			WHERE	rank_num BETWEEN 2 AND 9
+		]]>
+	</select>
+	
 	<insert id="insert">
 		INSERT INTO teamacreatercontent(
 		title,
@@ -198,9 +245,30 @@
 
 
 	<select id="read" resultType="com.ync.project.domain.ContentVO">
-		SELECT *
-		FROM teamacreatercontent
-		WHERE content_id = #{content_id}
+	SELECT  A.*
+	FROM 	teamacreatercontent A,
+			(SELECT max(reg_date) reg_date
+			 FROM 	teamacreatercontent
+			)B
+	WHERE A.reg_date = B.reg_date
+	</select>
+	
+	<select id="read1" resultType="com.ync.project.domain.ContentVO">
+	SELECT  A.*
+	FROM 	teamacreatercontent A,
+			(SELECT max(hit) hit
+			 FROM 	teamacreatercontent
+			)B
+	WHERE A.hit = B.hit
+	</select>
+	
+	<select id="read2" resultType="com.ync.project.domain.ContentVO">
+	SELECT  A.*
+	FROM 	teamacreatercontent A,
+			(SELECT max(like_cnt) like_cnt
+			 FROM 	teamacreatercontent
+			)B
+	WHERE A.like_cnt = B.like_cnt
 	</select>
 
 	<delete id="delete">

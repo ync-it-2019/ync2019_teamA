@@ -35,6 +35,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			 <div class="col-md-2 footer-grid">
 					<ul>
 						 &nbsp;
+						 <li/>
+						 &nbsp;
 						 <li><a href="genre.html">FPS</a></li>
 						 <li><a href="comedy.html">음악</a></li>
 						 <li><a href="series.html">일러스트</a></li>

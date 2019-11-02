@@ -35,11 +35,11 @@ public class HomeServiceImpl implements HomeService{
 	}
 
 	@Override
-	public ContentVO get(Long content_id) {
+	public ContentVO get() {
 		// TODO Auto-generated method stub
-		log.info("get........" + content_id);
+		log.info("get........" );
 		
-		return mapper.read(content_id);
+		return mapper.read();
 	}
 
 	@Override
@@ -79,16 +79,30 @@ public class HomeServiceImpl implements HomeService{
 	}
 
 	@Override
-	public ContentVO get1(Long content_id) {
+	public ContentVO get1() {
 		// TODO Auto-generated method stub
-		log.info("get........" + content_id);
-		return mapper.read(content_id);
+		log.info("get1........");
+		return mapper.read1();
 	}
 
 	@Override
 	public List<ContentVO> getList1() {
-		log.info("getList.......");
+		log.info("getList1.......");
 		return mapper.getList1();
+	}
+
+	@Override
+	public ContentVO get2() {
+		// TODO Auto-generated method stub
+		log.info("get2........");
+		return mapper.read2();
+	}
+
+	@Override
+	public List<ContentVO> getList2() {
+		// TODO Auto-generated method stub
+		log.info("getList2.......");
+		return mapper.getList2();
 	}
 	
 }
