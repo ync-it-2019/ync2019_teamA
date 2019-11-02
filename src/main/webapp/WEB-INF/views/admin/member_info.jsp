@@ -95,28 +95,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       </thead>
                       <tbody>
 							<c:forEach items="${list}" var="member" varStatus="status">
+								<c:set var="tmpcnt" value="0"/>
+								<c:set var="tmptotal" value="0"/>
 								<tr>
 									<td><c:out value="${status.count}" /></td>
 									<td><c:out value="${member.userid}" /></td>
 									<td><c:out value="${member.name}" /></td>
 									<td><c:out value="${member.birth}" /></td>
 									<td><c:out value="${member.phone}" /></td>
-									<c:forEach items="${list_getdon}" var="gets" begin="0">
-										<c:choose>
-    										<c:when test="${member.userid == gets.userid}">
-       								 			<td><c:out value="${member.phone}" /></td>
-   											</c:when>
-   											<c:when test="${member.userid == gets.userid}">
-        										<td>0</td>
-        									</c:when>
-        									<c:otherwise>
-        										<td>0</td>
-        									</c:otherwise>
-        								</c:choose>
-        							</c:forEach>
 									<td>
-										0
-									</td>
+										<c:forEach items="${list_getdon}" var="gets">
+											<c:choose>
+												<c:when test="${member.userid eq gets.userid }">
+		       								 		<c:out value="${gets.donation}" />
+		        									<c:set var="tmptotal" value="${tmptotal - 1}"/>
+	        									</c:when>
+	        									<c:otherwise>
+		        									<c:set var="tmpcnt" value="${tmpcnt + 1}"/>
+		        									<c:set var="tmptotal" value="${tmptotal + 1}"/>
+	        									</c:otherwise>
+        									</c:choose>
+	        							</c:forEach>
+	        							<c:if test="${tmpcnt == tmptotal }">
+	        								0
+	        							</c:if>
+		        					</td>
+		        					
+        							<td>
+										<c:set var="tmpcnt" value="0"/>
+										<c:set var="tmptotal" value="0"/>
+										<c:forEach items="${list_givedon}" var="gives" >
+											<c:choose>
+    											<c:when test="${member.userid eq gives.userid}">
+	       								 			<c:out value="${gives.donation}" />
+		        									<c:set var="tmptotal" value="${tmptotal - 1}"/>
+   												</c:when>
+        										<c:otherwise>
+		        									<c:set var="tmpcnt" value="${tmpcnt + 1}"/>
+		        									<c:set var="tmptotal" value="${tmptotal + 1}"/>
+        										</c:otherwise>
+        									</c:choose>
+        								</c:forEach>
+	        							<c:if test="${tmpcnt == tmptotal }">
+	        								0
+	        							</c:if>
+        							</td>
+        							
 									<td><c:out value="${member.levels}" /></td>
 								</tr>
 							</c:forEach>

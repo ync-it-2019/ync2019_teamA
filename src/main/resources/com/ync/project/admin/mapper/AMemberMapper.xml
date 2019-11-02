@@ -60,8 +60,8 @@
 
 	<select id="getGetDonation" resultType="com.ync.project.domain.GDonationVO">
 		<![CDATA[
-			SELECT  c.userid,
-        			sum(get_donation) AS get_donations
+			SELECT  c.userid AS userid,
+        			sum(get_donation) AS donation
 			FROM    (SELECT don.content_id,
                 			sum(donation) AS get_donation
         			FROM    teamadonation don
@@ -75,7 +75,7 @@
 
 	<select id="getGiveDonation" resultType="com.ync.project.domain.GDonationVO">
 		<![CDATA[
-			SELECT  d.userid,
+			SELECT  d.userid AS userid,
         			sum(donation) AS donation
 			FROM    teamadonation d
 			GROUP BY d.userid

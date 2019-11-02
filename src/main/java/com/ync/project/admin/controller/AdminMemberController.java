@@ -46,7 +46,7 @@ public class AdminMemberController {
 		
 		model.addAttribute("list", service.getListWithPaging(cri));
 		model.addAttribute("list_getdon", service.getGetDonation(cri));
-//		model.addAttribute("list_givedon", service.getGiveDonation(cri));
+		model.addAttribute("list_givedon", service.getGiveDonation(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
