@@ -98,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<c:set var="tmpcnt" value="0"/>
 								<c:set var="tmptotal" value="0"/>
 								<tr>
-									<td><c:out value="${status.count}" /></td>
+									<td><c:out value="${(param.pageNum-1) * (param.amount) + status.count}" /></td>
 									<td><c:out value="${member.userid}" /></td>
 									<td><c:out value="${member.name}" /></td>
 									<td><c:out value="${member.birth}" /></td>
@@ -168,7 +168,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<!--  Pagination 끝 -->
 				<!-- Form 시작 -->
-				<form id='actionForm' action="notice" method='get'>
+				<form id='actionForm' action="member_info" method='get'>
 				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 				</form>
@@ -279,8 +279,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		// 상세보기 클릭 이벤트
 		$(".move").on("click",function(e) {
 			e.preventDefault();
-			actionForm.append("<input type='hidden' name='notice_id' value='" + $(this).attr("href")	+ "'>");
-			actionForm.attr("action", "/front/notice");
+			actionForm.append("<input type='hidden' name='userid' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/admin/member_info_detail");
 			actionForm.submit();
 		});
 	});
