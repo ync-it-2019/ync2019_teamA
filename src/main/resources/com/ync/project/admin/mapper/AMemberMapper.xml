@@ -41,33 +41,46 @@
 	</select>
 	
 	
-	<select id="getList"
-		resultType="com.ync.project.domain.MemberVO">
+	<select id="getList" resultType="com.ync.project.domain.MemberVO">
 	<![CDATA[
-			SELECT  m.userid,
+			SELECT  userid,
         			name,
     	    		userpw,
         			birth,
-        			phone,
+        			NVL(phone,'없음') phone,
         			creater_name,
-        			bank_account,
+        			NVL(bank_account,'없음') bank_account,
         			levels,
         			status,
-        			sns,
-        			other_address,
-        			donations
-			FROM    teamamember m,
-		        	(SELECT userid,
-                			sum(donation) AS donations
-        			FROM    teamadonation d
-        			GROUP BY d.userid
-        			)d
-			WHERE   m.userid = d.userid;
+        			NVL(sns,'없음') sns,
+        			NVL(other_address,'없음') other_address
+			FROM    teamamember m
 		]]>
 	</select>
 
+	<select id="getGetDonation" resultType="com.ync.project.domain.GDonationVO">
+		<![CDATA[
+			SELECT  c.userid,
+        			sum(get_donation) AS get_donations
+			FROM    (SELECT don.content_id,
+                			sum(donation) AS get_donation
+        			FROM    teamadonation don
+        			GROUP BY don.content_id
+        			)cre,
+        			teamacreatercontent c
+			WHERE   c.content_id = cre.content_id
+			GROUP BY c.userid
+		]]>
+	</select>
 
-	
+	<select id="getGiveDonation" resultType="com.ync.project.domain.GDonationVO">
+		<![CDATA[
+			SELECT  d.userid,
+        			sum(donation) AS donation
+			FROM    teamadonation d
+			GROUP BY d.userid
+		]]>
+	</select>
 
 
 	<insert id="insert">
@@ -114,4 +127,50 @@
 			WHERE	userid = #{userid}
 		]]>
 	</update>
+
+	<select id="getTotalCount" resultType="int">
+		SELECT	count(*)
+		FROM	teamamember
+		WHERE	
+				<include refid="criteria"></include>
+				userid IS NOT NULL
+	</select>
+	
+	<select id="getListWithPaging" resultType="com.ync.project.domain.MemberVO">
+		<![CDATA[
+			SELECT	userid,
+        			name,
+    	    		userpw,
+        			birth,
+        			NVL(phone,'없음') phone,
+        			creater_name,
+        			NVL(bank_account,'없음') bank_account,
+        			levels,
+        			status,
+        			NVL(sns,'없음') sns,
+        			NVL(other_address,'없음') other_address
+			FROM	(SELECT /*+INDEX_DESC(teamamember pk_board) */
+						rownum rn,
+        				userid,
+						name,
+						birth,
+						phone,
+						userpw,
+						creater_name,
+						bank_account,
+						levels,
+						status,
+						sns,
+						other_address
+      				FROM	teamamember
+					WHERE 
+  		]]>
+		<include refid="criteria"></include> 
+      
+		<![CDATA[    
+      			rownum <= #{pageNum} * #{amount}
+      			)
+  			WHERE rn > (#{pageNum} -1) * #{amount}   
+		]]>
+	</select>
 </mapper>

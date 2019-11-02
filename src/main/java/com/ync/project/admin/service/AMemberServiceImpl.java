@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ync.project.admin.mapper.AMemberMapper;
 import com.ync.project.domain.Criteria;
-import com.ync.project.domain.GetDonationVO;
-import com.ync.project.domain.GiveDonationVO;
+import com.ync.project.domain.GDonationVO;
 import com.ync.project.domain.MemberVO;
 
 import lombok.extern.log4j.Log4j;
@@ -73,13 +72,13 @@ public class AMemberServiceImpl implements AMemberService {
 		}
 
 	@Override
-	public List<GetDonationVO> getGetDonations(Criteria cri) {
+	public List<GDonationVO> getGetDonation(Criteria cri) {
 		log.info("get total get donations");
 		return mapper.getGetDonation(cri);
 	}
 
 	@Override
-	public List<GiveDonationVO> getGiveDonations(Criteria cri) {
+	public List<GDonationVO> getGiveDonation(Criteria cri) {
 		log.info("get total give donations");
 		return mapper.getGiveDonation(cri);
 	};

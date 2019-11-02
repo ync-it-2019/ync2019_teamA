@@ -34,19 +34,19 @@ public class AdminMemberController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	@GetMapping(value = "/memberinfo")
+	@GetMapping(value = "/member_info")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void member_info(Criteria cri, Model model) {
 		
-//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
-
 		int total = service.getTotal(cri);
 		
-		log.info("list:11111 " + cri);
-		log.info("total:1111 " + total);
+		log.info("list......" + cri);
+		log.info("total...... " + total);
+//		model.addAttribute("list", service.getList());
+		
 		model.addAttribute("list", service.getListWithPaging(cri));
-		model.addAttribute("list_getdon", service.getGetDonations(cri));
-		model.addAttribute("list_givedon", service.getListWithPaging(cri));
+		model.addAttribute("list_getdon", service.getGetDonation(cri));
+//		model.addAttribute("list_givedon", service.getGiveDonation(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
