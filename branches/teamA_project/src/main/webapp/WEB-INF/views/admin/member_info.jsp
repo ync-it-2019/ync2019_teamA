@@ -5,6 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,9 +35,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Bars Css -->
   <link rel="stylesheet" href="/resources/css/bar-admin.css">
   <!--// Bars Css -->
-  <!-- Calender Css -->
-  <link rel="stylesheet" type="text/css" href="/resources/css/pignose.calender-admin.css" />
-  <!--// Calender Css -->
   <!-- Common Css -->
   <link href="/resources/css/style-admin.css" rel="stylesheet" type="text/css" media="all" />
   <!--// Common Css -->
@@ -53,6 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!--//web-fonts-->
   <link href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap" rel="stylesheet">
   <!-- 폰트 링크 -->
+  
 </head>
 
 <body>
@@ -68,147 +68,100 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<!-- main-heading -->
 			<section class="grids-section bd-content">
-
 				<!-- Grids Info -->
 				<div class="outer-w3-agile mt-3">
 					<h4>회원 관리 > 회원 정보</h4>
 				</div>
 			</section>
-          <!--// main-heading -->
-          <!-- Tables content -->
-          <section class="tables-section">
-              <!-- table1 -->
-              <div class="outer-w3-agile mt-3">
-                  <h4 class="tittle-w3-agileits mb-4">회원 정보</h4>
-                  <table class="table table-striped">
-                      <thead class="thead-dark">
-                          <tr>
-                              <th scope="col">NO</th>
-                              <th scope="col">이메일</th>
-                              <th scope="col">이름</th>
-                              <th scope="col">생년월일</th>
-                              <th scope="col">전화번호</th>
-                              <th scope="col">후원한 금액</th>
-                              <th scope="col">후원받은 금액</th>
-                              <th scope="col">사용자 레벨</th>
+			
+          	<!--// main-heading -->
+          	<!-- Tables content -->
+          	<section class="tables-section">
+            	<!-- table1 -->
+            	<div class="outer-w3-agile mt-3 bs-example4" data-example-id="contextual-table">
+                	<h4 class="tittle-w3-agileits mb-4">회원 정보</h4>
+                	<table class="table table-striped">
+                    	<thead class="thead-dark">
+                        	<tr>
+                            	<th scope="col">NO</th>
+                              	<th scope="col">이메일</th>
+                              	<th scope="col">이름</th>
+	                            <th scope="col">생년월일</th>
+                              	<th scope="col">전화번호</th>
+                              	<th scope="col">후원한 금액</th>
+                              	<th scope="col">후원받은 금액</th>
+                              	<th scope="col">사용자 레벨</th>
                           </tr>
                       </thead>
                       <tbody>
-                          <tr>
-                              <th scope="col">10</th>
-                              <th scope="col"><a href="memberinfo_detail">hgd@mail.com</a></th>
-                              <td>홍길동</td>
-                              <td>19990909</td>
-                              <td>01099999999</td>
-                              <td>50000</td>
-                              <td>70000</td>
-                              <th scope="col">창작자</th>
-                          </tr>
-                          <tr>
-                              <th scope="col">9</th>
-                              <th scope="col">hgd@mail.com</th>
-                              <td>홍길동</td>
-                              <td>19990909</td>
-                              <td>01099999999</td>
-                              <td>50000</td>
-                              <td>70000</td>
-                              <th scope="col">창작자</th>
-                          </tr>
-                          <tr>
-                            <th scope="col">8</th>
-                              <th scope="col">hgd@mail.com</th>
-                              <td>홍길동</td>
-                              <td>19990909</td>
-                              <td>01099999999</td>
-                              <td>50000</td>
-                              <td>70000</td>
-                              <th scope="col">창작자</th>
-                          </tr>
-                          <tr>
-                            <th scope="col">7</th>
-                              <th scope="col">hgd@mail.com</th>
-                              <td>홍길동</td>
-                              <td>19990909</td>
-                              <td>01099999999</td>
-                              <td>50000</td>
-                              <td>70000</td>
-                              <th scope="col">창작자</th>
-                          </tr>
-                          <tr>
-                            <th scope="col">6</th>
-                              <th scope="col">hgd@mail.com</th>
-                              <td>홍길동</td>
-                              <td>19990909</td>
-                              <td>01099999999</td>
-                              <td>50000</td>
-                              <td>70000</td>
-                              <th scope="col">창작자</th>
-                          </tr>
-                          <tr>
-                            <th scope="col">5</th>
-                              <th scope="col">hgs@mail.com</th>
-                              <td>홍길순</td>
-                              <td>20050909</td>
-                              <td>01012345678</td>
-                              <td>40000</td>
-                              <td></td>
-                              <th scope="col">일반 사용자</th>
-                          </tr>
-                          <tr>
-                            <th scope="col">4</th>
-                              <th scope="col">gwanri@mail.com</th>
-                              <td>관리자</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <th scope="col">관리자</th>
-                          </tr>
+							<c:forEach items="${list}" var="member" varStatus="status">
+								<tr>
+									<td><c:out value="${status.count}" /></td>
+									<td><c:out value="${member.userid}" /></td>
+									<td><c:out value="${member.name}" /></td>
+									<td><c:out value="${member.birth}" /></td>
+									<td><c:out value="${member.phone}" /></td>
+									<c:forEach items="${list_getdon}" var="gets" begin="0">
+										<c:choose>
+    										<c:when test="${member.userid == gets.userid}">
+       								 			<td><c:out value="${member.phone}" /></td>
+   											</c:when>
+   											<c:when test="${member.userid == gets.userid}">
+        										<td>0</td>
+        									</c:when>
+        									<c:otherwise>
+        										<td>0</td>
+        									</c:otherwise>
+        								</c:choose>
+        							</c:forEach>
+									<td>
+										0
+									</td>
+									<td><c:out value="${member.levels}" /></td>
+								</tr>
+							</c:forEach>
                       </tbody>
                   </table>
+				<!--  Pagination 시작 -->
+				<div class='pull-right'>
+					<ul class="pagination">
+					
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
 
+						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
 
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+						</c:if>
+
+					</ul>
+				</div>
+				<!--  Pagination 끝 -->
+				<!-- Form 시작 -->
+				<form id='actionForm' action="notice" method='get'>
+				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+				</form>
+				<!-- Form 끝 -->
               </div>
-              </section>
-          <!--// Stats -->
-          <!-- Pie-chart -->
-
-          <!--// Pie-chart -->
-      <!-- Simple-chart -->
-
-      <!--// Simple-chart -->
-
-      <!--// Bar-Chart -->
-
-      <!--// Bar-Chart -->
-
-      <!--// three-grids -->
-      <div class="container-fluid">
-        <div class="row">
-          <!-- Calender -->
-
-          <!--// Calender -->
-          <!-- Profile -->
-
-          <!--// Profile -->
-          <!-- Browser stats -->
-
-          <!--// Browser stats -->
-        </div>
-      </div>
-      <!--// Three-grids -->
-      <!-- Countdown -->
-
-      <!--// Countdown -->
-      <!-- Copyright -->
-      <div class="copyright-w3layouts py-xl-3 py-2 mt-xl-5 mt-4 text-center">
-        <p>© 2018 Modernize . All Rights Reserved | Design by
-          <a href="http://w3layouts.com/"> W3layouts </a>
-        </p>
-      </div>
-      <!--// Copyright -->
-    </div>
-  </div>
+             </section>
+          	<!--// Stats -->
+          
+      		<!-- Copyright -->
+      		<div class="copyright-w3layouts py-xl-3 py-2 mt-xl-5 mt-4 text-center">
+        		<p>© 2018 Modernize . All Rights Reserved | Design by
+        			<a href="http://w3layouts.com/"> W3layouts </a>
+        		</p>
+      		</div>
+      		<!--// Copyright -->
+  		</div>
+	</div>
 
 
   <!-- Required common Js -->
@@ -237,224 +190,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </script>
   <!--// Sidebar-nav Js -->
 
-  <!-- Graph -->
-  <script src="/resources/js/SimpleChart.js"></script>
-  <script>
-    var graphdata4 = {
-      linecolor: "Random",
-      title: "Thursday",
-      values: [{
-          X: "6",
-          Y: 300.00
-        },
-        {
-          X: "7",
-          Y: 101.98
-        },
-        {
-          X: "8",
-          Y: 140.00
-        },
-        {
-          X: "9",
-          Y: 340.00
-        },
-        {
-          X: "10",
-          Y: 470.25
-        },
-        {
-          X: "11",
-          Y: 180.56
-        },
-        {
-          X: "12",
-          Y: 680.57
-        },
-        {
-          X: "13",
-          Y: 740.00
-        },
-        {
-          X: "14",
-          Y: 800.89
-        },
-        {
-          X: "15",
-          Y: 420.57
-        },
-        {
-          X: "16",
-          Y: 980.24
-        },
-        {
-          X: "17",
-          Y: 1080.00
-        },
-        {
-          X: "18",
-          Y: 140.24
-        },
-        {
-          X: "19",
-          Y: 140.58
-        },
-        {
-          X: "20",
-          Y: 110.54
-        },
-        {
-          X: "21",
-          Y: 480.00
-        },
-        {
-          X: "22",
-          Y: 580.00
-        },
-        {
-          X: "23",
-          Y: 340.89
-        },
-        {
-          X: "0",
-          Y: 100.26
-        },
-        {
-          X: "1",
-          Y: 1480.89
-        },
-        {
-          X: "2",
-          Y: 1380.87
-        },
-        {
-          X: "3",
-          Y: 1640.00
-        },
-        {
-          X: "4",
-          Y: 1700.00
-        }
-      ]
-    };
-    $(function() {
-      $("#Hybridgraph").SimpleChart({
-        ChartType: "Hybrid",
-        toolwidth: "50",
-        toolheight: "25",
-        axiscolor: "#E6E6E6",
-        textcolor: "#6E6E6E",
-        showlegends: false,
-        data: [graphdata4],
-        legendsize: "140",
-        legendposition: 'bottom',
-        xaxislabel: 'Hours',
-        title: 'Weekly Profit',
-        yaxislabel: 'Profit in $'
-      });
-    });
-  </script>
-  <!--// Graph -->
-  <!-- Bar-chart -->
-  <script src="/resources/js/rumcaJS.js"></script>
-  <script src="/resources/js/example.js"></script>
-  <!--// Bar-chart -->
-  <!-- Calender -->
-  <script src="/resources/js/moment.min.js"></script>
-  <script src="/resources/js/pignose.calender.js"></script>
-  <script>
-    //<![CDATA[
-    $(function() {
-      $('.calender').pignoseCalender({
-        select: function(date, obj) {
-          obj.calender.parent().next().show().text('You selected ' +
-            (date[0] === null ? 'null' : date[0].format('YYYY-MM-DD')) +
-            '.');
-        }
-      });
-
-      $('.multi-select-calender').pignoseCalender({
-        multiple: true,
-        select: function(date, obj) {
-          obj.calender.parent().next().show().text('You selected ' +
-            (date[0] === null ? 'null' : date[0].format('YYYY-MM-DD')) +
-            '~' +
-            (date[1] === null ? 'null' : date[1].format('YYYY-MM-DD')) +
-            '.');
-        }
-      });
-    });
-    //]]>
-  </script>
-  <!--// Calender -->
+  
 
   <!-- profile-widget-dropdown js-->
   <script src="/resources/js/script.js"></script>
   <!--// profile-widget-dropdown js-->
-
-  <!-- Count-down -->
-  <script src="/resources/js/simplyCountdown.js"></script>
-  <link href="/resources/css/simplyCountdown-admin.css" rel='stylesheet' type='text/css' />
-  <script>
-    var d = new Date();
-    simplyCountdown('simply-countdown-custom', {
-      year: d.getFullYear(),
-      month: d.getMonth() + 2,
-      day: 25
-    });
-  </script>
-  <!--// Count-down -->
-
-  <!-- pie-chart -->
-  <script src='/resources/js/amcharts.js'></script>
-  <script>
-    var chart;
-    var legend;
-
-    var chartData = [{
-        country: "Lithuania",
-        value: 260
-      },
-      {
-        country: "Ireland",
-        value: 201
-      },
-      {
-        country: "Germany",
-        value: 65
-      },
-      {
-        country: "Australia",
-        value: 39
-      },
-      {
-        country: "UK",
-        value: 19
-      },
-      {
-        country: "Latvia",
-        value: 10
-      }
-    ];
-
-    AmCharts.ready(function() {
-      // PIE CHART
-      chart = new AmCharts.AmPieChart();
-      chart.dataProvider = chartData;
-      chart.titleField = "country";
-      chart.valueField = "value";
-      chart.outlineColor = "";
-      chart.outlineAlpha = 0.8;
-      chart.outlineThickness = 2;
-      // this makes the chart 3D
-      chart.depth3D = 20;
-      chart.angle = 30;
-
-      // WRITE
-      chart.write("chartdiv");
-    });
-  </script>
-  <!--// pie-chart -->
 
   <!-- dropdown nav -->
   <script>
@@ -476,6 +216,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Js for bootstrap working-->
   <script src="/resources/js/bootstrap.min.js"></script>
   <!-- //Js for bootstrap working -->
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var result = '<c:out value="${result}"/>';
+		
+		checkModal(result);
+
+		history.replaceState({}, null, null);
+
+		function checkModal(result) {
+
+			if (result === '' || history.state) {
+				return;
+			}
+
+			if (parseInt(result) > 0) {
+				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+			}
+
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location = "/board/register";
+		});
+		
+		var actionForm = $("#actionForm");
+
+		// 페이지 번호 클릭 이벤트
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			// console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		// 상세보기 클릭 이벤트
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input type='hidden' name='notice_id' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/front/notice");
+			actionForm.submit();
+		});
+	});
+</script>
 
 </body>
 

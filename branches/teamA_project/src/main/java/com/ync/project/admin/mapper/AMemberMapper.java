@@ -3,8 +3,7 @@ package com.ync.project.admin.mapper;
 import java.util.List;
 
 import com.ync.project.domain.Criteria;
-import com.ync.project.domain.GetDonationVO;
-import com.ync.project.domain.GiveDonationVO;
+import com.ync.project.domain.GDonationVO;
 import com.ync.project.domain.MemberVO;
 
 public interface AMemberMapper {
@@ -23,9 +22,9 @@ public interface AMemberMapper {
 	
 	public void insert(MemberVO member); //회원추가
 
-	public List<GetDonationVO> getGetDonation(Criteria cri);
+	public List<GDonationVO> getGetDonation(Criteria cri);	//후원받은 금액
 
-	public List<GiveDonationVO> getGiveDonation(Criteria cri);
+	public List<GDonationVO> getGiveDonation(Criteria cri);	//후원한 금액
 	
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
