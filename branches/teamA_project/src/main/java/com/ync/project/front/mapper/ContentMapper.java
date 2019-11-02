@@ -31,6 +31,6 @@ public interface ContentMapper {
 		public int getTotalCount(Criteria cri); //게시글 전체 수
 
 		// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
-		public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
+		public void updateReplyCnt(@Param("content_id") Long content_id, @Param("amount") int amount);
 	}
 
