@@ -75,42 +75,29 @@
 		<div class="demo-inner-content">
 		<br>
 			<div class="header">
-				<h1>Indie Sponsor 로그인</h1>
+				<h1>Indie Sponsor 로그아웃</h1>
 				<!-- <h1><img src="./loginimg/5.png" alt=" ">Indie Sponsor 로그인</h1> -->
 			</div>
 
 			<div class="design-w3l">
 				<div class="mail-form-agile">
-					<form action="/login" method="post">
-						<fieldset>
-						<div class="form-group">
-						<input class="form-control" placeholder="아이디" name="username" type="text" autofocus>
-						</div>
-						<div class="form-group">
-						<input class="form-control" placeholder="비밀번호" name="password" type="password" value="">
-						</div>
-						<br/>
-						<div class="checkbox">
-						<label style="color: white"> <input name="remember-me"
-							type="checkbox">Remember Me
-						</label>
-						</div>
-						<br/>
-						<a href="/front/index.jsp" class="btn btn-lg btn-success btn-block">Login</a><br/>
-						<input type="button" id="search" value="찾기"/> 
-						<input type="button" id="newuser" value="가입"/>
-						</fieldset>
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-					</form>
+					<form role="form" method='post' action="/front/logout">
+							<fieldset>
+								<!-- Change this to a button or input when using this as a form -->
+								<a href="index.html" class="btn btn-lg btn-success btn-block">Logout</a>
+							</fieldset>
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
+						</form>
 				</div>
-				<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+				<%-- <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
 					<font color="red">
 						<p>
 							Your login attempt was not successful due to <br />
 							${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
 						</p> <c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session" />
 					</font>
-				</c:if>
+				</c:if> --%>
 				<div class="clear"></div>
 			</div>
 			<p style="color: black;">© 2019 Indie Sponsor HomePage. Project
@@ -151,14 +138,6 @@
 		});
 	</script>
 
-	<c:if test="${param.logout != null}">
-		<script>
-			$(document).ready(function() {
-				alert("로그아웃하였습니다.");
-			});
-			location.href='/front/index';
-		</script>
-	</c:if>
 </body>
 
 </html>

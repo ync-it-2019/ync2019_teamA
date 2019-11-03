@@ -1,6 +1,7 @@
 package com.ync.project.front.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,11 +30,10 @@ public class FrontNoticeController {
 	  * @Method Name : notice
 	  * @Date : 2019. 10. 28.
 	  * @작성자 : 석준영
-	  * @return
+	  * @return 공지사항 컨트롤러 생성
 	  */
 	
 	@GetMapping("/notice")
-//	@PreAuthorize("isAuthenticated()")
 	public void list(Criteria cri, Model model) {
 		
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));
