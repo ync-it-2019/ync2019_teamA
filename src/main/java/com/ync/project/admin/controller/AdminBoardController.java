@@ -34,7 +34,7 @@ public class AdminBoardController {
 	  * @작성자 : 석준영
 	  * @return
 	  */
-	@GetMapping(value = "/anotice")
+	@GetMapping(value = "/content_anotice")
 	public String content_acontent() {
 
 		log.info("Welcome Content Anoitce!");
@@ -49,7 +49,7 @@ public class AdminBoardController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/aevent")
+	@GetMapping(value = "/content_aevent")
 	public String content_aevent() {
 
 		log.info("Welcome Content Aevent!");
@@ -64,7 +64,7 @@ public class AdminBoardController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/management")
+	@GetMapping(value = "/content_management")
 	public String content_management() {//Criteria cri, Model model) {
 		
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));
@@ -88,7 +88,7 @@ public class AdminBoardController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/upload")
+	@GetMapping(value = "/content_upload")
 	public String content_upload() {
 
 		log.info("Welcome Content Upload!");
