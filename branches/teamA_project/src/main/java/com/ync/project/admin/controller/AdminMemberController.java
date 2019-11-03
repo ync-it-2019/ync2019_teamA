@@ -65,4 +65,12 @@ public class AdminMemberController {
 		model.addAttribute("getdon", service.getGetDonation(cri));
 		model.addAttribute("donation", service.get(userid));
 	}
+
+	@GetMapping(value = "/member_stats_all")
+	public String stats_all() {
+
+		log.info("Welcome Member Stats All!");
+	
+		return "admin/member_stats_all";
+	}
 }
