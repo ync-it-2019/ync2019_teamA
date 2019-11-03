@@ -26,7 +26,7 @@ public class AdminHomeController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/main")
+	@GetMapping(value = "/admin_main")
 	//@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String home() {
 

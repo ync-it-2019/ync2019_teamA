@@ -24,7 +24,7 @@ public class AdminAdminController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/admincreate")
+	@GetMapping(value = "/admin_create")
 	public String admin_create() {
 
 		log.info("Welcome Admin Create");
@@ -39,7 +39,7 @@ public class AdminAdminController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/adminmanagement")
+	@GetMapping(value = "/admin_management")
 	public String admin_management() {
 
 		log.info("Welcome Admin Management");
@@ -54,7 +54,7 @@ public class AdminAdminController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/adminmodify")
+	@GetMapping(value = "/admin_modify")
 	public String admin_modify() {
 
 		log.info("Welcome Admin Modify");
