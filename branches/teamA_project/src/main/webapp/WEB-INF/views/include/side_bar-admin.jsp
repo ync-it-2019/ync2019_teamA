@@ -19,13 +19,13 @@
           </a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>
-              <a href="memberinfo">· 회원 조회</a>
+              <a href="member_info">· 회원 조회</a>
             </li>
             <li>
-              <a href="donation">· 후원 관리</a>
+              <a href="admin_donation">· 후원 관리</a>
             </li>
             <li>
-              <a href="statsall">· 회원 통계</a>
+              <a href="member_stats_all">· 회원 통계</a>
             </li>
           </ul>
         </li>
@@ -37,13 +37,13 @@
           </a>
           <ul class="collapse list-unstyled" id="list-menu">
             <li>
-              <a href="management">· 업로드 컨텐츠 관리</a>
+              <a href="content_management">· 업로드 컨텐츠 관리</a>
             </li>
             <li>
-              <a href="anotice">· 관리자 게시물 관리</a>
+              <a href="content_anotice">· 관리자 게시물 관리</a>
             </li>
             <li>
-              <a href="upload">· 게시물 등록</a>
+              <a href="content_upload">· 게시물 등록</a>
             </li>
           </ul>
         </li>
@@ -58,7 +58,7 @@
               <a href="cards.html">· FAQ</a>
             </li>
             <li>
-              <a href="qna">· 1대1 문의</a>
+              <a href="inquiry_qna_list">· 1대1 문의</a>
             </li>
           </ul>
         </li>
@@ -70,10 +70,10 @@
           </a>
           <ul class="collapse list-unstyled" id="developer">
             <li>
-              <a href="creatorinfo">· 창작자 조회</a>
+              <a href="creater_info">· 창작자 조회</a>
             </li>
             <li>
-              <a href="creatormodify">· 창작자 권한 수정</a>
+              <a href="creater_modify">· 창작자 권한 수정</a>
             </li>
           </ul>
         </li>
@@ -85,10 +85,10 @@
           </a>
           <ul class="collapse list-unstyled" id="manager">
             <li>
-              <a href="admincreate">· 관리자 등록</a>
+              <a href="admin_create">· 관리자 등록</a>
             </li>
             <li>
-              <a href="adminmanagement">· 관리자 조회</a>
+              <a href="admin_management">· 관리자 조회</a>
             </li>
           </ul>
         </li>
