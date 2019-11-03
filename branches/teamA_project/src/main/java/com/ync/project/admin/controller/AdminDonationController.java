@@ -23,7 +23,7 @@ public class AdminDonationController {
 	  * @작성자 : 석준영
 	  * @return call jsp view
 	  */
-	@GetMapping(value = "/donation")
+	@GetMapping(value = "/member_donation")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String donation() {
 
@@ -39,7 +39,7 @@ public class AdminDonationController {
 	  * @작성자 : 석준영
 	  * @return call jsp view
 	  */
-	@GetMapping(value = "/donation/detail")
+	@GetMapping(value = "/member_donation_detail")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String donation_detail() {
 

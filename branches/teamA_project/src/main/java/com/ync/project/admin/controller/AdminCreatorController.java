@@ -23,13 +23,13 @@ public class AdminCreatorController {
 	  * @작성자 : 석준영
 	  * @return
 	  */
-	@GetMapping(value = "/creatormodify")
+	@GetMapping(value = "/creater_modify")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String creatorGenerate() {
 
-		log.info("Creator Modify!");
+		log.info("Creater Modify!");
 	
-		return "admin/creator_modify";
+		return "admin/creater_modify";
 	}
 	
 	 /**
@@ -39,12 +39,12 @@ public class AdminCreatorController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/creatorinfo")
+	@GetMapping(value = "/creater_info")
 	public String grade_mod() {
 
-		log.info("Creator_List!");
+		log.info("Creater_List!");
 	
-		return "admin/creator_info";
+		return "admin/creater_info";
 	}
 	
 }

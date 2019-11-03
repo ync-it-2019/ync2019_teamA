@@ -24,7 +24,7 @@ public class AdminStatsController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/statsall")
+	@GetMapping(value = "/member_stats_all")
 	public String stats_all() {
 
 		log.info("Welcome Member Stats All!");

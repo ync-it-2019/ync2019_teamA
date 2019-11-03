@@ -51,22 +51,6 @@ public class AdminMemberController {
 		model.addAttribute("list_givedon", service.getGiveDonation(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
-	
-	 /**
-	  * @Method 설명 : 회원관리 상세보기 admin/member_info_detail.jsp 호출
-	  * @Method Name : info_detail
-	  * @Date : 2019. 10. 23.
-	  * @작성자 : 허 민
-	  * @return
-	  */
-	@GetMapping(value = "/memberinfo_detail")
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String info_detail() {
-
-		log.info("Welcome Info detail!");
-	
-		return "admin/member_info_detail";
-	}
 
 	@GetMapping(value = "/member_info_detail")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")

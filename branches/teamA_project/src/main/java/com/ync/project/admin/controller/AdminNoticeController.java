@@ -27,7 +27,7 @@ public class AdminNoticeController {
 	  */
 
 	
-	@GetMapping(value = "/qna")
+	@GetMapping(value = "/inquiry_qna_list")
 	public String qna_list() {
 
 		log.info("Welcome Content Acontent!");
@@ -42,7 +42,7 @@ public class AdminNoticeController {
 	  * @작성자 : 김길재
 	  * @return
 	  */
-	@GetMapping(value = "/qna_answer")
+	@GetMapping(value = "/inquiry_qna_answer")
 	public String qna_answer() {
 
 		log.info("Welcome Content Acontent!");
