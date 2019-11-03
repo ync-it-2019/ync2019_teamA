@@ -89,24 +89,24 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="dropdown"><a href="content/game_intro"
+								<li class="dropdown"><a href="/front/game_intro"
 									class="dropdown-toggle" data-toggle="dropdown">게임소식 <b
 										class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="content/game_intro">게임 소식</a></li>
+													<li><a href="/front/game_intro">게임 소식</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="develnote/developer_note">개발 노트</a></li>
+													<li><a href="/front/developer_note">개발 노트</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="notice">공지 사항</a></li>
+													<li><a href="/front/notice">공지 사항</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -220,10 +220,25 @@
 		<div class="w3_agilits_inner_bottom">
 			<div class="col-md-6 wthree_agile_login">
 				<ul>
-					<li><a href="/front/login" class="login">LOGIN</a></li>
-					<li><a href="/front/join" class="login reg"
-						data-target="#myModal5">REGISTER</a></li>
-
+					<sec:authorize access="isAnonymous()">
+						<li><a href="/front/login" class="login">로그인</a></li>
+	                </sec:authorize>
+	                <sec:authorize access="isAnonymous()">
+	                	<li><a href="/front/join" class="login reg"
+						data-target="#myModal5">회원가입</a></li>
+	                </sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+	                    <sec:authentication property="principal.username" var="user_id" />
+						<li style="margin-left:0em"><a href="/front/index" class="login">${user_id}</a></li>
+	                </sec:authorize>
+	                <sec:authorize access="isAuthenticated()">
+	                    <sec:authentication property="principal.username" var="user_id" />
+						<li style="margin-left:0em"><a href="/front/mp_withdraw" class="login" style="margin-left:0em">마이 페이지</a></li>
+	                </sec:authorize>
+	                <sec:authorize access="isAuthenticated()">
+	                    <sec:authentication property="principal.username" var="user_id" />
+						<li><a href="/front/logout" class="login">로그아웃</a></li>
+	                </sec:authorize>
 				</ul>
 			</div>
 			<div class="col-md-6 wthree_share_agile"></div>

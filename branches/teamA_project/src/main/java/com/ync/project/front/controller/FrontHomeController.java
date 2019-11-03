@@ -33,7 +33,6 @@ public class FrontHomeController {
 	  */
 	
 	@GetMapping(value = "/index")
-//	@PreAuthorize("isAuthenticated()")
 	public void home(Model model) {
 		
 		model.addAttribute("content",service.get());
