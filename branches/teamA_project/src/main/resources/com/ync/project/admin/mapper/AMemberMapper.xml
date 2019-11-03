@@ -30,14 +30,19 @@
 	-->
 	<select id="read" resultType="com.ync.project.domain.MemberVO">
 		SELECT	userid,
-				userpw,
-				username,
-				enabled,
-				regdate,
-				updatedate,
+				name,
+				birth,
+				NVL(phone,'없음') phone,
+				creater_name,
+				NVL(bank_account,'-') bank_account,
+				NVL(donation_accept, '-') donation_accept,
+				levels,
+				NVL(status, '값이없음') status,
+				NVL(sns,'없음') sns,
+        		NVL(other_address,'없음') other_address,
 				auth
-		FROM	tbl_member
-		WHERE	userid = #{userid} 
+		FROM	teamamember
+		WHERE	userid = #{userid}
 	</select>
 	
 	
