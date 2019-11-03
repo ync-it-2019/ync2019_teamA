@@ -27,6 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       window.scrollTo(0, 1);
     }
   </script>
+  
   <!-- //for-mobile-apps -->
   <link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
   <!-- pop-up -->
@@ -47,12 +48,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Bootstrap Css -->
   <link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
   <!-- Bootstrap Css -->
-  <!-- Bars Css -->
-  <link rel="stylesheet" href="/resources/css/bar-admin.css">
-  <!--// Bars Css -->
-  <!-- Calender Css -->
-  <link rel="stylesheet" type="text/css" href="/resources/css/pignose.calender-admin.css" />
-  <!--// Calender Css -->
   <!-- Common Css -->
   <link href="/resources/css/style-admin.css" rel="stylesheet" type="text/css" media="all" />
   <!--// Common Css -->
@@ -221,7 +216,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- //dropdown nav -->
 
   <!-- Js for bootstrap working-->
-  <script src="/resources/js/bootstrap.js"></script>
   <script src="/resources/js/bootstrap.min.js"></script>
   <!-- //Js for bootstrap working -->
 
