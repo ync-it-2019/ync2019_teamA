@@ -1,5 +1,7 @@
 package com.ync.project.admin.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,8 +42,8 @@ public class AdminMemberController {
 		
 		int total = service.getTotal(cri);
 		
-		log.info("list......" + cri);
-		log.info("total...... " + total);
+		log.info("list:11111 " + cri);
+		log.info("total:1111 " + total);
 //		model.addAttribute("list", service.getList());
 		
 		model.addAttribute("list", service.getListWithPaging(cri));
@@ -65,5 +67,18 @@ public class AdminMemberController {
 	
 		return "admin/member_info_detail";
 	}
-	
+
+	@GetMapping(value = "/member_info_detail")
+//	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public void member_info_detail(HttpServletRequest request, Model model, Criteria cri) {
+
+		String userid = request.getParameter("userid");
+		
+		log.info("Welcome Info detail!");
+		
+		model.addAttribute("member_info", service.get(userid));
+		model.addAttribute("givedon", service.getGiveDonation(cri));
+		model.addAttribute("getdon", service.getGetDonation(cri));
+		model.addAttribute("donation", service.get(userid));
+	}
 }

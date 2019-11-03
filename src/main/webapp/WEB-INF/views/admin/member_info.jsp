@@ -95,11 +95,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       </thead>
                       <tbody>
 							<c:forEach items="${list}" var="member" varStatus="status">
-								<c:set var="tmpcnt" value="0"/>
-								<c:set var="tmptotal" value="0"/>
+								<c:set var="tmpchk" value="0"/>
 								<tr>
 									<td><c:out value="${(param.pageNum-1) * (param.amount) + status.count}" /></td>
-									<td><c:out value="${member.userid}" /></td>
+									<td style="color:blue;">
+										<a class='move' href='<c:out value="${member.userid}"/>'>
+											<c:out value="${member.userid}" />
+										</a>
+									</td>
 									<td><c:out value="${member.name}" /></td>
 									<td><c:out value="${member.birth}" /></td>
 									<td><c:out value="${member.phone}" /></td>
@@ -108,35 +111,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<c:choose>
 												<c:when test="${member.userid eq gets.userid }">
 		       								 		<c:out value="${gets.donation}" />
-		        									<c:set var="tmptotal" value="${tmptotal - 1}"/>
+		        									<c:set var="tmpchk" value="${tmpchk + 1}"/>
 	        									</c:when>
 	        									<c:otherwise>
-		        									<c:set var="tmpcnt" value="${tmpcnt + 1}"/>
-		        									<c:set var="tmptotal" value="${tmptotal + 1}"/>
 	        									</c:otherwise>
         									</c:choose>
 	        							</c:forEach>
-	        							<c:if test="${tmpcnt == tmptotal }">
+	        							<c:if test="${tmpchk == 0 }">
 	        								0
 	        							</c:if>
 		        					</td>
 		        					
         							<td>
-										<c:set var="tmpcnt" value="0"/>
-										<c:set var="tmptotal" value="0"/>
+										<c:set var="tmpchk" value="0"/>
 										<c:forEach items="${list_givedon}" var="gives" >
 											<c:choose>
     											<c:when test="${member.userid eq gives.userid}">
 	       								 			<c:out value="${gives.donation}" />
-		        									<c:set var="tmptotal" value="${tmptotal - 1}"/>
+		        									<c:set var="tmpchk" value="${tmpchk + 1}"/>
    												</c:when>
         										<c:otherwise>
-		        									<c:set var="tmpcnt" value="${tmpcnt + 1}"/>
-		        									<c:set var="tmptotal" value="${tmptotal + 1}"/>
         										</c:otherwise>
         									</c:choose>
         								</c:forEach>
-	        							<c:if test="${tmpcnt == tmptotal }">
+	        							<c:if test="${tmpchk == 0 }">
 	        								0
 	        							</c:if>
         							</td>
@@ -147,6 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       </tbody>
                   </table>
 				<!--  Pagination 시작 -->
+  				<script src="/resources/js/bootstrap.js"></script>
 				<div class='pull-right'>
 					<ul class="pagination">
 					
@@ -279,7 +278,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		// 상세보기 클릭 이벤트
 		$(".move").on("click",function(e) {
 			e.preventDefault();
-			actionForm.append("<input type='hidden' name='userid' value='" + $(this).attr("href")	+ "'>");
+			actionForm.append("<input name='userid' value='" + $(this).attr("href")	+ "'>");
 			actionForm.attr("action", "/admin/member_info_detail");
 			actionForm.submit();
 		});
