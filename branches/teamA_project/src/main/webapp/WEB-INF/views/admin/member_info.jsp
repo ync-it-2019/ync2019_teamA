@@ -32,9 +32,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Bootstrap Css -->
   <link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
   <!-- Bootstrap Css -->
-  <!-- Bars Css -->
-  <link rel="stylesheet" href="/resources/css/bar-admin.css">
-  <!--// Bars Css -->
   <!-- Common Css -->
   <link href="/resources/css/style-admin.css" rel="stylesheet" type="text/css" media="all" />
   <!--// Common Css -->
@@ -214,7 +211,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!--// Sidebar-nav Js -->
 
   
-
   <!-- profile-widget-dropdown js-->
   <script src="/resources/js/script.js"></script>
   <!--// profile-widget-dropdown js-->
