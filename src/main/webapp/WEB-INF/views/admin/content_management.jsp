@@ -36,9 +36,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Bars Css -->
   <link rel="stylesheet" href="/resources/css/bar-admin.css">
   <!--// Bars Css -->
-  <!-- Calender Css -->
-  <link rel="stylesheet" type="text/css" href="/resources/css/pignose.calender-admin.css" />
-  <!--// Calender Css -->
   <!-- Common Css -->
   <link rel="stylesheet" type="text/css" media="all" href="/resources/css/style-admin.css"/>
   <!--// Common Css -->
