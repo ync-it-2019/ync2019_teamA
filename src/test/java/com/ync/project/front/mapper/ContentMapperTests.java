@@ -117,7 +117,7 @@ public class ContentMapperTests {
 		content.setTag("두둥탁");
 		content.setAge_rate("15");
 		content.setGame_launch("https://store.steampowered.com/app/977950/A_Dance_of_Fire_and_Ice/");
-		content.setDon_attainment(65000000);
+		content.setDon_attainment(65000000L);
 		content.setUserid("tjrwnsdud2@naver.com");
 		content.setPlatform("PC");
 		content.setLanguages("한국어");
@@ -125,9 +125,7 @@ public class ContentMapperTests {
 		content.setMedia2("/resources/img/dance.jpg");
 		content.setMedia3("찾아");
 		content.setMedia4("봐요");
-		content.setGenre_id(1);
-		content.setHit(77);
-		content.setLike_cnt(22);
+		content.setGenre_id(1L);
 
 		int count = mapper.update(content);
 		log.info("UPDATE COUNT: " + count);
