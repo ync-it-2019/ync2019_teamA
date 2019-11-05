@@ -4,18 +4,18 @@
  * 문법, 방법을 이해해야 한다. 
  */
 
-console.log("Reply Module........");
+console.log("Comment Module........");
 
-var replyService = (function() {
+var commentService = (function() {
 
 	// 댓글 추가
-	function add(reply, callback, error) {
-		console.log("add reply...............");
+	function add(content, callback, error) {
+		console.log("add comment...............");
 
 		$.ajax({
 			type : 'post',
 			url : '/replies/new',
-			data : JSON.stringify(reply), // JavaScript 값이나 객체를 JSON 문자열로 변환
+			data : JSON.stringify(content), // JavaScript 값이나 객체를 JSON 문자열로 변환
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr) { // (Anything data(서버에서 받은 data), String textStatus, jqXHR jqXHR )
 				if (callback) {
@@ -33,12 +33,12 @@ var replyService = (function() {
 	
 	// 댓글 목록
 	function getList(param, callback, error) {
-		console.log("getList reply..............");
+		console.log("getList comment..............");
 		
-		var bno = param.bno;
+		var content_id = param.content_id;
 		var page = param.page || 1; // param.page 가 null 이면 1로 설정 
 		
-		$.getJSON("/replies/pages/" + bno + "/" + page + ".json", function(data) {
+		$.getJSON("/replies/pages/" + content_id + "/" + page + ".json", function(data) {
 			if (callback) {
 				callback(data);
 			}
@@ -128,15 +128,15 @@ var replyService = (function() {
 	*/
 	
 	// 댓글 삭제. security 적용 후
-	function remove(rno, replyer, callback, error) {
+	function remove(comment_id, userid, callback, error) {
 		  
 		console.log("--------------------------------------");  
-		console.log(JSON.stringify({rno:rno, replyer:replyer}));  
+		console.log(JSON.stringify({comment_id:comment_id, userid:userid}));  
 		    
 		$.ajax({
 			type : 'delete',
-			url : '/replies/' + rno,
-			data:  JSON.stringify({rno:rno, replyer:replyer}),
+			url : '/replies/' + comment_id,
+			data:  JSON.stringify({comment_id:comment_id, userid:userid}),
 			contentType: "application/json; charset=utf-8",
 			success : function(deleteResult, status, xhr) {
 				if (callback) {
@@ -152,14 +152,14 @@ var replyService = (function() {
 	}
 
 	// 댓글 수정
-	function update(reply, callback, error) {
+	function update(content, callback, error) {
 
-		console.log("RNO: " + reply.rno);
+		console.log("comment_id: " + content.comment_id);
 
 		$.ajax({
 			type : 'put',
-			url : '/replies/' + reply.rno,
-			data : JSON.stringify(reply), // JavaScript 값이나 객체를 JSON 문자열로 변환
+			url : '/replies/' + content.comment_id,
+			data : JSON.stringify(content), // JavaScript 값이나 객체를 JSON 문자열로 변환
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr) {
 				if (callback) {
@@ -175,9 +175,9 @@ var replyService = (function() {
 	}
 	
 	// 댓글 조회
-	function get(rno, callback, error) {
+	function get(comment_id, callback, error) {
 
-		$.get("/replies/" + rno + ".json", function(result) {
+		$.get("/replies/" + comment_id + ".json", function(result) {
 			if (callback) {
 				callback(result);
 			}

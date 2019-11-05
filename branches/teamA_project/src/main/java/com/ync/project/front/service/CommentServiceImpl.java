@@ -62,7 +62,7 @@ import lombok.extern.log4j.Log4j;
 			
 			CommentVO vo = mapper.read(comment_id);
 			
-			contentMapper.updateReplyCnt(vo.getContent_id(), -1);
+//			contentMapper.updateReplyCnt(vo.getContent_id(), -1);
 			
 			return mapper.delete(comment_id);
 		}
