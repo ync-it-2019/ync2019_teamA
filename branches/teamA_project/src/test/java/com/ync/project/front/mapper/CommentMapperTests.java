@@ -36,31 +36,31 @@ public class CommentMapperTests {
 	@Autowired
 	private CommentMapper mapper;
 	
-	@Test
-	public void testCreate() {
-		
-		IntStream.rangeClosed(1, 5).forEach(i -> {
-			
-			CommentVO vo = new CommentVO();	
-			vo.setContent_id(contentArr[i % 5]);
-			//vo.setContent_id(54L);
-			vo.setContent("댓글 테스트 중ye " + i);
-			vo.setUserid("tjrwnsdud2@naver.com");
-			mapper.insert(vo);
-			log.info(vo);
-		});
-	}
-	
-	@Test
-	public void testRead() {
-		
-		Long targetCommentId = 1L;
-		
-		CommentVO vo = mapper.read(targetCommentId);
-		
-		log.info(vo);
-		
-	}
+//	@Test
+//	public void testCreate() {
+//		
+//		IntStream.rangeClosed(1, 5).forEach(i -> {
+//			
+//			CommentVO vo = new CommentVO();	
+//			vo.setContent_id(contentArr[i % 5]);
+//			//vo.setContent_id(54L);
+//			vo.setContent("댓글 테스트 중ye " + i);
+//			vo.setUserid("tjrwnsdud2@naver.com");
+//			mapper.insert(vo);
+//			log.info(vo);
+//		});
+//	}
+//	
+//	@Test
+//	public void testRead() {
+//		
+//		Long targetCommentId = 1L;
+//		
+//		CommentVO vo = mapper.read(targetCommentId);
+//		
+//		log.info(vo);
+//		
+//	}
 //	
 //	@Test
 //	public void testDelete() {
@@ -87,9 +87,9 @@ public class CommentMapperTests {
 	@Test
 	public void testList() {
 		
-		Criteria cri = new Criteria();
+		Criteria cri = new Criteria(2, 10);
 		// 
-		List<CommentVO> comments = mapper.getListWithPaging(cri, contentArr[0]);
+		List<CommentVO> comments = mapper.getListWithPaging(cri, 5L);
 		
 		comments.forEach(content -> log.info(content));
 	}
