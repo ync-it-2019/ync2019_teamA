@@ -19,8 +19,8 @@ public class ContentVO {
 	private String title;			//
 	private String content_intro;	//
 	private String userid;			//
-	private int hit;				//
-	private int like_cnt;			//
+	private Long hit;				//
+	private Long like_cnt;			//
 	
 	private Date reg_date;			//
 	private Date highlight;			//
@@ -28,10 +28,10 @@ public class ContentVO {
 	private String platform;		//
 	private String tag;				//
 	private String languages;		//
-	private int genre_id;			//
+	private Long genre_id;			//
 
 	private Date don_reg;			//
-	private int don_attainment;		//
+	private Long don_attainment;		//
 	
 	private String game_launch;		//
 	private String media1;			//
