@@ -170,7 +170,7 @@ to {
 
 
 				<!-- 슬라이드 쇼-->
-				<div class="slideshow-container">
+				
 					<div class="single video_agile_player">
 						<div data-video="IeLNqCrCtWs" id="video">
 							<img src="/resources/img/risk_main.jpg" alt=""
@@ -196,49 +196,41 @@ to {
 																  })();
 																</script> -->
 					</div>
-					<div style="text-align: center">
+					<div class="slideshow-container" style="text-align: center">
+					
 						<div class="mySlides fade">
-
-							<img src="/resources/img/risk1.jpg" width="1000px">
+							<img src="/resources/img/risk1.jpg" width="1000px"/>
 						</div>
 
 						<div class="mySlides fade">
 
-							<img src="/resources/img/risk2.jpg" width="1000px">
+							<img src="/resources/img/risk2.jpg" width="1000px"/>
 						</div>
 
 						<div class="mySlides fade">
 
-							<img src="/resources/img/risk3.jpg" width="1000px">
+							<img src="/resources/img/risk3.jpg" width="1000px"/>
 						</div>
 
 						<div class="mySlides fade">
 
-							<img src="/resources/img/risk4.jpg" width="1000px">
+							<img src="/resources/img/risk4.jpg" width="1000px"/>
 						</div>
 
-						<div class="mySlides fade">
 
-							<img src="/resources/img/risk5.jpg" width="1000px">
-						</div>
-
-						<div class="mySlides fade">
-
-							<img src="/resources/img/risk6.jpg" width="1000px">
-						</div>
-
-					</div>
+					
+				</div>
 					<br>
 					<div style="text-align: center">
-						<span class="dot"></span> <span class="dot"></span> <span
-							class="dot"></span> <span class="dot"></span> <span class="dot"></span>
-						<span class="dot"></span>
+						<span class="dot"></span> <span class="dot"></span> 
+						<span class="dot"></span> <span class="dot"></span> 
+					</div>
 					</div>
 					<div class="admin-text">
 
 						<h5>상세 내용</h5>
 						<div class="admin-text-left">
-							<a href="#"><img src="/resources/img/risk.png" alt=""></a>
+							<a href="#"><img src="/resources/img/risk4.jpg" width="250px"></a>
 						</div>
 						<div class="admin-text-right">
 							<p>고전 멀티플레이 로그류 게임인 Risk of Rain이 추가 차원과 도전적인 액션을 더해 돌아왔습니다.
@@ -257,83 +249,10 @@ to {
 						<h4>Comments</h4>
 						<hr>
 
-						<div class="media response-info">
-							<div class="media-left response-text-left">
-								<a href="#"> <img class="media-object"
-									src="/resources/img/mine_user.jpg" alt="">
-								</a>
-								<h5>
-									<a href="#">Admin</a>
-								</h5>
-							</div>
-							<div class="media-body response-text-right">
-								<p>왜 이게임의 평가가 압도적으로 긍정적인지 깨닫는데 오래걸린 1인이다ㅠ 1. 이 게임의 목적은 빠르게
-									맵을 탐색해서 아이템 상자의 위치를 파악하고, 몹을 잡아서 부지런히 돈을 모아서 하나하나 아이템 상자 까면서
-									아이템 부자로 달려가는 게임이다. 2. 초반에 맨몸뚱이일때는 더럽게 재미가 없다. 아이템 하나하나 늘어갈수록
-									재미도 쏘옥쏘옥 3. 아이템 적당히 모았으면 포탈 찾아서 열고, 포탈에서 기어나온 보스 잡으면 아이템도 주고 다음
-									스테이지로 넘어갈 수가 있다. 4. 아이템 종류가 너무 많아서 뭐가 좋은지 모른다면 이것만 명심해라 공속/크리티컬
-									요 두가지 아이템 위주로 파밍하면 졸쎄진다.</p>
-
-								<ul>
-									<li>October 15, 2016</li>
-									<li><a href="single.html"><i class="fa fa-content"
-											aria-hidden="true"></i> content</a></li>
-								</ul>
-
-								<div class="media response-info"
-									style="background-color: #d1c0c0; padding: 40px 0 50px 0px;">
-									<div class="media-left response-text-left">
-										<a href="#"> <img class="media-object"
-											src="/resources/img/mine_user.jpg" alt="">
-										</a>
-
-										<h5>
-											<a href="#">댓글맨</a>
-										</h5>
-									</div>
-
-									<div class="media-body response-text-right">
-										<p>1.한국어로 설정하고 멀티하면 겜초반에 99%확률로 멈추니 멀티할때는 영어로설정하면 안멈추고 잘
-											된다. 2.초반에는 구데기 템들이 많이뜨는데 어차피 후반으로 갈수록 공격과 생존에 직접적으로 영향을 미치는
-											템들이 많이 뜨므로 상자볼때마다 바로바로 열어서 템먹으면된다. 3.멀티시 보스잡으면 인원수x(1or2or3)의
-											초록템이 떨어지는데 자기 분수에 맞게 먹는걸 추천. 4.Luna는 겜시작할때마다 지급되는게 아니라, 플레이
-											도중 한개씩 (아주가끔) 드랍된다. 각잡고할려면 미리 솔플로 10개정도 쟁여두자. 5.게임을 할수록
-											로그라이크게임답게 초반의 지루함과 노템의 답답함이 배가된다. 6.위 사항을 몸소 느끼게되면 이젠 질려서 더이상
-											할 수 없는 몸이된다.
-										<ul>
-											<li>November 02, 2016</li>
-											<li><a href="single.html"><i class="fa fa-content"
-													aria-hidden="true"></i> content</a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="media response-info">
-						<div class="media-left response-text-left">
-							<a href="#"> <img class="media-object"
-								src="/resources/img/mine_user.jpg" alt="">
-							</a>
-							<h5>
-								<a href="#">Admin</a>
-							</h5>
-						</div>
-						<div class="media-body response-text-right">
-							<p>80시간 솔플만하고씀 사소한버그많음 캐릭들마다의 특성이 잘 구현 게임초반에 지겹고 초반템빨을 좀 많이받음
-								후반엔 침착하기만 하면 안죽을듯 좋은그래픽은아니지만 액션,슈팅 이펙트구현 ㅅㅌㅊ</p>
-							<ul>
-								<li>November 03, 2016</li>
-								<li><a href="single.html"><i class="fa fa-content"
-										aria-hidden="true"></i> content</a></li>
-							</ul>
-						</div>
+						
 
 						<div class="clearfix"></div>
-					</div>
+					
 				</div>
 <!-- 댓글 출력 부분 -->
 <div class='row'>
@@ -880,7 +799,7 @@ fit: true
 					dots[slideIndex-1].className += " active";
 					setTimeout(showSlides, 2000); // Change image every 2 seconds
 				}
-				</script>
+	</script>
 	<!-- 슬라이드 쇼를 위한  함수 -->
 	
 </body>
