@@ -6,6 +6,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -273,8 +276,8 @@ to {
 
 								<ul>
 									<li>October 15, 2016</li>
-									<li><a href="single.html"><i class="fa fa-reply"
-											aria-hidden="true"></i> Reply</a></li>
+									<li><a href="single.html"><i class="fa fa-content"
+											aria-hidden="true"></i> content</a></li>
 								</ul>
 
 								<div class="media response-info"
@@ -299,8 +302,8 @@ to {
 											할 수 없는 몸이된다.
 										<ul>
 											<li>November 02, 2016</li>
-											<li><a href="single.html"><i class="fa fa-reply"
-													aria-hidden="true"></i> Reply</a></li>
+											<li><a href="single.html"><i class="fa fa-content"
+													aria-hidden="true"></i> content</a></li>
 										</ul>
 									</div>
 									<div class="clearfix"></div>
@@ -324,48 +327,91 @@ to {
 								후반엔 침착하기만 하면 안죽을듯 좋은그래픽은아니지만 액션,슈팅 이펙트구현 ㅅㅌㅊ</p>
 							<ul>
 								<li>November 03, 2016</li>
-								<li><a href="single.html"><i class="fa fa-reply"
-										aria-hidden="true"></i> Reply</a></li>
+								<li><a href="single.html"><i class="fa fa-content"
+										aria-hidden="true"></i> content</a></li>
 							</ul>
 						</div>
 
 						<div class="clearfix"></div>
 					</div>
 				</div>
-				<!-- 댓글 출력 부분 -->
-				<div class='row'>
+<!-- 댓글 출력 부분 -->
+<div class='row'>
 
-					<div class="col-lg-12">
+   <div class="col-lg-12">
 
-						<!-- /.panel -->
-						<div class="panel panel-default">
+      <!-- /.panel -->
+      <div class="panel panel-default">
 
-							<div class="panel-heading">
-								<i class="fa fa-comments fa-fw"></i> Reply
-								<sec:authorize access="isAuthenticated()">
-									<button id='addReplyBtn'
-										class='btn btn-primary btn-xs pull-right'>New Reply</button>
-								</sec:authorize>
-							</div>
-
-
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-
-								<!-- 댓글 목록 출력 부분 -->
-								<ul class="chat">
-
-								</ul>
-								<!-- ./ end ul -->
-							</div>
-							<!-- /.panel .chat-panel -->
-
-							<div class="panel-footer"></div>
+         <div class="panel-heading">
+            <i class="fa fa-comments fa-fw"></i> Reply
+           	<%-- <sec:authorize access="isAuthenticated()"> --%>
+	        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
+        	<%-- </sec:authorize> --%>
+         </div>
 
 
-						</div>
-					</div>
-				</div>
+         <!-- /.panel-heading -->
+         <div class="panel-body">
+
+            <!-- 댓글 목록 출력 부분 -->
+            <ul class="chat">
+
+            </ul>
+            <!-- ./ end ul -->
+         </div>
+         <!-- /.panel .chat-panel -->
+
+         <div class="panel-footer"></div>
+
+
+      </div>
+   </div>
+   <!-- ./ end row -->
+</div>
+<!-- 댓글 출력 부분 -->
+				
+				<!-- 댓글 Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+         </div>
+         <div class="modal-body">
+            <div class="form-group">
+               <label>Content</label> <input class="form-control" name='content'
+                  value='New Reply!!!!'>
+            </div>
+            <div class="form-group">
+               <label>Userid</label> <input class="form-control" name='userid'
+                  value='userid'>
+            </div>
+            <div class="form-group">
+               <label>Reg_Date</label> <input class="form-control"
+                  name='reg_date' value='2018-01-01 13:13'>
+            </div>
+         </div>
+         
+         
+         <div class="modal-footer">
+         
+            <button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
+            <button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
+            <button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
+            <button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
+         </div>
+      </div>
+      <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
+</div>
+<!-- /댓글 modal -->
+
+
 			</div>
 		</div>
 
@@ -381,7 +427,221 @@ to {
 	<a href="#home" id="toTop" class="scroll" style="display: block;">
 		<span id="toTopHover" style="opacity: 1;"> </span>
 	</a>
+	
+	<!-- 댓글 출력 script -->
+	<script type="text/javascript" src="/resources/js/reply.js?v=1"></script>
+	
+	<!-- 댓글 기능 관련 script -->
+<script type="text/javascript">
+$(document).ready(function() {
+   
+   var bnoValue = '<c:out value="${board.content_id}"/>';
+   var replyUL = $(".chat");
+     
+   showList(1);
+   
+   // 댓글 목록을 출력하는 함수
+   function showList(page){
+      
+      // console.log("show list " + page);
+       
+      commentService.getList({content_id:bnoValue, page: page|| 1 }, function(list) {
+         
+          // console.log("replyCnt: "+ replyCnt );
+          console.log("list: " + list);
+          console.log(list);
+          
+          /* 
+         if(page == -1){
+            pageNum = Math.ceil(replyCnt/10.0);
+            showList(pageNum);
+            return;
+         }
+          */
+          
+         var str="";
+        
+         if(list == null || list.length == 0){
+            replyUL.html("");
+            return;
+         }
+        
+         for (var i = 0, len = list.length || 0; i < len; i++) {
+            str +="<li class='' data-comment_id='"+list[i].comment_id+"'>";
+            str +="  <div><div class='header'><strong class='primary-font'>["
+               + list[i].comment_id+"] "+list[i].userid+"</strong>"; 
+            str +="    <small class='pull-right text-muted'>"
+               + commentService.displayTime(list[i].reg_date)+"</small></div>";
+            str +="    <p>"+list[i].content+"</p></div></li>";
+         }
+        
+         replyUL.html(str);
+        
+         //showReplyPage(replyCnt);
 
+    
+      });//end function
+        
+   }//end showList
+   
+   /* 댓글 modal 창 동작 부분*/
+   var modal = $(".modal");
+    var modalInputContent = modal.find("input[name='content']");
+    var modalInputUserid = modal.find("input[name='userid']");
+    var modalInputReg_Date = modal.find("input[name='reg_date']");
+    var modalModBtn = $("#modalModBtn");
+    var modalRemoveBtn = $("#modalRemoveBtn");
+    var modalRegisterBtn = $("#modalRegisterBtn");
+    
+ // 댓글 인증 부분 추가(사용자 이름 넣어준다)
+	var userid = null;
+    
+	/* <sec:authorize access="isAuthenticated()"> */
+		userid = '<sec:authentication property="principal.username"/>';   
+	/* </sec:authorize> */
+	
+	var csrfHeaderName ="${_csrf.headerName}"; 
+	var csrfTokenValue="${_csrf.token}";
+    
+    $("#modalCloseBtn").on("click", function(e){
+       modal.modal('hide');
+    });
+    
+    $("#addReplyBtn").on("click", function(e){
+      modal.find("input").val("");
+   	  // 댓글 등록 버튼 부분에 추가
+  	  modal.find("input[name='userid']").val(userid);
+   	  
+      modalInputReg_Date.closest("div").hide();
+      modalInputUserid.closest("div").hide();
+      modalInputUserid.attr("readonly","readonly");
+      modal.find("button[id !='modalCloseBtn']").hide();
+      
+      modalRegisterBtn.show();
+      $(".modal").modal("show");
+    });
+    
+	// Ajax Spring Security Header
+    $(document).ajaxSend(function(e, xhr, options) { 
+		xhr.setRequestHeader(csrfHeaderName, csrfTokenValue); 
+	});
+    
+    // 댓글 등록
+   modalRegisterBtn.on("click",function(e){
+      
+      var content = {
+         	content: modalInputContent.val(),
+            userid:modalInputUserid.val(),
+            content_id:bnoValue
+      };
+      
+      commentService.add(content, function(result){
+        
+        alert(result);
+        
+        modal.find("input").val("");
+        modal.modal("hide");
+        
+        showList(1);
+        //showList(-1);
+        
+      });
+      
+    });
+   //댓글 조회 클릭 이벤트 처리 
+    $(".chat").on("click", "li", function(e){
+      
+      var comment_id = $(this).data("comment_id");
+      console.log(comment_id);
+      
+      commentService.get(comment_id, function(content){
+    	  
+    	 modalInputUserid.closest("div").show();
+         modalInputContent.val(content.content);
+         modalInputUserid.val(content.userid).attr("readonly","readonly");
+         modalInputReg_Date.val(commentService.displayTime(content.reg_date)).attr("readonly","readonly");
+         modal.data("comment_id", content.comment_id);
+         
+         
+         modal.find("button[id !='modalCloseBtn']").hide();
+         modalModBtn.show();
+         modalRemoveBtn.show();
+         
+         $(".modal").modal("show");
+      });
+   });
+   
+   // 댓글 수정 이벤트
+   // 댓글 수정 이벤트. security 적용 후
+	modalModBtn.on("click", function(e){
+		
+		var originalUserid = modalInputUserid.val();
+		
+		var content = {
+				comment_id:modal.data("comment_id"), 
+				content: modalInputContent.val(),
+				userid: originalUserid
+				};
+	  
+		if(!userid){
+			alert("로그인후 수정이 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+
+		console.log("Original Userid: " + originalUserid);
+		
+		if(userid !== originalUserid){
+			alert("자신이 작성한 댓글만 수정이 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+		  
+		commentService.update(content, function(result){
+			alert(result);
+			modal.modal("hide");
+			showList(1);
+		});
+	});
+
+    // 댓글 삭제 이벤트
+	// 댓글 삭제 부분. security 적용 후
+	modalRemoveBtn.on("click", function (e){
+	  	  
+		var comment_id = modal.data("comment_id");
+
+		console.log("COMMENT_ID: " + comment_id);
+		console.log("USERID: " + userid);
+	   	  
+		if(!userid){
+			alert("로그인후 삭제가 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+	   	  
+		var originalUserid = modalInputUserid.val();
+	   	  
+		console.log("Original Userid: " + originalUserid);
+	   	  
+		if(userid !== originalUserid){
+	   		  
+			alert("자신이 작성한 댓글만 삭제가 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+	   	  
+		commentService.remove(comment_id, originalUserid, function(result){
+	   	        
+			alert(result);
+			modal.modal("hide");
+			showList(1);
+		});
+	});
+   
+   
+});
+</script>
+	
 	<script src="/resources/js/jquery-1.11.1.min.js"></script>
 	<!-- Dropdown-Menu-JavaScript -->
 	<script>
@@ -450,15 +710,7 @@ to {
 		type="text/javascript"></script>
 	<!--//pop-up-box -->
 
-	<div id="small-dialog1" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/123033591" width="640"
-			height="360" frameborder="0" allow="autoplay; fullscreen"
-			allowfullscreen></iframe>
-	</div>
-	<div id="small-dialog2" class="mfp-hide">
-		<iframe
-			src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
-	</div>
+	
 	<script>
 		$(document).ready(function() {
 		$('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
@@ -571,5 +823,6 @@ fit: true
 				}
 				</script>
 	<!-- 슬라이드 쇼를 위한  함수 -->
+	
 </body>
 </html>

@@ -54,13 +54,13 @@ private CommentService service;
 	}
 	
 	//특정 게시물의 댓글 확인
-	@GetMapping(value = "/pages/{content_id}/{page}",
+	@GetMapping(value = "/pages/{contentid}/{page}",
 			produces = {
 					MediaType.APPLICATION_XML_VALUE,
 					MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public ResponseEntity<List<CommentVO>> getList(
 			@PathVariable("page") int page,
-			@PathVariable("content_id") Long content_id) {
+			@PathVariable("contentid") Long content_id) {
 		
 		log.info("getList........");
 		Criteria cri = new Criteria(page, 10);
@@ -71,7 +71,7 @@ private CommentService service;
 		}
 	
 	//삭제
-	@GetMapping(value = "/{rno}",
+	@GetMapping(value = "/{comment_id}",
 			produces = {
 					MediaType.APPLICATION_XML_VALUE,
 					MediaType.APPLICATION_JSON_UTF8_VALUE })
