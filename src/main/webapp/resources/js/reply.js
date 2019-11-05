@@ -32,21 +32,21 @@ var commentService = (function() {
 	}
 	
 	// 댓글 목록
-	function getList(param, callback, error) {
-		console.log("getList comment..............");
-		
-		var content_id = param.content_id;
-		var page = param.page || 1; // param.page 가 null 이면 1로 설정 
-		
-		$.getJSON("/replies/pages/" + content_id + "/" + page + ".json", function(data) {
-			if (callback) {
-				callback(data);
-			}
-		}).fail(function(xhr, status, err) {
-			if (error) {
-				error(xhr.responseText, xhr.status);
-			}
-		});
+//	function getList(param, callback, error) {
+//		console.log("getList comment..............");
+//		
+//		var content_id = param.content_id;
+//		var page = param.page || 1; // param.page 가 null 이면 1로 설정 
+//		
+//		$.getJSON("/replies/pages/" + content_id + "/" + page + ".json", function(data) {
+//			if (callback) {
+//				callback(data);
+//			}
+//		}).fail(function(xhr, status, err) {
+//			if (error) {
+//				error(xhr.responseText, xhr.status);
+//			}
+//		});
 		
 		/*
 		// getJSON을 ajax로 적용한것 1
@@ -86,26 +86,26 @@ var commentService = (function() {
 			}
 		});
 		*/
-	}
+//	}
 	
 	// 댓글 목록 (댓글 숫자와 목록을 가져오는 경우)
-//	function getList(param, callback, error) {
-//
-//	    var bno = param.bno;
-//	    var page = param.page || 1;
-//	    
-//	    $.getJSON("/replies/pages/" + bno + "/" + page + ".json",
-//	    	function(data) {
-//	    		if (callback) {
-//	    			//callback(data); // 댓글 목록만 가져오는 경우 
-//	    			callback(data.replyCnt, data.list); //댓글 숫자와 목록을 가져오는 경우 
-//	    		}
-//	    	}).fail(function(xhr, status, err) {
-//	    		if (error) {
-//	    			error();
-//	    		}
-//	    	});
-//	}
+	function getList(param, callback, error) {
+
+	    var content_id = param.content_id;
+	    var page = param.page || 1;
+	    
+	    $.getJSON("/replies/pages/" + content_id + "/" + page + ".json",
+	    	function(data) {
+	    		if (callback) {
+	    			//callback(data); // 댓글 목록만 가져오는 경우 
+	    			callback(data.replyCnt, data.list); //댓글 숫자와 목록을 가져오는 경우 
+	    		}
+	    	}).fail(function(xhr, status, err) {
+	    		if (error) {
+	    			error();
+	    		}
+	    	});
+	}
 
 	// 댓글 삭제
 	/*

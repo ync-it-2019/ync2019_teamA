@@ -25,5 +25,7 @@ public interface CommentMapper {
 	public List<CommentVO> getListWithPaging(
 			@Param("cri") Criteria cri,
 			@Param("content_id") Long content_id);
+	
+	public int getCountByBno(Long content_id);
 }
 

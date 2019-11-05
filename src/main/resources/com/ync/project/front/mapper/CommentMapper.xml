@@ -44,16 +44,33 @@
 	
 	<select id = "getListWithPaging"
 		resultType="com.ync.project.domain.CommentVO">
-		
+		<![CDATA[
 		SELECT 	comment_id,
 		 		content_id,
 			  	userid,
 			  	reg_date,
 			  	content
-		FROM 	teamacomment
-		WHERE 	content_id = #{content_id}
-		ORDER 	BY comment_id DESC
-		
+		FROM 	(
+				SELECT /*+index(teamacomment xpkteamacommnet */
+				 rownum rn,
+				 comment_id,
+				 content_id,
+				 userid,
+				 reg_date,
+				 content
+				FROM teamacomment
+				WHERE 	content_id = #{content_id}
+				AND	 rownum <= #{cri.pageNum} * #{cri.amount}
+			   ) WHERE rn > (#{cri.pageNum} -1) * #{cri.amount}
+		]]>
+	</select>
+	
+	<select id="getCountByBno" resultType="int">
+	<![CDATA[
+	SELECT COUNT(comment_id)
+	FROM   teamacomment
+	WHERE  content_id = #{content_id}
+	]]>
 	</select>
 	
 </mapper>

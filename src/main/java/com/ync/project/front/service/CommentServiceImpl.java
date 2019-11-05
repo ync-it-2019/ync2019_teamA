@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ync.project.domain.CommentPageDTO;
 import com.ync.project.domain.CommentVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.front.mapper.CommentMapper;
@@ -73,6 +74,14 @@ import lombok.extern.log4j.Log4j;
 			log.info("get Reply List of ad Board" + content_id);
 			
 			return mapper.getListWithPaging(cri, content_id);
+		}
+
+		@Override
+		public CommentPageDTO getListPage(Criteria cri, Long content_id) {
+			// TODO Auto-generated method stub
+			return new CommentPageDTO(
+					mapper.getCountByBno(content_id),
+					mapper.getListWithPaging(cri, content_id));
 		}
 		
 	}

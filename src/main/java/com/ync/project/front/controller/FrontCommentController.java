@@ -1,7 +1,5 @@
 package com.ync.project.front.controller;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ync.project.domain.CommentPageDTO;
 import com.ync.project.domain.CommentVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.front.service.CommentService;
@@ -58,15 +57,18 @@ private CommentService service;
 			produces = {
 					MediaType.APPLICATION_XML_VALUE,
 					MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<CommentVO>> getList(
+	public ResponseEntity<CommentPageDTO> getList(
 			@PathVariable("page") int page,
 			@PathVariable("contentid") Long content_id) {
 		
 		log.info("getList........");
 		Criteria cri = new Criteria(page, 10);
+		
+		log.info("get Reply List bno: " + content_id);
+		
 		log.info(cri);
 		
-		return new ResponseEntity<>(service.getList(cri, content_id), HttpStatus.OK);
+		return new ResponseEntity<>(service.getListPage(cri, content_id), HttpStatus.OK);
 		
 		}
 	
