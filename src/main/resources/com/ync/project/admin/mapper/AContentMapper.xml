@@ -189,4 +189,9 @@
   			WHERE rn > (#{pageNum} -1) * #{amount}   
 		]]>
 	</select>
+	
+	<delete id="delete">
+		DELETE	FROM	teamacreatercontent
+				WHERE	content_id = #{content_id}
+	</delete>
 </mapper>

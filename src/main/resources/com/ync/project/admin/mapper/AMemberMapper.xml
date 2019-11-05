@@ -210,4 +210,9 @@
   			WHERE rn > (#{pageNum} -1) * #{amount}   
 		]]>
 	</select>
+	
+	<delete id="delete">
+		DELETE	FROM	teamamember
+				WHERE	userid = #{userid}
+	</delete>
 </mapper>
