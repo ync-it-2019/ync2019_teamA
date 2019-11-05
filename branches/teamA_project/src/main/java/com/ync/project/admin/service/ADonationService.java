@@ -17,7 +17,7 @@ public interface ADonationService {
 	public boolean modify(DonationVO donation);
 	
 	// 후원 삭제
-	public boolean remove(String userid);
+	public boolean remove(String userid, String content_id);
 	
 	// 전체 후원 목록
 	public List<DonationVO> getList();

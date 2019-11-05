@@ -44,11 +44,11 @@ public class ADonationServiceImpl implements ADonationService {
 	};
 	
 	// 후원 삭제
-	public boolean remove(String userid) {
+	public boolean remove(String userid, String content_id) {
 
-		log.info("remove......" + userid);
+		log.info("remove......" + userid + ", " + content_id);
 		
-		return mapper.delete(userid) == 1;
+		return mapper.delete(userid, content_id) == 1;
 	};
 	
 	// 전체 후원 목록

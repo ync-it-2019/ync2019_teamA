@@ -150,4 +150,10 @@
   			WHERE rn > (#{pageNum} -1) * #{amount}   
 		]]>
 	</select>
+	
+	<delete id="delete">
+		DELETE	FROM	teamadonation
+				WHERE	userid = #{userid}
+				AND		content_id = #{content_id}
+	</delete>
 </mapper>

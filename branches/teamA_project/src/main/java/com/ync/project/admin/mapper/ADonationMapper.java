@@ -16,7 +16,7 @@ public interface ADonationMapper {
 	
 	public List<DonationVO> getListWithPaging(Criteria cri);	//후원 페이징
 
-	public int delete(String userid);							//후원 탈퇴/삭제
+	public int delete(String userid, String Content_id);							//후원 탈퇴/삭제
 
 	public int update(DonationVO donation); 					//후원정보 수정
 
