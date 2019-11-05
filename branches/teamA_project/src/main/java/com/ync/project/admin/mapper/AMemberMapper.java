@@ -14,13 +14,19 @@ public interface AMemberMapper {
 	
 	public List<MemberVO> getListWithPaging(Criteria cri);	//멤버 페이징
 
-	public int delete(String userid);							//회원 탈퇴/삭제
+	public int delete(String userid);						//회원 탈퇴/삭제
 
 	public int update(MemberVO member); 					//회원정보 수정
 
 	public int getTotalCount(Criteria cri);					//멤버 전체 수
 	
-	public void insert(MemberVO member); //회원추가
+	public void insert(MemberVO member); 					//회원추가
+	
+	
+	public int getTotalCreater(Criteria cri);				//창작자수 리턴
+
+	public int getActiveUser(Criteria cri);					//활동중인 유저 수 리턴
+	
 
 	public List<GDonationVO> getGetDonation(Criteria cri);	//후원받은 금액
 

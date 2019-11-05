@@ -81,8 +81,20 @@ public class AMemberServiceImpl implements AMemberService {
 	public List<GDonationVO> getGiveDonation(Criteria cri) {
 		log.info("get total give donations");
 		return mapper.getGiveDonation(cri);
+	}
+
+	@Override
+	public int getTotalCreater(Criteria cri) {
+		log.info("get total Creaters......");
+		return mapper.getTotalCreater(cri);
 	};
 
+	@Override
+	public int getActiveUser(Criteria cri) {
+		log.info("get Activate Users......");
+		return mapper.getActiveUser(cri);
+	};
+	
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 }

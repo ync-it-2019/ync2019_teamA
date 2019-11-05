@@ -4,8 +4,9 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,31 +98,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<tbody>
 							<tr>
 								<th scope="col">총 유저 수</th>
-								<td>50000</td>
+								<td><fmt:formatNumber value="${mTotal }" type="number"/></td>
 							</tr>
 							<tr>
 								<th scope="col">현 활동 유저 수</th>
-								<td>50000</td>
+								<td><fmt:formatNumber value="${cntActiveUser }" type="number"/></td>
 							</tr>
 							<tr>
 								<th scope="col">현 창작자 수</th>
-								<td>50000</td>
+								<td><fmt:formatNumber value="${cntCreater }" type="number"/></td>
 							</tr>
 							<tr>
-								<th scope="col">현 게임 등록 수</th>
-								<td>50000</td>
+								<th scope="col">현 컨텐츠 등록 수</th>
+								<td><fmt:formatNumber value="${cTotal }" type="number"/></td>
 							</tr>
 							<tr>
 								<th scope="col">총 후원금액</th>
-								<td>50000</td>
+								<td><fmt:formatNumber value="${totalDon}" type="number"/></td>
 							</tr>
 							<tr>
 								<th scope="col">창작자가 받은 후원 금액</th>
-								<td>5000000</td>
+								<td><fmt:formatNumber value="${cGD }" type="number"/></td>
 							</tr>
 							<tr>
 								<th scope="col">순이익</th>
-								<td>5000000</td>
+								<td><fmt:formatNumber value="${totalDon * 0.9 }" type="number"/></td>
 							</tr>
 						</tbody>
 					</table>

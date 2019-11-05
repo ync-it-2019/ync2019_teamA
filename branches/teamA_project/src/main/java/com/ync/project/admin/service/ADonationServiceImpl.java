@@ -83,6 +83,18 @@ public class ADonationServiceImpl implements ADonationService {
 		return mapper.getGiveDonation(cri);
 	}
 
+	@Override
+	public int getTotalDonation() {
+		log.info("get Total Donation Costs...");
+		return mapper.getTotalDonation();
+	}
+	
+	@Override
+	public int creatersGetDonation() {
+		log.info("Creaters Get Donation Costs...");
+		return mapper.creatersGetDonation();
+	}
+
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 }
