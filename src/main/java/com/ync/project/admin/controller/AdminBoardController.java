@@ -2,14 +2,16 @@ package com.ync.project.admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.ui.Model;
 
+import com.ync.project.admin.service.AContentService;
+import com.ync.project.admin.service.AEventService;
+import com.ync.project.admin.service.AGenreService;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.PageDTO;
 import com.ync.project.front.service.NoticeService;
-import com.ync.project.admin.service.AEventService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -24,8 +26,13 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/admin/*")
 public class AdminBoardController {
 	@Autowired
-	private NoticeService nservice;
-	private AEventService eservice;
+	private NoticeService nService;
+	@Autowired
+	private AEventService eService;
+	@Autowired
+	private AContentService cService;
+	@Autowired
+	private AGenreService gService;
 	
 	 /**
 	  * @Method 설명 : 관리자 게시물 관리 content_acontent.jsp 호출
@@ -65,20 +72,17 @@ public class AdminBoardController {
 	  * @return
 	  */
 	@GetMapping(value = "/content_management")
-	public String content_management() {//Criteria cri, Model model) {
-		
-//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+	public void content_management(Criteria cri, Model model) {
 
-//		int total = nservice.getTotal(cri);
-//		
-//		log.info("list:11111 " + cri);
-//		log.info("total:1111 " + total);
-//		model.addAttribute("list", eservice.getListWithPaging(cri));
-//		model.addAttribute("pageMaker", new PageDTO(cri, total));
-		
+		int total = cService.getTotal(cri);
+
 		log.info("Welcome Content Management!");
-	
-		return "admin/content_management";
+		log.info("Content Lists......\n" + cri + "\n#<--//end Content Lists +-+-+-+-+-+-+-+-+-+-+-//-->");
+		log.info("Total Value = " + total + "\n#<--//end Total Value +-+-+-+-+-+-+-+-+-+-+-//-->");
+		
+		model.addAttribute("content_list", cService.getListWithPaging(cri));
+		model.addAttribute("genre_list", gService.getList());
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
 	 /**
@@ -96,3 +100,8 @@ public class AdminBoardController {
 		return "admin/content_upload";
 	}
 }
+
+
+//INSERT INTO teamagenre(*)
+//VALUES(	"2",
+//	"early access");

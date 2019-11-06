@@ -5,6 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,53 +26,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             window.scrollTo(0, 1);
         }
     </script>
-   <!-- //Meta Tags -->
+   	<!-- //Meta Tags -->
 
-  <!-- Style-sheets -->
-  <!-- Button Style-->
-  <link rel="stylesheet" type="text/css" href="/resources/css/style-refund(button).css" />
+  	<!-- Style-sheets -->
+  	<!-- Button Style-->
+  	<link rel="stylesheet" type="text/css" href="/resources/css/style-refund(button).css" />
 
-  <!-- Bootstrap Css -->
-  <link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
-  <!-- Bootstrap Css -->
-  <!-- Bars Css -->
-  <link rel="stylesheet" href="/resources/css/bar-admin.css">
-  <!--// Bars Css -->
-  <!-- Common Css -->
-  <link rel="stylesheet" type="text/css" media="all" href="/resources/css/style-admin.css"/>
-  <!--// Common Css -->
-  <!-- Nav Css -->
-  <link rel="stylesheet" href="/resources/css/style4-admin.css">
-  <!--// Nav Css -->
-  <!-- Fontawesome Css -->
-  <link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
-  <!--// Fontawesome Css -->
-  <!--// Style-sheets -->
+  	<!-- Bootstrap Css -->
+  	<link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
+  	<!-- Bootstrap Css -->
+  	<!-- Bars Css -->
+  	<link rel="stylesheet" href="/resources/css/bar-admin.css">
+  	<!--// Bars Css -->
+  	<!-- Common Css -->
+  	<link rel="stylesheet" type="text/css" media="all" href="/resources/css/style-admin.css"/>
+  	<!--// Common Css -->
+  	<!-- Nav Css -->
+  	<link rel="stylesheet" href="/resources/css/style4-admin.css">
+  	<!--// Nav Css -->
+  	<!-- Fontawesome Css -->
+  	<link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
+  	<!--// Fontawesome Css -->
+  	<!--// Style-sheets -->
 
-  <!--web-fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <!--//web-fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap" rel="stylesheet">
-  <!-- 폰트 링크 -->
-
-
+  	<!--web-fonts-->
+  	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  	<!--//web-fonts-->
+  	<link href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap" rel="stylesheet">
+	<!-- 폰트 링크 -->
+  
+	<!-- 서약서 style -->
+	<style>
+  		.wpcf7-form p input {width:100%;}
+  		.wpcf7-form .wpcf7-textarea {width:100% !important; font-size:13px;}
+  		.wpcf7-form .terms { padding: 30px 10px;background-color: #f6f6ee;margin-bottom: 30px;}
+  		.wpcf7-form .terms .terms-title {text-align:center;margin-bottom:20px;}
+  		.wpcf7-form .terms .terms-checkbox {margin-top:10px; text-align:center;}
+  		.wpcf7-form .terms .wpcf7-not-valid-tip { width:146px; top:24px !important; right:-28px !important;}
+  		.wpcf7-form .terms ol {margin-left:20px;}
+  	</style>
+    <!-- //서약서 style -->
 </head>
 
 <body>
-    <div class="wrapper">
-     <jsp:include page="/WEB-INF/views/include/side_bar-admin.jsp"></jsp:include>
+	<div class="wrapper">
+    	<jsp:include page="/WEB-INF/views/include/side_bar-admin.jsp"></jsp:include>
         <!-- Page Content Holder -->
         <div id="content">
             <!-- top-bar -->
             <jsp:include page="/WEB-INF/views/include/header-for_admin.jsp"></jsp:include>
             <!--// top-bar -->
 
-            <!-- main-heading -->
-
-            <!--// main-heading -->
-
-            <!-- Grids Content -->
+        	<!-- Grids Content -->
             <section class="grids-section bd-content">
 
                 <!-- Grids Info -->
@@ -78,118 +86,83 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h4>게시물 > 업로드 컨텐츠 관리</h4>
                 </div>
 
+    			<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
+    				<h4 class="tittle-w3-agileits mb-4">업로드 컨텐츠 관리</h4>
+      				<table class="table">
 
-    	<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
-    	<h4 class="tittle-w3-agileits mb-4">업로드 컨텐츠 관리</h4>
-      <table class="table">
+        				<thead>
+          					<tr>
+            					<th>No.</th>
+            					<th>게임 이름</th>
+            					<th>게임 장르</th>
+            					<th>업로드 날짜</th>
+            					<th>삭제</th>
+          					</tr>
+        				</thead>
 
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>게임 이름</th>
-            <th>게임 장르</th>
-            <th>업로드 날짜</th>
-            <th>삭제</th>
-          </tr>
-        </thead>
+						<c:forEach items="${content_list }" var="cList" varStatus="cLVar">
+          					<tr class="active">
+          						<th scope="row"><c:out value="${cList.content_id }"/></th>
+            					<td style = 	"cursor:pointer;" 
+            									onClick = " location.href='index.html' " 
+            									onMouseOver = " window.status = 'index.html' " 
+            									onMouseOut = " window.status = '' ">
+            						<c:out value="${cList.title }"/>
+            					</td>
+            					<td>
+            						<c:forEach items="${genre_list }" var="gList" varStatus="gLVar">
+            							<choose>
+            								<c:if test="${cList.genre_id eq gList.genre_id }">
+            									${gList.genre_name }
+            								</c:if>
+            							</choose>
+            						</c:forEach>
+            					</td>
+            					<td>
+            						<fmt:formatDate value="${cList.reg_date }" pattern="YYYY.MM.dd"
+            										type="date" var="cLreg_date"/>
+            						<input type="text" readonly value="${cLreg_date }"/>
+            					</td>
+            					<td>
+            						<button id='modalRemoveBtn' type="button" class="btn btn-danger"
+                       							value="" onclick='alert("삭제되었습니다.")'>
+                       					삭제
+                       				</button>
+                       			</td>
+          					</tr>
+						</c:forEach>
+      				</table>
+				<!--  Pagination 시작 -->
+  				<script src="/resources/js/bootstrap.js"></script>
+				<div class='pull-right'>
+					<ul class="pagination">
+					
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
 
-          <tr class="active">
-            <th scope="row">1</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">Risk of rain2</td>
-            <td>얼리 억세스</td>
-            <td><input type="text"/></td>
-            <td>  <input type="button"
-                       value="삭제"
-                       onclick=alert("삭제되었습니다.")></td>
-          </tr>
+						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
 
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+						</c:if>
 
-          <tr>
-            <th scope="row">2</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">ori and the Blind Forest </td>
-            <td>플랫 포머</td>
-          <td><input type="text"/></td>
-          <td>  <input type="button"
-                     value="삭제"
-                     onclick=alert("삭제되었습니다.")></td>
-
-
-          </tr>
-          <tr class="success">
-            <th scope="row">3</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">isaac</td>
-            <td>액션, 어드벤쳐</td>
-            <td><input type="text"/></td>
-            <td>  <input type="button"
-                       value="삭제"
-                       onclick=alert("삭제되었습니다.")></td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">Stellar Fox</td>
-            <td>퍼즐</td>
-          <td><input type="text"/></td>
-          <td>  <input type="button"
-                     value="삭제"
-                     onclick=alert("삭제되었습니다.")></td>
-          </tr>
-          <tr class="info">
-            <th scope="row">5</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">After the end</td>
-            <td>퍼즐</td>
-          <td><input type="text"/></td>
-          <td>  <input type="button"
-                     value="삭제"
-                     onclick=alert("삭제되었습니다.")></td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">DeadCells</td>
-            <td>액션</td>
-            <td><input type="text"/></td>
-            <td>  <input type="button"
-                       value="삭제"
-                       onclick=alert("삭제되었습니다.")></td>
-          </tr>
-          <tr class="warning">
-            <th scope="row">7</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">선리스 스키즈</td>
-            <td>어드벤쳐</td>
-            <td><input type="text"/></td>
-            <td>  <input type="button"
-                       value="삭제"
-                       onclick=alert("삭제되었습니다.")></td>
-          </tr>
-          <tr>
-            <th scope="row">8</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">텍스터 시스트</td>
-            <td>어드벤쳐</td>
-            <td><input type="text"/></td>
-            <td>  <input type="button"
-                       value="삭제"
-                       onclick=alert("삭제되었습니다.")></td>
-          </tr>
-          <tr class="danger">
-            <th scope="row">9</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">아일랜더즈</td>
-            <td>퍼즐</td>
-          <td><input type="text"/></td>
-          <td>  <input type="button"
-                     value="삭제"
-                     onclick=alert("삭제되었습니다.")></td>
-          </tr>
-      </table>
-     </div>
+					</ul>
+				</div>
+				<!--  Pagination 끝 -->
+				<!-- Form 시작 -->
+				<form id='actionForm' action="member_info" method='get'>
+				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+				</form>
+				<!-- Form 끝 -->
+     			</div>
             <!--// Grids Info -->
+            </section>
             <!--// Grids Content -->
 
             <!-- Copyright -->
@@ -237,17 +210,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Js for bootstrap working-->
     <script src="/resources/js/bootstrap.min.js"></script>
     <!-- //Js for bootstrap working -->
-    <!-- 서약서 style -->
-    <style>
-  .wpcf7-form p input {width:100%;}
-  .wpcf7-form .wpcf7-textarea {width:100% !important; font-size:13px;}
-  .wpcf7-form .terms { padding: 30px 10px;background-color: #f6f6ee;margin-bottom: 30px;}
-  .wpcf7-form .terms .terms-title {text-align:center;margin-bottom:20px;}
-  .wpcf7-form .terms .terms-checkbox {margin-top:10px; text-align:center;}
-  .wpcf7-form .terms .wpcf7-not-valid-tip { width:146px; top:24px !important; right:-28px !important;}
-  .wpcf7-form .terms ol {margin-left:20px;}
-  </style>
 
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var result = '<c:out value="${result}"/>';
+		
+		checkModal(result);
+
+		history.replaceState({}, null, null);
+
+		function checkModal(result) {
+
+			if (result === '' || history.state) {
+				return;
+			}
+
+			if (parseInt(result) > 0) {
+				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+			}
+
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location = "/board/register";
+		});
+		
+		var actionForm = $("#actionForm");
+
+		// 페이지 번호 클릭 이벤트
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			// console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		// 상세보기 클릭 이벤트
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input name='userid' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/admin/member_info_detail");
+			actionForm.submit();
+		});
+		
+
+		// 삭제 이벤트
+		$("button[data-oper='cList']").on("click", function(e){
+	    
+			operForm.find("#content_id").remove();
+			/* operForm.attr("action","/board/list") */
+			operForm.submit();
+	    
+		});
+		
+	});
+	</script>
 
 </body>
 
