@@ -156,7 +156,7 @@
 			$(document).ready(function() {
 				alert("로그아웃하였습니다.");
 			});
-			location.href='/front/index';
+			location.href='/';
 		</script>
 	</c:if>
 </body>
