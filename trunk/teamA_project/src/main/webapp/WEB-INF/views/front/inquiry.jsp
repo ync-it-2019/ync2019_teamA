@@ -68,6 +68,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 	<!--//content-inner-section-->
+	<div>
+		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp"
+			flush="false" />
+	</div>
 </body>
 
 </html>

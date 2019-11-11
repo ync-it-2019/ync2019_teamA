@@ -1167,13 +1167,14 @@ a.btn.more {
 	padding: 0.74rem;
 	vertical-align: top;
 	border-top: 1px solid #dee2e6;
-	font-size: 13px;
+	font-size: 16px;
 }
 
 .table th {
 	color: #252525;
 	font-size: 15px;
 }
+
 
 .table-responsive {
 	display: block;

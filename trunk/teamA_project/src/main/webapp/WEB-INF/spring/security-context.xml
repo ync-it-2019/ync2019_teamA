@@ -6,17 +6,18 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- 인증관련 빈 설정 -->
-	<bean id="customAccessDenied" class="com.ync.project.security.CustomAccessDeniedHandler"></bean>
+	<bean id="customLoginSuccess" class="com.ync.project.security.CustomLoginSuccessHandler"></bean>
+ 	<bean id="customAccessDenied" class="com.ync.project.security.CustomAccessDeniedHandler"></bean>
 	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	<bean id="customUserDetailsService"	class="com.ync.project.security.CustomUserDetailsService"></bean>
 	
 	<security:http>
 		
-		<security:form-login login-page="/customLogin" />
+		<security:form-login login-page="/front/login" authentication-success-handler-ref="customLoginSuccess" />
 		
 		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800" />
 
-		<security:logout logout-url="/customLogout"	invalidate-session="true" delete-cookies="remember-me,JSESSION_ID" />
+		<security:logout logout-url="/front/logout"	invalidate-session="true" delete-cookies="remember-me,JSESSION_ID" />
 		
 		<security:access-denied-handler ref="customAccessDenied" />
 		
