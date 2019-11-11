@@ -13,6 +13,8 @@ public interface AMemberMapper {
 	public List<MemberVO> getList();						//멤버 목록
 	
 	public List<MemberVO> getListWithPaging(Criteria cri);	//멤버 페이징
+	
+	public List<MemberVO> getListWithPaging1(Criteria cri); //창작자 페이징
 
 	public int delete(String userid);						//회원 탈퇴/삭제
 
@@ -30,8 +32,9 @@ public interface AMemberMapper {
 
 	public List<GDonationVO> getGetDonation(Criteria cri);	//후원받은 금액
 
-	public List<GDonationVO> getGiveDonation(Criteria cri);	//후원한 금액
-	
+	public List<GDonationVO> getGiveDonation(Criteria cri);	//후원한 금액	
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
+
+	
 }
