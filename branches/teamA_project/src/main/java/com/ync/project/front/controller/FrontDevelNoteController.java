@@ -11,7 +11,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/develnote/*")
+@RequestMapping("/front/*")
 public class FrontDevelNoteController {
 	@Autowired
 
@@ -23,11 +23,10 @@ public class FrontDevelNoteController {
 	  * @return
 	  */
 	@GetMapping(value = "/developer_note")
-	public String developerNote() {
+	public void developerNote() {
 
 		log.info("develnote!");
 
-		return "front/developer_note";
 	}
 	
 	 /**
@@ -38,12 +37,10 @@ public class FrontDevelNoteController {
 	  * @return
 	  */
 	@GetMapping(value = "/game_developer_note")
-	public String gameDeveloperNote() {
+	public void gameDeveloperNote() {
 
 		log.info("develnote detail!");
 
-		return "front/game_developer_note";
 	}
-	
 	
 }
