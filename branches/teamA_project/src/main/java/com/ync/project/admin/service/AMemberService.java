@@ -24,6 +24,8 @@ public interface AMemberService {
 	
 	// 멤버 목록 페이징 
 	public List<MemberVO> getListWithPaging(Criteria cri);
+	
+	public List<MemberVO> getListWithPaging1(Criteria cri);
 
 	// 멤버 전체 수
 	public int getTotal(Criteria cri);

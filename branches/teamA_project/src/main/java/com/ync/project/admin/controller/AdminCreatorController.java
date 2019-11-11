@@ -1,8 +1,16 @@
 package com.ync.project.admin.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ync.project.admin.service.AMemberService;
+import com.ync.project.domain.Criteria;
+import com.ync.project.domain.PageDTO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -16,6 +24,11 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/admin/*")
 public class AdminCreatorController {
+	@Autowired
+	private AMemberService mService;
+	
+	@Autowired
+	private AMemberService service;
 	 /**
 	  * @Method 설명 : 창작자 권한 수정 admin_generate_creator.jsp 호출
 	  * @Method Name : creatorGenerate
@@ -25,11 +38,16 @@ public class AdminCreatorController {
 	  */
 	@GetMapping(value = "/creater_modify")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String creatorGenerate() {
+	public void creater_modify(HttpServletRequest request, Model model, Criteria cri) {
 
-		log.info("Creater Modify!");
-	
-		return "admin/creater_modify";
+		String userid = request.getParameter("userid");
+		
+		log.info("Welcome Info detail!");
+		
+		model.addAttribute("member_info", mService.get(userid));
+		model.addAttribute("givedon", mService.getGiveDonation(cri));
+		model.addAttribute("getdon", mService.getGetDonation(cri));
+		model.addAttribute("donation", mService.get(userid));
 	}
 	
 	 /**
@@ -40,11 +58,17 @@ public class AdminCreatorController {
 	  * @return
 	  */
 	@GetMapping(value = "/creater_info")
-	public String grade_mod() {
-
-		log.info("Creater_List!");
-	
-		return "admin/creater_info";
+	public void creater_info(Criteria cri, Model model) {
+		int total = service.getTotal(cri);
+		
+		log.info("list:11111 " + cri);
+		log.info("total:1111 " + total);
+//		model.addAttribute("list", service.getList());
+		
+		model.addAttribute("list", service.getListWithPaging1(cri));
+		model.addAttribute("list_getdon", service.getGetDonation(cri));
+		model.addAttribute("list_givedon", service.getGiveDonation(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
 }
