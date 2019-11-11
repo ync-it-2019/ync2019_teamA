@@ -38,16 +38,17 @@ public class CommonController {
 	}
 
 
-	@GetMapping("/front/logout")
-	public void logoutGET() {
-
+	@GetMapping("/logout")
+	public String logoutGET() {
 		log.info("custom logout");
+		return "/front/logout";
 	}
 
-	@PostMapping("/front/logout")
-	public void logoutPost() {
+	@PostMapping("/logout")
+	public String logoutPost() {
 
 		log.info("post custom logout");
+		return "redirect:/";
 	}
 
 }
