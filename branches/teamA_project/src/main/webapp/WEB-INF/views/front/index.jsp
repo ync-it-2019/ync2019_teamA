@@ -229,15 +229,15 @@
 			<div class="col-md-6 wthree_agile_login" style="width: 100%">
 				<ul>
 					<sec:authorize access="isAnonymous()">
-						<li><a href="/front/login" class="login">로그인</a></li>
+						<li><a href="/login" class="login">로그인</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAnonymous()">
-						<li><a href="/front/join" class="login reg"
+						<li><a href="/join" class="login reg"
 							data-target="#myModal5">회원가입</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<sec:authentication property="principal.username" var="user_id" />
-						<li style="margin-left: 0em"><a href="/front/index"
+						<li style="margin-left: 0em"><a href="/"
 							class="login">${user_id}</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
@@ -246,7 +246,7 @@
 					</sec:authorize>
 					<sec:authorize
 						access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
-						<li style="margin-left: 40em"><a href="/front/logout"
+						<li style="margin-left: 40em"><a href="/logout"
 							class="login">로그아웃</a></li>
 					</sec:authorize>
 					<sec:authorize
@@ -255,7 +255,7 @@
 						<button id='regBtn' type="button" class="btn btn-xs pull-right">게임등록</button></li>
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_CREATER')">
-						<li style="margin-left: 20em"><a href="/front/logout"
+						<li style="margin-left: 20em"><a href="/logout"
 							class="login">로그아웃</a></li>
 					</sec:authorize>
 				</ul>
@@ -574,7 +574,7 @@
 							}
 
 							$("#regBtn").on("click", function() {
-								self.location = "/front/game_content_writeform";
+								self.location = "/game_content_writeform";
 							});
 
 							var actionForm = $("#actionForm");
