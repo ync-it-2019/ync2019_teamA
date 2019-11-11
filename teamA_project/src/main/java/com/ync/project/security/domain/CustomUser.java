@@ -15,6 +15,7 @@ import lombok.Getter;
   * @Date		: 2019. 10. 16. 
   * @Author		: 정진우
   * @프로그램 설명 : spring security에서 사용하는 회원 정보 객체
+  * memberVO바꾸면 이것도 바꿔야함
   */
 @Getter
 public class CustomUser extends User {

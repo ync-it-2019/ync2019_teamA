@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ync.project.admin.mapper.AMemberMapper">
+
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<!--
+	member_auth table은 사용 하지 않고 AuthVO만 사용한다.
+	tbl_member 의 autho 컬럼 정보만 따로 담아는 객차이다.
+	Spring Security의 기본 사용법과 다르게 tbl_member에 권한 컴럼(auth)을
+	넣어서 사용하기에 기본 사용법과 달라진다.
+	-->
+	<select id="read" resultType="com.ync.project.domain.MemberVO">
+		SELECT	userid,
+				name,
+				birth,
+				NVL(phone,'없음') phone,
+				creater_name,
+				NVL(bank_account,'-') bank_account,
+				NVL(donation_accept, '-') donation_accept,
+				levels,
+				NVL(status, '값이없음') status,
+				NVL(sns,'없음') sns,
+        		NVL(other_address,'없음') other_address,
+				auth
+		FROM	teamamember
+		WHERE	userid = #{userid}
+	</select>
+	
+	
+	<select id="getList" resultType="com.ync.project.domain.MemberVO">
+	<![CDATA[
+			SELECT  userid,
+        			name,
+    	    		userpw,
+        			birth,
+        			NVL(phone,'없음') phone,
+        			creater_name,
+        			NVL(bank_account,'없음') bank_account,
+        			levels,
+        			status,
+        			NVL(sns,'없음') sns,
+        			NVL(other_address,'없음') other_address
+			FROM    teamamember m
+		]]>
+	</select>
+
+	<select id="getGetDonation" resultType="com.ync.project.domain.GDonationVO">
+		<![CDATA[
+			SELECT  c.userid AS userid,
+        			sum(get_donation) AS donation
+			FROM    (SELECT don.content_id,
+                			sum(donation) AS get_donation
+        			FROM    teamadonation don
+        			GROUP BY don.content_id
+        			)cre,
+        			teamacreatercontent c
+			WHERE   c.content_id = cre.content_id
+			GROUP BY c.userid
+		]]>
+	</select>
+
+	<select id="getGiveDonation" resultType="com.ync.project.domain.GDonationVO">
+		<![CDATA[
+			SELECT  d.userid AS userid,
+        			sum(donation) AS donation
+			FROM    teamadonation d
+			GROUP BY d.userid
+		]]>
+	</select>
+
+
+	<insert id="insert">
+		<![CDATA[
+			INSERT	INTO	teamamember(
+								userid,
+								name,
+								birth,
+								phone,
+								userpw,
+								creater_name,
+								bank_account,
+								donation_accept,
+								levels,
+								status,
+								sns,
+								other_address
+							)
+							VALUES(
+								#{userid},
+								#{name},
+								#{birth},
+								#{phone},
+								#{userpw},
+								#{creater_name},
+								#{bank_account},
+								#{donation_accept},
+								1,
+								#{status},
+								#{sns},
+								#{other_address}
+							)
+		]]>
+	</insert>
+
+	<update id="update">
+		<![CDATA[
+			UPDATE	teamamember
+			SET		phone = #{phone},
+					userpw = #{userpw},
+					bank_account = #{bank_account},
+					sns = #{sns},
+					other_address = #{other_address}
+			WHERE	userid = #{userid}
+		]]>
+	</update>
+
+	<select id="getTotalCount" resultType="int">
+		SELECT	count(*)
+		FROM	teamamember
+		WHERE	
+				<include refid="criteria"></include>
+				userid IS NOT NULL
+	</select>
+	
+	<select id="getTotalCreater" resultType="int">
+		SELECT	count(*)
+		FROM	teamamember
+		WHERE	
+				<include refid="criteria"></include>
+				auth LIKE 'ROLE_CREATER'
+	</select>
+	
+	<select id="getTotalUser" resultType="int">
+		SELECT	count(*)
+		FROM	teamamember
+		WHERE	
+				<include refid="criteria"></include>
+				auth LIKE 'ROLE_USER'
+	</select>
+	
+	<select id="getTotalAdmin" resultType="int">
+		SELECT	count(*)
+		FROM	teamamember
+		WHERE	
+				<include refid="criteria"></include>
+				auth LIKE 'ROLE_ADMIN'
+	</select>
+	
+	<select id="getActiveUser" resultType="int">
+		SELECT	count(*)
+		FROM	teamamember
+		WHERE	
+				<include refid="criteria"></include>
+				status LIKE 1
+	</select>
+	
+	<select id="getListWithPaging" resultType="com.ync.project.domain.MemberVO">
+		<![CDATA[
+			SELECT	userid,
+        			name,
+    	    		userpw,
+        			birth,
+        			NVL(phone,'없음') phone,
+        			creater_name,
+        			NVL(bank_account,'없음') bank_account,
+        			levels,
+        			status,
+        			NVL(sns,'없음') sns,
+        			NVL(other_address,'없음') other_address
+			FROM	(SELECT /*+INDEX_DESC(teamamember pk_board) */
+						rownum rn,
+        				userid,
+						name,
+						birth,
+						phone,
+						userpw,
+						creater_name,
+						bank_account,
+						levels,
+						status,
+						sns,
+						other_address
+      				FROM	teamamember
+					WHERE 
+  		]]>
+		<include refid="criteria"></include> 
+      
+		<![CDATA[    
+      			rownum <= #{pageNum} * #{amount}
+      			)
+  			WHERE rn > (#{pageNum} -1) * #{amount}   
+		]]>
+	</select>
+	
+	<delete id="delete">
+		DELETE	FROM	teamamember
+				WHERE	userid = #{userid}
+	</delete>
+</mapper>

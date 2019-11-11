@@ -4,9 +4,11 @@ author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -151,18 +153,10 @@ to {
 
 <body>
 	<!--/main-header-->
+	<!--/banner-section-->
 	<div>
-   <jsp:include page="/WEB-INF/views/include/header-for_front(nobg).jsp" flush="false" />
-</div>
-	<!-- breadcrumb -->
-	<div class="w3_breadcrumb">
-		<div class="breadcrumb-inner">
-			<ul>
-				<li><a href="index.html">Home</a><i>//</i></li>
-
-				<li>Single</li>
-			</ul>
-		</div>
+		<jsp:include page="/WEB-INF/views/include/header-for_front(nobg).jsp"
+			flush="false" />
 	</div>
 	<!-- //breadcrumb -->
 	<!--/content-inner-section-->
@@ -176,7 +170,7 @@ to {
 
 
 				<!-- 슬라이드 쇼-->
-				<div class="slideshow-container">
+				
 					<div class="single video_agile_player">
 						<div data-video="IeLNqCrCtWs" id="video">
 							<img src="/resources/img/risk_main.jpg" alt=""
@@ -202,49 +196,41 @@ to {
 																  })();
 																</script> -->
 					</div>
-					<div style="text-align: center">
+					<div class="slideshow-container" style="text-align: center">
+					
 						<div class="mySlides fade">
-
-							<img src="/resources/img/risk1.jpg" width="1000px">
+							<img src="/resources/img/risk1.jpg" width="1000px"/>
 						</div>
 
 						<div class="mySlides fade">
 
-							<img src="/resources/img/risk2.jpg" width="1000px">
+							<img src="/resources/img/risk2.jpg" width="1000px"/>
 						</div>
 
 						<div class="mySlides fade">
 
-							<img src="/resources/img/risk3.jpg" width="1000px">
+							<img src="/resources/img/risk3.jpg" width="1000px"/>
 						</div>
 
 						<div class="mySlides fade">
 
-							<img src="/resources/img/risk4.jpg" width="1000px">
+							<img src="/resources/img/risk4.jpg" width="1000px"/>
 						</div>
 
-						<div class="mySlides fade">
 
-							<img src="/resources/img/risk5.jpg" width="1000px">
-						</div>
-
-						<div class="mySlides fade">
-
-							<img src="/resources/img/risk6.jpg" width="1000px">
-						</div>
-
-					</div>
+					
+				</div>
 					<br>
 					<div style="text-align: center">
-						<span class="dot"></span> <span class="dot"></span> <span
-							class="dot"></span> <span class="dot"></span> <span class="dot"></span>
-						<span class="dot"></span>
+						<span class="dot"></span> <span class="dot"></span> 
+						<span class="dot"></span> <span class="dot"></span> 
+					</div>
 					</div>
 					<div class="admin-text">
 
 						<h5>상세 내용</h5>
 						<div class="admin-text-left">
-							<a href="#"><img src="/resources/img/risk.png" alt=""></a>
+							<a href="#"><img src="/resources/img/risk4.jpg" width="250px"></a>
 						</div>
 						<div class="admin-text-right">
 							<p>고전 멀티플레이 로그류 게임인 Risk of Rain이 추가 차원과 도전적인 액션을 더해 돌아왔습니다.
@@ -263,118 +249,90 @@ to {
 						<h4>Comments</h4>
 						<hr>
 
-						<div class="media response-info">
-							<div class="media-left response-text-left">
-								<a href="#"> <img class="media-object"
-									src="/resources/img/mine_user.jpg" alt="">
-								</a>
-								<h5>
-									<a href="#">Admin</a>
-								</h5>
-							</div>
-							<div class="media-body response-text-right">
-								<p>왜 이게임의 평가가 압도적으로 긍정적인지 깨닫는데 오래걸린 1인이다ㅠ 1. 이 게임의 목적은 빠르게
-									맵을 탐색해서 아이템 상자의 위치를 파악하고, 몹을 잡아서 부지런히 돈을 모아서 하나하나 아이템 상자 까면서
-									아이템 부자로 달려가는 게임이다. 2. 초반에 맨몸뚱이일때는 더럽게 재미가 없다. 아이템 하나하나 늘어갈수록
-									재미도 쏘옥쏘옥 3. 아이템 적당히 모았으면 포탈 찾아서 열고, 포탈에서 기어나온 보스 잡으면 아이템도 주고 다음
-									스테이지로 넘어갈 수가 있다. 4. 아이템 종류가 너무 많아서 뭐가 좋은지 모른다면 이것만 명심해라 공속/크리티컬
-									요 두가지 아이템 위주로 파밍하면 졸쎄진다.</p>
-
-								<ul>
-									<li>October 15, 2016</li>
-									<li><a href="single.html"><i class="fa fa-reply"
-											aria-hidden="true"></i> Reply</a></li>
-								</ul>
-
-								<div class="media response-info"
-									style="background-color: #d1c0c0; padding: 40px 0 50px 0px;">
-									<div class="media-left response-text-left">
-										<a href="#"> <img class="media-object"
-											src="/resources/img/mine_user.jpg" alt="">
-										</a>
-
-										<h5>
-											<a href="#">댓글맨</a>
-										</h5>
-									</div>
-
-									<div class="media-body response-text-right">
-										<p>1.한국어로 설정하고 멀티하면 겜초반에 99%확률로 멈추니 멀티할때는 영어로설정하면 안멈추고 잘
-											된다. 2.초반에는 구데기 템들이 많이뜨는데 어차피 후반으로 갈수록 공격과 생존에 직접적으로 영향을 미치는
-											템들이 많이 뜨므로 상자볼때마다 바로바로 열어서 템먹으면된다. 3.멀티시 보스잡으면 인원수x(1or2or3)의
-											초록템이 떨어지는데 자기 분수에 맞게 먹는걸 추천. 4.Luna는 겜시작할때마다 지급되는게 아니라, 플레이
-											도중 한개씩 (아주가끔) 드랍된다. 각잡고할려면 미리 솔플로 10개정도 쟁여두자. 5.게임을 할수록
-											로그라이크게임답게 초반의 지루함과 노템의 답답함이 배가된다. 6.위 사항을 몸소 느끼게되면 이젠 질려서 더이상
-											할 수 없는 몸이된다.
-										<ul>
-											<li>November 02, 2016</li>
-											<li><a href="single.html"><i class="fa fa-reply"
-													aria-hidden="true"></i> Reply</a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="media response-info">
-						<div class="media-left response-text-left">
-							<a href="#"> <img class="media-object"
-								src="/resources/img/mine_user.jpg" alt="">
-							</a>
-							<h5>
-								<a href="#">Admin</a>
-							</h5>
-						</div>
-						<div class="media-body response-text-right">
-							<p>80시간 솔플만하고씀 사소한버그많음 캐릭들마다의 특성이 잘 구현 게임초반에 지겹고 초반템빨을 좀 많이받음
-								후반엔 침착하기만 하면 안죽을듯 좋은그래픽은아니지만 액션,슈팅 이펙트구현 ㅅㅌㅊ</p>
-							<ul>
-								<li>November 03, 2016</li>
-								<li><a href="single.html"><i class="fa fa-reply"
-										aria-hidden="true"></i> Reply</a></li>
-							</ul>
-						</div>
+						
 
 						<div class="clearfix"></div>
-					</div>
+					
 				</div>
-				<!-- 댓글 출력 부분 -->
-				<div class='row'>
+<!-- 댓글 출력 부분 -->
+<div class='row'>
 
-					<div class="col-lg-12">
+   <div class="col-lg-12">
 
-						<!-- /.panel -->
-						<div class="panel panel-default">
+      <!-- /.panel -->
+      <div class="panel panel-default">
 
-							<div class="panel-heading">
-								<i class="fa fa-comments fa-fw"></i> Reply
-								<sec:authorize access="isAuthenticated()">
-									<button id='addReplyBtn'
-										class='btn btn-primary btn-xs pull-right'>New Reply</button>
-								</sec:authorize>
-							</div>
-
-
-							<!-- /.panel-heading -->
-							<div class="panel-body">
-
-								<!-- 댓글 목록 출력 부분 -->
-								<ul class="chat">
-
-								</ul>
-								<!-- ./ end ul -->
-							</div>
-							<!-- /.panel .chat-panel -->
-
-							<div class="panel-footer"></div>
+         <div class="panel-heading">
+            <i class="fa fa-comments fa-fw"></i> Reply
+           	<%-- <sec:authorize access="isAuthenticated()"> --%>
+	        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
+        	<%-- </sec:authorize> --%>
+         </div>
 
 
-						</div>
-					</div>
-				</div>
+         <!-- /.panel-heading -->
+         <div class="panel-body">
+
+            <!-- 댓글 목록 출력 부분 -->
+            <ul class="chat">
+
+            </ul>
+            <!-- ./ end ul -->
+         </div>
+         <!-- /.panel .chat-panel -->
+
+         <div class="panel-footer">
+         
+         </div>
+
+
+      </div>
+   </div>
+   <!-- ./ end row -->
+</div>
+<!-- 댓글 출력 부분 -->
+				
+				<!-- 댓글 Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+         </div>
+         <div class="modal-body">
+            <div class="form-group">
+               <label>Content</label> <input class="form-control" name='content'
+                  value='New Reply!!!!'>
+            </div>
+            <div class="form-group">
+               <label>Userid</label> <input class="form-control" name='userid'
+                  value='userid'>
+            </div>
+            <div class="form-group">
+               <label>Reg_Date</label> <input class="form-control"
+                  name='reg_date' value='2018-01-01 13:13'>
+            </div>
+         </div>
+         
+         
+         <div class="modal-footer">
+         
+            <button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
+            <button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
+            <button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
+            <button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
+         </div>
+      </div>
+      <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
+</div>
+<!-- /댓글 modal -->
+
+
 			</div>
 		</div>
 
@@ -383,122 +341,285 @@ to {
 	<!-- 댓글 출력 부분 -->
 	<!--//content-inner-section-->
 	<!--/footer-bottom-->
-	<div class="contact-w3ls" id="contact">
-		<div class="footer-w3lagile-inner">
-			<div class="footer-contact"></div>
-			<div class="footer-grids w3-agileits">
-				<div class="col-md-2 footer-grid">
-					<h4>장르/카테고리</h4>
-					<ul>
-						<li><a href="#" title="Release 2016">액션</a></li>
-						<li><a href="#" title="Release 2015">어드벤처</a></li>
-						<li><a href="#" title="Release 2014">전략</a></li>
-						<li><a href="#" title="Release 2013">롤플레잉</a></li>
-						<li><a href="#" title="Release 2012">캐쥬얼</a></li>
-						<li><a href="#" title="Release 2011">시뮬레이션</a></li>
-						<li><a href="#" title="Release 2011">퍼즐</a></li>
-					</ul>
-				</div>
-
-				<div class="col-md-2 footer-grid">
-					<br>
-					<ul>
-						<li><a href="genre.html">FPS</a></li>
-						<li><a href="comedy.html">음악</a></li>
-						<li><a href="series.html">일러스트</a></li>
-						<li><a href="series.html">사운드트랙 </a></li>
-						<li><a href="genre.html">기타 </a></li>
-					</ul>
-				</div>
-
-
-				<div class="col-md-2 footer-grid">
-					<h4>태그</h4>
-					<ul class="w3-tag2">
-						<li><a href="comedy.html">협동플레이</a></li>
-						<li><a href="horror.html">멀티플레이</a></li>
-						<li><a href="series.html">생존</a></li>
-						<li><a href="series.html">생활</a></li>
-						<li><a href="series.html">싱글플레이</a></li>
-						<li><a href="genre.html">앞서해보기</a></li>
-						<li><a href="single.html">2D</a></li>
-						<li><a href="comedy.html">3D</a></li>
-						<li><a href="horror.html">VR</a></li>
-						<li><a href="series.html">판타지</a></li>
-						<li><a href="series.html">기계</a></li>
-						<li><a href="genre.html">기타</a></li>
-
-					</ul>
-
-
-				</div>
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="dropdown">
-							<h4 class="b-log">
-								<a href="index.html"><span>사</span>이트맵</a>
-							</h4>
-							<ul class="dropdown-menu multi-column columns-3">
-								<li>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genre.html">게임소식</a></li>
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genre.html">펀딩</a></li>
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genre.html">고객센터</a></li>
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genre.html">개발노트</a></a></li>
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genre.html">게임업로드</a></li>
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genre.html">창작자신청</a></li>
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genre.html">후원</a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-		<div class="clearfix"></div>
-		<h3 class="text-center follow">
-			Connect <span>Us</span>
-		</h3>
-
+	<div>
+		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp"
+			flush="false" />
 	</div>
-	<div class="w3agile_footer_copy">
-		<p>IndieSponsor. All rights reserved</p>
-	</div>
-
 	<a href="#home" id="toTop" class="scroll" style="display: block;">
 		<span id="toTopHover" style="opacity: 1;"> </span>
 	</a>
+	
+	<!-- 댓글 출력 script -->
+	<script type="text/javascript" src="/resources/js/reply.js?v=1"></script>
+	
+	<!-- 댓글 기능 관련 script -->
+<script type="text/javascript">
+$(document).ready(function() {
+   
+   var bnoValue = '<c:out value="${board.content_id}"/>';
+   var replyUL = $(".chat");
+     
+   showList(1);
+   
+   
+   // 댓글 목록을 출력하는 함수
+   function showList(page){
+      
+      console.log("show list " + page);
+       
+      commentService.getList({content_id:bnoValue, page: page|| 1 }, function(replyCnt, list) {
+         
+          console.log("replyCnt: "+ replyCnt );
+          console.log("list: " + list);
+          console.log(list);
+          
+           
+         if(page == -1){
+            pageNum = Math.ceil(replyCnt/10.0);
+            showList(pageNum);
+            return;
+         }
+          
+          
+         var str="";
+        
+         if(list == null || list.length == 0){
+            //replyUL.html("");
+            return;
+         }
+        
+         for (var i = 0, len = list.length || 0; i < len; i++) {
+            str +="<li class='' data-comment_id='"+list[i].comment_id+"'>";
+            str +="  <div><div class='header'><strong class='primary-font'>["
+               + list[i].comment_id+"] "+list[i].userid+"</strong>"; 
+            str +="    <small class='pull-right text-muted'>"
+               + commentService.displayTime(list[i].reg_date)+"</small></div>";
+            str +="    <p>"+list[i].content+"</p></div></li>";
+         }
+        
+         replyUL.html(str);
+        
+         showReplyPage(replyCnt);
 
+    
+      });//end function
+        
+   }//end showList
+   
+   var pageNum = 1;
+   var replyPageFooter = $(".panel-footer");
+   
+   function showReplyPage(replyCnt){
+     
+     var endNum = Math.ceil(pageNum / 10.0) * 10;  
+     var startNum = endNum - 9; 
+     
+     var prev = startNum != 1;
+     var next = false;
+     
+     if(endNum * 10 >= replyCnt){
+       endNum = Math.ceil(replyCnt/10.0);
+     }
+     
+     if(endNum * 10 < replyCnt){
+       next = true;
+     }
+     
+     var str = "<ul class='pagination pull-right'>";
+     
+     if(prev){
+       str+= "<li class='page-item'><a class='page-link' href='"+(startNum -1)+"'>Previous</a></li>";
+     }
+     
+     for(var i = startNum ; i <= endNum; i++){
+       
+       var active = pageNum == i? "active":"";
+       
+       str+= "<li class='page-item "+active+" '><a class='page-link' href='"+i+"'>"+i+"</a></li>";
+     }
+     
+     if(next){
+       str+= "<li class='page-item'><a class='page-link' href='"+(endNum + 1)+"'>Next</a></li>";
+     }
+     
+     str += "</ul></div>";
+     
+     console.log(str);
+     
+     replyPageFooter.html(str);
+   }
+   
+   replyPageFooter.on("click","li a", function(e){
+       e.preventDefault();
+       console.log("page click");
+       
+       var targetPageNum = $(this).attr("href");
+       
+       console.log("targetPageNum: " + targetPageNum);
+       
+       pageNum = targetPageNum;
+       
+       showList(pageNum);
+     }); 
+   
+   /* 댓글 modal 창 동작 부분*/
+   var modal = $(".modal");
+    var modalInputContent = modal.find("input[name='content']");
+    var modalInputUserid = modal.find("input[name='userid']");
+    var modalInputReg_Date = modal.find("input[name='reg_date']");
+    var modalModBtn = $("#modalModBtn");
+    var modalRemoveBtn = $("#modalRemoveBtn");
+    var modalRegisterBtn = $("#modalRegisterBtn");
+    
+ // 댓글 인증 부분 추가(사용자 이름 넣어준다)
+	var userid = null;
+    
+	/* <sec:authorize access="isAuthenticated()"> */
+		userid = '<sec:authentication property="principal.username"/>';   
+	/* </sec:authorize> */
+	
+	var csrfHeaderName ="${_csrf.headerName}"; 
+	var csrfTokenValue="${_csrf.token}";
+    
+    $("#modalCloseBtn").on("click", function(e){
+       modal.modal('hide');
+    });
+    
+    $("#addReplyBtn").on("click", function(e){
+      modal.find("input").val("");
+   	  // 댓글 등록 버튼 부분에 추가
+  	  modal.find("input[name='userid']").val(userid);
+   	  
+      modalInputReg_Date.closest("div").hide();
+      modalInputUserid.closest("div").hide();
+      modalInputUserid.attr("readonly","readonly");
+      modal.find("button[id !='modalCloseBtn']").hide();
+      
+      modalRegisterBtn.show();
+      $(".modal").modal("show");
+    });
+    
+	// Ajax Spring Security Header
+    $(document).ajaxSend(function(e, xhr, options) { 
+		xhr.setRequestHeader(csrfHeaderName, csrfTokenValue); 
+	});
+    
+    // 댓글 등록
+   modalRegisterBtn.on("click",function(e){
+      
+      var content = {
+         	content: modalInputContent.val(),
+            userid:modalInputUserid.val(),
+            content_id:bnoValue
+      };
+      
+      commentService.add(content, function(result){
+        
+        alert(result);
+        
+        modal.find("input").val("");
+        modal.modal("hide");
+        
+        //showList(1);
+        showList(-1);
+        
+      });
+      
+    });
+   //댓글 조회 클릭 이벤트 처리 
+    $(".chat").on("click", "li", function(e){
+      
+      var comment_id = $(this).data("comment_id");
+      console.log(comment_id);
+      
+      commentService.get(comment_id, function(content){
+    	  
+    	 modalInputUserid.closest("div").show();
+         modalInputContent.val(content.content);
+         modalInputUserid.val(content.userid).attr("readonly","readonly");
+         modalInputReg_Date.val(commentService.displayTime(content.reg_date)).attr("readonly","readonly");
+         modal.data("comment_id", content.comment_id);
+         
+         
+         modal.find("button[id !='modalCloseBtn']").hide();
+         modalModBtn.show();
+         modalRemoveBtn.show();
+         
+         $(".modal").modal("show");
+      });
+   });
+   
+   // 댓글 수정 이벤트
+   // 댓글 수정 이벤트. security 적용 후
+	modalModBtn.on("click", function(e){
+		
+		var originalUserid = modalInputUserid.val();
+		
+		var content = {
+				comment_id:modal.data("comment_id"), 
+				content: modalInputContent.val(),
+				userid: originalUserid
+				};
+	  
+		if(!userid){
+			alert("로그인후 수정이 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+
+		console.log("Original Userid: " + originalUserid);
+		
+		if(userid !== originalUserid){
+			alert("자신이 작성한 댓글만 수정이 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+		  
+		commentService.update(content, function(result){
+			alert(result);
+			modal.modal("hide");
+			showList(pageNum);
+		});
+	});
+
+    // 댓글 삭제 이벤트
+	// 댓글 삭제 부분. security 적용 후
+	modalRemoveBtn.on("click", function (e){
+	  	  
+		var comment_id = modal.data("comment_id");
+
+		console.log("COMMENT_ID: " + comment_id);
+		console.log("USERID: " + userid);
+	   	  
+		if(!userid){
+			alert("로그인후 삭제가 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+	   	  
+		var originalUserid = modalInputUserid.val();
+	   	  
+		console.log("Original Userid: " + originalUserid);
+	   	  
+		if(userid !== originalUserid){
+	   		  
+			alert("자신이 작성한 댓글만 삭제가 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+	   	  
+		commentService.remove(comment_id, originalUserid, function(result){
+	   	        
+			alert(result);
+			modal.modal("hide");
+			showList(pageNum);
+		});
+	});
+   
+   
+});
+</script>
+	
 	<script src="/resources/js/jquery-1.11.1.min.js"></script>
 	<!-- Dropdown-Menu-JavaScript -->
 	<script>
@@ -567,15 +688,7 @@ to {
 		type="text/javascript"></script>
 	<!--//pop-up-box -->
 
-	<div id="small-dialog1" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/123033591" width="640"
-			height="360" frameborder="0" allow="autoplay; fullscreen"
-			allowfullscreen></iframe>
-	</div>
-	<div id="small-dialog2" class="mfp-hide">
-		<iframe
-			src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
-	</div>
+	
 	<script>
 		$(document).ready(function() {
 		$('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
@@ -686,7 +799,8 @@ fit: true
 					dots[slideIndex-1].className += " active";
 					setTimeout(showSlides, 2000); // Change image every 2 seconds
 				}
-				</script>
+	</script>
 	<!-- 슬라이드 쇼를 위한  함수 -->
+	
 </body>
 </html>

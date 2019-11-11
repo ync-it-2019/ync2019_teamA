@@ -57,25 +57,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <h1><a href="index.html"><span>I</span>ndie <span>s</span>ponsor</a></h1>
+              <h1><a href="/front/index"><span>I</span>ndie <span>s</span>ponsor</a></h1>
             </div>
             <!-- navbar-header -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a href="index.html">메인</a></li>
-                <li><a href="info.html">게임 소식</a></li>
+                <li class="dropdown"><a href="game_patch.jsp"
+									class="dropdown-toggle" data-toggle="dropdown">게임소식 <b
+										class="caret"></b></a>
+									<ul class="dropdown-menu multi-column columns-3">
+										<li>
+										<div class="col-sm-4">
+												<ul class="multi-column-dropdown">
+													<li><a href="../content/game_intro">게임 소식</a></li>
+												</ul>
+											</div>
+											<div class="col-sm-4">
+												<ul class="multi-column-dropdown">
+													<li><a href="../develnote/developer_note">개발 노트</a></li>
+												</ul>
+											</div>
+											<div class="col-sm-4">
+												<ul class="multi-column-dropdown">
+													<li><a href="../front/notice">공지사항</a></li>
+												</ul>
+											</div>
+											<div class="clearfix"></div>
+										</li>
+									</ul></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">펀 딩<b class="caret"></b></a>
                   <ul class="dropdown-menu multi-column columns-3">
                     <li>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">진행중인 펀딩</a></li>
+                          <li><a href="../fund/main">진행중인 펀딩</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">종료된 펀딩</a></li>
+                          <li><a href="../fund/end">종료된 펀딩</a></li>
                         </ul>
                       </div>
                       <div class="clearfix"></div>
@@ -118,17 +139,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">FAQ</a></li>
+                          <li><a href="../front/faq">FAQ</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">공지사항</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-sm-4">
-                        <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">1:1 문의</a></li>
+                          <li><a href="../front/inquiry">1:1 문의</a></li>
                         </ul>
                       </div>
                       <div class="clearfix"></div>
@@ -168,8 +184,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="col-md-3 wthree_agile_login">
         <ul>
 
-          <li><a href="#" class="login" data-toggle="modal" data-target="#myModal4">Login</a></li>
-          <li><a href="#" class="login reg" data-toggle="modal" data-target="#myModal5">Register</a></li>
+          <li><a href="../member/login" class="login"  data-target="#myModal4">Login</a></li>
+          <li><a href="../member/join" class="login reg" data-target="#myModal5">Register</a></li>
 
         </ul>
       </div>
