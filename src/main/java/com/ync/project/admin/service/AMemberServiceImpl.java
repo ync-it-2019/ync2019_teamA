@@ -15,10 +15,10 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 public class AMemberServiceImpl implements AMemberService {
-	
+
 	@Autowired // @Inject
 	private AMemberMapper mapper;
-	
+
 	// 멤버 등록
 	public void register(MemberVO member) {
 
@@ -26,50 +26,57 @@ public class AMemberServiceImpl implements AMemberService {
 
 		mapper.insert(member);
 	}
-	
+
 	// 멤버 상세보기
-	public MemberVO get(String userid){
-		
+	public MemberVO get(String userid) {
+
 		log.info("get......" + userid);
-		
+
 		return mapper.read(userid);
 	};
-	
+
 	// 멤버 수정
 	public boolean modify(MemberVO member) {
-		
+
 		log.info("modify......" + member);
-		
+
 		return mapper.update(member) == 1;
 	};
-	
+
 	// 멤버 삭제
 	public boolean remove(String userid) {
 
 		log.info("remove......" + userid);
-		
+
 		return mapper.delete(userid) == 1;
 	};
-	
+
 	// 전체 멤버 목록
-	public List<MemberVO> getList(){
+	public List<MemberVO> getList() {
 
 		log.info("getList......");
 		return mapper.getList();
 	};
-	
-	// 멤버 목록 페이징 
-	public List<MemberVO> getListWithPaging(Criteria cri){
+
+	// 멤버 목록 페이징
+	public List<MemberVO> getListWithPaging(Criteria cri) {
 
 		log.info("get List with criteria : " + cri);
 		return mapper.getListWithPaging(cri);
 	};
 
+	// 창작자 목록 페이징
+	public List<MemberVO> getListWithPaging1(Criteria cri) {
+
+		log.info("get List with criteria : " + cri);
+		return mapper.getListWithPaging1(cri);
+	};
+
 	// 멤버 전체 수
-	 public int getTotal(Criteria cri){
-			log.info("get total count");
-			return mapper.getTotalCount(cri);
-		}
+	public int getTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
 
 	@Override
 	public List<GDonationVO> getGetDonation(Criteria cri) {
