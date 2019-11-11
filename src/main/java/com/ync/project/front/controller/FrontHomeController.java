@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
   */
 @Controller
 @Log4j
-@RequestMapping("/front/*")
+@RequestMapping("/*")
 public class FrontHomeController {
 	@Autowired
 	private HomeService service;
@@ -32,8 +32,9 @@ public class FrontHomeController {
 	  * @return
 	  */
 	
-	@GetMapping(value = "/index")
-	public void home(Model model) {
+	
+	@GetMapping(value = "/*")
+	public String home(Model model) {
 		
 		model.addAttribute("content",service.get());
 		model.addAttribute("content1",service.getList());
@@ -41,6 +42,8 @@ public class FrontHomeController {
 		model.addAttribute("content3",service.getList1());
 		model.addAttribute("content4",service.get2());
 		model.addAttribute("content5",service.getList2());
+		
+		return "/front/index";
 	}
 	
 }
