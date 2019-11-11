@@ -14,7 +14,7 @@ public class CommonController {
 
 	@GetMapping("/accessError")
 	public void accessDenied(Authentication auth, Model model) {
-
+		
 		log.info("access Denied : " + auth + model);
 
 		model.addAttribute("msg", "Access Denied");

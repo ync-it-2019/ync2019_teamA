@@ -74,12 +74,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									 <li>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="../content/game_intro">게임소식</a></li>
+														<li><a href="/front/game_intro">게임소식</a></li>
 												 </ul>
 											</div>
 											<div class="col-sm-4">
 												 <ul class="multi-column-dropdown">
-														<li><a href="../fund/main">펀딩</a></li>
+														<li><a href="/front/funding_main">펀딩</a></li>
 												 </ul>
 											</div>
 											<div class="col-sm-4">

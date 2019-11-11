@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Indie Sponsor" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
 <script type="application/x-javascript">
+	
 	
 	
 	
@@ -29,6 +36,7 @@
 			window.scrollTo(0, 1);
 		}
 	
+
 
 
 
@@ -218,27 +226,38 @@
 	<!--/banner-bottom-->
 	<div class="w3_agilits_banner_bootm">
 		<div class="w3_agilits_inner_bottom">
-			<div class="col-md-6 wthree_agile_login">
+			<div class="col-md-6 wthree_agile_login" style="width: 100%">
 				<ul>
 					<sec:authorize access="isAnonymous()">
 						<li><a href="/front/login" class="login">로그인</a></li>
-	                </sec:authorize>
-	                <sec:authorize access="isAnonymous()">
-	                	<li><a href="/front/join" class="login reg"
-						data-target="#myModal5">회원가입</a></li>
-	                </sec:authorize>
+					</sec:authorize>
+					<sec:authorize access="isAnonymous()">
+						<li><a href="/front/join" class="login reg"
+							data-target="#myModal5">회원가입</a></li>
+					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
-	                    <sec:authentication property="principal.username" var="user_id" />
-						<li style="margin-left:0em"><a href="/front/index" class="login">${user_id}</a></li>
-	                </sec:authorize>
-	                <sec:authorize access="isAuthenticated()">
-	                    <sec:authentication property="principal.username" var="user_id" />
-						<li style="margin-left:0em"><a href="/front/mp_withdraw" class="login" style="margin-left:0em">마이 페이지</a></li>
-	                </sec:authorize>
-	                <sec:authorize access="isAuthenticated()">
-	                    <sec:authentication property="principal.username" var="user_id" />
-						<li><a href="/front/logout" class="login">로그아웃</a></li>
-	                </sec:authorize>
+						<sec:authentication property="principal.username" var="user_id" />
+						<li style="margin-left: 0em"><a href="/front/index"
+							class="login">${user_id}</a></li>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<li style="margin-left: 0em"><a href="/front/mp_withdraw"
+							class="login" style="margin-left: 0em">마이 페이지</a></li>
+					</sec:authorize>
+					<sec:authorize
+						access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
+						<li style="margin-left: 40em"><a href="/front/logout"
+							class="login">로그아웃</a></li>
+					</sec:authorize>
+					<sec:authorize
+						access="hasRole('ROLE_CREATER') or hasRole('ROLE_ADMIN')">
+						<li style="margin-left: 14em">
+						<button id='regBtn' type="button" class="btn btn-xs pull-right">게임등록</button></li>
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_CREATER')">
+						<li style="margin-left: 20em"><a href="/front/logout"
+							class="login">로그아웃</a></li>
+					</sec:authorize>
 				</ul>
 			</div>
 			<div class="col-md-6 wthree_share_agile"></div>
@@ -349,8 +368,8 @@
 									<div class="col-md-5 video_agile_player">
 										<div class="video-grid-single-page-agileits">
 											<div data-video="${content2.media1}" id="video1">
-												<img src="${content2.media2}" alt="" class="img-responsive" 
-												style="width: 500px; height: 290px" />
+												<img src="${content2.media2}" alt="" class="img-responsive"
+													style="width: 500px; height: 290px" />
 											</div>
 										</div>
 										<div class="player-text">
@@ -434,8 +453,8 @@
 									<div class="col-md-5 video_agile_player">
 										<div class="video-grid-single-page-agileits">
 											<div data-video="${content4.media1}" id="video2">
-												<img src="${content4.media2}" alt="" class="img-responsive" 
-												style="width: 500px; height: 290px" />
+												<img src="${content4.media2}" alt="" class="img-responsive"
+													style="width: 500px; height: 290px" />
 											</div>
 										</div>
 										<div class="player-text">
@@ -533,18 +552,6 @@
 		$(document)
 				.ready(
 						function() {
-							$(".dropdown").hover(
-									function() {
-										$('.dropdown-menu', this).stop(true,
-												true).slideDown("fast");
-										$(this).toggleClass('open');
-									},
-									function() {
-										$('.dropdown-menu', this).stop(true,
-												true).slideUp("fast");
-										$(this).toggleClass('open');
-									});
-
 							var result = '<c:out value="${result}"/>';
 
 							checkModal(result);
@@ -567,7 +574,7 @@
 							}
 
 							$("#regBtn").on("click", function() {
-								self.location = "/board/register";
+								self.location = "/front/game_content_writeform";
 							});
 
 							var actionForm = $("#actionForm");
@@ -591,12 +598,12 @@
 											function(e) {
 												e.preventDefault();
 												actionForm
-														.append("<input type='hidden' name='notice_id' value='"
+														.append("<input type='hidden' name='bno' value='"
 																+ $(this).attr(
 																		"href")
 																+ "'>");
 												actionForm.attr("action",
-														"/front/notice");
+														"/board/get");
 												actionForm.submit();
 											});
 
@@ -628,7 +635,6 @@
 												e.preventDefault();
 												searchForm.submit();
 											});
-
 						});
 	</script>
 	<!-- //Dropdown-Menu-JavaScript -->

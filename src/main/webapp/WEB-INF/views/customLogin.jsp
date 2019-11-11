@@ -63,7 +63,7 @@
 									</label>
 								</div>
 								<!-- Change this to a button or input when using this as a form -->
-								<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+								<a href="/front/index.html" class="btn btn-lg btn-success btn-block">Login</a>
 							</fieldset>
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" />
@@ -75,7 +75,13 @@
 		</div>
 	</div>
 
-
+	<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+    <font color="red">
+        <p>Your login attempt was not successful due to <br/>
+            ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
+        <c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session"/>
+    </font>
+	</c:if>
 
 	<!-- jQuery -->
 	<script src="/resources/vendor/jquery/jquery.min.js"></script>
