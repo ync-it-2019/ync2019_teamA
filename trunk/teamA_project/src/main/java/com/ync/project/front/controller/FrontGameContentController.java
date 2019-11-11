@@ -1,6 +1,7 @@
 package com.ync.project.front.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,9 +9,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.front.service.ContentService;
+import com.ync.project.util.UploadUtils;
 
 import lombok.extern.log4j.Log4j;
 
@@ -24,10 +29,13 @@ import lombok.extern.log4j.Log4j;
   */
 @Controller
 @Log4j
-@RequestMapping("/front/*")
 public class FrontGameContentController {
-	@Autowired
+	
+	@Value("${globalConfig.uploadPath}")
+	private String uploadPath;
+
 	private ContentService service;
+
 	 /**
 	  * @Method 설명 : 게임 상세보기 front/game_content 호출
 	  * @Method Name : gameContent
@@ -45,6 +53,14 @@ public class FrontGameContentController {
 		model.addAttribute("board", service.get(content_id));
 	}
 	
+	@GetMapping("/game_content_writeform")
+	@PreAuthorize("isAuthenticated()")
+	public String register() { 
+		log.info("등록 양식 가져오기........");
+		
+		return "/front/game_content_writeform";
+	}
+
 
 	 /**
 	  * @Method 설명 : 컨텐츠 글쓰기 폼 front/game_content_writeform 호출
@@ -53,14 +69,34 @@ public class FrontGameContentController {
 	  * @작성자 : 허 민
 	  * @return 
 	  */
-	@PostMapping(value = "/game_content_writeform")
-//	@PreAuthorize("hasRole('ROLE_USER')")
-	public void gameContentWriteForm() {
-
-		log.info("writeform!");
-
+	@PostMapping("/game_content_writeform")
+	@PreAuthorize("isAuthenticated()")
+	public String register(MultipartFile[] uploadFile, ContentVO content, RedirectAttributes rttr) {
+		log.info("글등록하기......");
+		int index = 0;
+		for (MultipartFile multipartFile : uploadFile) {
+			// 실제로 upload된 file이 있을때만 upload 시킨다. 
+			if (multipartFile.getSize() > 0) {
+				switch (index) {
+				case 0:
+					content.setMedia2(UploadUtils.uploadFormPost(multipartFile,uploadPath));
+					break;
+				case 1:
+					content.setMedia3(UploadUtils.uploadFormPost(multipartFile,uploadPath));
+					break;
+				default:
+					content.setMedia4(UploadUtils.uploadFormPost(multipartFile,uploadPath));
+					break;
+				}
+				//list.add(UploadUtils.uploadFormPost(multipartFile));
+				index++;
+			}
+		}
+		service.register(content);
+		rttr.addFlashAttribute("result", content.getContent_id());
+		return "redirect:/";
 	}
-	
+
 	 /**
 	  * @Method 설명 : 게임 소개 front/game_intro 호출
 	  * @Method Name : gameIntro
@@ -75,6 +111,7 @@ public class FrontGameContentController {
 
 	}
 	
+	
 	 /**
 	  * @Method 설명 : 게임 리스트 front/game_list 호출
 	  * @Method Name : gameList
@@ -88,7 +125,5 @@ public class FrontGameContentController {
 		log.info("gamelist!");
 
 	}
-	
-	
 	
 }

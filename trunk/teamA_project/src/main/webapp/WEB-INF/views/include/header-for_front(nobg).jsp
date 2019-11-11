@@ -13,8 +13,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <!-- for-mobile-apps -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="keywords" content="Movies Pro Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  <meta name="keywords" content="Indie Sponsor" />
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
   <script type="application/x-javascript">
     addEventListener("load", function() {
       setTimeout(hideURLbar, 0);
@@ -57,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <h1><a href="/front/index"><span>I</span>ndie <span>s</span>ponsor</a></h1>
+              <h1><a href="/"><span>I</span>ndie <span>s</span>ponsor</a></h1>
             </div>
             <!-- navbar-header -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -69,17 +72,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<li>
 										<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="../content/game_intro">게임 소식</a></li>
+													<li><a href="/front/game_intro">게임 소식</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="../develnote/developer_note">개발 노트</a></li>
+													<li><a href="/front/developer_note">개발 노트</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="../front/notice">공지사항</a></li>
+													<li><a href="/front/notice">공지사항</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>

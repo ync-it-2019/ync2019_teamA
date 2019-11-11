@@ -32,6 +32,6 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
 		log.warn("ROLE NAMES: " + roleNames);
 
-		response.sendRedirect("/front/index");
+		response.sendRedirect("/");
 	}
 }

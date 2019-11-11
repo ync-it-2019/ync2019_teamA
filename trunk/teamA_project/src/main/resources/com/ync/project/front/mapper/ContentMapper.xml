@@ -50,6 +50,11 @@
 	</select>
 
 	<insert id="insert">
+		<selectKey keyProperty="content_id" order="BEFORE"
+			resultType="long">
+			SELECT seq_content.nextval
+			FROM dual
+		</selectKey>
 		INSERT INTO teamacreatercontent(
 		title,
 		content_intro,
@@ -68,8 +73,7 @@
 		media3,
 		media4,
 		content_id,
-		genre_id,
-		hit,like_cnt
+		genre_id
 		)
 		VALUES(
 		#{title},
@@ -88,10 +92,8 @@
 		#{media2},
 		#{media3},
 		#{media4},
-		seq_reply.nextval,
-		#{genre_id},
-		#{hit},
-		#{like_cnt}
+		seq_content.nextval,
+		#{genre_id}
 		)
 	</insert>
 
@@ -99,11 +101,11 @@
 
 		<selectKey keyProperty="content_id" order="BEFORE"
 			resultType="long">
-			SELECT seq_board.nextval
+			SELECT seq_content.nextval
 			FROM dual
 		</selectKey>
 		<![CDATA[
-		INSERT	INTO	teamacreatercontent(
+		INSERT	INTO	    teamacreatercontent(
 							title,
 							content_intro,
 							reg_date,
@@ -121,9 +123,7 @@
 							media3,
 							media4,
 							content_id,
-							genre_id,
-							hit,
-							like_cnt
+							genre_id
 						)
 						VALUES(
 							#{title},
@@ -141,10 +141,8 @@
 							#{media2}, 
 							#{media3}, 
 							#{media4}, 
-							seq_reply.nextval, 
-							#{genre_id}, 
-							#{hit},
-							#{like_cnt}
+							seq_content.nextval, 
+							#{genre_id}
 						)
 		 ]]>
 	</insert>
