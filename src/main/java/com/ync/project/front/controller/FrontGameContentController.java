@@ -29,7 +29,6 @@ import lombok.extern.log4j.Log4j;
   */
 @Controller
 @Log4j
-@RequestMapping("/front/*")
 public class FrontGameContentController {
 	
 	@Value("${globalConfig.uploadPath}")
@@ -56,8 +55,10 @@ public class FrontGameContentController {
 	
 	@GetMapping("/game_content_writeform")
 	@PreAuthorize("isAuthenticated()")
-	public void register() { 
+	public String register() { 
 		log.info("등록 양식 가져오기........");
+		
+		return "/front/game_content_writeform";
 	}
 
 
@@ -93,7 +94,7 @@ public class FrontGameContentController {
 		}
 		service.register(content);
 		rttr.addFlashAttribute("result", content.getContent_id());
-		return "redirect:/front/index";
+		return "redirect:/";
 	}
 
 	 /**

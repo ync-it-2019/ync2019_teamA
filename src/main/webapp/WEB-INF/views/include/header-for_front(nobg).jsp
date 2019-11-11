@@ -60,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <h1><a href="/front/index"><span>I</span>ndie <span>s</span>ponsor</a></h1>
+              <h1><a href="/"><span>I</span>ndie <span>s</span>ponsor</a></h1>
             </div>
             <!-- navbar-header -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
