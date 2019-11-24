@@ -28,9 +28,7 @@ public class ContentServiceImpl implements ContentService{
 	@Override
 	public void register(ContentVO content) {
 		// TODO Auto-generated method stub
-		
-		log.info("register........" + content);
-		
+		log.info("register........");
 		mapper.insertSelectKey(content);
 	}
 
