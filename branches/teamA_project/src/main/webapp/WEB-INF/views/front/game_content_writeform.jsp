@@ -21,7 +21,7 @@
 	<div id="page-wrapper">
 		<div class="panel-body">
 			<div class="alert alert-info">제목과 내용을 입력해주세요.</div>
-			<form role="form" action="/front/game_content_writeform"
+			<form role="form" action="/game_content_writeform"
 				method="post" enctype="multipart/form-data">
 				<input type="hidden" name="media2" value=""> <input
 					type="hidden" name="media3" value=""> <input type="hidden"

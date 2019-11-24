@@ -1,5 +1,6 @@
 package com.ync.project.front.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -7,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -33,7 +33,8 @@ public class FrontGameContentController {
 	
 	@Value("${globalConfig.uploadPath}")
 	private String uploadPath;
-
+	
+	@Autowired
 	private ContentService service;
 
 	 /**
@@ -72,7 +73,7 @@ public class FrontGameContentController {
 	@PostMapping("/game_content_writeform")
 	@PreAuthorize("isAuthenticated()")
 	public String register(MultipartFile[] uploadFile, ContentVO content, RedirectAttributes rttr) {
-		log.info("글등록하기......");
+		log.warn("글등록하기......");
 		int index = 0;
 		for (MultipartFile multipartFile : uploadFile) {
 			// 실제로 upload된 file이 있을때만 upload 시킨다. 
@@ -92,6 +93,20 @@ public class FrontGameContentController {
 				index++;
 			}
 		}
+		log.warn(content.getTitle());
+		log.warn(content.getContent_intro());
+		log.warn(content.getTag());
+		log.warn(content.getAge_rate());
+		log.warn(content.getGame_launch());
+		log.warn(content.getDon_attainment());
+		log.warn(content.getUserid());
+		log.warn(content.getPlatform());
+		log.warn(content.getLanguages());
+		log.warn(content.getMedia1());
+		log.warn(content.getMedia2());
+		log.warn(content.getMedia3());
+		log.warn(content.getMedia4());
+		log.warn(content.getGenre_id());
 		service.register(content);
 		rttr.addFlashAttribute("result", content.getContent_id());
 		return "redirect:/";
