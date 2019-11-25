@@ -211,6 +211,45 @@
 		]]>
 	</select>
 	
+	<select id="getListWithPaging1" resultType="com.ync.project.domain.MemberVO">
+		<![CDATA[
+			SELECT	userid,
+        			name,
+    	    		userpw,
+        			birth,
+        			NVL(phone,'없음') phone,
+        			creater_name,
+        			NVL(bank_account,'없음') bank_account,
+        			levels,
+        			status,
+        			NVL(sns,'없음') sns,
+        			NVL(other_address,'없음') other_address
+			FROM	(SELECT /*+INDEX_DESC(teamamember pk_board) */
+						rownum rn,
+        				userid,
+						name,
+						birth,
+						phone,
+						userpw,
+						creater_name,
+						bank_account,
+						levels,
+						status,
+						sns,
+						other_address
+      				FROM	teamamember
+					WHERE	auth LIKE 'ROLE_CREATER'
+					AND
+  		]]>
+		<include refid="criteria"></include> 
+      
+		<![CDATA[    
+      			rownum <= #{pageNum} * #{amount}
+      			)
+  			WHERE rn > (#{pageNum} -1) * #{amount}   
+		]]>
+	</select>
+	
 	<delete id="delete">
 		DELETE	FROM	teamamember
 				WHERE	userid = #{userid}
