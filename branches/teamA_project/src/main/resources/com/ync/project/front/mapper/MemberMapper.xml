@@ -51,35 +51,21 @@
 		]]>
 	</select>
 	
-	<!-- <insert id="insert">
+	<insert id="insert">
 		<![CDATA[
 			INSERT	INTO	teamamember(
 								userid,
 								name,
 								birth,
 								phone,
-								userpw,
-								creater_name,
-								bank_account,
-								donation_accept,
-								levels,
-								status,
-								sns,
-								other_address
+								userpw
 							)
 							VALUES(
 								#{userid},
 								#{name},
 								#{birth},
 								#{phone},
-								#{userpw},
-								#{creater_name},
-								#{bank_account},
-								#{donation_accept},
-								1,
-								#{status},
-								#{sns},
-								#{other_address}
+								#{userpw}
 							)
 		]]>
 	</insert>
@@ -95,5 +81,5 @@
 					other_address = #{other_address}
 			WHERE	userid = #{userid}
 		]]>
-	</update> -->
+	</update>
 </mapper>
