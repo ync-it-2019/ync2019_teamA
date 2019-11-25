@@ -5,6 +5,9 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,48 +94,60 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <!-- table1 -->
               <div class="outer-w3-agile mt-3">
                   <h4 class="tittle-w3-agileits mb-4">게시물 등록</h4>
-                  <table class="table">
-
-                      <tbody >
-                          <tr >
-                              <th scope="col" width="150px">제목</th>
-                              <td><textarea name="name" rows="1" cols="10"></textarea></td>
-                          </tr>
-                          <tr>
-                              <th scope="col">카테고리</th>
-                              <td><select name="menu" size="1">
-                                  <option value="notice" selected>공지사항</option>
-                                  <option value="event" >Event</option>
-                                </select></td>
-                          </tr>
-                          <tr>
-                              <th scope="col">첨부파일</th>
-                              <td>
-                                <div class="btn btn-default btn-file">
-									<i class="fa fa-paperclip"></i> 첨부파일1
-									<input type="file" name="attachment">
-								</div>
-                                <div class="btn btn-default btn-file">
-									<i class="fa fa-paperclip"></i> 첨부파일2
-									<input type="file" name="attachment">
-								</div>
-                                <div class="btn btn-default btn-file">
-									<i class="fa fa-paperclip"></i> 첨부파일3
-									<input type="file" name="attachment">
-								</div>
-                              </td>
-                          </tr>
-                          <tr>
-                              <th scope="col">내용</th>
-                              <td><textarea name="name" rows="8" cols="80"></textarea></td>
-                          </tr>
-
-                      </tbody>
-                  </table>
-                  <div align="center">
-				  	<input type="button" class="snip1535" name="submit" value="등록"/>
-      			  	<input type="button" class="snip1535" name="cancel" value="취소"/>
-				 </div>
+                  
+				  <form role="form" action="/admin/content_upload" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="media1" value=""/> 
+					<input type="hidden" name="media2" value=""/>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+					
+					<!-- <div class="form-group">
+						<label>카테고리</label>
+                        <select name="category" size="1">
+							<option value="notice" selected>공지사항</option>
+							<option value="event" >Event</option>
+						</select>
+					</div> -->
+					
+					<div class="form-group">
+						<label>제목</label>
+						<input class="form-control" name='title'>
+					</div>
+					
+					<div class="form-group">
+						<label>작성자</label>
+						<input class="form-control" name='userid'
+							value='<sec:authentication property="principal.username"/>'
+							readonly="readonly">
+						<!-- <input class="form-control" name='userid' value="admin" readonly="readonly"/> -->
+					</div>
+					
+					<div class="form-group">
+						<label>내용</label>
+						<textarea class="form-control" rows="6" name='content'></textarea>
+					</div>
+					
+					<div class="form-group" style="{display:inline-block}">
+						<div class="btn btn-default btn-file">
+							<i class="fa fa-paperclip"></i>
+							<label>게임 이미지파일 1</label>
+							<input type="file" class="form-control" name='uploadFile'>
+						</div>
+						<br>
+						<div class="btn btn-default btn-file">
+							<i class="fa fa-paperclip"></i>
+							<label>게임 이미지파일 2</label>
+							<input type="file" class="form-control" name='uploadFile'>
+						</div>
+					</div>
+					
+					<div align="center">
+						<input type="submit" class="snip1535 btn btn-default" name="submit" value="등록"/>
+						<input type="reset" class="snip1535 btn btn-default" name="cancel" value="취소"/>
+					</div>
+					
+				  </form>
+				 
+				 
               </div>
               </section>
           <!--// Stats -->

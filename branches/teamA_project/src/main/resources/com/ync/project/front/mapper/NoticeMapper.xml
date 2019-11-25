@@ -49,7 +49,7 @@
 		sysdate,
 		#{content},
 		sysdate,
-		#{hit},
+		0,
 		#{media1},
 		#{media2},
 		#{userid}
@@ -64,28 +64,28 @@
 			FROM dual
 		</selectKey>
 		<![CDATA[
-		INSERT	INTO	teamanotice(
-							notice_id,
-							title,
-							reg_date,
-							content,
-							highlight,
-							hit,
-							media1,
-							media2,
-							userid
-						)
-						VALUES(
-							seq_reply.nextval,
-							#{title},
-							sysdate,
-							#{content},
-							sysdate,
-							#{hit},
-							#{media1},
-							#{media2},
-							#{userid}
-						)
+		INSERT INTO teamanotice(
+		notice_id,
+		title,
+		reg_date,
+		content,
+		highlight,
+		hit,
+		media1,
+		media2,
+		userid
+		)
+		VALUES(
+		seq_reply.nextval,
+		#{title},
+		sysdate,
+		#{content},
+		sysdate,
+		0,
+		#{media1},
+		#{media2},
+		#{userid}
+		)
 		 ]]>
 	</insert>
 

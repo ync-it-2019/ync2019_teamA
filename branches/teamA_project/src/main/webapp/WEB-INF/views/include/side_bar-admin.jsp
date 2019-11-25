@@ -5,7 +5,7 @@
     <nav id="sidebar">
       <div class="sidebar-header">
         <h2>
-          <a href="main">관리자 페이지</a>
+          <a href="admin_main">관리자 페이지</a>
         </h2>
         <span></span>
       </div>
