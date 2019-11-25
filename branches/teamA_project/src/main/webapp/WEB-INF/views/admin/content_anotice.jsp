@@ -80,8 +80,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<%-- content table --%>
 				<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
-				<input type="button" value="공지사항" onClick="location.href='anotice'">
-				<input type="button" value="이벤트" onClick="location.href='aevent'">
+				<input type="button" value="공지사항" onClick="location.href='content_anotice'">
+				<input type="button" value="이벤트" onClick="location.href='content_aevent'">
 				<h4 class="tittle-w3-agileits mb-4">공지사항 관리</h4>
 					<table class="table">
 
@@ -110,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<c:if test="${param.notice_id==notice.notice_id}">
 										<tr>
 											<td></td>
-											<td colspan = "4"><h6 style="color:black; background-color:#9e9e9e40; border:0.5px solid black"><c:out value="${notice.content}"/></h4></td>
+											<td colspan = "4"><p style="color:black; background-color:#9e9e9e40; border:0.5px solid black"><c:out value="${notice.content}"/></p></td>
 										</tr>
 									</c:if>
 							</c:forEach>

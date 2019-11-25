@@ -34,7 +34,7 @@ public class AdminNoticeController {
 		model.addAttribute("list", nService.getListWithPaging(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
-		log.info("Welcome Content Anoitce!");
+		log.info("Welcome Content Aevent!");
 	
 		return "admin/content_anotice";
 	}
