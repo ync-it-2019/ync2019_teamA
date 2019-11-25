@@ -21,68 +21,103 @@
 	<div id="page-wrapper">
 		<div class="panel-body">
 			<div class="alert alert-info">제목과 내용을 입력해주세요.</div>
-			<form role="form" action="/game_content_writeform"
+			<form role="form" action="/game_content_writeform" 
 				method="post" enctype="multipart/form-data">
-				<input type="hidden" name="media2" value=""> <input
-					type="hidden" name="media3" value=""> <input type="hidden"
-					name="media4" value=""> <input type="hidden"
-					name="${_csrf.parameterName}" value="${_csrf.token}" />
+				
+				<input type="hidden" name="media2" value="">
+				<input type="hidden" name="media3" value="">
+				<input type="hidden" name="media4" value="">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 				<div class="form-group">
 					<label>제목</label> <input class="form-control" name='title'>
 				</div>
+				
 				<div class="form-group">
 					<label>내용</label>
 					<textarea class="form-control" rows="6" name='content_intro'></textarea>
 				</div>
+				
 				<div class="form-group">
-					<label>작성자</label> <input class="form-control" name='userid'
+					<label>작성자</label>
+					<input class="form-control" name='userid'
 						value='<sec:authentication property="principal.username"/>'
 						readonly="readonly">
 				</div>
+				
 				<div class="form-group">
-					<label>나이제한</label> <input class="form-control" name='age_rate'
-						maxlength=2 style="width: 70px">
+					<label>나이제한</label>
+                    <select name="age_rate" class="form-control" size="1">
+						<option value="1" selected>전체</option>
+						<option value="7" >7세 이상</option>
+						<option value="12" >12세 이상</option>
+						<option value="15" >15세 이상</option>
+						<option value="19" >19세 이상</option>
+					</select>
 				</div>
+				
 				<div class="form-group">
-					<label>태그(총 3개, 각 태그 사이에 / 입력)</label> <input class="form-control"
-						name='tag'>
+					<label>태그(총 3개, 각 태그 사이에 / 입력)</label>
+					<input class="form-control" name='tag' placeholder="example/예시/Action">
 				</div>
+				
 				<div class="form-group">
-					<label>유투브 주소</label> <input class="form-control" name='media1'>
+					<label>유투브 주소</label>
+					<input class="form-control" name='media1' placeholder="'유튜브 url을 복사하여 붙여넣기'">
 				</div>
-					<div class="form-group">
-					<label>출시 플랫폼</label> <input class="form-control" name='platform' ><br>
-					<label>지원 언어</label> <input class="form-control" name='languages' ><br>
-					<label>목표 후원금액</label> <input class="form-control"
-						name='don_attainment' maxlength=10 ><br>
-					<label>대표 장르ID</label> <input class="form-control" name='genre_id' maxlength=2 ><br>
+				
+				<div class="form-group">
+					<label>출시 플랫폼</label>
+					<input class="form-control" name='platform' value="PC"><br>
+					
+					<label>지원 언어</label>
+					<input class="form-control" name='languages' value="Korean"><br>
+					
+					<label>목표 후원금액</label>
+					<input class="form-control" name='don_attainment' maxlength=10 value="1000000"><br>
+					
+					<label>대표 장르ID</label>
+                    <select name="genre_id" class="form-control" size="1">
+						<option value="1" selected>액션</option>
+						<option value="2" >어드벤쳐</option>
+						<option value="3" >로그라이크</option>
+						<option value="4" >퍼즐</option>
+						<option value="5" >리듬</option>
+						<option value="6" >호러</option>
+						<option value="7" >시뮬레이션</option>
+						<option value="8" >캐주얼</option>
+						<option value="9" >전략</option>
+					</select>
 				</div>
+				
 				<br>
 				<div class="form-group">
-					<div class="btn btn-default btn-file">
-						 게임실행 URL <input class="form-control"
-							name='game_launch' type='url'>
+					<div class="btn btn-default btn-file"> 게임실행 URL
+						<input class="form-control" name='game_launch' type='url'>
 					</div>
 				</div>
 				<br>
+				
 				<div class="form-group">
 					<div class="btn btn-default btn-file">
-						<i class="fa fa-paperclip"></i><label>게임 이미지파일 1</label><input
-							type="file" class="form-control" name='uploadFile'>
+						<i class="fa fa-paperclip"></i>
+						<label>게임 이미지파일 1</label>
+						<input type="file" class="form-control" name='uploadFile'>
 					</div>
 
-				<div class="btn btn-default btn-file" style="margin-left:8em">
-					<i class="fa fa-paperclip"></i><label>게임 이미지파일 2</label><input
-						type="file" class="form-control" name='uploadFile'>
-				</div>
+					<div class="btn btn-default btn-file" style="margin-left:8em">
+						<i class="fa fa-paperclip"></i>
+						<label>게임 이미지파일 2</label>
+						<input type="file" class="form-control" name='uploadFile'>
+					</div>
 
-				<div class="btn btn-default btn-file" style="margin-left:8em">
-					<i class="fa fa-paperclip"></i><label>게임 이미지파일 3</label><input
-						type="file" class="form-control" name='uploadFile'>
-
+					<div class="btn btn-default btn-file" style="margin-left:8em">
+						<i class="fa fa-paperclip"></i>
+						<label>게임 이미지파일 3</label>
+						<input type="file" class="form-control" name='uploadFile'>
+					</div>
 				</div>
-				</div>
+				
 				<p class="help-block">Max. 32MB</p>
 				<br>
 				<br>
