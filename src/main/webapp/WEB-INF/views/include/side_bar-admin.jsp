@@ -22,7 +22,7 @@
               <a href="member_info">· 회원 조회</a>
             </li>
             <li>
-              <a href="admin_donation">· 후원 관리</a>
+              <a href="member_donation">· 후원 관리</a>
             </li>
             <li>
               <a href="member_stats_all">· 회원 통계</a>
