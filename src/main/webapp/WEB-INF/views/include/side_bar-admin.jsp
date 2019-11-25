@@ -72,9 +72,6 @@
             <li>
               <a href="creater_info">· 창작자 조회</a>
             </li>
-            <li>
-              <a href="creater_modify">· 창작자 권한 수정</a>
-            </li>
           </ul>
         </li>
         <li>
