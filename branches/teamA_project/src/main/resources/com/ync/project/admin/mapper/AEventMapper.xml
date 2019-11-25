@@ -61,28 +61,28 @@
 			FROM	dual
 		</selectKey>
 		<![CDATA[
-			INSERT	INTO	teamaevent(
-								event_id,
-								title,
-								reg_date,
-								content,
-								highlight,
-								hit,
-								media1,
-								media2,
-								userid
-							)
-							VALUES(
-								seq_reply.nextval,
-								#{title},
-								sysdate,
-								#{content},
-								sysdate,
-								#{hit},
-								#{media1},
-								#{media2},
-								#{userid}
-							)
+			INSERT INTO teamaevent(
+						event_id,
+						title,
+						reg_date,
+						content,
+						highlight,
+						hit,
+						media1,
+						media2,
+						userid
+					)
+					VALUES(
+						seq_reply.nextval,
+						#{title},
+						sysdate,
+						#{content},
+						sysdate,
+						#{hit},
+						#{media1},
+						#{media2},
+						#{userid}
+					)
 		 ]]>
 	</insert>
 
@@ -121,7 +121,7 @@
 				event_id > 0
 	</select>
 	
-	<select id="getEventListWithPaging" resultType="com.ync.project.domain.EventVO">
+	<select id="getListWithPaging" resultType="com.ync.project.domain.EventVO">
 		<![CDATA[
 			SELECT	event_id,
 					title,
@@ -144,40 +144,6 @@
 								media2,
 								userid
       				 FROM	teamaevent
-					 WHERE 
-  		]]>
-							<include refid="criteria"></include> 
-      
-							<![CDATA[    
-      							rownum <= #{pageNum} * #{amount}
-      				 )
-  			WHERE rn > (#{pageNum} -1) * #{amount}   
-		]]>
-	</select>
-	
-	<select id="getNoticeListWithPaging" resultType="com.ync.project.domain.NoticeVO">
-		<![CDATA[
-			SELECT	notice_id,
-					title,
-					reg_date,
-					content,
-					highlight,
-					hit,
-					media1,
-					media2,
-					userid
-			FROM	(SELECT /*+INDEX_DESC(teamanotice pk_board) */
-								rownum rn,
-        						notice_id,
-								title,
-								reg_date,
-								content,
-								highlight,
-								hit,
-								media1,
-								media2,
-								userid
-      				 FROM	teamanotice
 					 WHERE 
   		]]>
 							<include refid="criteria"></include> 
