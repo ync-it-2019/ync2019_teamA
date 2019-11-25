@@ -244,20 +244,32 @@
 						<li style="margin-left: 0em"><a href="/front/mp_withdraw"
 							class="login" style="margin-left: 0em">마이 페이지</a></li>
 					</sec:authorize>
+					
+					<!-- Admin Menus -->
 					<sec:authorize
 						access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
-						<li style="margin-left: 40em"><a href="/logout"
-							class="login">로그아웃</a></li>
+						<li style="margin-left: 40em">
+							<a href="/logout" class="login">로그아웃</a>
+						</li>
+					</sec:authorize>
+					<sec:authorize
+						access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
+						<li style="margin-left: 20em">
+							<button id='admBtn' type="button" class="btn btn-xs pull-right">어드민 페이지</button></li>
+						</li>
 					</sec:authorize>
 					<sec:authorize
 						access="hasRole('ROLE_CREATER') or hasRole('ROLE_ADMIN')">
-						<li style="margin-left: 14em">
+						<li style="margin-left: 4em">
 						<button id='regBtn' type="button" class="btn btn-xs pull-right">게임등록</button></li>
 					</sec:authorize>
+					<!-- //Admin Menus -->
+					
 					<sec:authorize access="hasRole('ROLE_CREATER')">
 						<li style="margin-left: 20em"><a href="/logout"
 							class="login">로그아웃</a></li>
 					</sec:authorize>
+					
 				</ul>
 			</div>
 			<div class="col-md-6 wthree_share_agile"></div>
@@ -575,6 +587,10 @@
 
 							$("#regBtn").on("click", function() {
 								self.location = "/game_content_writeform";
+							});
+							
+							$("#admBtn").on("click", function() {
+								self.location = "/admin/admin_main";
 							});
 
 							var actionForm = $("#actionForm");

@@ -5,7 +5,7 @@
     <nav id="sidebar">
       <div class="sidebar-header">
         <h2>
-          <a href="main">관리자 페이지</a>
+          <a href="admin_main">관리자 페이지</a>
         </h2>
         <span></span>
       </div>
@@ -71,9 +71,6 @@
           <ul class="collapse list-unstyled" id="developer">
             <li>
               <a href="creater_info">· 창작자 조회</a>
-            </li>
-            <li>
-              <a href="creater_modify">· 창작자 권한 수정</a>
             </li>
           </ul>
         </li>
