@@ -47,29 +47,7 @@ public class AdminBoardController {
 	
 	@Autowired
 	private AGenreService gService;
-	
-	 /**
-	  * @Method 설명 : 이벤트 게시물 content_aevent.jsp 호출
-	  * @Method Name : content_aevent
-	  * @Date : 2019. 10. 30.
-	  * @작성자 : 김길재
-	  * @return
-	  */
-	@GetMapping(value = "/content_aevent")
-	public String content_aevent() {
-
-		log.info("Welcome Content Aevent!");
-	
-		return "admin/content_aevent";
-	}
-	
-	 /**
-	  * @Method 설명 : 업로드된 컨텐츠 관리 content_management.jsp 호출
-	  * @Method Name : content_management
-	  * @Date : 2019. 10. 26.
-	  * @작성자 : 김길재
-	  * @return
-	  */
+		
 	@GetMapping(value = "/content_management")
 	public void content_management(Criteria cri, Model model) {
 
