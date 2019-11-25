@@ -1,6 +1,7 @@
 <!-- Author: W3layouts Author URL: http://w3layouts.com License: Creative Commons Attribution 3.0 Unported License URL: http://creativecommons.org/licenses/by/3.0/ -->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,8 +79,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<%-- content table --%>
 			<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
-				<input type="button" value="공지사항" onClick="location.href='anotice'">
-				<input type="button" value="이벤트" onClick="location.href='aevent'">
+				<input type="button" value="공지사항" onClick="location.href='content_anotice'">
+				<input type="button" value="이벤트" onClick="location.href='content_aevent'">
 				<h4 class="tittle-w3-agileits mb-4">이벤트 관리</h4>
 				<table class="table">
 
@@ -94,36 +95,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</thead>
 
 					<tbody>
-						<tr>
-							<th scope="col">1</th>
-							<th scope="col">휴면관련 정책변경</th>
-							<td>공지사항</td>
-							<td>admin</td>
-							<td>2019-10-23</td>
-						</tr>
-						<tr>
-							<th scope="col">2</th>
-							<th scope="col">수수료 할인 이벤트</th>
-							<td>이벤트</td>
-							<td>admin</td>
-							<td>2019-10-01</td>
-						</tr>
-						<tr>
-							<th scope="col">3</th>
-							<th scope="col">게임할인 이벤트</th>
-							<td>이벤트</td>
-							<td>admin</td>
-							<td>2019-10-01</td>
-						</tr>
-						<tr>
-							<th scope="col">4</th>
-							<th scope="col">주소변경 안내</th>
-							<td>공지사항</td>
-							<td>admin</td>
-							<td>2019-09-20</td>
-						</tr>
+						<c:forEach items="${list}" var="event" varStatus="status">
+							<tr>
+								<td><c:out value="${(param.pageNum-1) * (param.amount) + status.count}" /></td>
+								<td style="color:blue;">
+									<a class='move' href='<c:out value="${event.event_id}"/>'>
+										<c:out value="${event.title}" />
+									</a>
+								</td>
+								<td><c:out value="이벤트" /></td>
+								<td><c:out value="${event.userid}" /></td>
+								<td><c:out value="${event.reg_date}" /></td>
+								<c:if test="${param.event_id == event.event_id}">
+									<tr>
+										<td></td>
+										<td colspan = "4"><p style="color:black; background-color:#9e9e9e40; border:0.5px solid black"><c:out value="${event.content}"/></p></td>
+									</tr>
+								</c:if>
+						</c:forEach>
 					</tbody>
 				</table>
+				<!--  Pagination 시작 -->
+  				<script src="/resources/js/bootstrap.js"></script>
+				<div class='pull-right'>
+					<ul class="pagination">
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
+						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+						</c:if>
+					</ul>
+				</div>
+				<!--  Pagination 끝 -->
+				<!-- Form 시작 -->
+				<form id='actionForm' action="content_aevent" method='get'>
+				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+				</form>
+				<!-- Form 끝 -->
 			</div>
 			<!--// Stats -->
 			<!-- Copyright -->
@@ -183,6 +198,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="/resources/js/bootstrap.min.js"></script>
 	<!-- //Js for bootstrap working -->
 
+	<!-- Pagination Button Action -->
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var result = '<c:out value="${result}"/>';
+		
+		checkModal(result);
+
+		history.replaceState({}, null, null);
+
+		function checkModal(result) {
+
+			if (result === '' || history.state) {
+				return;
+			}
+
+			if (parseInt(result) > 0) {
+				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+			}
+
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location = "/board/register";
+		});
+		
+		var actionForm = $("#actionForm");
+
+		// 페이지 번호 클릭 이벤트
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			// console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		// 상세보기 클릭 이벤트
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input type='hidden' name='event_id' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/admin/content_aevent");
+			actionForm.submit();
+		});
+	});
+	</script>
+	<!-- //Pagination Button Action end -->
+	
 </body>
 
 </html>
