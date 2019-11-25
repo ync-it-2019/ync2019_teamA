@@ -18,16 +18,8 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/admin/*")
 public class AdminHomeController {
 	
-	
-	 /**
-	  * @Method 설명 : 메인 화면 main.jsp 호출
-	  * @Method Name : home
-	  * @Date : 2019. 10. 26.
-	  * @작성자 : 김길재
-	  * @return
-	  */
 	@GetMapping(value = "/admin_main")
-	//@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String home() {
 
 		log.info("Welcome Admin home!");

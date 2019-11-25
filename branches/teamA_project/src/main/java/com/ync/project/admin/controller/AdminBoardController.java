@@ -49,21 +49,6 @@ public class AdminBoardController {
 	private AGenreService gService;
 	
 	 /**
-	  * @Method 설명 : 관리자 게시물 관리 content_acontent.jsp 호출
-	  * @Method Name : content_acontent
-	  * @Date : 2019. 10. 26.
-	  * @작성자 : 석준영
-	  * @return
-	  */
-	@GetMapping(value = "/content_anotice")
-	public String content_acontent() {
-
-		log.info("Welcome Content Anoitce!");
-	
-		return "admin/content_anotice";
-	}
-	
-	 /**
 	  * @Method 설명 : 이벤트 게시물 content_aevent.jsp 호출
 	  * @Method Name : content_aevent
 	  * @Date : 2019. 10. 30.
