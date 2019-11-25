@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.NoticeVO;
 
@@ -19,6 +18,7 @@ public interface NoticeMapper {
 
 	public List<NoticeVO> getListWithPaging(Criteria cri); //게시글 페이징\
 	
+	public void insert(NoticeVO notice);						// 공지사항글 삽입
 	
 	public Integer insertSelectKey(NoticeVO notice); //게시글 번호
 
