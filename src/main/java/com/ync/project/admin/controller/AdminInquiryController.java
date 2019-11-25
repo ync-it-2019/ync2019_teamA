@@ -10,13 +10,21 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/admin/*")
 //@PreAuthorize("hasRole('ROLE_ADMIN')")
-public class AdminNoticeController {
+public class AdminInquiryController {
 	
-	@GetMapping(value = "/content_anotice")
-	public String content_acontent() {
+	@GetMapping(value = "/inquiry_qna_list")
+	public String qna_list() {
 
-		log.info("Welcome Content Anoitce!");
+		log.info("Welcome Content Acontent!");
 	
-		return "admin/content_anotice";
+		return "admin/inquiry_qna_list";
+	}
+	
+	@GetMapping(value = "/inquiry_qna_answer")
+	public String qna_answer() {
+
+		log.info("Welcome Content Acontent!");
+	
+		return "admin/inquiry_qna_answer";
 	}
 }
