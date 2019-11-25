@@ -5,11 +5,15 @@
    License: Creative Commons Attribution 3.0 Unported
    License URL: http://creativecommons.org/licenses/by/3.0/
    -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Gift Sign Up Form a Flat Responsive Widget Template :: w3layouts </title>
+  <title>IndieSponsor Join</title>
   <!-- Meta tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="utf-8" />
@@ -43,7 +47,7 @@
                 <div class="container">
                   <div class="slider-info">
                     <h4><span class="fa fa-gamepad" aria-hidden="true"></span></h4>
-                    <p> 하드웨어 : 사람이 발로 걷어찰 수 있는 컴퓨터의 부분(Jeff Pesis) </p>
+                    <p> 인디 스폰서는 인디게임 개발자와 유저를 위한 웹사이트입니다. </p>
                   </div>
                 </div>
               </div>
@@ -88,8 +92,9 @@
       <div class="clear"></div>
     </div>
     <div class="slid-right-w3">
-      <form action="#" method="post">
-
+      <form action="/join" method="post">
+		<input type="hidden"
+					name="${_csrf.parameterName}" value="${_csrf.token}" />
         <div class="main">
           <div class="form-left-to-w3l">
             <input type="text" name="name" placeholder="이름(홍길동)" required="">
@@ -117,23 +122,21 @@
 
         <div class="main">
           <div class="form-left-to-w3l">
-            <input type="email" name="email" placeholder="Email" required="">
+            <input type="email" name="userid" placeholder="Email" required="">
           </div>
           <div class="btnn">
             <button type="button">중복확인</button><br>
           </div>
         </div>
         <div class="form-left-to-w3l">
-          <input type="text" name="nick" placeholder="닉네임" required="">
-          <div class="clear"></div>
 
           <div class="main">
             <div class="form-left-to-w3l">
-              <input type="password" name="password" placeholder="비밀번호" id="password" required="">
+              <input type="password" name="userpw" placeholder="비밀번호" id="password" required="">
             </div>
-            <div class="form-right-to-w3ls">
+           <!--  <div class="form-right-to-w3ls">
               <input type="password" placeholder="비밀번호 확인" id="confirm_password" required="">
-            </div>
+            </div> -->
           </div>
           <div class="form-left-to-w3l">
             <input type="text" name="phone" placeholder="전화번호" required="">
