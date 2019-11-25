@@ -31,7 +31,7 @@ public class ContentVO {
 	private Long genre_id;			//
 
 	private Date don_reg;			//
-	private Long don_attainment;		//
+	private Long don_attainment;	//
 	
 	private String game_launch;		//
 	private String media1;			//
