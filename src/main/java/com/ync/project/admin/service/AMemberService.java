@@ -39,6 +39,7 @@ public interface AMemberService {
 
 	public int getActiveUser(Criteria cri);					//현재 활동중인 유저 수 리턴
 
+	public int getGetDonationToUser(String userid);			// 개인의 후원받은 금액
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 }

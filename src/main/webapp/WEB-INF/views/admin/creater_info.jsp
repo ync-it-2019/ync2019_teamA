@@ -279,7 +279,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			actionForm.submit();
 		});
 	});
-</script>
+	</script>
 
 </body>
 

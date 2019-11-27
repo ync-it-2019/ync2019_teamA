@@ -33,6 +33,8 @@ public interface AMemberMapper {
 	public List<GDonationVO> getGetDonation(Criteria cri);	//후원받은 금액
 
 	public List<GDonationVO> getGiveDonation(Criteria cri);	//후원한 금액	
+	
+	public int getGetDonationToUser(String userid);
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 

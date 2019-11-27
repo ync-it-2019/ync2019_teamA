@@ -78,12 +78,14 @@ public class AMemberServiceImpl implements AMemberService {
 		return mapper.getTotalCount(cri);
 	}
 
+	// 전체 받은 후원 금액
 	@Override
 	public List<GDonationVO> getGetDonation(Criteria cri) {
 		log.info("get total get donations");
 		return mapper.getGetDonation(cri);
 	}
 
+	// 전체 보낸 후원 금액
 	@Override
 	public List<GDonationVO> getGiveDonation(Criteria cri) {
 		log.info("get total give donations");
@@ -100,6 +102,12 @@ public class AMemberServiceImpl implements AMemberService {
 	public int getActiveUser(Criteria cri) {
 		log.info("get Activate Users......");
 		return mapper.getActiveUser(cri);
+	}
+
+	@Override
+	public int getGetDonationToUser(String userid) {
+		log.info("get Get Donation To User......");
+		return mapper.getGetDonationToUser(userid);
 	};
 	
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값

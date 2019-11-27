@@ -23,8 +23,8 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/admin/*")
-//@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class AdminCreatorController {
+	
 	@Autowired
 	private AMemberService mService;
 	
@@ -46,8 +46,7 @@ public class AdminCreatorController {
 		
 		model.addAttribute("member_info", mService.get(userid));
 		model.addAttribute("givedon", mService.getGiveDonation(cri));
-		model.addAttribute("getdon", mService.getGetDonation(cri));
-		model.addAttribute("donation", mService.get(userid));
+		model.addAttribute("getdon", mService.getGetDonationToUser(userid));
 	}
 	
 	 /**
@@ -59,7 +58,7 @@ public class AdminCreatorController {
 	  */
 	@GetMapping(value = "/creater_info")
 	public void creater_info(Criteria cri, Model model) {
-		int total = mService.getTotal(cri);
+		int total = service.getTotal(cri);
 		
 		log.info("list:11111 " + cri);
 		log.info("total:1111 " + total);
