@@ -43,22 +43,22 @@ public class FrontMemberController {
 		return "/front/join";
 	}
 	
-	@PostMapping("/join")
-	public String join(MemberVO member) {
-		log.warn("회원가입하기......");
-		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-		member.setUserpw(scpwd.encode(member.getUserpw()));
-		log.warn(member.getName());
-		log.warn(member.getBirth());
-		log.warn(member.getUserid());
-		log.warn(member.getUserpw());
-		log.warn(member.getPhone());
-		
-		service.join(member);
-//		rttr.addFlashAttribute("result", content.getContent_id());
-		return "redirect:/";
-	}
-	
+//	@PostMapping("/join")
+//	public String join(MemberVO member) {
+//		log.warn("회원가입하기......");
+//		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+//		member.setUserpw(scpwd.encode(member.getUserpw()));
+//		log.warn(member.getName());
+//		log.warn(member.getBirth());
+//		log.warn(member.getUserid());
+//		log.warn(member.getUserpw());
+//		log.warn(member.getPhone());
+//		
+//		service.join(member);
+////		rttr.addFlashAttribute("result", content.getContent_id());
+//		return "redirect:/";
+//	}
+//	
 	 /**
 	  * @Method 설명 : 창작자 회원가입 front/request_creator 호출
 	  * @Method Name : requestCreator
