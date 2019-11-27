@@ -78,13 +78,25 @@
 		]]>
 	</select>
 
-	<select id="getGiveDonation" resultType="com.ync.project.domain.GDonationVO">
+	<select id="getGetDonationToUser" resultType="int">
 		<![CDATA[
-			SELECT  d.userid AS userid,
-        			sum(donation) AS donation
-			FROM    teamadonation d
-			GROUP BY d.userid
+			SELECT  NVL(sum(get_donation), 0) AS donation
+			FROM    (SELECT don.content_id,
+                			sum(donation) AS get_donation
+        			FROM    teamadonation don
+        			GROUP BY don.content_id
+        			)cre,
+        			teamacreatercontent c
+			WHERE   c.content_id = cre.content_id
+			AND     c.userid LIKE #{userid}
 		]]>
+	</select>
+
+	<select id="getGiveDonation" resultType="com.ync.project.domain.GDonationVO">
+		SELECT  d.userid AS userid,
+        		sum(donation) AS donation
+		FROM    teamadonation d
+		GROUP BY d.userid
 	</select>
 
 
@@ -238,8 +250,7 @@
 						sns,
 						other_address
       				FROM	teamamember
-					WHERE	auth LIKE 'ROLE_CREATER'
-					AND
+					WHERE 	auth LIKE 'ROLE_CREATER' AND
   		]]>
 		<include refid="criteria"></include> 
       
