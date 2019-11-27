@@ -34,7 +34,7 @@ public class FrontNoticeController {
 	  */
 	
 	@GetMapping("/notice")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+//	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void list(Criteria cri, Model model) {
 		
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));
