@@ -1,7 +1,5 @@
 package com.ync.project.domain;
 
-import java.util.Date;
-
 import lombok.Data;
 
 
