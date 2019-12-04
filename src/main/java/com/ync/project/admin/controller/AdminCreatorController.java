@@ -64,7 +64,7 @@ public class AdminCreatorController {
 		log.info("total:1111 " + total);
 //		model.addAttribute("list", service.getList());
 		
-		model.addAttribute("list", mService.getListWithPaging1(cri));
+		model.addAttribute("list", mService.getListWithPagingWithCreater(cri));
 		model.addAttribute("list_getdon", mService.getGetDonation(cri));
 		model.addAttribute("list_givedon", mService.getGiveDonation(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
