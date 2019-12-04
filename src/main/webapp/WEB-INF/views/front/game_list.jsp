@@ -46,7 +46,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<li role="presentation"><a href="#all" role="tab" id="all-tab" data-toggle="tab" aria-controls="all">전체</a></li>
 							<li role="presentation"><a href="#action" role="tab" id="a-tab" data-toggle="tab" aria-controls="a">액션</a></li>
 							<li role="presentation"><a href="#adventure" role="tab" id="b-tab" data-toggle="tab" aria-controls="b">어드벤쳐</a></li>
-							<li role="presentation"><a href="#roglike" role="tab" id="c-tab" data-toggle="tab" aria-controls="c">로그라이크</a></li>
+							<li role="presentation"><a href="#roguelike" role="tab" id="c-tab" data-toggle="tab" aria-controls="c">로그라이크</a></li>
 							<li role="presentation"><a href="#puzzle" role="tab" id="d-tab" data-toggle="tab" aria-controls="d">퍼즐</a></li>
 							<li role="presentation"><a href="#rhythm" role="tab" id="e-tab" data-toggle="tab" aria-controls="e">리듬</a></li>
 							<li role="presentation"><a href="#horror" role="tab" id="f-tab" data-toggle="tab" aria-controls="f">호러</a></li>
@@ -150,7 +150,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</table>
 								</div>
 							</div>
-							<div role="tabpanel" class="tab-pane fade" id="roglike" aria-labelledby="c-tab">
+							<div role="tabpanel" class="tab-pane fade" id="roguelike" aria-labelledby="c-tab">
 								<div class="agile-news-table">
 									<div class="w3ls-news-result">
 										<h4>Search Results : <span>${fn:length(content3)}</span></h4>
