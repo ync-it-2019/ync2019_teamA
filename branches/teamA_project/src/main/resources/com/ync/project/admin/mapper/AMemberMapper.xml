@@ -29,6 +29,7 @@
 	넣어서 사용하기에 기본 사용법과 달라진다.
 	-->
 	<select id="read" resultType="com.ync.project.domain.MemberVO">
+	<![CDATA[
 		SELECT	userid,
 				name,
 				birth,
@@ -43,6 +44,7 @@
 				auth
 		FROM	teamamember
 		WHERE	userid = #{userid}
+	]]>
 	</select>
 	
 	
@@ -78,17 +80,17 @@
 		]]>
 	</select>
 
-	<select id="getGetDonationToUser" resultType="int">
+	<select id="getGetDonationToUser" resultType="com.ync.project.domain.GDonationVO">
 		<![CDATA[
 			SELECT  NVL(sum(get_donation), 0) AS donation
 			FROM    (SELECT don.content_id,
-                			sum(donation) AS get_donation
+                			sum(don.donation) AS get_donation
         			FROM    teamadonation don
         			GROUP BY don.content_id
         			)cre,
         			teamacreatercontent c
 			WHERE   c.content_id = cre.content_id
-			AND     c.userid LIKE #{userid}
+			AND     c.userid = #{userid}
 		]]>
 	</select>
 
@@ -223,7 +225,7 @@
 		]]>
 	</select>
 	
-	<select id="getListWithPaging1" resultType="com.ync.project.domain.MemberVO">
+	<select id="getListWithPagingWithCreater" resultType="com.ync.project.domain.MemberVO">
 		<![CDATA[
 			SELECT	userid,
         			name,
