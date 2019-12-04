@@ -5,6 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,64 +94,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <tr>
                               <th scope="col">NO</th>
                               <th scope="col">제목</th>
-                              <th scope="col">카테고리(분류)</th>
-                              <th scope="col">작성자</th>
+                              <th scope="col">작성자ID</th>
                               <th scope="col">작성일자</th>
                           </tr>
                       </thead>
                       <tbody>
-                          <tr>
-                              <th scope="col">10</th>
-                              <td>게임 실행이 안됩니다.</td>
-                              <th scope="col">기타</th>
-                              <td>홍길동</td>
-                              <td>20191015</td>
-                          </tr>
-                          <tr>
-                              <th scope="col">9</th>
-                              <td>게임 실행이 안됩니다.</td>
-                              <th scope="col">기타</th>
-                              <td>홍길동</td>
-                              <td>20191015</td>
-                          </tr>
-                          <tr>
-                            <th scope="col">8</th>
-                            <td>게임 실행이 안됩니다.</td>
-                            <th scope="col">기타</th>
-                            <td>홍길동</td>
-                            <td>20191015</td>
-                          </tr>
-                          <tr>
-                            <th scope="col">7</th>
-                            <td>게임 실행이 안됩니다.</td>
-                            <th scope="col">기타</th>
-                            <td>홍길동</td>
-                            <td>20191015</td>
-                          </tr>
-                          <tr>
-                            <th scope="col">6</th>
-                            <td>게임 실행이 안됩니다.</td>
-                            <th scope="col">기타</th>
-                            <td>홍길동</td>
-                            <td>20191015</td>
-                          </tr>
-                          <tr>
-                            <th scope="col">5</th>
-                            <td>게임 실행이 안됩니다.</td>
-                            <th scope="col">기타</th>
-                            <td>홍길동</td>
-                            <td>20191015</td>
-                          </tr>
-                          <tr>
-                            <th scope="col">4</th>
-                            <td>게임 실행이 안됩니다.</td>
-                            <th scope="col">기타</th>
-                            <td>홍길동</td>
-                            <td>20191015</td>
-                          </tr>
+							<c:forEach items="${inquiry_list}" var="inquiry" varStatus="status">
+								
+								<tr>
+									<td style="color:blue;">
+										<a class='move' href='<c:out value="${(param.pageNum-1) * (param.amount) + status.count}" />'>
+											<c:out value="${(param.pageNum-1) * (param.amount) + status.count}" />
+										</a>
+									</td>
+									<td><c:out value="${inquiry.title}" /></td>
+									<td><c:out value="${inquiry.userid}" /></td>
+									<td><c:out value="${inquiry.reg_date}" /></td>
+								</tr>
+							</c:forEach>
                       </tbody>
                   </table>
+				<!--  Pagination 시작 -->
+  				<script src="/resources/js/bootstrap.js"></script>
+				<div class='pull-right'>
+					<ul class="pagination">
+					
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
 
+						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+						</c:if>
+
+					</ul>
+				</div>
+				<!--  Pagination 끝 -->
+				<!-- Form 시작 -->
+				<form id='actionForm' action="inquiry_qna_list" method='get'>
+				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+				</form>
+				<!-- Form 끝 -->
 
               </div>
               </section>
@@ -195,19 +187,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <script src="/resources/js/script.js"></script>
   <!--// profile-widget-dropdown js-->
 
-  <!-- Count-down -->
-  <script src="/resources/js/simplyCountdown.js"></script>
-  <link href="/resources/css/simplyCountdown-admin.css" rel='stylesheet' type='text/css' />
-  <script>
-    var d = new Date();
-    simplyCountdown('simply-countdown-custom', {
-      year: d.getFullYear(),
-      month: d.getMonth() + 2,
-      day: 25
-    });
-  </script>
-  <!--// Count-down -->
-
   <!-- dropdown nav -->
   <script>
     $(document).ready(function() {
@@ -228,6 +207,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Js for bootstrap working-->
   <script src="/resources/js/bootstrap.min.js"></script>
   <!-- //Js for bootstrap working -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var result = '<c:out value="${result}"/>';
+		
+		checkModal(result);
+
+		history.replaceState({}, null, null);
+
+		function checkModal(result) {
+
+			if (result === '' || history.state) {
+				return;
+			}
+
+			if (parseInt(result) > 0) {
+				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+			}
+
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location = "/board/register";
+		});
+		
+		var actionForm = $("#actionForm");
+
+		// 페이지 번호 클릭 이벤트
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			// console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		// 상세보기 클릭 이벤트
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input name='inquiryid' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/admin/inquiry_qna_list");
+			actionForm.submit();
+		});
+	});
+	</script>
 
 </body>
 
