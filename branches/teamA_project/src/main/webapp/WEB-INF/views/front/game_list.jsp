@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -8,8 +13,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
+<title>게임 리스트</title>
 		<link rel="stylesheet" type="text/css" href="/resources/css/table-style.css" />
-		<link rel="stylesheet" type="text/css" href="/resources/css/basictable.css" />
 		<!-- list-css -->
 		<link rel="stylesheet" href="/resources/css/list.css" type="text/css" media="all" />
 		<!-- //list-css -->
@@ -23,8 +28,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="w3_breadcrumb">
 	<div class="breadcrumb-inner">
 			<ul>
-				<li><a href="index.html">Home</a><i>//</i></li>
-				<li>List</li>
+				<li><a href="index.html">메인</a><i>//</i></li>
+				<li>게임 리스트</li>
 			</ul>
 		</div>
 	</div>
@@ -33,193 +38,342 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="w3_content_agilleinfo_inner">
 						<div class="agile_featured_movies">
 						<div class="inner-agile-w3l-part-head">
-					            <h3 class="w3l-inner-h-title">Movie List</h3>
-								<p class="w3ls_head_para">Add short Description</p>
+					            <h3 class="w3l-inner-h-title">게임 리스트</h3>
+								<p class="w3ls_head_para">장르별 순위</p>
 							</div>
 				                   <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 						<ul id="myTab" class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">ALL</a></li>
-							<li role="presentation"><a href="#Action" role="tab" id="a-tab" data-toggle="tab" aria-controls="a">Action</a></li>
-							<li role="presentation"><a href="#Board" role="tab" id="b-tab" data-toggle="tab" aria-controls="b">Board</a></li>
-							<li role="presentation"><a href="#Casual" role="tab" id="c-tab" data-toggle="tab" aria-controls="c">Casual</a></li>
-							<li role="presentation"><a href="#3D" role="tab" id="d-tab" data-toggle="tab" aria-controls="d">3D</a></li>
-							<li role="presentation"><a href="#Simulation" role="tab" id="e-tab" data-toggle="tab" aria-controls="e">Simulation</a></li>
+							<li role="presentation"><a href="#all" role="tab" id="all-tab" data-toggle="tab" aria-controls="all">전체</a></li>
+							<li role="presentation"><a href="#action" role="tab" id="a-tab" data-toggle="tab" aria-controls="a">액션</a></li>
+							<li role="presentation"><a href="#adventure" role="tab" id="b-tab" data-toggle="tab" aria-controls="b">어드벤쳐</a></li>
+							<li role="presentation"><a href="#roglike" role="tab" id="c-tab" data-toggle="tab" aria-controls="c">로그라이크</a></li>
+							<li role="presentation"><a href="#puzzle" role="tab" id="d-tab" data-toggle="tab" aria-controls="d">퍼즐</a></li>
+							<li role="presentation"><a href="#rhythm" role="tab" id="e-tab" data-toggle="tab" aria-controls="e">리듬</a></li>
+							<li role="presentation"><a href="#horror" role="tab" id="f-tab" data-toggle="tab" aria-controls="f">호러</a></li>
+							<li role="presentation"><a href="#simulation" role="tab" id="g-tab" data-toggle="tab" aria-controls="g">시뮬레이션</a></li>
+							<li role="presentation"><a href="#casual" role="tab" id="h-tab" data-toggle="tab" aria-controls="h">캐주얼</a></li>
+							<li role="presentation"><a href="#strategy" role="tab" id="i-tab" data-toggle="tab" aria-controls="i">전략</a></li>
 						</ul>
 						<div id="myTabContent" class="tab-content">
-							<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+							<div role="tabpanel" class="tab-pane fade in active" id="all" aria-labelledby="all-tab">
 								<div class="agile-news-table">
 									<div class="w3ls-news-result">
-										<h4>Search Results : <span>25</span></h4><!-- 카운팅 넣기 -->
+										<h4>Search Results : <span>${fn:length(content)}</span></h4><!-- 카운팅 넣기 -->
 									</div>
 									<table id="table-breakpoint">
 										<thead>
 										  <tr>
-											<th>No.</th>
-											<th>Thumbnail</th>
-											<th>Name</th>
-											<th>Updated</th>
-											<th>Tags</th>
-											<th>Rating</th>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
 										  </tr>
 										</thead>
 										<tbody>
-										  <tr>
-											<td>1</td>
-											<td class="w3-list-img"><a href="single.html"><img src="/resources/img/Beat_Saber.jpg" alt="" /> <span>Swiss Army Man</span></a></td>
-											<td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
-											<td>2016</td>
-											<td>Drama, kingdom</a></td>
-											<td>7.0</td>
+										<c:forEach items="${content}" var="content" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content.content_id}"><img src="${content.media2}" alt="" /> <a>${content.title}</a></a></td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_id}</td>
+											<td>${content.hit}</td>
 										  </tr>
+										  </c:forEach>
 										</tbody>
 									</table>
+									
 								</div>
 							</div>
 
-							<div role="tabpanel" class="tab-pane fade" id="a" aria-labelledby="a-tab">
+							<div role="tabpanel" class="tab-pane fade" id="action" aria-labelledby="a-tab">
 								<div class="agile-news-table">
 									<div class="w3ls-news-result">
-										<h4>Search Results : <span>17</span></h4>
+										<h4>Search Results : <span>${fn:length(content1)}</span></h4>
 									</div>
 									<table id="table-breakpoint1">
 										<thead>
 										  <tr>
-											<th>No.</th>
-											<th>Thumbnail</th>
-											<th>Name</th>
-											<th>Updated</th>
-											<th>Tags</th>
-											<th>Rating</th>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
 										  </tr>
 										</thead>
 										<tbody>
-										  <tr>
-											<td>1</td>
-											<td class="w3-list-img"><a href="single.html"><img src="/resources/img/Beat_Saber.jpg" alt="" /> <span>Swiss Army Man</span></a></td>
-											<td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
-											<td>2016</td>
-											<td>Drama, kingdom</a></td>
-											<td>7.0</td>
+										<c:forEach items="${content1}" var="content1" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content1.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content1.content_id}"><img src="${content1.media2}" alt="" /> <a>${content1.title}</a></a></td>
+											<td class="w3-list-info">${content1.age_rate}</td>
+											<td>${content1.platform}</td>
+											<td>${content1.genre_id}</td>
+											<td>${content1.hit}</td>
 										  </tr>
+										  </c:forEach>
 										</tbody>
 									</table>
 								</div>
 							</div>
-							<div role="tabpanel" class="tab-pane fade" id="b" aria-labelledby="b-tab">
+							<div role="tabpanel" class="tab-pane fade" id="adventure" aria-labelledby="b-tab">
 								<div class="agile-news-table">
 									<div class="w3ls-news-result">
-										<h4>Search Results : <span>12</span></h4>
+										<h4>Search Results : <span>${fn:length(content2)}</span></h4>
 									</div>
 									<table id="table-breakpoint2">
 										<thead>
 										  <tr>
-											<th>No.</th>
-											<th>Thumbnail</th>
-											<th>Name</th>
-											<th>Updated</th>
-											<th>Tags</th>
-											<th>Rating</th>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
 										  </tr>
 										</thead>
 										<tbody>
-										  <tr>
-											<td>1</td>
-											<td class="w3-list-img"><a href="single.html"><img src="/resources/img/Beat_Saber.jpg" alt="" /> <span>Swiss Army Man</span></a></td>
-											<td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
-											<td>2016</td>
-											<td>Drama, kingdom</a></td>
-											<td>7.0</td>
+										<c:forEach items="${content2}" var="content2" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content2.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content2.content_id}"><img src="${content2.media2}" alt="" /> <a>${content2.title}</a></a></td>
+											<td class="w3-list-info">${content2.age_rate}</a></td>
+											<td>${content2.platform}</td>
+											<td>${content2.genre_id}</td>
+											<td>${content2.hit}</td>
 										  </tr>
+										  </c:forEach>
 										</tbody>
 									</table>
 								</div>
 							</div>
-							<div role="tabpanel" class="tab-pane fade" id="c" aria-labelledby="c-tab">
+							<div role="tabpanel" class="tab-pane fade" id="roglike" aria-labelledby="c-tab">
 								<div class="agile-news-table">
 									<div class="w3ls-news-result">
-										<h4>Search Results : <span>15</span></h4>
+										<h4>Search Results : <span>${fn:length(content3)}</span></h4>
 									</div>
 									<table id="table-breakpoint3">
 										<thead>
 										  <tr>
-											<th>No.</th>
-											<th>Thumbnail</th>
-											<th>Name</th>
-											<th>Updated</th>
-											<th>Tags</th>
-											<th>Rating</th>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
 										  </tr>
 										</thead>
 										<tbody>
-										  <tr>
-											<td>1</td>
-											<td class="w3-list-img"><a href="single.html"><img src="/resources/img/Beat_Saber.jpg" alt="" /> <span>Swiss Army Man</span></a></td>
-											<td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
-											<td>2016</td>
-											<td>Drama, kingdom</a></td>
-											<td>7.0</td>
+										<c:forEach items="${content3}" var="content3" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content3.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content3.content_id}"><img src="${content3.media2}" alt="" /> <a>${content3.title}</a></a></td>
+											<td class="w3-list-info">${content3.age_rate}</a></td>
+											<td>${content3.platform}</td>
+											<td>${content3.genre_id}</td>
+											<td>${content3.hit}</td>
 										  </tr>
+										  </c:forEach>
 										</tbody>
 									</table>
 								</div>
 							</div>
-							<div role="tabpanel" class="tab-pane fade" id="d" aria-labelledby="d-tab">
+							<div role="tabpanel" class="tab-pane fade" id="puzzle" aria-labelledby="d-tab">
 								<div class="agile-news-table">
 									<div class="w3ls-news-result">
-										<h4>Search Results : <span>16</span></h4>
+										<h4>Search Results : <span>${fn:length(content4)}</span></h4>
 									</div>
 									<table id="table-breakpoint4">
 										<thead>
 										  <tr>
-											<th>No.</th>
-											<th>Thumbnail</th>
-											<th>Name</th>
-											<th>Updated</th>
-											<th>Tags</th>
-											<th>Rating</th>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
 										  </tr>
 										</thead>
 										<tbody>
-										  <tr>
-											<td>1</td>
-											<td class="w3-list-img"><a href="single.html"><img src="/resources/img/Beat_Saber.jpg" alt="" /> <span>Swiss Army Man</span></a></td>
-											<td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
-											<td>2016</td>
-											<td>Drama, kingdom</a></td>
-											<td>7.0</td>
+										<c:forEach items="${content4}" var="content4" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content4.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content4.content_id}"><img src="${content4.media2}" alt="" /> <a>${content4.title}</a></a></td>
+											<td class="w3-list-info">${content4.age_rate}</a></td>
+											<td>${content4.platform}</td>
+											<td>${content4.genre_id}</td>
+											<td>${content4.hit}</td>
 										  </tr>
+										  </c:forEach>
 										</tbody>
 									</table>
 								</div>
 							</div>
-							<div role="tabpanel" class="tab-pane fade" id="e" aria-labelledby="e-tab">
+							
+							<div role="tabpanel" class="tab-pane fade" id="rhythm" aria-labelledby="e-tab">
 								<div class="agile-news-table">
 									<div class="w3ls-news-result">
-										<h4>Search Results : <span>9</span></h4>
+										<h4>Search Results : <span>${fn:length(content5)}</span></h4>
 									</div>
 									<table id="table-breakpoint5">
 										<thead>
 										  <tr>
-											<th>No.</th>
-											<th>Thumbnail</th>
-											<th>Name</th>
-											<th>Updated</th>
-											<th>Tags</th>
-											<th>Rating</th>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
 										  </tr>
 										</thead>
 										<tbody>
-										  <tr>
-											<td>1</td>
-											<td class="w3-list-img"><a href="single.html"><img src="/resources/img/Beat_Saber.jpg" alt="" /> <span>Swiss Army Man</span></a></td>
-											<td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
-											<td>2016</td>
-											<td>Drama, kingdom</a></td>
-											<td>7.0</td>
+										<c:forEach items="${content5}" var="content5" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content5.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content5.content_id}"><img src="${content5.media2}" alt="" /> <a>${content5.title}</a></a></td>
+											<td class="w3-list-info">${content5.age_rate}</a></td>
+											<td>${content5.platform}</td>
+											<td>${content5.genre_id}</td>
+											<td>${content5.hit}</td>
 										  </tr>
+										  </c:forEach>
+										</tbody>
 									</table>
 								</div>
 							</div>
+							
+							<div role="tabpanel" class="tab-pane fade" id="horror" aria-labelledby="f-tab">
+								<div class="agile-news-table">
+									<div class="w3ls-news-result">
+										<h4>Search Results : <span>${fn:length(content6)}</span></h4>
+									</div>
+									<table id="table-breakpoint6">
+										<thead>
+										  <tr>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
+										  </tr>
+										</thead>
+										<tbody>
+										<c:forEach items="${content6}" var="content6" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content6.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content6.content_id}"><img src="${content6.media2}" alt="" /> <a>${content6.title}</a></a></td>
+											<td class="w3-list-info">${content6.age_rate}</a></td>
+											<td>${content6.platform}</td>
+											<td>${content6.genre_id}</td>
+											<td>${content6.hit}</td>
+										  </tr>
+										  </c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							<div role="tabpanel" class="tab-pane fade" id="simulation" aria-labelledby="g-tab">
+								<div class="agile-news-table">
+									<div class="w3ls-news-result">
+										<h4>Search Results : <span>${fn:length(content7)}</span></h4>
+									</div>
+									<table id="table-breakpoint7">
+										<thead>
+										  <tr>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
+										  </tr>
+										</thead>
+										<tbody>
+										<c:forEach items="${content7}" var="content7" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content7.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content7.content_id}"><img src="${content7.media2}" alt="" /> <a>${content7.title}</a></a></td>
+											<td class="w3-list-info">${content7.age_rate}</a></td>
+											<td>${content7.platform}</td>
+											<td>${content7.genre_id}</td>
+											<td>${content7.hit}</td>
+										  </tr>
+										  </c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							<div role="tabpanel" class="tab-pane fade" id="casual" aria-labelledby="h-tab">
+								<div class="agile-news-table">
+									<div class="w3ls-news-result">
+										<h4>Search Results : <span>${fn:length(content8)}</span></h4>
+									</div>
+									<table id="table-breakpoint8">
+										<thead>
+										  <tr>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
+										  </tr>
+										</thead>
+										<tbody>
+										<c:forEach items="${content8}" var="content8" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content8.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content8.content_id}"><img src="${content8.media2}" alt="" /> <a>${content8.title}</a></a></td>
+											<td class="w3-list-info">${content8.age_rate}</a></td>
+											<td>${content8.platform}</td>
+											<td>${content8.genre_id}</td>
+											<td>${content8.hit}</td>
+										  </tr>
+										  </c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							<div role="tabpanel" class="tab-pane fade" id="strategy" aria-labelledby="i-tab">
+								<div class="agile-news-table">
+									<div class="w3ls-news-result">
+										<h4>Search Results : <span>${fn:length(content9)}</span></h4>
+									</div>
+									<table id="table-breakpoint9">
+										<thead>
+										  <tr>
+											<th>순위</th>
+											<th>제목</th>
+											<th>게임연령등급</th>
+											<th>지원플랫폼</th>
+											<th>장르</th>
+											<th>조회수</th>
+										  </tr>
+										</thead>
+										<tbody>
+										<c:forEach items="${content9}" var="content9" varStatus="status">
+										  <tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content9.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content9.content_id}"><img src="${content9.media2}" alt="" /> <a>${content9.title}</a></a></td>
+											<td class="w3-list-info">${content9.age_rate}</a></td>
+											<td>${content9.platform}</td>
+											<td>${content9.genre_id}</td>
+											<td>${content9.hit}</td>
+										  </tr>
+										  </c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							
 						</div>
 
 						</div>
@@ -236,9 +390,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 		<!-- search-jQuery -->
-				<script src="/resources/js/main.js"></script>
-
-			<script src="/resources/js/simplePlayer.js"></script>
+				
 			<script>
 				$("document").ready(function() {
 					$("#video").simplePlayer();
@@ -276,15 +428,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</script>
 
 			<!-- pop-up-box -->
-		<script src="/resources/js/jquery.magnific-popup.js" type="text/javascript"></script>
+		
 	<!--//pop-up-box -->
 
-			<div id="small-dialog1" class="mfp-hide">
-	<iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
-	</div>
-	<div id="small-dialog2" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
-	</div>
 	<script>
 		$(document).ready(function() {
 		$('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
@@ -301,7 +447,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		});
 	</script>
-<script src="/resources/js/easy-responsive-tabs.js"></script>
 <script>
 $(document).ready(function () {
 $('#horizontalTab').easyResponsiveTabs({
@@ -355,7 +500,12 @@ fit: true
 	  $('#table-breakpoint7').basictable({
         breakpoint: 768
       });
-      });
+	  $('#table-breakpoint8').basictable({
+	        breakpoint: 768
+	      });
+	  $('#table-breakpoint9').basictable({
+	        breakpoint: 768
+	      });
     });
   </script>
 <!-- //tables -->
