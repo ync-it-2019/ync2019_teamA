@@ -15,30 +15,31 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Criteria {
-
+public class Criteria2 {
+	
 	private int pageNum;
 	private int amount;
 	
 	private String type;
 	private String keyword;
-
-	public Criteria() {
-		this(1, 10);
+	
+	public Criteria2() {
+		this(1,6);
 	}
-
-	public Criteria(int pageNum, int amount) {
+	
+	public Criteria2(int pageNum, int amount) {
 		this.pageNum = pageNum;
 		this.amount = amount;
 	}
 	
 	public String[] getTypeArr() {
-		return type == null? new String[] {}: type.split("");
+		
+		return type == null ? new String[] {} : type.split("");
 	}
 	
-	public String getListLink() {
+public String getListLink() {
 		
-		String str;
+		
 		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
 			.queryParam("pageNum", this.pageNum)
 			.queryParam("amount", this.getAmount())
@@ -47,6 +48,4 @@ public class Criteria {
 			
 		return builder.toUriString();
 	}
-
-
 }
