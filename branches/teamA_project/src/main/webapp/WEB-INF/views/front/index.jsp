@@ -97,19 +97,19 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="dropdown"><a href="/front/game_intro"
+								<li class="dropdown"><a href="game_intro"
 									class="dropdown-toggle" data-toggle="dropdown">게임소식 <b
 										class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/front/game_intro">게임 소식</a></li>
+													<li><a href="/game_intro">게임 소식</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/front/developer_note">개발 노트</a></li>
+													<li><a href="developer_note">개발 노트</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
