@@ -108,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<c:choose>
 												<c:when test="${member.userid eq gets.userid }">
 		       								 		<c:out value="${gets.donation}" />
-		        									<c:set var="tmpchk" value="${tmpchk + 1}"/>
+		        									<c:set var="tmpchk" value="1"/>
 	        									</c:when>
 	        									<c:otherwise>
 	        									</c:otherwise>
@@ -125,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<c:choose>
     											<c:when test="${member.userid eq gives.userid}">
 	       								 			<c:out value="${gives.donation}" />
-		        									<c:set var="tmpchk" value="${tmpchk + 1}"/>
+		        									<c:set var="tmpchk" value="1"/>
    												</c:when>
         										<c:otherwise>
         										</c:otherwise>
@@ -165,8 +165,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!--  Pagination 끝 -->
 				<!-- Form 시작 -->
 				<form id='actionForm' action="member_info" method='get'>
-				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
-				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+					<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+					<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 				</form>
 				<!-- Form 끝 -->
               </div>

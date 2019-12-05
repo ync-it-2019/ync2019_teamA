@@ -33,12 +33,6 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/admin/*")
 public class AdminBoardController {
 	
-	@Value("${globalConfig.uploadPath}")
-	private String uploadPath;
-	
-	@Autowired
-	private NoticeService nService;
-	
 	@Autowired
 	private AEventService eService;
 	
@@ -47,7 +41,7 @@ public class AdminBoardController {
 	
 	@Autowired
 	private AGenreService gService;
-		
+	
 	@GetMapping(value = "/content_management")
 	public void content_management(Criteria cri, Model model) {
 
@@ -60,54 +54,5 @@ public class AdminBoardController {
 		model.addAttribute("content_list", cService.getListWithPaging(cri));
 		model.addAttribute("genre_list", gService.getList());
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
-	}
-	
-	 /**
-	  * @Method 설명 : 컨텐츠 업로드 content_upload.jsp 호출
-	  * @Method Name : content_upload
-	  * @Date : 2019. 10. 26.
-	  * @작성자 : 김길재
-	  * @return
-	  */
-	@GetMapping(value = "/content_upload")
-	@PreAuthorize("isAuthenticated()")
-	public String content_upload() {
-
-		log.info("Welcome Content Upload!");
-	
-		return "/admin/content_upload";
-	}
-	
-	@PostMapping(value = "/content_upload")
-	@PreAuthorize("isAuthenticated()")
-	public String content_upload(MultipartFile[] uploadFile, NoticeVO nContent, RedirectAttributes rttr) {
-				
-		log.warn("글등록하기......");
-		int index = 0;
-		
-		for (MultipartFile multipartFile : uploadFile) {
-			if (multipartFile.getSize() > 0) {
-				switch (index) {
-				case 0:
-					nContent.setMedia1(UploadUtils.uploadFormPost(multipartFile,uploadPath));
-					break;
-				default:
-					nContent.setMedia2(UploadUtils.uploadFormPost(multipartFile,uploadPath));
-					break;
-				}
-				index++;
-			}
-		}
-		log.warn(nContent.getTitle());
-		log.warn(nContent.getContent());
-		log.warn(nContent.getUserid());
-		log.warn(nContent.getMedia1());
-		log.warn(nContent.getMedia2());
-		
-		nService.register(nContent);
-		
-		rttr.addFlashAttribute("result", nContent.getNotice_id());
-		
-		return "/admin/admin_main";
 	}
 }

@@ -137,7 +137,7 @@
 				media1,
 				media2,
 				userid
-		FROM	(SELECT /*+INDEX_DESC(teamanotice pk_board) */
+		FROM	(SELECT /*+INDEX_DESC(teamanotice XPKXIF1TEAMANOTICE) */
 						rownum rn,
         				notice_id,
 						title,
