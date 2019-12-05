@@ -19,15 +19,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
+
+
 <script type="application/x-javascript">
-	
-	
-	
-	
-	
-	
-	
-	
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
 		}, false);
@@ -35,15 +29,9 @@
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
-	
-
-
-
-
-
-
-
 </script>
+
+
 <!-- //for-mobile-apps -->
 <link href="/resources/css/bootstrap.css" rel="stylesheet"
 	type="text/css" media="all" />
@@ -68,6 +56,12 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
 	rel='stylesheet' type='text/css'>
 <!--//web-fonts-->
+
+<style>
+	.admBtnPosition{position:absolute; left:16em;}
+	.regBtnPosition{position:absolute; left:24em;}
+	.logoutPosition{position:absolute; right:0px;}
+</style>
 </head>
 
 <body>
@@ -223,6 +217,7 @@
 	</div>
 	<!--/banner-section-->
 	<!--//main-header-->
+	
 	<!--/banner-bottom-->
 	<div class="w3_agilits_banner_bootm">
 		<div class="w3_agilits_inner_bottom">
@@ -232,42 +227,37 @@
 						<li><a href="/login" class="login">로그인</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAnonymous()">
-						<li><a href="/join" class="login reg"
-							data-target="#myModal5">회원가입</a></li>
+						<li><a href="/join" class="login reg" data-target="#myModal5">회원가입</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<sec:authentication property="principal.username" var="user_id" />
-						<li style="margin-left: 0em"><a href="/"
-							class="login">${user_id}</a></li>
+						<li style="margin-left: 0em">
+							<a href="/"	class="login">${user_id}</a>
+						</li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
-						<li style="margin-left: 0em"><a href="/front/mp_withdraw"
-							class="login" style="margin-left: 0em">마이 페이지</a></li>
+						<li style="margin-left: 0em">
+							<a href="/front/mp_withdraw" class="login" style="margin-left: 0em">마이 페이지</a>
+						</li>
 					</sec:authorize>
 					
 					<!-- Admin Menus -->
-					<sec:authorize
-						access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
-						<li style="margin-left: 40em">
-							<a href="/logout" class="login">로그아웃</a>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<li class="admBtnPosition">
+							<a href="#" id="admBtn" class="login reg" data-target="#myModal5">어드민페이지</a>
 						</li>
 					</sec:authorize>
-					<sec:authorize
-						access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
-						<li style="margin-left: 20em">
-							<button id='admBtn' type="button" class="btn btn-xs pull-right">어드민 페이지</button></li>
+					<sec:authorize access="hasRole('ROLE_CREATER') or hasRole('ROLE_ADMIN')">
+						<li class="regBtnPosition">
+							<a href="#" id="regBtn" class="login reg" data-target="#myModal5">게임등록</a>
 						</li>
-					</sec:authorize>
-					<sec:authorize
-						access="hasRole('ROLE_CREATER') or hasRole('ROLE_ADMIN')">
-						<li style="margin-left: 4em">
-						<button id='regBtn' type="button" class="btn btn-xs pull-right">게임등록</button></li>
 					</sec:authorize>
 					<!-- //Admin Menus -->
 					
-					<sec:authorize access="hasRole('ROLE_CREATER')">
-						<li style="margin-left: 20em"><a href="/logout"
-							class="login">로그아웃</a></li>
+					<sec:authorize access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN') or hasRole('ROLE_CREATER')">
+						<li class="logoutPosition">
+							<a href="/logout" class="login">로그아웃</a>
+						</li>
 					</sec:authorize>
 					
 				</ul>
