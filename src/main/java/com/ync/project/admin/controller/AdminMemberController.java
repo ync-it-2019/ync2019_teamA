@@ -77,20 +77,20 @@ public class AdminMemberController {
 	@GetMapping(value = "/member_stats_all")
 	public void stats_all(Criteria cri, Model model) {
 
-		int cTotal = cService.getTotal(cri);				//컨텐츠 총 갯수 표시하기 해결할것
-		int mTotal = mService.getTotal(cri);
-		int cntCreater = mService.getTotalCreater(cri);
-		int cntActiveUser = mService.getActiveUser(cri);
-		int totalDon = dService.getTotalDonation();			//후원된 총 금액 표시하기 해결할것
+		int cTotal = cService.getTotal(cri);				// 컨텐츠 총 갯수
+		int mTotal = mService.getTotal(cri);				// 멤버총 인원수 
+		
+		int cntCreater = mService.getTotalCreater(cri);		// 창작자 총 인원수
+		int cntActiveUser = mService.getActiveUser(cri);	// 현재 활동중인 인원수
+		int totalDon = dService.getTotalDonation();			// 후원된 총 금액
 		
 		log.info("Welcome Member Stats All!...");
 		
-		model.addAttribute("cTotal", cTotal);
-		model.addAttribute("mTotal", mTotal);
-		model.addAttribute("cntCreater", cntCreater);
-		model.addAttribute("cntActiveUser", cntActiveUser);
-		model.addAttribute("totalDon", totalDon);
+		model.addAttribute("cTotal", cTotal);				//
+		model.addAttribute("mTotal", mTotal);				//
+		model.addAttribute("cntCreater", cntCreater);		//
+		model.addAttribute("cntActiveUser", cntActiveUser);	//
+		model.addAttribute("totalDon", totalDon);			//
 		model.addAttribute("cGD", dService.creatersGetDonation());
-//		model.addAttribute("dlist", dService.getListWithPaging(cri));
 	}
 }

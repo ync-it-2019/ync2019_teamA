@@ -27,9 +27,6 @@ public class AdminCreatorController {
 	
 	@Autowired
 	private AMemberService mService;
-	
-	@Autowired
-	private AMemberService service;
 	 /**
 	  * @Method 설명 : 창작자 권한 수정 admin_generate_creator.jsp 호출
 	  * @Method Name : creatorGenerate
@@ -58,7 +55,7 @@ public class AdminCreatorController {
 	  */
 	@GetMapping(value = "/creater_info")
 	public void creater_info(Criteria cri, Model model) {
-		int total = service.getTotal(cri);
+		int total = mService.getTotalCreater(cri);
 		
 		log.info("list:11111 " + cri);
 		log.info("total:1111 " + total);
