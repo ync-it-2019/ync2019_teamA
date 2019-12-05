@@ -16,7 +16,7 @@ public class InquiryVO {
 	private String title;			//문의 제목
 	private Date reg_date;			//문의 등록일자
 	private Date comment_date;		//문의 답변일자
-	private String member_email;	//회원 이메일
+	private String userid;	//회원 이메일
 	private String content;			//문의 내용
 	private String comments;		//문의 답변
 }

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -59,7 +60,7 @@ public class FrontGameContentController {
 	public String register() { 
 		log.info("등록 양식 가져오기........");
 		
-		return "/front/game_content_writeform";
+		return "front/game_content_writeform";
 	}
 
 
@@ -127,18 +128,6 @@ public class FrontGameContentController {
 	}
 	
 	
-	 /**
-	  * @Method 설명 : 게임 리스트 front/game_list 호출
-	  * @Method Name : gameList
-	  * @Date : 2019. 10. 28.
-	  * @작성자 : 허 민
-	  * @return
-	  */
-	@GetMapping(value = "/game_list")
-	public void gameList() {
 
-		log.info("gamelist!");
-
-	}
 	
 }

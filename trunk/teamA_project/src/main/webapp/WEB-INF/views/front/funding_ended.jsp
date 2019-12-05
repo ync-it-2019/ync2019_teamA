@@ -13,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>진행중인 펀딩</title>
+<title>종료된 펀딩</title>
 <!-- for-mobile-apps -->
 <link rel="stylesheet" type="text/css" href="/resources/css/style-endfund.css" />
 <body>
@@ -24,14 +24,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div> 
 			<!--/content-inner-section-->
 			<div class="page wow animated fadeInUpBig" id="section-2">
-				<h1 class="h2 text-center">진행중인 펀딩</h1>
-				<h4 class="h4 text-center">진행중인 펀딩 게시물 수 : ${fn:length(list)}</h4><!-- 카운팅 넣기 -->
+				<h1 class="h2 text-center">종료된 펀딩</h1>
+				
+				<h4 class="h4 text-center">종료된 펀딩 게시물 수 : ${fn:length(list)}</h4><!-- 카운팅 넣기 -->
+				
 				<div class="container animated fadeInUp" style="padding: 0;">
 					<!-- First Row -->
 					<div class="row">
-					
-					
-					
+						
+						
+						
 						<c:set var = "total" value = "0" />
 						
 						<c:forEach items="${list}" var="list" varStatus="status">

@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ync.project.front.mapper.FundingMapper">
+
+<sql id="criteria2">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							userid like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="getList"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+	
+	<select id="getList1"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	
+					title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			WHERE	genre_id = 1
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+		<select id="getList2"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			WHERE	genre_id = 2
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+		<select id="getList3"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			WHERE	genre_id = 3
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+	<select id="getList4"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			WHERE	genre_id = 4
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+	<select id="getList5"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			WHERE	genre_id = 5
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+	<select id="getList6"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			WHERE	genre_id = 6
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+	<select id="getList7"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			WHERE	genre_id = 7
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+	<select id="getList8"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			WHERE	genre_id = 8
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+	<select id="getList9"
+		resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+			SELECT	title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					hit,
+					like_cnt
+			FROM	TEAMACREATERCONTENT
+			WHERE	genre_id = 9
+			ORDER BY hit DESC
+		]]>
+	</select>
+	
+	
+	<insert id="insert">
+		INSERT INTO teamacreatercontent(
+		title,
+		content_intro,
+		reg_date,
+		highlight,
+		tag,
+		age_rate,
+		don_reg,
+		game_launch,
+		don_attainment,
+		userid,
+		platform,
+		languages,
+		media1,
+		media2,
+		media3,
+		media4,
+		content_id,
+		genre_id,
+		hit,like_cnt
+		)
+		VALUES(
+		#{title},
+		#{content_intro},
+		sysdate,
+		sysdate,
+		#{tag},
+		#{age_rate},
+		sysdate,
+		#{game_launch},
+		#{don_attainment},
+		#{userid},
+		#{platform},
+		#{languages},
+		#{media1},
+		#{media2},
+		#{media3},
+		#{media4},
+		seq_reply.nextval,
+		#{genre_id},
+		#{hit},
+		#{like_cnt}
+		)
+	</insert>
+
+	<insert id="insertSelectKey">
+
+		<selectKey keyProperty="content_id" order="BEFORE"
+			resultType="long">
+			SELECT seq_board.nextval
+			FROM dual
+		</selectKey>
+		<![CDATA[
+		INSERT	INTO	teamacreatercontent(
+							title,
+							content_intro,
+							reg_date,
+							highlight,
+							tag,
+							age_rate,
+							don_reg,
+							game_launch,
+							don_attainment,
+							userid,
+							platform,
+							languages,
+							media1,
+							media2,
+							media3,
+							media4,
+							content_id,
+							genre_id,
+							hit,
+							like_cnt
+						)
+						VALUES(
+							#{title},
+							#{content_intro},
+							sysdate, sysdate, 
+							#{tag}, 
+							#{age_rate},
+							sysdate, 
+							#{game_launch}, 
+							#{don_attainment}, 
+							#{userid}, 
+							#{platform}, 
+							#{languages},
+							#{media1}, 
+							#{media2}, 
+							#{media3}, 
+							#{media4}, 
+							seq_reply.nextval, 
+							#{genre_id}, 
+							#{hit},
+							#{like_cnt}
+						)
+		 ]]>
+	</insert>
+
+
+	<select id="read" resultType="com.ync.project.domain.ContentVO">
+	SELECT  A.*
+	FROM 	teamacreatercontent A,
+			(SELECT max(reg_date) reg_date
+			 FROM 	teamacreatercontent
+			)B
+	WHERE A.reg_date = B.reg_date
+	</select>
+	
+	<select id="read1" resultType="com.ync.project.domain.ContentVO">
+	SELECT  A.*
+	FROM 	teamacreatercontent A,
+			(SELECT max(hit) hit
+			 FROM 	teamacreatercontent
+			)B
+	WHERE A.hit = B.hit
+	</select>
+	
+	<select id="read2" resultType="com.ync.project.domain.ContentVO">
+	SELECT  A.*
+	FROM 	teamacreatercontent A,
+			(SELECT max(like_cnt) like_cnt
+			 FROM 	teamacreatercontent
+			)B
+	WHERE A.like_cnt = B.like_cnt
+	</select>
+
+	<delete id="delete">
+		DELETE teamacreatercontent
+		WHERE content_id =
+		#{content_id}	
+	</delete>
+
+	<update id="update">
+		UPDATE teamacreatercontent
+		SET
+		title = #{title},
+		content_intro = #{content_intro},
+		reg_date = #{reg_date},
+		highlight = sysdate,
+		tag = #{tag},
+		age_rate = #{age_rate},
+		don_reg = sysdate,
+		game_launch = #{game_launch},
+		don_attainment = #{don_attainment},
+		userid = #{userid},
+		platform = #{platform},
+		languages = #{languages},
+		media1 = #{media1},
+		media2 = #{media2},
+		media3 = #{media3},
+		media4 = #{media4},
+		genre_id = #{genre_id},
+		hit = #{hit},
+		like_cnt = #{like_cnt}
+		WHERE content_id = #{content_id}
+	</update>
+	
+	<select id="getListWithPaging"
+		resultType="com.ync.project.domain.ContentVO">
+		
+   	<![CDATA[
+   		SELECT
+   					title,
+					age_rate,
+					don_reg,
+					platform,
+					media2,
+					content_id,
+					genre_id,
+					don_attainment,
+					money_temp,
+					hit
+   		FROM
+   			(
+   			SELECT	/*+INDEX_DESC(teamacreatercontent xpkteamacreatercontent */
+   					rownum rn,
+   					title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					money_temp,
+					hit,
+					like_cnt
+   			FROM	teamacreatercontent
+   			WHERE	don_reg - sysdate > 0
+   		)
+   		WHERE	don_reg - sysdate > 0
+   		ORDER BY 4 DESC
+   	]]>
+	</select>
+	
+	<select id="getListEndFund"
+		resultType="com.ync.project.domain.ContentVO">
+		
+   	<![CDATA[
+   		SELECT
+   					title,
+					age_rate,
+					don_reg,
+					platform,
+					media2,
+					content_id,
+					genre_id,
+					don_attainment,
+					money_temp,
+					hit
+   		FROM
+   			(
+   			SELECT	/*+INDEX_DESC(teamacreatercontent xpkteamacreatercontent */
+   					rownum rn,
+   					title,
+					content_intro,
+					reg_date,
+					highlight,
+					tag,
+					age_rate,
+					don_reg,
+					game_launch,
+					don_attainment,
+					userid,
+					platform,
+					languages,
+					media1,
+					media2,
+					media3,
+					media4,
+					content_id,
+					genre_id,
+					money_temp,
+					hit,
+					like_cnt
+   			FROM	teamacreatercontent
+   			WHERE	don_reg - sysdate < 0
+   		)
+   		WHERE	don_reg - sysdate < 0
+   		ORDER BY 4 DESC
+   	]]>
+	</select>
+	
+	<select id="getFundingNow"
+		resultType="com.ync.project.domain.ContentVO">
+		
+   	<![CDATA[
+   		SELECT funding.donation as donation
+               
+               
+         FROM
+            (
+            SELECT   /*+index(teamacreatercontent xpkteamacreatercontent */
+                  rownum rn,
+                  title,
+               content_intro,
+               reg_date,
+               highlight,
+               tag,
+               age_rate,
+               don_reg,
+               game_launch,
+               don_attainment,
+               userid,
+               platform,
+               languages,
+               media1,
+               media2,
+               media3,
+               media4,
+               content_id,
+               genre_id,
+               hit,
+               like_cnt
+            FROM   teamacreatercontent
+            
+         ) il,
+         (SELECT   c.content_id AS content_id,
+                    sum(get_donation) AS donation
+          FROM    (SELECT don.content_id,
+                         sum(donation) AS get_donation
+                     FROM    teamadonation don
+                     GROUP BY don.content_id
+                   )cre,
+                    teamacreatercontent c
+          WHERE   c.content_id = cre.content_id
+          GROUP BY c.content_id
+          ) funding
+      
+      GROUP BY funding.donation
+   	]]>
+	</select>
+	
+		<select id="getFundNow"
+		resultType="com.ync.project.domain.ContentVO">
+		
+   	<![CDATA[
+   		SELECT  c.content_id AS userid,
+                 sum(get_donation) AS donation
+         FROM    (SELECT don.content_id,
+                         sum(donation) AS get_donation
+                 FROM    teamadonation don
+                 GROUP BY don.content_id
+                 )cre,
+                 teamacreatercontent c
+         WHERE   c.content_id = cre.content_id
+         GROUP BY c.content_id
+   	]]>
+	</select>
+	
+	
+	
+	
+	
+	<select id="getTotalCount" resultType="int">
+	 SELECT count(*) FROM teamacreatercontent
+	 WHERE content_id > 0
+	</select>
+</mapper>
