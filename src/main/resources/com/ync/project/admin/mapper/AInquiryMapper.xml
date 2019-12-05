@@ -88,7 +88,7 @@
 					comments,
 					userid,
 					content
-			FROM	(SELECT /*+INDEX_DESC(teamainquiry pk_board) */
+			FROM	(SELECT /*+INDEX_DESC(teamainquiry XPKTEAMAINQUIRY) */
 						rownum rn,
         				inquiry_id,
 						title,

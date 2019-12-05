@@ -75,7 +75,7 @@
 		<![CDATA[
 			SELECT	genre_id,
 					genre_name
-			FROM	(SELECT /*+INDEX_DESC(teamagenre pk_board) */
+			FROM	(SELECT /*+INDEX_DESC(teamagenre XPKTEAMAGENRE) */
 						rownum rn,
         				genre_id,
 						genre_name

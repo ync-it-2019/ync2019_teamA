@@ -135,7 +135,7 @@
     	    		donation,
         			don_reg_date
         			
-			FROM	(SELECT /*+INDEX_DESC(teamadonation pk_board) */
+			FROM	(SELECT /*+INDEX_DESC(teamadonation XPKTEAMADONATION) */
 						rownum rn,
         				userid,
 						content_id,
