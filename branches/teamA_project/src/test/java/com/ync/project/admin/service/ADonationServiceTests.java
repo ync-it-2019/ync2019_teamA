@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.ync.project.admin.mapper.ADonationMapper;
 import com.ync.project.domain.Criteria;
 
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 /**
   * @FileName	: ADonationServiceTests.java
@@ -19,13 +21,14 @@ import lombok.extern.log4j.Log4j;
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
 public class ADonationServiceTests {
+	@Setter(onMethod_ = @Autowired)
 	@Autowired
-	private ADonationService ADonation;
+	private ADonationService service;
 	
 	@Test
 	public void testGetList() {
 
-		ADonation.getList().forEach(Donation -> log.info(Donation));
-		ADonation.getListWithPaging(new Criteria(2, 10)).forEach(Donation -> log.info(Donation));
+		service.getList().forEach((donation) -> {log.info(donation);});
+
 	}
 }
