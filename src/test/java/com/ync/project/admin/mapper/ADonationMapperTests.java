@@ -23,13 +23,14 @@ public class ADonationMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	@Autowired
 	private ADonationMapper donation;
+
 	
 	@Test
 	public void testread() {
 		donation.getList().forEach((donation) -> {
 			log.info("==================");
 			log.info(donation);
-		});
+			});
 	}
 	
 }
