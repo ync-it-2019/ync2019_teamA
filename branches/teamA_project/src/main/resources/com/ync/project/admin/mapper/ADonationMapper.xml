@@ -48,11 +48,12 @@
 	
 	
 	<select id="getList" resultType="com.ync.project.domain.DonationVO">
-		SELECT  userid,
-        		content_id,
-    	   		donation,
-        		don_reg_date
-		FROM    teamadonation
+		SELECT	do.userid,
+				cc.title,
+			    do.donation,
+				do.don_reg_date
+		FROM	teamadonation do, teamaCreaterContent cc
+		WHERE   do.content_id = cc.content_id 
 	</select>
 
 	<select id="getGetDonation" resultType="com.ync.project.domain.GDonationVO">
@@ -133,6 +134,7 @@
         			content_id,
     	    		donation,
         			don_reg_date
+        			
 			FROM	(SELECT /*+INDEX_DESC(teamadonation pk_board) */
 						rownum rn,
         				userid,
@@ -140,7 +142,8 @@
 						donation,
 						don_reg_date
       				FROM	teamadonation
-					WHERE 
+					WHERE
+
   		]]>
 		<include refid="criteria"></include> 
       

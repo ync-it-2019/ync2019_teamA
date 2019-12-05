@@ -6,6 +6,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,72 +99,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<th scope="col">최근 후원 일자</th>
 							</tr>
 						</thead>
+							
+
 
 						<tbody>
-							<tr>
-								<th scope="col">1</th>
-								<th scope="col"><a href = "http://localhost:8080/donation/detail">sj1023@gmail.com</a></th>
-								<td>Risk of Rain2</td>
-								<td>15000</td>
-								<td>1500</td>
-								<td>신용카드</td>
-								<td>2019/10/15</td>
-							</tr>
-							<tr>
-								<th scope="col">2</th>
-								<th scope="col">hgd@gmail.com</th>
-								<td>Bad North</td>
-								<td>5000</td>
-								<td>500</td>
-								<td>신용카드</td>
-								<td>2019/10/14</td>
-							</tr>
-							<tr>
-								<th scope="col">3</th>
-								<th scope="col">kj1215@naver.com</th>
-								<td>Risk of Rain2</td>
-								<td>8000</td>
-								<td>800</td>
-								<td>신용카드</td>
-								<td>2019/10/4</td>
-							</tr>
-							<tr>
-								<th scope="col">4</th>
-								<th scope="col">jh14@gmail.com</th>
-								<td>Beat Saber</td>
-								<td>15000</td>
-								<td>1500</td>
-								<td>신용카드</td>
-								<td>2019/10/01</td>
-							</tr>
-							<tr>
-								<th scope="col">5</th>
-								<th scope="col">jjh1111@mail.com</th>
-								<td>Blazing Beaks</td>
-								<td>10000</td>
-								<td>1000</td>
-								<td>신용카드</td>
-								<td>2019/09/23</td>
-							</tr>
-							<tr>
-								<th scope="col">6</th>
-								<th scope="col">hm1024@mail.com</th>
-								<td>Risk of Rain2</td>
-								<td>20000</td>
-								<td>2000</td>
-								<td>신용카드</td>
-								<td>2019/09/12</td>
-							</tr>
-							<tr>
-								<th scope="col">7</th>
-								<th scope="col">kur5252@mail.com</th>
-								<td>A Dance OF Fire And Ice</td>
-								<td>8000</td>
-								<td>800</td>
-								<td>신용카드</td>
-								<td>2019/09/10</td>
-							</tr>
+							<c:forEach items="${ADonation_list}" var="donation" varStatus="pNo">
+								
+							
+								<c:set var="tmpchk" value="0"/>
+								<tr>
+									<td><c:out value="${(param.pageNum-1) * (param.amount) + pNo.count}" /></td>
+									<td><c:out value="${donation.userid}" /></td>								
+									<td><c:out value="${donation.title}" /></td>
+									<td><fmt:formatNumber value="${donation.donation}" type="number" />￦</td>	
+									<td><fmt:formatNumber value="${donation.donation/10}" type="number" />￦</td>								
+									<td></td>
+									<td><c:out value="${donation.don_reg_date}" /></td>
+									
+								</tr>
+						
+							</c:forEach>
+							
 						</tbody>
+						
+						
 					</table>
 				</div>
 				<!--// Stats -->
