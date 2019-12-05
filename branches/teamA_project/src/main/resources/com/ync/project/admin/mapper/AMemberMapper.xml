@@ -192,15 +192,15 @@
 			SELECT	userid,
         			name,
     	    		userpw,
-        			birth,
+        			NVL(birth,'없음') birth,
         			NVL(phone,'없음') phone,
-        			creater_name,
+        			NVL(creater_name,'없음') creater_name,
         			NVL(bank_account,'없음') bank_account,
-        			levels,
-        			status,
+        			NVL(levels,'없음') levels,
+        			NVL(status,'없음') status,
         			NVL(sns,'없음') sns,
         			NVL(other_address,'없음') other_address
-			FROM	(SELECT /*+INDEX_DESC(teamamember pk_board) */
+			FROM	(SELECT /*+INDEX_DESC(teamamember XPKTEAMAMEMBER) */
 						rownum rn,
         				userid,
 						name,
