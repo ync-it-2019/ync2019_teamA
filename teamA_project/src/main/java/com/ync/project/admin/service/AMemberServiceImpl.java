@@ -66,10 +66,10 @@ public class AMemberServiceImpl implements AMemberService {
 	};
 
 	// 창작자 목록 페이징
-	public List<MemberVO> getListWithPaging1(Criteria cri) {
+	public List<MemberVO> getListWithPagingWithCreater(Criteria cri) {
 
 		log.info("get List with criteria : " + cri);
-		return mapper.getListWithPaging1(cri);
+		return mapper.getListWithPagingWithCreater(cri);
 	};
 
 	// 멤버 전체 수
@@ -105,7 +105,7 @@ public class AMemberServiceImpl implements AMemberService {
 	}
 
 	@Override
-	public int getGetDonationToUser(String userid) {
+	public GDonationVO getGetDonationToUser(String userid) {
 		log.info("get Get Donation To User......");
 		return mapper.getGetDonationToUser(userid);
 	};

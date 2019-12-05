@@ -37,7 +37,7 @@ public class InquiryMapperTests {
 		InquiryVO content = new InquiryVO();
 
 		content.setTitle("제목1");
-		content.setMember_email("tjrwnsdud2@naver.com");
+		content.setUserid("tjrwnsdud2@naver.com");
 		content.setContent("문의내용1");
 		content.setComments("답변내용");
 	

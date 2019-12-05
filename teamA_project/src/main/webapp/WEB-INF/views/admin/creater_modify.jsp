@@ -5,6 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,82 +93,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</section>
               <div class="outer-w3-agile mt-3" align="center">
                   <h3 class="tittle-w3-agileits mb-4">창작자 정보</h3>
+                  
                   <table class="table">
                       <tbody>
                           <tr>
                               <th scope="col">이름</th>
-                              <td>김상덕</td>
+                              <td><c:out value="${member_info.name }"/></td>
                           </tr>
                           <tr>
                               <th scope="col">생년월일</th>
-                              <td>1995-12-13</td>
+                              <td><c:out value="${member_info.birth }"/></td>
                           </tr>
                           <tr>
                               <th scope="col">아이디(이메일)</th>
-                              <td>watakim@naver.com</td>
+                              <td><c:out value="${member_info.userid }"/></td>
                           </tr>
                           <tr>
                               <th scope="col">전화번호</th>
-                              <td>010-1303-1303</td>
+                              <td><c:out value="${member_info.phone }"/></td>
                           </tr>
                           <tr>
                               <th scope="col">연락처</th>
-                              <td>Facebook - blueskull | kakaotalk - Captain</td>
+                              <td><c:out value="${member_info.other_address }"/></td>
                           </tr>
                           <tr>
-                              <th scope="col">회사명</th>
-                              <td>Hydra</td>
+                              <th scope="col">SNS주소</th>
+                              <td><c:out value="${member_info.sns }"/></td>
                           </tr>
                           <tr>
                               <th scope="col">후원계좌</th>
-                              <td>93835894019</td>
+                              <td><c:out value="${member_info.bank_account }"/></td>
                           </tr>
                           <tr>
                               <th scope="col">후원받은 금액</th>
-                              <td>$950,000</td>
+                              <td><c:out value="${getdon.donation }"/></td>
                           </tr>
                           <tr>
                               <th scope="col">창작자 권한여부</th>
-                              <td>▲</td>
+                              <td>
+                              	<c:if test ="${member_info.auth eq 'ROLE_CREATER' }">
+                              		창작자
+                              	</c:if> 
+                              	<c:if test ="${member_info.auth ne 'ROLE_CREATER' }">
+                              		not 창작자
+                              	</c:if>
+                              </td>
                           </tr>
                       </tbody>
                   </table>
+                  				
                   <div align="center">
-				  	<input type="button" class="snip1535" name="submit" value="상세정보"/>
-      			  	<input type="button" class="snip1535" name="cancel" value="권한복구"/>
+				  	<input type="button" class="snip1535" name="submit1" value="창작자강등"/>
+      			  	<input type="button" class="snip1535" name="submit2" value="휴면복귀"/>
 				 </div>
               </div>
               </section>
           <!--// Stats -->
-          <!-- Pie-chart -->
-
-          <!--// Pie-chart -->
-      <!-- Simple-chart -->
-
-      <!--// Simple-chart -->
-
-      <!--// Bar-Chart -->
-
-      <!--// Bar-Chart -->
-
-      <!--// three-grids -->
-      <div class="container-fluid">
-        <div class="row">
-          <!-- Calender -->
-
-          <!--// Calender -->
-          <!-- Profile -->
-
-          <!--// Profile -->
-          <!-- Browser stats -->
-
-          <!--// Browser stats -->
-        </div>
-      </div>
-      <!--// Three-grids -->
-      <!-- Countdown -->
-
-      <!--// Countdown -->
+          
       <!-- Copyright -->
       <div class="copyright-w3layouts py-xl-3 py-2 mt-xl-5 mt-4 text-center">
         <p>© 2018 Modernize . All Rights Reserved | Design by
@@ -204,224 +187,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </script>
   <!--// Sidebar-nav Js -->
 
-  <!-- Graph -->
-  <script src="/resources/js/SimpleChart.js"></script>
-  <script>
-    var graphdata4 = {
-      linecolor: "Random",
-      title: "Thursday",
-      values: [{
-          X: "6",
-          Y: 300.00
-        },
-        {
-          X: "7",
-          Y: 101.98
-        },
-        {
-          X: "8",
-          Y: 140.00
-        },
-        {
-          X: "9",
-          Y: 340.00
-        },
-        {
-          X: "10",
-          Y: 470.25
-        },
-        {
-          X: "11",
-          Y: 180.56
-        },
-        {
-          X: "12",
-          Y: 680.57
-        },
-        {
-          X: "13",
-          Y: 740.00
-        },
-        {
-          X: "14",
-          Y: 800.89
-        },
-        {
-          X: "15",
-          Y: 420.57
-        },
-        {
-          X: "16",
-          Y: 980.24
-        },
-        {
-          X: "17",
-          Y: 1080.00
-        },
-        {
-          X: "18",
-          Y: 140.24
-        },
-        {
-          X: "19",
-          Y: 140.58
-        },
-        {
-          X: "20",
-          Y: 110.54
-        },
-        {
-          X: "21",
-          Y: 480.00
-        },
-        {
-          X: "22",
-          Y: 580.00
-        },
-        {
-          X: "23",
-          Y: 340.89
-        },
-        {
-          X: "0",
-          Y: 100.26
-        },
-        {
-          X: "1",
-          Y: 1480.89
-        },
-        {
-          X: "2",
-          Y: 1380.87
-        },
-        {
-          X: "3",
-          Y: 1640.00
-        },
-        {
-          X: "4",
-          Y: 1700.00
-        }
-      ]
-    };
-    $(function() {
-      $("#Hybridgraph").SimpleChart({
-        ChartType: "Hybrid",
-        toolwidth: "50",
-        toolheight: "25",
-        axiscolor: "#E6E6E6",
-        textcolor: "#6E6E6E",
-        showlegends: false,
-        data: [graphdata4],
-        legendsize: "140",
-        legendposition: 'bottom',
-        xaxislabel: 'Hours',
-        title: 'Weekly Profit',
-        yaxislabel: 'Profit in $'
-      });
-    });
-  </script>
-  <!--// Graph -->
-  <!-- Bar-chart -->
-  <script src="/resources/js/rumcaJS.js"></script>
-  <script src="/resources/js/example.js"></script>
-  <!--// Bar-chart -->
-  <!-- Calender -->
-  <script src="/resources/js/moment.min.js"></script>
-  <script src="/resources/js/pignose.calender.js"></script>
-  <script>
-    //<![CDATA[
-    $(function() {
-      $('.calender').pignoseCalender({
-        select: function(date, obj) {
-          obj.calender.parent().next().show().text('You selected ' +
-            (date[0] === null ? 'null' : date[0].format('YYYY-MM-DD')) +
-            '.');
-        }
-      });
-
-      $('.multi-select-calender').pignoseCalender({
-        multiple: true,
-        select: function(date, obj) {
-          obj.calender.parent().next().show().text('You selected ' +
-            (date[0] === null ? 'null' : date[0].format('YYYY-MM-DD')) +
-            '~' +
-            (date[1] === null ? 'null' : date[1].format('YYYY-MM-DD')) +
-            '.');
-        }
-      });
-    });
-    //]]>
-  </script>
-  <!--// Calender -->
+  
 
   <!-- profile-widget-dropdown js-->
   <script src="/resources/js/script.js"></script>
   <!--// profile-widget-dropdown js-->
 
-  <!-- Count-down -->
-  <script src="/resources/js/simplyCountdown.js"></script>
-  <link href="/resources/css/simplyCountdown-admin-admin.css" rel='stylesheet' type='text/css' />
-  <script>
-    var d = new Date();
-    simplyCountdown('simply-countdown-custom', {
-      year: d.getFullYear(),
-      month: d.getMonth() + 2,
-      day: 25
-    });
-  </script>
-  <!--// Count-down -->
-
-  <!-- pie-chart -->
-  <script src='/resources/js/amcharts.js'></script>
-  <script>
-    var chart;
-    var legend;
-
-    var chartData = [{
-        country: "Lithuania",
-        value: 260
-      },
-      {
-        country: "Ireland",
-        value: 201
-      },
-      {
-        country: "Germany",
-        value: 65
-      },
-      {
-        country: "Australia",
-        value: 39
-      },
-      {
-        country: "UK",
-        value: 19
-      },
-      {
-        country: "Latvia",
-        value: 10
-      }
-    ];
-
-    AmCharts.ready(function() {
-      // PIE CHART
-      chart = new AmCharts.AmPieChart();
-      chart.dataProvider = chartData;
-      chart.titleField = "country";
-      chart.valueField = "value";
-      chart.outlineColor = "";
-      chart.outlineAlpha = 0.8;
-      chart.outlineThickness = 2;
-      // this makes the chart 3D
-      chart.depth3D = 20;
-      chart.angle = 30;
-
-      // WRITE
-      chart.write("chartdiv");
-    });
-  </script>
-  <!--// pie-chart -->
+ 
 
   <!-- dropdown nav -->
   <script>
@@ -443,6 +215,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Js for bootstrap working-->
   <script src="/resources/js/bootstrap.min.js"></script>
   <!-- //Js for bootstrap working -->
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var result = '<c:out value="${result}"/>';
+		
+		checkModal(result);
+
+		history.replaceState({}, null, null);
+
+		function checkModal(result) {
+
+			if (result === '' || history.state) {
+				return;
+			}
+
+			if (parseInt(result) > 0) {
+				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+			}
+
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location = "/board/register";
+		});
+		
+		var actionForm = $("#actionForm");
+
+		// 페이지 번호 클릭 이벤트
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			// console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		// 상세보기 클릭 이벤트
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input name='userid' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/admin/creater_modify");
+			actionForm.submit();
+		});
+	});
+	</script>
 
 </body>
 
