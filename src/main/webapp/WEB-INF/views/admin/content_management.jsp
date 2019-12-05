@@ -155,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<!--  Pagination 끝 -->
 				<!-- Form 시작 -->
-				<form id='actionForm' action="member_info" method='get'>
+				<form id='actionForm' action="content_management" method='get'>
 				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 				</form>

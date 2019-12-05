@@ -48,7 +48,7 @@
 						sysdate,
 						#{content},
 						sysdate,
-						#{hit},
+						0,
 						#{media1},
 						#{media2},
 						#{userid}
@@ -132,7 +132,7 @@
 					media1,
 					media2,
 					userid
-			FROM	(SELECT /*+INDEX_DESC(teamaevent pk_board) */
+			FROM	(SELECT /*+INDEX_DESC(teamaevent XPKTEAMAEVNET) */
 								rownum rn,
         						event_id,
 								title,

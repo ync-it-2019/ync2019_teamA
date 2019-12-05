@@ -158,7 +158,7 @@
 					genre_id,
 					NVL(hit, 1) hit,
 					NVL(like_cnt, 0) like_cnt  
-			FROM	(SELECT /*+INDEX_DESC(teamacreatercontent pk_board) */
+			FROM	(SELECT /*+INDEX_DESC(teamacreatercontent XPKTEAMACREATERCONTENT) */
 						rownum rn,
         				content_id,
 						NVL(userid, '-Nothing_in_here-') userid,
