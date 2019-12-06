@@ -4,65 +4,62 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<title>1:1 문의 contents</title>
-<!-- Meta Tags -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="utf-8">
-<meta name="keywords"
-	content="Modernize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-<script>
-    addEventListener("load", function() {
-      setTimeout(hideURLbar, 0);
-    }, false);
 
-    function hideURLbar() {
-      window.scrollTo(0, 1);
-    }
-  </script>
-<!-- //Meta Tags -->
+	<title>1:1 문의 contents</title>
+	
+	<!-- Meta Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords"
+		content="Modernize Responsive web template, Bootstrap Web Templates, Flat Web Templates,
+		 Android Compatible web template, Smartphone Compatible web template,
+		  free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+	<script>
+		addEventListener("load", function() {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta Tags -->
 
 <!-- Style-sheets -->
-<!-- Button Style-->
-<link rel="stylesheet" type="text/css"
-	href="/resources/css/style-refund(button).css" />
-
-<!-- Bootstrap Css -->
-<link href="/resources/css/bootstrap-admin.css" rel="stylesheet"
-	type="text/css" media="all" />
-<!-- Bootstrap Css -->
-<!-- Bars Css -->
-<link rel="stylesheet" href="/resources/css/bar-admin.css">
-<!--// Bars Css -->
-<!-- Common Css -->
-<link rel="stylesheet" type="text/css" media="all"
-	href="/resources/css/style-admin.css" />
-<!--// Common Css -->
-<!-- Nav Css -->
-<link rel="stylesheet" href="/resources/css/style4-admin.css">
-<!--// Nav Css -->
-<!-- Fontawesome Css -->
-<link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
-<!--// Fontawesome Css -->
+	<!-- Button Style-->
+	<link rel="stylesheet" type="text/css" href="/resources/css/style-refund(button).css" />
+	
+	<!-- Bootstrap Css -->
+	<link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- //Bootstrap Css -->
+	
+	<!-- Common Css -->
+	<link rel="stylesheet" type="text/css" media="all" href="/resources/css/style-admin.css" />
+	<!--// Common Css -->
+	
+	<!-- Fontawesome Css -->
+	<link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
+	<!--// Fontawesome Css -->
 <!--// Style-sheets -->
 
 <!--web-fonts-->
-<link href="https://fonts.googleapis.com/css?family=Poiret+One"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+			rel="stylesheet">
 <!--//web-fonts-->
-<link
-	href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap"
-	rel="stylesheet">
+
 <!-- 폰트 링크 -->
+	<link href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap"
+			rel="stylesheet">
+<!-- //폰트 링크 -->
 </head>
 
 <body>
@@ -72,6 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		<!-- Page Content Holder -->
 		<div id="content">
+		
 			<!-- top-bar -->
 			<jsp:include page="/WEB-INF/views/include/header-for_admin.jsp"></jsp:include>
 			<!--// top-bar -->
@@ -84,15 +82,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4>고객센터 관리 > 1대1 문의 > 답변</h4>
 				</div>
 			</section>
-
-
-
+			
 			<!-- Grids Content -->
 			<section class="grids-section bd-content">
-
-
-
-
 				<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
 					<h4 class="tittle-w3-agileits mb-4">1대1 문의 답변</h4>
 					<table class="table">
@@ -103,10 +95,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<tr class="active">
 							<th scope="row">문의내용 : 지금 겪고 있는 상황은 페이지가 넘어가지 않는 증상이 있습니다.
 								어떻게 하면 해결 할 수 있는지 알려주시기바랍니다.
-							</td>
+							</th>
 						</tr>
-
-
 					</table>
 
 					<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
@@ -114,37 +104,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<tr>
 								<!-- 댓글 출력 부분 -->
 								<div class='row'>
-
 									<div class="col-lg-12">
-
+									
 										<!-- /.panel -->
 										<div class="panel panel-default">
-
 											<div class="panel-heading">
 												<i class="fa fa-comments fa-fw"></i> Reply
+												
 												<sec:authorize access="isAuthenticated()">
 													<button id='addReplyBtn'
 														class='btn btn-primary btn-xs pull-right'>New
 														Reply</button>
 												</sec:authorize>
 											</div>
-
-
+											
 											<!-- /.panel-heading -->
 											<div class="panel-body">
-
+											
 												<!-- 댓글 목록 출력 부분 -->
 												<ul class="chat">
 
 												</ul>
-												<!-- ./ end ul -->
+												<!-- ./ end 댓글 목록 출력 부분 -->
 											</div>
-											<!-- /.panel .chat-panel -->
+											<!-- /.end panel-heading -->
 
 											<div class="panel-footer"></div>
-
-
 										</div>
+										<!-- /.end panel -->
+										
 									</div>
 								</div>
 							</tr>
@@ -162,53 +150,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</p>
 					</div>
 					<!--// Copyright -->
+					
 				</div>
+			</section>
 		</div>
+	</div>
 
 
-		<!-- Required common Js -->
-		<script src='/resources/js/jquery-2.2.3.min.js'></script>
-		<!-- //Required common Js -->
+	<!-- Required common Js -->
+	<script src='/resources/js/jquery-2.2.3.min.js'></script>
+	<!-- //Required common Js -->
 
-		<!-- loading-gif Js -->
-		<script src="/resources/js/modernizr.js"></script>
-		<script>
-  //paste this code under head tag or in a seperate js file.
-  // Wait for window load
-  $(window).load(function() {
-  // Animate loader off screen
-  $(".se-pre-con").fadeOut("slow");;
-  });
-  </script>
-		<!--// loading-gif Js -->
+	<!-- loading-gif Js -->
+	<script src="/resources/js/modernizr.js"></script>
+	<script>
+		//paste this code under head tag or in a seperate js file.
+		// Wait for window load
+		$(window).load(function() {
+			// Animate loader off screen
+			$(".se-pre-con").fadeOut("slow");;
+		});
+	</script>
+	<!--// loading-gif Js -->
 
-		<!-- Sidebar-nav Js -->
-		<script>
-  $(document).ready(function() {
-  $('#sidebarCollapse').on('click', function() {
-    $('#sidebar').toggleClass('active');
-  });
-  });
-  </script>
-		<!--// Sidebar-nav Js -->
-		<!-- profile-widget-dropdown js-->
+	<!-- Sidebar-nav Js -->
+	<script>
+		$(document).ready(function() {
+  			$('#sidebarCollapse').on('click', function() {
+				$('#sidebar').toggleClass('active');
+			});
+		});
+	</script>
+	<!--// Sidebar-nav Js -->
+		
+	<!-- profile-widget-dropdown js-->
 		<script src="/resources/js/script.js"></script>
-		<!--// profile-widget-dropdown js-->
-		<!-- dropdown nav -->
-		<script>
-  $(document).ready(function() {
-  $(".dropdown").hover(
-    function() {
-      $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-      $(this).toggleClass('open');
-    },
-    function() {
-      $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-      $(this).toggleClass('open');
-    }
-  );
-  });
-  </script>
+	<!--// profile-widget-dropdown js-->
+	
+	<!-- dropdown nav -->
+	<script>
+		$(document).ready(function() {
+			$(".dropdown").hover(
+				function() {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function() {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
 		<!-- //dropdown nav -->
 
 		<!-- Js for bootstrap working-->
