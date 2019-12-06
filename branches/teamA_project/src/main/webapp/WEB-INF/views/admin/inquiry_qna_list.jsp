@@ -103,8 +103,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 								<tr>
 									<td style="color:blue;">
-										<a class='move' href='<c:out value="${(param.pageNum-1) * (param.amount) + status.count}" />'>
-											<c:out value="${(param.pageNum-1) * (param.amount) + status.count}" />
+										<a class='move' href='<c:out value="${inquiry.inquiry_id }" />'>
+											<c:out value="${inquiry.inquiry_id }" />
 										</a>
 									</td>
 									<td><c:out value="${inquiry.title}" /></td>
@@ -247,7 +247,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$(".move").on("click",function(e) {
 			e.preventDefault();
 			actionForm.append("<input name='inquiryid' value='" + $(this).attr("href")	+ "'>");
-			actionForm.attr("action", "/admin/inquiry_qna_list");
+			actionForm.attr("action", "/admin/inquiry_qna_answer");
 			actionForm.submit();
 		});
 	});
