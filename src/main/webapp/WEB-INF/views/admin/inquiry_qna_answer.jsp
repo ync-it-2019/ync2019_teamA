@@ -12,7 +12,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-
 	<title>1:1 문의 contents</title>
 	
 	<!-- Meta Tags -->
@@ -36,6 +35,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Style-sheets -->
 	<!-- Button Style-->
 	<link rel="stylesheet" type="text/css" href="/resources/css/style-refund(button).css" />
+	<!-- //Button style -->
+	
+	<!-- Bars Css -->
+	<link rel="stylesheet" href="/resources/css/bar-admin.css">
+	<!--// Bars Css -->
 	
 	<!-- Bootstrap Css -->
 	<link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
@@ -48,17 +52,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Fontawesome Css -->
 	<link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
 	<!--// Fontawesome Css -->
+	
+	<!-- Nav Css -->
+	<link rel="stylesheet" href="/resources/css/style4-admin.css">
+	<!--// Nav Css -->
 <!--// Style-sheets -->
 
 <!--web-fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-			rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <!--//web-fonts-->
-
 <!-- 폰트 링크 -->
-	<link href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap"
-			rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Jua|Noto+Sans+KR&display=swap" rel="stylesheet">
 <!-- //폰트 링크 -->
 </head>
 
@@ -82,16 +87,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h4>고객센터 관리 > 1대1 문의 > 답변</h4>
 				</div>
 			</section>
+          	<!--// main-heading -->
 			
 			<!-- Grids Content -->
-			<section class="grids-section bd-content">
-				<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
+			<section class="tables-section">
+				<div class="outer-w3-agile mt-3">
 					<h4 class="tittle-w3-agileits mb-4">1대1 문의 답변</h4>
 					<table class="table">
 						<tr>
 							<th>문의 제목 : 이런 경우는 어떻게 해야 하나요?</th>
 						</tr>
-
 						<tr class="active">
 							<th scope="row">문의내용 : 지금 겪고 있는 상황은 페이지가 넘어가지 않는 증상이 있습니다.
 								어떻게 하면 해결 할 수 있는지 알려주시기바랍니다.
@@ -99,42 +104,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</tr>
 					</table>
 
-					<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
-						<table class="table">
+					<div class="outer-w3-agile mt-3">
+						<table class="table table-striped">
 							<tr>
 								<!-- 댓글 출력 부분 -->
-								<div class='row'>
-									<div class="col-lg-12">
-									
-										<!-- /.panel -->
-										<div class="panel panel-default">
-											<div class="panel-heading">
-												<i class="fa fa-comments fa-fw"></i> Reply
-												
-												<sec:authorize access="isAuthenticated()">
-													<button id='addReplyBtn'
-														class='btn btn-primary btn-xs pull-right'>New
-														Reply</button>
-												</sec:authorize>
-											</div>
+								<td>
+									<!-- /.panel -->
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<i class="fa fa-comments fa-fw"></i> Reply
 											
-											<!-- /.panel-heading -->
-											<div class="panel-body">
-											
-												<!-- 댓글 목록 출력 부분 -->
-												<ul class="chat">
-
-												</ul>
-												<!-- ./ end 댓글 목록 출력 부분 -->
-											</div>
-											<!-- /.end panel-heading -->
-
-											<div class="panel-footer"></div>
+											<sec:authorize access="isAuthenticated()">
+												<button id='addReplyBtn'
+													class='btn btn-primary btn-xs pull-right'>New
+													Reply</button>
+											</sec:authorize>
 										</div>
-										<!-- /.end panel -->
 										
+										<!-- /.panel-heading -->
+										<div class="panel-body">
+										
+											<!-- 댓글 목록 출력 부분 -->
+											<ul class="chat">
+											</ul>
+											<!-- ./ end 댓글 목록 출력 부분 -->
+										</div>
+										<!-- /.end panel-heading -->
+										<div class="panel-footer"></div>
 									</div>
-								</div>
+									<!-- /.end panel -->
+								</td>
+								<!-- // 댓글 출력 부분 -->
 							</tr>
 						</table>
 					</div>
@@ -176,17 +176,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Sidebar-nav Js -->
 	<script>
 		$(document).ready(function() {
-  			$('#sidebarCollapse').on('click', function() {
+			$('#sidebarCollapse').on('click', function() {
 				$('#sidebar').toggleClass('active');
 			});
 		});
 	</script>
 	<!--// Sidebar-nav Js -->
-		
+
 	<!-- profile-widget-dropdown js-->
-		<script src="/resources/js/script.js"></script>
+	<script src="/resources/js/script.js"></script>
 	<!--// profile-widget-dropdown js-->
-	
+
 	<!-- dropdown nav -->
 	<script>
 		$(document).ready(function() {
@@ -202,11 +202,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			);
 		});
 	</script>
-		<!-- //dropdown nav -->
+	<!-- //dropdown nav -->
 
-		<!-- Js for bootstrap working-->
-		<script src="/resources/js/bootstrap.min.js"></script>
-		<!-- //Js for bootstrap working -->
+	<!-- Js for bootstrap working-->
+	<script src="/resources/js/bootstrap.min.js"></script>
+	<!-- //Js for bootstrap working -->
 </body>
 
 </html>

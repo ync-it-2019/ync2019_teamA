@@ -13,6 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
  
 <head>
   <title>1대1 문의 목록</title>
+  
   <!-- Meta Tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
@@ -29,23 +30,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </script>
 
 
-  <!-- Style-sheets -->
-  <!-- Bootstrap Css -->
-  <link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
-  <!-- Bootstrap Css -->
-  <!-- Bars Css -->
-  <link rel="stylesheet" href="/resources/css/bar-admin.css">
-  <!--// Bars Css -->
-  <!-- Common Css -->
-  <link href="/resources/css/style-admin.css" rel="stylesheet" type="text/css" media="all" />
-  <!--// Common Css -->
-  <!-- Nav Css -->
-  <link rel="stylesheet" href="/resources/css/style4-admin.css">
-  <!--// Nav Css -->
-  <!-- Fontawesome Css -->
-  <link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
-  <!--// Fontawesome Css -->
-  <!--// Style-sheets -->
+<!-- Style-sheets -->
+	<!-- Bootstrap Css -->
+	<link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- Bootstrap Css -->
+	<!-- Bars Css -->
+	<link rel="stylesheet" href="/resources/css/bar-admin.css">
+	<!--// Bars Css -->
+	<!-- Common Css -->
+	<link href="/resources/css/style-admin.css" rel="stylesheet" type="text/css" media="all" />
+	<!--// Common Css -->
+	<!-- Nav Css -->
+	<link rel="stylesheet" href="/resources/css/style4-admin.css">
+	<!--// Nav Css -->
+	<!-- Fontawesome Css -->
+	<link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
+	<!--// Fontawesome Css -->
+<!--// Style-sheets -->
 
   <!--web-fonts-->
   <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
@@ -56,43 +57,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-<div class="se-pre-con"></div>
+	<div class="se-pre-con"></div>
 	<div class="wrapper">
 		<jsp:include page="/WEB-INF/views/include/side_bar-admin.jsp"></jsp:include>
 
 		<!-- Page Content Holder -->
 		<div id="content">
+		
 			<!-- top-bar -->
 			<jsp:include page="/WEB-INF/views/include/header-for_admin.jsp"></jsp:include>
 			<!--// top-bar -->
 
 			<!-- main-heading -->
 			<section class="grids-section bd-content">
-
+			
 				<!-- Grids Info -->
 				<div class="outer-w3-agile mt-3">
 					<h4>고객센터 관리 > 1대1 문의 목록</h4>
 				</div>
 			</section>
-          <!--// main-heading -->
-          <!-- Tables content -->
-          <section class="tables-section">
-              <!-- table1 -->
-              <div class="outer-w3-agile mt-3">
-                  <h4 class="tittle-w3-agileits mb-4">1대1 문의 목록</h4>
-                  <div class="col-md-2 mb-3">
-                      <label for="category">카테고리 선택</label>
-                      <select class="custom-select d-block w-100" id="category" required="">
-                          <option value="">선택</option>
-                          <option>컨텐츠 관련</option>
-                          <option>펀딩 관련</option>
-                          <option>기타</option>
-                      </select>
-                  </div>
-                  <table class="table table-striped">
-                      <thead class="thead-dark">
-                          <tr>
-                              <th scope="col">NO</th>
+          	<!--// main-heading -->
+          
+			<!-- Tables content -->
+			<section class="tables-section">
+				<div class="outer-w3-agile mt-3">
+					<h4 class="tittle-w3-agileits mb-4">1대1 문의 목록</h4>
+					<div class="col-md-2 mb-3">
+						<label for="category">카테고리 선택</label>
+						<select class="custom-select d-block w-100" id="category" required="">
+							<option value="">선택</option>
+							<option>컨텐츠 관련</option>
+							<option>펀딩 관련</option>
+							<option>기타</option>
+						</select>
+					</div>
+					<table class="table table-striped">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">NO</th>
                               <th scope="col">제목</th>
                               <th scope="col">작성자ID</th>
                               <th scope="col">작성일자</th>
