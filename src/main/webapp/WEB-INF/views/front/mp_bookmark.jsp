@@ -4,13 +4,18 @@ author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>공지사항</title>
-
+<title>즐겨찾기</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Style-sheets -->
 
 
@@ -51,9 +56,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 						<!-- Grids Info -->
 						<div class="outer-w3-agile mt-3">
-							<h4>My page > 게임 라이브러리 > 즐겨찾기</h4>
+							<h4>My page > 게임 라이브러리 > 즐겨찾기</h4><br>
+							<h4>즐겨찾기 한 컨텐츠 수 : <span>${fn:length(bmk)}</span></h4><!-- 카운팅 넣기 -->
 						</div>
-
+						
 
 						<div class="outer-w3-agile mt-3"
 							data-example-id="contextual-table">
@@ -61,105 +67,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 								<thead>
 									<tr>
-										<th>#</th>
+										<th>No.</th>
 										<th>게임 이름</th>
-										<th>게임 장르</th>
+										<th>게임 장르 및 태그</th>
 										<th>즐겨 찾기 해제</th>
 									</tr>
 								</thead>
-
+								<tbody>
+								<c:forEach items="${bmk}" var="bmk" varStatus="status">
 								<tr class="active">
-									<th scope="row">1</th>
+									<th scope="row">${status.count}</th>
 									<td style="cursor: pointer;"
 										onClick=" location.href='index.html' "
 										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">Risk of rain2</td>
-									<td>얼리 억세스</td>
-									<td><input type="button" value="해제" onclick=alert(
-										"해제되었습니다.")></td>
+										onMouseOut=" window.status = '' ">${bmk.title}</td>
+									<td>${bmk.tag}</td>
+									<td><input type="button" value="해제" onclick="alert(
+										'해제되었습니다.');return false;"/></td>
 								</tr>
+								</c:forEach>
+								</tbody>
 
-								<tr>
-									<th scope="row">2</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">ori and the Blind
-										Forest</td>
-									<td>플랫 포머</td>
-									<td><input type="button" value="해제" onclick=alert(
-										"해제되었습니다.")></td>
-								</tr>
-								<tr class="success">
-									<th scope="row">3</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">isaac</td>
-									<td>액션, 어드벤쳐</td>
-									<td><input type="button" value="해제" onclick=alert(
-										"해제되었습니다.")></td>
-								</tr>
-								<tr>
-									<th scope="row">4</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">Stellar Fox</td>
-									<td>퍼즐</td>
-									<td><input type="button" value="해제" onclick=alert(
-										"해제되었습니다.")></td>
-								</tr>
-								<tr class="info">
-									<th scope="row">5</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">After the end</td>
-									<td>퍼즐</td>
-									<td><input type="button" value="해제" onclick=alert(
-										"해제되었습니다.")></td>
-								</tr>
-								<tr>
-									<th scope="row">6</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">DeadCells</td>
-									<td>액션</td>
-									<td><input type="button" value="해제" onclick=alert(
-										"해제되었습니다.")></td>
-								</tr>
-								<tr class="warning">
-									<th scope="row">7</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">선리스 스키즈</td>
-									<td>어드벤쳐</td>
-									<td><input type="button" value="해제" onclick=alert(
-										"해제되었습니다.")></td>
-								</tr>
-								<tr>
-									<th scope="row">8</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">텍스터 시스트</td>
-									<td>어드벤쳐</td>
-									<td><input type="button" value="해제" onclick=alert(
-										"해제되었습니다.")></td>
-								</tr>
-								<tr class="danger">
-									<th scope="row">9</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">아일랜더즈</td>
-									<td>퍼즐</td>
-									<td><input type="button" value="해제" onclick=alert(
-										"해제되었습니다.")></td>
-								</tr>
 
 							</table>
 						</div>
