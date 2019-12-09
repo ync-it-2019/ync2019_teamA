@@ -23,7 +23,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/admin/*")
-public class AdminCreatorController {
+public class AdminCreaterController {
 	
 	@Autowired
 	private AMemberService mService;
