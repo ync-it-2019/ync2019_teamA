@@ -208,12 +208,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				<sec:authorize access="isAuthenticated()">
 					<sec:authentication property="principal.username" var="user_id" />
 					<li style="margin-left: 0em">
-						<a href="/front/mp_selfcheck"	class="login">${user_id}</a>
+						<a href="/mp_selfcheck"	class="login">${user_id}</a>
 					</li>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<li style="margin-left: 0em">
-						<a href="/front/mp_bookmark" class="login" style="margin-left: 0em">마이 페이지</a>
+						<a href="/mypage/mp_bookmark" class="login" style="margin-left: 0em">마이 페이지</a>
 					</li>
 				</sec:authorize>
 				
