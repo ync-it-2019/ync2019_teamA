@@ -141,13 +141,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           </tr>
                       </tbody>
                   </table>
-                  				
-                  <div align="center">
-				  	<input type="button" class="snip1535" name="submit1" value="창작자강등"/>
-      			  	<input type="button" class="snip1535" name="submit2" value="휴면복귀"/>
-				 </div>
+                  			<form role="form" action="/admin/creator_modify" 
+				method="post" enctype="multipart/form-data">
+				<input type="hidden" name="auth" value="ROLE_USER" id="auth">			
+                  <div style="text-align: center;">
+					<button type="submit" class="btn btn-default" id="auth">창작자 강등</button>
+					<button type="submit" class="btn btn-default">휴면 복귀</button>
+				</div>
+				</form>
               </div>
-              </section>
           <!--// Stats -->
           
       <!-- Copyright -->
@@ -259,6 +261,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			actionForm.submit();
 		});
 	});
+	</script>
+	
+	<script type="text/javascript">
+	
 	</script>
 
 </body>
