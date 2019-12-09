@@ -26,6 +26,13 @@ public class AMemberServiceImpl implements AMemberService {
 
 		mapper.insert(member);
 	}
+	
+	//관리자 등록
+	public void admin_register(MemberVO admin_member) {
+		log.info("register......" + admin_member);
+
+		mapper.admin_insert(admin_member);
+	}
 
 	// 멤버 상세보기
 	public MemberVO get(String userid) {
