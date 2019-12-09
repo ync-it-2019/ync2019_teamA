@@ -70,7 +70,7 @@
           </a>
           <ul class="collapse list-unstyled" id="developer">
             <li>
-              <a href="creator_info">· 창작자 조회</a>
+              <a href="creater_info">· 창작자 조회</a>
             </li>
           </ul>
         </li>
