@@ -16,4 +16,6 @@ public class BookmarkVO {
 	private Date reg_date;		//등록일자
 	private Long content_id;	//컨텐츠ID
 	private Long bookmark;		//즐겨찾기ID
+	private String title;		//즐겨찾기한 컨텐츠 타이틀
+	private String tag;		//즐겨찾기한 컨텐츠 장르태그
 }
