@@ -19,7 +19,7 @@ public interface AInquiryMapper {
 
 	public int getTotalCount(Criteria cri);					//문의 전체 수
 	
-	public void insert(InquiryVO inquiry_id); 				//문의 추가
+	public void insert(InquiryVO InquiryVO); 				//문의 추가
 	
-	public void insertComment(InquiryVO inquiry_id); 		//문의 댓글 추가
+	public void insertComment(InquiryVO InquiryVO); 		//문의 댓글 추가
 }

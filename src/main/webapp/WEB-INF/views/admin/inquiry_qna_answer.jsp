@@ -95,11 +95,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h4 class="tittle-w3-agileits mb-4">1대1 문의 답변</h4>
 					<table class="table">
 						<tr>
-							<th>문의 제목 : 이런 경우는 어떻게 해야 하나요?</th>
+							<th>문의 제목 : <c:out value="${inquiry.title }" /></th>
 						</tr>
 						<tr class="active">
-							<th scope="row">문의내용 : 지금 겪고 있는 상황은 페이지가 넘어가지 않는 증상이 있습니다.
-								어떻게 하면 해결 할 수 있는지 알려주시기바랍니다.
+							<th scope="row">문의내용 : <c:out value="${inquiry.content }" />
 							</th>
 						</tr>
 					</table>
@@ -112,25 +111,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<!-- /.panel -->
 									<div class="panel panel-default">
 										<div class="panel-heading">
-											<i class="fa fa-comments fa-fw"></i> Reply
-											
-											<sec:authorize access="isAuthenticated()">
-												<button id='addReplyBtn'
-													class='btn btn-primary btn-xs pull-right'>New
-													Reply</button>
-											</sec:authorize>
+											<i class="fa fa-comments fa-fw"></i> Reply<br>
 										</div>
 										
 										<!-- /.panel-heading -->
 										<div class="panel-body">
-										
+											
 											<!-- 댓글 목록 출력 부분 -->
 											<ul class="chat">
+												<c:out value="${inquiry.comments }" />
 											</ul>
 											<!-- ./ end 댓글 목록 출력 부분 -->
 										</div>
 										<!-- /.end panel-heading -->
-										<div class="panel-footer"></div>
+										<div class="panel-footer">
+											<sec:authorize access="isAuthenticated()">
+											<c:if test="${inquiry.comments eq '-' }">
+												<form role="form" action="/admin/inquiry_qna_answer" method="post">
+													<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+													<input type="hidden" name="inquiry_id" value='<c:out value="${inquiry.inquiry_id }"/>'/>
+													<input class="form-control" name='userid'
+														value='<sec:authentication property="principal.username"/>'
+														readonly="readonly">
+													<input type="text" name="comments"  style="width:100%;"/><br>
+													<input type="submit" id="addReplyBtn" class="snip1535 btn btn-default" name="submit" value="New Reply"/>
+												</form>
+											</c:if>
+											</sec:authorize>
+										</div>
 									</div>
 									<!-- /.end panel -->
 								</td>
@@ -203,6 +211,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		});
 	</script>
 	<!-- //dropdown nav -->
+
+	<!-- submit action -->
+	<script>
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input name='userid' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/admin/inquiry_qna_answer");
+			actionForm.submit();
+		});
+	</script>
+	<!-- //submit action -->
 
 	<!-- Js for bootstrap working-->
 	<script src="/resources/js/bootstrap.min.js"></script>

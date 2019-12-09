@@ -248,7 +248,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		// 상세보기 클릭 이벤트
 		$(".move").on("click",function(e) {
 			e.preventDefault();
-			actionForm.append("<input name='inquiryid' value='" + $(this).attr("href")	+ "'>");
+			actionForm.append("<input name='inquiry_id' value='" + $(this).attr("href")	+ "'>");
 			actionForm.attr("action", "/admin/inquiry_qna_answer");
 			actionForm.submit();
 		});
