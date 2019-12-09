@@ -38,7 +38,6 @@ public class AdminNoticeController {
 		
 		log.info("Notice Lists :  " + cri);
 		log.info("Notice Total : " + total);
-//		model.addAttribute("list", mService.getList());
 		
 		model.addAttribute("list", nService.getListWithPaging(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));

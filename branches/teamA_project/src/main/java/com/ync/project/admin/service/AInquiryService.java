@@ -7,7 +7,7 @@ import com.ync.project.domain.InquiryVO;
 
 public interface AInquiryService {
 	// 문의 등록
-	public void register(InquiryVO inquiry_id);
+	public void register(InquiryVO inquiryVO);
 	
 	// 문의 댓글 등록
 	public void commentRegister(InquiryVO inquiry_id);
