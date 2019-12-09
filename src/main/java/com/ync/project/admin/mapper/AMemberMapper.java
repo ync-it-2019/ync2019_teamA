@@ -18,11 +18,11 @@ public interface AMemberMapper {
 
 	public int delete(String userid);						//회원 탈퇴/삭제
 
-	public int update(MemberVO member); 					//회원정보 수정
+	public int update(MemberVO MemberVO); 					//회원정보 수정
 
 	public int getTotalCount(Criteria cri);					//멤버 전체 수
 	
-	public void insert(MemberVO member); 					//회원추가
+	public void insert(MemberVO MemberVO); 					//회원추가
 	
 	public void admin_insert(MemberVO admin_member);		//관리자추가
 	
