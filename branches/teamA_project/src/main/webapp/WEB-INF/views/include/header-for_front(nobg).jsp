@@ -2,9 +2,13 @@
 author: W3layouts
 author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+License URL: http://creativecommons.org/licenses/by/3.0/-->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -42,6 +46,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <link href="https://fonts.googleapis.com/css/?family=Lato:100,100i,300,300i,400,400i,700,700i,900" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css/?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <!--//web-fonts-->
+  
+  
+<style>
+	/* .admBtnPosition{position:absolute; left:16em;}
+	.regBtnPosition{position:absolute; left:24em;} */
+	.admBtnPosition{display:inline-blokck; margin-left:4px;}
+	.regBtnPosition{display:inline-blokck; margin-left:4px;}
+	.logoutPosition{position:absolute; right:0px;}
+</style>
 </head>
 
 <body>
@@ -181,20 +194,52 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   </div>
   <!--/banner-section-->
   <!--//main-header-->
-  <!--/banner-bottom-->
+  <!--/banner-bottom Logins-->
   <div class="w3_agilits_banner_bootm">
     <div class="w3_agilits_inner_bottom">
-      <div class="col-md-3 wthree_agile_login">
-        <ul>
-
-          <li><a href="../member/login" class="login"  data-target="#myModal4">Login</a></li>
-          <li><a href="../member/join" class="login reg" data-target="#myModal5">Register</a></li>
-
-        </ul>
-      </div>
+		<div class="col-md-6 wthree_agile_login" style="width: 100%">
+			<ul>
+				<sec:authorize access="isAnonymous()">
+					<li><a href="/login" class="login">로그인</a></li>
+				</sec:authorize>
+				<sec:authorize access="isAnonymous()">
+					<li><a href="/join" class="login reg" data-target="#myModal5">회원가입</a></li>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<sec:authentication property="principal.username" var="user_id" />
+					<li style="margin-left: 0em">
+						<a href="/front/mp_selfcheck"	class="login">${user_id}</a>
+					</li>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<li style="margin-left: 0em">
+						<a href="/front/mp_bookmark" class="login" style="margin-left: 0em">마이 페이지</a>
+					</li>
+				</sec:authorize>
+				
+				<!-- Admin Menus -->
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li class="admBtnPosition">
+						<a href="#" id="admBtn" class="login reg" data-target="#myModal5">어드민페이지</a>
+					</li>
+				</sec:authorize>
+				<sec:authorize access="hasRole('ROLE_CREATER') or hasRole('ROLE_ADMIN')">
+						<li class="regBtnPosition">
+						<a href="#" id="regBtn" class="login reg" data-target="#myModal5">게임등록</a>
+					</li>
+				</sec:authorize>
+				<!-- //Admin Menus -->
+				
+				<sec:authorize access="isAuthenticated()">
+					<li class="logoutPosition">
+						<a href="#" id="lgoutBtn" class="login">로그아웃</a>
+					</li>
+				</sec:authorize>
+			</ul>
+		</div>
     </div>
   </div>
-  <!--//banner-bottom-->
+  <!--//banner-bottom Logins-->
   <!-- Modal1 -->
   <div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
 
@@ -417,6 +462,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <!--end-smooth-scrolling-->
   <script src="/resources/js/bootstrap.js"></script>
 
+	<!-- Button Action -->
+	<script>
+		$("#admBtn").on("click", function() {
+			self.location = "/admin/admin_main";
+		});
+		$("#regBtn").on("click", function() {
+			self.location = "/game_content_writeform";
+		});
+		$("#lgoutBtn").on("click", function() {
+			self.location = "/front/logout";
+		});
+	</script>
+	<!-- //Button Action -->
 
 
 </body>
