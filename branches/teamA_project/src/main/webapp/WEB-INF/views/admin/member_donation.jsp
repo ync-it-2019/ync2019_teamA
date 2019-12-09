@@ -114,7 +114,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td><fmt:formatNumber value="${donation.donation}" type="number" />￦</td>	
 									<td><fmt:formatNumber value="${donation.donation/10}" type="number" />￦</td>								
 									<td></td>
-									<td><c:out value="${donation.don_reg_date}" /></td>
+									<td>
+										<fmt:formatDate var="resultRegDt" value="${donation.don_reg_date}" pattern="yyyy/MM/dd HH:mm"/>
+										${resultRegDt}
+									</td>
 									
 								</tr>
 						
