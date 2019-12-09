@@ -1,8 +1,16 @@
 package com.ync.project.admin.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.ync.project.admin.service.AMemberService;
+import com.ync.project.domain.MemberVO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -16,6 +24,9 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/admin/*")
 public class AdminAdminController {
+	
+	@Autowired
+	private AMemberService service;
 
 	 /**
 	  * @Method 설명 : 관리자 등록 admin_create.jsp 호출
@@ -33,6 +44,25 @@ public class AdminAdminController {
 	}
 	
 	 /**
+	  * @Method 설명 : 관리자 등록 데이터 보냄
+	  * @Method Name : admin_register
+	  * @Date : 2019. 12. 6.
+	  * @작성자 : 김길재
+	  * @param admin_member
+	  * @param rttr
+	  * @return
+	  */
+	@PostMapping("/admin_create")
+	@PreAuthorize("isAuthenticated()")
+	public String admin_register(MemberVO admin_member, RedirectAttributes rttr) {
+		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+		admin_member.setUserpw(scpwd.encode(admin_member.getUserpw()));
+		service.admin_register(admin_member);
+		rttr.addFlashAttribute("result", admin_member.getUserid());
+		return "redirect:/";
+	}
+	
+	 /**
 	  * @Method 설명 : 관리자 조회 admin_management.jsp 호출
 	  * @Method Name : admin_management
 	  * @Date : 2019. 10. 27.
@@ -46,6 +76,8 @@ public class AdminAdminController {
 	
 		return "admin/admin_management";
 	}
+	
+	
 	
 	 /**
 	  * @Method 설명 : 관리자 권한 수정 admin_modify.jsp 호출
