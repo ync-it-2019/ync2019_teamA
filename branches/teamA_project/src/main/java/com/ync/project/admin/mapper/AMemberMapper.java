@@ -24,6 +24,7 @@ public interface AMemberMapper {
 	
 	public void insert(MemberVO member); 					//회원추가
 	
+	public void admin_insert(MemberVO admin_member);		//관리자추가
 	
 	public int getTotalCreater(Criteria cri);				//창작자수 리턴
 
