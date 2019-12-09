@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <div class="outer-w3-agile mt-3" >
                   <h4 class="tittle-w3-agileits mb-4">회원 상세 정보</h4>
                   <table class="table" align="center">
-                      <tbody>
+                      <tbody style="text-align:center;">
                           <tr>
                               <th scope="col" width="150px">이름</th>
                               <td><c:out value="${member_info.name }"/></td>
