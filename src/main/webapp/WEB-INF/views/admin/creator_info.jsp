@@ -164,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<!--  Pagination 끝 -->
 				<!-- Form 시작 -->
-				<form id='actionForm' action="creater_info" method='get'>
+				<form id='actionForm' action="creator_info" method='get'>
 				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 				</form>
@@ -275,7 +275,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$(".move").on("click",function(e) {
 			e.preventDefault();
 			actionForm.append("<input name='userid' value='" + $(this).attr("href")	+ "'>");
-			actionForm.attr("action", "/admin/creater_modify");
+			actionForm.attr("action", "/admin/creator_modify");
 			actionForm.submit();
 		});
 	});
