@@ -10,6 +10,9 @@ public interface AMemberService {
 	// 멤버 등록
 	public void register(MemberVO member);
 	
+	//관리자 등록
+	public void admin_register(MemberVO admin_member);
+	
 	// 멤버 상세보기
 	public MemberVO get(String userid);
 	
@@ -42,4 +45,7 @@ public interface AMemberService {
 	public GDonationVO getGetDonationToUser(String userid);			// 개인의 후원받은 금액
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
+
+	
+	
 }
