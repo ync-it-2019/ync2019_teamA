@@ -119,9 +119,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             						</c:forEach>
             					</td>
             					<td>
-            						<fmt:formatDate value="${cList.reg_date }" pattern="YYYY.MM.dd"
+            						<fmt:formatDate value="${cList.reg_date }" pattern="YYYY/MM/dd HH:mm"
             										type="date" var="cLreg_date"/>
-            						<input type="text" readonly value="${cLreg_date }"/>
+            						${cLreg_date }
             					</td>
             					<td>
             						<button id='modalRemoveBtn' type="button" class="btn btn-danger"

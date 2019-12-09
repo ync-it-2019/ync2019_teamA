@@ -111,7 +111,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</td>
 									<td><c:out value="${inquiry.title}" /></td>
 									<td><c:out value="${inquiry.userid}" /></td>
-									<td><c:out value="${inquiry.reg_date}" /></td>
+									<td>
+										<fmt:formatDate var="resultRegDt" value="${inquiry.reg_date}" pattern="yyyy/MM/dd HH:mm"/>
+										${resultRegDt}
+									</td>
 								</tr>
 							</c:forEach>
                       </tbody>
