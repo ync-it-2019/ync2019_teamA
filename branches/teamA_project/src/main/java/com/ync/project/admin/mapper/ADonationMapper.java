@@ -18,11 +18,11 @@ public interface ADonationMapper {
 
 	public int delete(String userid, String Content_id);							//후원 탈퇴/삭제
 
-	public int update(DonationVO donation); 					//후원정보 수정
+	public int update(DonationVO DonationVO); 					//후원정보 수정
 
 	public int getTotalCount(Criteria cri);						//후원 전체 수
 	
-	public void insert(DonationVO donation); 					//후원추가
+	public void insert(DonationVO DonationVO); 					//후원추가
 
 	public List<GDonationVO> getGetDonation(Criteria cri);		//후원받은 금액
 
