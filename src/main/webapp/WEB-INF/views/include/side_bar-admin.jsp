@@ -58,9 +58,6 @@
           </a>
           <ul class="collapse list-unstyled" id="customer-center">
             <li>
-              <a href="cards.html">· FAQ</a>
-            </li>
-            <li>
               <a href="inquiry_qna_list">· 1대1 문의</a>
             </li>
           </ul>
