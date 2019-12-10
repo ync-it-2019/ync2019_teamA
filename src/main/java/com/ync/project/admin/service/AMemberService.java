@@ -25,6 +25,11 @@ public interface AMemberService {
 	// 전체 멤버 목록
 	public List<MemberVO> getList();
 	
+	//관리자 멤버 목록
+	public List<MemberVO> getAdminList();  //관리자 계정 목록
+	
+	public List<MemberVO> getAdminListWithPaging(Criteria cri);	//관리자 계정 멤버 페이징
+	
 	// 멤버 목록 페이징 
 	public List<MemberVO> getListWithPaging(Criteria cri);
 	
@@ -47,5 +52,5 @@ public interface AMemberService {
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 
 	
-	
+	public int revoke(String userid);			//권한 해제 
 }

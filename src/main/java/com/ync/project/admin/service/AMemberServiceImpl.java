@@ -45,7 +45,7 @@ public class AMemberServiceImpl implements AMemberService {
 	// 멤버 수정
 	public boolean modify(MemberVO member) {
 
-		log.info("modify......" + member);
+		log.info("modify......" + 	member);
 
 		return mapper.update(member) == 1;
 	};
@@ -115,6 +115,24 @@ public class AMemberServiceImpl implements AMemberService {
 	public GDonationVO getGetDonationToUser(String userid) {
 		log.info("get Get Donation To User......");
 		return mapper.getGetDonationToUser(userid);
+	}
+
+	@Override
+	public List<MemberVO> getAdminList() {
+		log.info("get Admin List......");
+		return mapper.getAdminList();
+	}
+
+	@Override
+	public int revoke(String userid) {
+		log.info("revoke ......");
+		return mapper.revoke(userid);
+	}
+
+	@Override
+	public List<MemberVO> getAdminListWithPaging(Criteria cri) {
+		log.info("get Admin List Paging ...");
+		return mapper.getAdminListWithPaging(cri);
 	};
 	
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
