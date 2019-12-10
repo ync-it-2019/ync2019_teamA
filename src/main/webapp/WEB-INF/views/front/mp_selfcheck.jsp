@@ -68,10 +68,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												value=""></th>
 										</tr>
 								</table>
-								<center>
-									<button type="submit" class="btn btn-primary">Submit</button>
-									<button type="reset" class="btn btn-default">Reset</button>
-								</center>
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="reset" class="btn btn-default">Reset</button>
 							</div>
 						</div>
 					</section>
