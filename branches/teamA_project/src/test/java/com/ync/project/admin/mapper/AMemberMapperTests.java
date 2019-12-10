@@ -7,9 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ync.project.domain.MemberVO;
-import com.ync.project.front.mapper.MemberMapper;
 
-import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
  /**
@@ -25,9 +23,9 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class AMemberMapperTests {
 
-	@Setter(onMethod_ = @Autowired)
-	@Autowired
-	private MemberMapper mapper;
+//	@Setter(onMethod_ = @Autowired)
+//	@Autowired
+//	private MemberMapper mapper;
 	
 //	@Test
 //	public void testGetList() {
@@ -38,25 +36,45 @@ public class AMemberMapperTests {
 //	}
 	
 	// 회원추가 테스트
+//	@Test
+//	public void testInsert() {
+//
+//		MemberVO member = new MemberVO();
+//		
+//		member.setUserid("hong@gildong.jun");
+//		member.setName("길동이형");
+//		member.setBirth("14430101");
+//		member.setPhone("+821012345678");
+//		member.setUserpw("1234");
+//		member.setCreater_name("호형호제");
+//		member.setBank_account("1231231");
+//		member.setDonation_accept("0");
+//		member.setStatus("1");
+//		member.setSns("sss");
+//		member.setOther_address("qwe");
+//		
+//		mapper.insert(member);	
+//		log.info(member);
+//	}
+	@Autowired
+	private AMemberMapper AMember;
+	
+//	@Test
+//	public void readAdmin() {
+//		
+//		
+//		AMember.getAdminList().forEach((AMember) -> {
+//			log.info("==================");
+//			log.info(AMember);
+//			});
+//			
+//	}
 	@Test
-	public void testInsert() {
-
-		MemberVO member = new MemberVO();
+	public void testrevoke() {
 		
-		member.setUserid("hong@gildong.jun");
-		member.setName("길동이형");
-		member.setBirth("14430101");
-		member.setPhone("+821012345678");
-		member.setUserpw("1234");
-		member.setCreater_name("호형호제");
-		member.setBank_account("1231231");
-		member.setDonation_accept("0");
-		member.setStatus("1");
-		member.setSns("sss");
-		member.setOther_address("qwe");
 		
-		mapper.insert(member);	
-		log.info(member);
+		AMember.revoke("mun@sang.ho");
+			
 	}
 
 }
