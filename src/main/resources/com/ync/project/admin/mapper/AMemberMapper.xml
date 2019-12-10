@@ -168,6 +168,29 @@
 							)
 		]]>
 	</insert>
+	
+	<insert id="admin_insert">
+	<![CDATA[
+			INSERT	INTO	teamamember(
+								userid,
+								name,
+								birth,
+								phone,
+								userpw,
+								levels,
+								auth
+							)
+							VALUES(
+								#{userid},
+								#{name},
+								#{birth},
+								#{phone},
+								#{userpw},
+								#{levels},
+								#{auth}
+							)
+		]]>
+	</insert>
 
 	<update id="update">
 		<![CDATA[
@@ -186,6 +209,22 @@
 			UPDATE	teamamember
 			SET		levels = 1, auth = 'ROLE_USER'
 			WHERE	userid = #{user_id}
+		]]>
+	</update>
+
+	<update id="creater_modify">
+		<![CDATA[
+			UPDATE	teamamember
+			SET		auth = 'ROLE_USER'
+			WHERE	userid = #{userid}
+		]]>
+	</update>
+	
+	<update id="creater_status">
+		<![CDATA[
+			UPDATE	teamamember
+			SET		status = '1'
+			WHERE	userid = #{userid}
 		]]>
 	</update>
 
