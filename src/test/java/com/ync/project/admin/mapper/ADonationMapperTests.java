@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.ync.project.domain.Criteria;
+
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
@@ -27,7 +29,8 @@ public class ADonationMapperTests {
 	
 	@Test
 	public void testread() {
-		donation.getList().forEach((donation) -> {
+		Criteria cri = new Criteria();
+		donation.getListWithPagingAndContent(cri).forEach((donation) -> {
 			log.info("==================");
 			log.info(donation);
 			});
