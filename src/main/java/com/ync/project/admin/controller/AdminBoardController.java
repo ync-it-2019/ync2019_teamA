@@ -1,5 +1,7 @@
 package com.ync.project.admin.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -54,5 +56,19 @@ public class AdminBoardController {
 		model.addAttribute("content_list", cService.getListWithPaging(cri));
 		model.addAttribute("genre_list", gService.getList());
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
+	}
+	
+	
+	@GetMapping(value = "/content_management/remove_content")
+	public String removeContent(HttpServletRequest request) {
+
+		String content_id = request.getParameter("content_id");
+
+		log.info("Welcome Content Management Remove Action!");
+		log.info("Content_id Value = " + content_id + "\n#<--//end Total Value +-+-+-+-+-+-+-+-+-+-+-//-->");
+		
+		cService.remove(content_id);
+		
+		return "redirect:/admin/content_management";
 	}
 }

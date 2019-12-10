@@ -125,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             					</td>
             					<td>
             						<button id='modalRemoveBtn' type="button" class="btn btn-danger"
-                       							value="" onclick='alert("삭제되었습니다.")'>
+                       							value="${cList.content_id }" onclick="if(confirm('삭제 하시겠습니까?')){location.href='content_management/remove_content?content_id=${cList.content_id }'}">
                        					삭제
                        				</button>
                        			</td>
@@ -257,11 +257,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		// 삭제 이벤트
 		$("button[data-oper='cList']").on("click", function(e){
-	    
 			operForm.find("#content_id").remove();
 			/* operForm.attr("action","/board/list") */
 			operForm.submit();
-	    
 		});
 		
 	});
