@@ -19,6 +19,10 @@ public interface AMemberService {
 	// 멤버 수정
 	public boolean modify(MemberVO member);
 	
+	public boolean creater_modify(String userid);
+	
+	public boolean creater_status(String userid);
+	
 	// 멤버 삭제
 	public boolean remove(String userid);
 	
@@ -53,4 +57,6 @@ public interface AMemberService {
 
 	
 	public int revoke(String userid);			//권한 해제 
+
+	
 }
