@@ -2,6 +2,8 @@ package com.ync.project.domain;
 
 import java.util.Date;
 
+import org.springframework.web.util.UriComponentsBuilder;
+
 import lombok.Data;
 
  /**
@@ -18,4 +20,13 @@ public class BookmarkVO {
 	private Long bookmark;		//즐겨찾기ID
 	private String title;		//즐겨찾기한 컨텐츠 타이틀
 	private String tag;		//즐겨찾기한 컨텐츠 장르태그
+	
+	public String getListLinked() {
+		
+		String str;
+		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
+			.queryParam("pageNum", this.userid);
+			
+		return builder.toUriString();
+	}
 }

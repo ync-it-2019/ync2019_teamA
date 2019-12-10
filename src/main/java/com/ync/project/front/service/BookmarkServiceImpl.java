@@ -61,5 +61,14 @@ import lombok.extern.log4j.Log4j;
 			log.info("remove...." + bookmark);
 			return mapper.delete(bookmark);
 		}
+
+		   @Override
+		   public int getTotal(Criteria cri) {
+		      
+		      log.info("get total count");
+		      
+		      return mapper.getTotalCount(cri);
+		   }
+
 		
 	}

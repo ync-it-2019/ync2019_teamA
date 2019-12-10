@@ -23,4 +23,6 @@ public interface BookmarkService {
 		public List<BookmarkVO> getList(Criteria cri, String userid);
 		
 		public BookmarkPageDTO getListWithPaging(Criteria cri, String userid);
+		
+		public int getTotal(Criteria cri);
 }
