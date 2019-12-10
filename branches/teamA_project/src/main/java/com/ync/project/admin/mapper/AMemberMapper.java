@@ -12,6 +12,10 @@ public interface AMemberMapper {
 	
 	public List<MemberVO> getList();						//멤버 목록
 	
+	public List<MemberVO> getAdminList();					//관리자계정 목록c
+
+	public List<MemberVO> getAdminListWithPaging(Criteria cri);	//관리자 계정 멤버 페이징
+	
 	public List<MemberVO> getListWithPaging(Criteria cri);	//멤버 페이징
 	
 	public List<MemberVO> getListWithPagingWithCreater(Criteria cri); //창작자 페이징
@@ -30,10 +34,11 @@ public interface AMemberMapper {
 
 	public int getActiveUser(Criteria cri);					//활동중인 유저 수 리턴
 	
-
 	public List<GDonationVO> getGetDonation(Criteria cri);	//후원받은 금액
 
 	public List<GDonationVO> getGiveDonation(Criteria cri);	//후원한 금액	
 	
 	public GDonationVO getGetDonationToUser(String userid);
+	
+	public int revoke(String userid);						//권한 강등
 }
