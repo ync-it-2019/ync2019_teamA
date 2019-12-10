@@ -7,7 +7,7 @@ import com.ync.project.domain.DonationVO;
 import com.ync.project.domain.GDonationVO;
 
 
-//복사 붙여넣기 후 이름만 수정하였음
+
 public interface ADonationMapper {
 
 	public DonationVO read(String userid);						//후원 상세 정보
