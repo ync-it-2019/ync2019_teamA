@@ -7,11 +7,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>상세 회원 정보</title>
+  <title>이벤트 등록</title>
   <!-- Meta Tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
@@ -26,7 +27,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       window.scrollTo(0, 1);
     }
   </script>
-  
   <!-- //for-mobile-apps -->
   <link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
   <!-- pop-up -->
@@ -47,6 +47,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Bootstrap Css -->
   <link href="/resources/css/bootstrap-admin.css" rel="stylesheet" type="text/css" media="all" />
   <!-- Bootstrap Css -->
+  <!-- Bars Css -->
+  <link rel="stylesheet" href="/resources/css/bar-admin.css">
+  <!--// Bars Css -->
   <!-- Common Css -->
   <link href="/resources/css/style-admin.css" rel="stylesheet" type="text/css" media="all" />
   <!--// Common Css -->
@@ -57,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <link href="/resources/css/fontawesome-all-admin.css" rel="stylesheet">
   <!--// Fontawesome Css -->
   <!--// Style-sheets -->
-
+<link rel="stylesheet" type="text/css" href="/resources/css/style-refund(button).css" />
   <!--web-fonts-->
   <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -67,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-   <div class="se-pre-con"></div>
+<div class="se-pre-con"></div>
 	<div class="wrapper">
 		<jsp:include page="/WEB-INF/views/include/side_bar-admin.jsp"></jsp:include>
 
@@ -82,79 +85,72 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!-- Grids Info -->
 				<div class="outer-w3-agile mt-3">
-					<h4>회원 관리 > 회원 조회 > 상세 회원 정보</h4>
+					<h4>게시물 > 이벤트 등록</h4>
 				</div>
 			</section>
           <!--// main-heading -->
           <!-- Tables content -->
           <section class="tables-section">
               <!-- table1 -->
-              <div class="outer-w3-agile mt-3" >
-                  <h4 class="tittle-w3-agileits mb-4">회원 상세 정보</h4>
-                  <table class="table" align="center">
-                      <tbody style="text-align:center;">
-                          <tr>
-                              <th scope="col" width="150px">이름</th>
-                              <td><c:out value="${member_info.name }"/></td>
-                          </tr>
-                          <tr>
-                              <th scope="col">생년월일</th>
-                              <td><c:out value="${member_info.birth}"/></td>
-                          </tr>
-                          <tr>
-                              <th scope="col">아이디(이메일)</th>
-                              <td><c:out value="${member_info.userid }"/></td>
-                          </tr>
-                          <tr>
-                              <th scope="col">전화번호</th>
-                              <td><c:out value="${member_info.phone }"/></td>
-                          </tr>
-                          <tr>
-                              <th scope="col">후원한 금액</th>
-                              <td>
-                              	<c:set var="tmpchk" value="0"/>
-								<c:forEach items="${givedon}" var="gives" >
-									<c:choose>
-    									<c:when test="${member_info.userid eq gives.userid}">
-	       								 	<c:out value="${gives.donation}" />
-		        							<c:set var="tmpchk" value="${tmpchk + 1}"/>
-   										</c:when>
-        								<c:otherwise>
-        								</c:otherwise>
-        							</c:choose>
-        						</c:forEach>
-	        					<c:if test="${tmpchk == 0 }">
-	        						0
-	        					</c:if>
-                              </td>
-                          </tr>
-                          <tr>
-                              <th scope="col">창작자 여부</th>
-                              <td>
-								<c:choose>
-    								<c:when test="${member_info.auth eq 'ROLE_ADMIN'}">
-	       							 	관리자
-   									</c:when>
-    								<c:when test="${member_info.auth eq 'ROLE_USER'}">
-	       							 	일반 유저
-   									</c:when>
-    								<c:when test="${member_info.auth eq 'ROLE_CREATER'}">
-	       							 	창작자
-   									</c:when>
-        							<c:otherwise>
-        								- 오류 값 -
-        							</c:otherwise>
-        						</c:choose>
-        					</td>
-                          </tr>
-                      </tbody>
-                  </table>
-
-
+              <div class="outer-w3-agile mt-3">
+                  <h4 class="tittle-w3-agileits mb-4">이벤트 등록</h4>
+                  
+				  <form role="form" action="/admin/event_upload" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="media1" value=""/> 
+					<input type="hidden" name="media2" value=""/>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+					
+					<!-- <div class="form-group">
+						<label>카테고리</label>
+                        <select name="category" size="1">
+							<option value="notice" selected>공지사항</option>
+							<option value="event" >Event</option>
+						</select>
+					</div> -->
+					
+					<div class="form-group">
+						<label>제목</label>
+						<input class="form-control" name='title'>
+					</div>
+					
+					<div class="form-group">
+						<label>작성자</label>
+						<input class="form-control" name='userid'
+							value='<sec:authentication property="principal.username"/>'
+							readonly="readonly">
+						<!-- <input class="form-control" name='userid' value="admin" readonly="readonly"/> -->
+					</div>
+					
+					<div class="form-group">
+						<label>내용</label>
+						<textarea class="form-control" rows="6" name='content'></textarea>
+					</div>
+					
+					<div class="form-group" style="{display:inline-block}">
+						<div class="btn btn-default btn-file">
+							<i class="fa fa-paperclip"></i>
+							<label>게임 이미지파일 1</label>
+							<input type="file" class="form-control" name='uploadFile'>
+						</div>
+						<br>
+						<div class="btn btn-default btn-file">
+							<i class="fa fa-paperclip"></i>
+							<label>게임 이미지파일 2</label>
+							<input type="file" class="form-control" name='uploadFile'>
+						</div>
+					</div>
+					
+					<div align="center">
+						<input type="submit" class="snip1535 btn btn-default" name="submit" value="등록"/>
+						<input type="reset" class="snip1535 btn btn-default" name="cancel" value="취소"/>
+					</div>
+					
+				  </form>
+				 
+				 
               </div>
               </section>
           <!--// Stats -->
-          
       <!-- Copyright -->
       <div class="copyright-w3layouts py-xl-3 py-2 mt-xl-5 mt-4 text-center">
         <p>© 2018 Modernize . All Rights Reserved | Design by
@@ -191,12 +187,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
   </script>
   <!--// Sidebar-nav Js -->
-
-  
   <!-- profile-widget-dropdown js-->
   <script src="/resources/js/script.js"></script>
   <!--// profile-widget-dropdown js-->
-
   <!-- dropdown nav -->
   <script>
     $(document).ready(function() {

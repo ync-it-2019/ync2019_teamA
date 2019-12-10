@@ -17,7 +17,7 @@ public interface ContentService {
 		public void register(ContentVO content);
 		
 		// 글 상세보기
-		public ContentVO get(Long bno);
+		public ContentVO read(String content_id);
 		
 		// 글 수정
 		public boolean modify(ContentVO content);

@@ -10,6 +10,12 @@ import com.ync.project.front.service.FundingService;
 
 import lombok.extern.log4j.Log4j;
 
+ /**
+  * @FileName	: FundServiceTests.java
+  * @Date		: 2019. 12. 4. 
+  * @Author		: 허 민
+  * @프로그램 설명 : 펀딩부분 서비스 테스트
+  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 // Java Config

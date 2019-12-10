@@ -43,7 +43,10 @@
               <a href="content_anotice">· 관리자 게시물 관리</a>
             </li>
             <li>
-              <a href="content_upload">· 게시물 등록</a>
+              <a href="notice_upload">· 공지사항 등록</a>
+            </li>
+            <li>
+              <a href="event_upload">· 이벤트 등록</a>
             </li>
           </ul>
         </li>
@@ -54,9 +57,6 @@
             <i class="fas fa-angle-down fa-pull-right"></i>
           </a>
           <ul class="collapse list-unstyled" id="customer-center">
-            <li>
-              <a href="cards.html">· FAQ</a>
-            </li>
             <li>
               <a href="inquiry_qna_list">· 1대1 문의</a>
             </li>

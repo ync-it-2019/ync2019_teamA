@@ -5,11 +5,56 @@
 	<select id="getList"
 		resultType="com.ync.project.domain.BookmarkVO">
 	<![CDATA[
-		SELECT	*
-		FROM	teamabookmark
-		WHERE	bookmark > 0 
+		SELECT 	userid,
+				reg_date,
+				content_id,
+				bookmark,
+				title,
+				tag
+		FROM 	(
+				SELECT /*+index(teamabookmark xpkteamabookmark */
+				 rownum rn,
+				 bk.userid,
+				 bk.reg_date,
+				 bk.content_id,
+				 bk.bookmark,
+				 c.title,
+				 c.tag
+				FROM teamabookmark bk,
+				     teamacreatercontent c
+				WHERE   c.content_id = bk.content_id
+				AND	 	rownum <= #{cri.pageNum} * #{cri.amount}
+				AND		bk.userid = #{userid}
+			   )
+			   WHERE rn > (#{cri.pageNum} -1) * #{cri.amount}
+			   AND   bookmark > 0
+			   	 
 		]]>
 	</select>
+	
+	<select id = "getListWithPaging"
+		resultType="com.ync.project.domain.BookmarkVO">
+		<![CDATA[
+		SELECT 	userid,
+				reg_date,
+				content_id,
+				bookmark
+		FROM 	(
+				SELECT /*+index(teamabookmark xpkteamabookmark */
+				 rownum rn,
+				 userid,
+				 reg_date,
+				 content_id,
+				 bookmark
+				FROM teamabookmark	
+				WHERE   userid = #{userid}
+				AND	 	rownum <= #{cri.pageNum} * #{cri.amount}
+			   ) WHERE rn > (#{cri.pageNum} -1) * #{cri.amount}
+			     AND   bookmark > 0
+			   	 
+		]]>
+	</select>
+	
 	<insert id="insert">
 		insert into teamabookmark (userid, content_id, bookmark)
 		values (#{userid}, #{content_id}, #{bookmark})
@@ -71,4 +116,9 @@
 		like_cnt = #{like_cnt}
 		where content_id = #{content_id}
 	</update> -->
+	
+	<select id="getTotalCount" resultType="int">
+	 SELECT count(*) FROM TEAMABOOKMARK
+	 WHERE bookmark > 0
+	</select>
 </mapper>

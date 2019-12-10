@@ -22,10 +22,13 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
 			ORDER BY hit DESC
 		]]>
 	</select>
@@ -34,8 +37,7 @@
 	<select id="getList1"
 		resultType="com.ync.project.domain.ContentVO">
 	<![CDATA[
-			SELECT	
-					title,
+			SELECT	title,
 					content_intro,
 					reg_date,
 					highlight,
@@ -52,11 +54,14 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
-			WHERE	genre_id = 1
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
+			AND     c.genre_id = 1
 			ORDER BY hit DESC
 		]]>
 	</select>
@@ -81,11 +86,14 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
-			WHERE	genre_id = 2
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
+			AND     c.genre_id = 2
 			ORDER BY hit DESC
 		]]>
 	</select>
@@ -110,11 +118,14 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
-			WHERE	genre_id = 3
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
+			AND     c.genre_id = 3
 			ORDER BY hit DESC
 		]]>
 	</select>
@@ -139,11 +150,14 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
-			WHERE	genre_id = 4
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
+			AND     c.genre_id = 4
 			ORDER BY hit DESC
 		]]>
 	</select>
@@ -168,11 +182,14 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
-			WHERE	genre_id = 5
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
+			AND     c.genre_id = 5
 			ORDER BY hit DESC
 		]]>
 	</select>
@@ -197,11 +214,14 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
-			WHERE	genre_id = 6
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
+			AND     c.genre_id = 6
 			ORDER BY hit DESC
 		]]>
 	</select>
@@ -226,11 +246,14 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
-			WHERE	genre_id = 7
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
+			AND     c.genre_id = 7
 			ORDER BY hit DESC
 		]]>
 	</select>
@@ -255,11 +278,14 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
-			WHERE	genre_id = 8
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
+			AND     c.genre_id = 8
 			ORDER BY hit DESC
 		]]>
 	</select>
@@ -284,11 +310,14 @@
 					media3,
 					media4,
 					content_id,
-					genre_id,
+					c.genre_id,
+					g.genre_name gname,
 					hit,
 					like_cnt
-			FROM	TEAMACREATERCONTENT
-			WHERE	genre_id = 9
+			FROM	TEAMACREATERCONTENT c,
+					TEAMAGENRE g
+			WHERE   c.genre_id = g.genre_id
+			AND     c.genre_id = 9
 			ORDER BY hit DESC
 		]]>
 	</select>

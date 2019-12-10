@@ -1,10 +1,7 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -51,86 +48,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<ul>
 				<li><a href="index.html">게임소식</a><i>//</i></li>
 				<li>게임노트<i>//</i></li>
-				<li>Beat Saber</li>
+				<li><c:out value = "${change_log_content.title}"/></li>
 			</ul>
 		</div>
 	</div>
 	<!-- //breadcrumb -->
+	
 	<!--/content-inner-section-->
 	<div class="w3_content_agilleinfo_inner">
 		<div class="agile_featured_movies">
 			<div class="inner-agile-w3l-part-head">
-				<h3 class="w3l-inner-h-title">Beat Saber</h3>
-				<p class="w3ls_head_para">VR Only</p>
+				<h3 class="w3l-inner-h-title"><c:out value="${change_log_content.title}"/></h3>
+				<p class="w3ls_head_para"><c:out value="${change_log_content.tag}"/></p>
 			</div>
 			<div class="latest-news-agile-info">
 				<div class="col-md-8 latest-news-agile-left-content">
 					<div class="single video_agile_player">
 
 						<div class="video-grid-single-page-agileits">
-							<div data-video="mPDtElf6AXI" id="video"> <img src="/resources/img/patch_beat_saber.jpg" alt="" class="img-responsive" /> </div>
+							<div data-video="${change_log_content.media1}" id="video" > <img src="${change_log_content.media2}" alt="" class="img-responsive" style="width:700px; height:400px"/> </div>
 						</div>
-						<h4>VR | 리듬 | 음악 | 웅장한 사운드트랙 | 인디 | 밈 | 빠른진행 | 싱글플레이 | 액션 | 어려움</h4>
+						<h4></h4>
 					</div>
 					<div class="single-agile-shar-buttons">
 						<ul>
 						</ul>
 					</div>
-					<div class="admin-text">
-						<h5>작성자 :  makeUmove</h5>
-						<div class="admin-text-left">
-							<a href="#"><img src="/resources/img/best_user.jpg" alt=""></a>
+					<c:if test ="${not empty changelog_comment.userid}">
+						<div style="text-align:center"><h2>유저 댓글</h2></div>
+						<div class="admin-text">
+							<h5>작성자 : <c:out value="${changelog_comment.userid}"/></h5>
+							<div class="admin-text-left">
+								<a href="#"><img src="/resources/img/best_user.jpg" alt=""></a>
+							</div>
+							<div class="admin-text-right">
+								<h3><c:out value="${changelog_comment.content}"/></h3>
+								<span><a href="#"><fmt:formatDate pattern="yyyy-MM-dd" value="${changelog_comment.reg_date}" /> </a></span>
+							</div>
+							<div class="clearfix"> </div>
 						</div>
-						<div class="admin-text-right">
-							<p>리듬게임 청정수도 고인물도 모두 즐길 수 있는 좋은 게임입니다. VR을 가지고 있다면 반드시 사셔야 합니다.
-모드팀의 개발이 굉장히 활발하기 때문에 PC판은 기본 게임 이상의 많은 것을 경험할 수 있습니다.</p>
-							<span><a href="#"> 2019년 8월 8일 </a></span>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="response">
+					</c:if>
+					<div class="response" style="text-align:center">
 						<h4>패치노트</h4>
 						<div class="media response-info">
 							<div class="media-body response-text-right">
 							<pre>
-<h4>
-Hi players,
-
-we have another big content update for you!
-
-What's in?
-
-
-Original Soundtrack Vol. 3 with 6 free new songs.
-Color scheme (for notes/sabers, obstacles and lights)
-override and customization.
-Level environment override.
-More precise swing angles detection.
-Improved lighting.
-Tweaked note jump start positions and speed in
-Expert+ difficulty for Crystallized, Cycle Hit and
-WHAT THE CAT!?
-Minor fixes in WHAT THE CAT!? beatmaps.
-Fixed bug when game doesn't start properly if player
-data gets somehow corrupted.
-
-We're proudly announcing our tracklist:
-
-Morgan Page - Reason For Living
-Pegboard Nerds - Give A Little Love
-PIXL - Full Charge
-Slippy - Immortal
-Boom Kitty - Burning Sands
-Jaroslav Beck, Jan Ilavsky (ft. Mutrix) - Origins
-
-
-Get the soundtrack: https://fanlink.to/BSOST3
-
-Have fun!
-</h4>
+<h4><c:out value="${change_log_content.patch_log}"/></h4>
 </pre>
 								<ul>
-									<li>2019년 8월 30일</li>
+									<li><fmt:formatDate pattern="yyyy-MM-dd" value="${change_log_content.reg_date}" /></li>
 								</ul>
 							</div>
 							<div class="clearfix"> </div>
@@ -140,71 +106,34 @@ Have fun!
 				</div>
 				<div class="col-md-4 latest-news-agile-right-content">
 
-					<h4 class="side-t-w3l-agile">이전 <span>게임노트</span></h3>
+					<h3 class="side-t-w3l-agile">이전 <span>게임노트</span></h3>
 						<ul class="side-bar-agile">
-							<li><a href="single.html">Beta Available!</a>
-								<p>2019년 08월 21일</p>
+							<c:forEach items="${patch_note_List}" var="patch">
+							<li><a href="single.html"><c:out value ="${patch.patch_log}"/></a>
+								<p><fmt:formatDate pattern="yyyy-MM-dd" value="${patch.reg_date}" /></p>
 							</li>
-							<li><a href="single.html">Custom color picker!</a>
-								<p>2019년 8월 8일	</p>
-							</li>
-							<li><a href="single.html">Camellia released in Beat Saber!</a>
-								<p>2019년 7월 26일</p>
-							</li>
-							<li><a href="single.html">Beat Saber v1.1.0p1 released</a>
-								<p>2019년 7월 15일</p>
-							</li>
-							<li><a href="single.html">OST 3 Livestream w/ Jaroslav Beck</a>
-								<p>2019년 6월 20일</p>
-							</li>
+							</c:forEach>
 						</ul>
 
 							<div class="clearfix"> </div>
 							<div class="agile-info-recent">
 								<h4 class="side-t-w3l-agile">다른 <span>게임노트</span></h4>
 								<div class="w3ls-recent-grids">
+									<c:forEach items="${other_patch}" var="other">
 									<div class="w3l-recent-grid">
 										<div class="wom">
-											<a href="single.html"><img src="/resources/img/patch_risk.jpg" alt=" " class="img-responsive"></a>
+											<a href="single.html"><img src="${other.media2}" alt=" " class="img-responsive"></a>
 										</div>
 										<div class="wom-right">
-											<h5><a href="single.html">Risk Of Rain2</a></h5>
-											<p>There has been lots of excitement and questions so we thought would clarify those now.</p>
+											<h5><a href="/game_develpoer_note?${other.change_log_id}"><c:out value="${other.title}"/></a></h5>
+											<p><c:out value ="${other.patch_log}"/></p>
 											<ul class="w3l-sider-list">
-												<li><i class="fa fa-clock-o" aria-hidden="true"></i>2019년 10월 19일</li>
-												<li><i class="fa fa-eye" aria-hidden="true"></i>2602</li>
+												<li><i class="fa fa-clock-o" aria-hidden="true"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${other.reg_date}" /></li>
 											</ul>
 										</div>
 										<div class="clearfix"> </div>
 									</div>
-									<div class="w3l-recent-grid">
-										<div class="wom">
-											<a href="single.html"><img src="/resources/img/patch_fire.png" alt=" " class="img-responsive"></a>
-										</div>
-										<div class="wom-right">
-											<h5><a href="single.html">A Dance of Fire and Ice</a></h5>
-											<p>9번째 세계, 'Classic Pursuit'가 추가되었습니다! 외계인이 침공해오는 가운데 빡빡한 코너가 여러분의 능력을 시험합니다!</p>
-											<ul class="w3l-sider-list">
-												<li><i class="fa fa-clock-o" aria-hidden="true"></i>2019년 9월 14일</li>
-												<li><i class="fa fa-eye" aria-hidden="true"></i> 2742</li>
-											</ul>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="w3l-recent-grid">
-										<div class="wom">
-											<a href="single.html"><img src="/resources/img/patch_beaks.gif" alt=" " class="img-responsive"></a>
-										</div>
-										<div class="wom-right">
-											<h5><a href="single.html">Blazing Beaks</a></h5>
-											<p>We are super excited and thrilled today - almost 3 and half years of development of Blazing Beaks this is happening today. </p>
-											<ul class="w3l-sider-list">
-												<li><i class="fa fa-clock-o" aria-hidden="true"></i>2019년 5월 11일</li>
-												<li><i class="fa fa-eye" aria-hidden="true"></i> 2802</li>
-											</ul>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
+									</c:forEach>
 								</div>
 							</div>
 
@@ -248,41 +177,6 @@ Have fun!
 	<script>
 		$("document").ready(function() {
 			$("#video").simplePlayer();
-		});
-	</script>
-	<script>
-		$("document").ready(function() {
-			$("#video1").simplePlayer();
-		});
-	</script>
-	<script>
-		$("document").ready(function() {
-			$("#video2").simplePlayer();
-		});
-	</script>
-	<script>
-		$("document").ready(function() {
-			$("#video3").simplePlayer();
-		});
-	</script>
-	<script>
-		$("document").ready(function() {
-			$("#video4").simplePlayer();
-		});
-	</script>
-	<script>
-		$("document").ready(function() {
-			$("#video5").simplePlayer();
-		});
-	</script>
-	<script>
-		$("document").ready(function() {
-			$("#video6").simplePlayer();
-		});
-	</script>
-	<script>
-		$("document").ready(function() {
-			$("#video6").simplePlayer();
 		});
 	</script>
 

@@ -1,5 +1,7 @@
 package com.ync.project.front.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -8,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -46,14 +46,24 @@ public class FrontGameContentController {
 	  * @return
 	  */
 	@GetMapping(value = "/game_content")
-	public void gameContent(@RequestParam("content_id") Long content_id, @ModelAttribute("cri") 
-	Criteria cri, Model model) {
+	public String gameContent(HttpServletRequest request, Criteria cri, Model model) {
 
+		String content_id = request.getParameter("content_id");
+		
 		log.info("gamecontent!");
 		// Model 객체에 service.getList()에서 return 받은 값을 "list"라는 변수에 담아서 던져준다.
 		// model 객체는 Spring에서 알아서 view쪽에 던져준다.
-		model.addAttribute("board", service.get(content_id));
+		model.addAttribute("board", service.read(content_id));
+		return "front/game_content";
 	}
+	
+//	@GetMapping(value = "/game_content")
+//	public String gameContent() {
+//
+//		return "front/game_content";
+//		
+//		
+//	}
 	
 	@GetMapping("/game_content_writeform")
 	@PreAuthorize("isAuthenticated()")

@@ -29,16 +29,16 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class ContentMapperTests {
 
-	@Setter(onMethod_ = @Autowired)
+
 	@Autowired
 	private ContentMapper mapper;
 	
-	@Test
-	public void testGetList() {
-		
-		// 기존 방식의 코드
-		List<ContentVO> content = mapper.getList();
-		
+//	@Test
+//	public void testGetList() {
+//		
+//		// 기존 방식의 코드
+//		List<ContentVO> content = mapper.getList();
+//		
 //		for(ContentVO b : content) {
 //			log.info(b);
 //		}
@@ -50,28 +50,28 @@ public class ContentMapperTests {
 //			log.info(content);
 //			});
 
-	}
-	@Test
-	public void testInsert() {
-		ContentVO content = new ContentVO();
-		content.setTitle("월드챔피언쉽");
-		content.setContent_intro("재밌겠다");
-		content.setTag("앞서해보기");
-		content.setAge_rate("9");
-		content.setGame_launch("PC");
-		content.setDon_attainment(9000000L);
-		content.setUserid("tjrwnsdud2@naver.com");
-		content.setPlatform("PC");
-		content.setLanguages("한국어");
-		content.setMedia1("미디어1");
-		content.setMedia2("미디어2");
-		content.setMedia3("미디어3");
-		content.setMedia4("미디어4");
-		content.setGenre_id(1L);
-		mapper.insert(content);	
-
-		log.info(content);
-	}
+//	}
+//	@Test
+//	public void testInsert() {
+//		ContentVO content = new ContentVO();
+//		content.setTitle("월드챔피언쉽");
+//		content.setContent_intro("재밌겠다");
+//		content.setTag("앞서해보기");
+//		content.setAge_rate("9");
+//		content.setGame_launch("PC");
+//		content.setDon_attainment(9000000L);
+//		content.setUserid("tjrwnsdud2@naver.com");
+//		content.setPlatform("PC");
+//		content.setLanguages("한국어");
+//		content.setMedia1("미디어1");
+//		content.setMedia2("미디어2");
+//		content.setMedia3("미디어3");
+//		content.setMedia4("미디어4");
+//		content.setGenre_id(1L);
+//		mapper.insert(content);	
+//
+//		log.info(content);
+//	}
 //
 //	@Test
 //	public void testInsertSelectKey() {
@@ -86,15 +86,15 @@ public class ContentMapperTests {
 //		log.info(content);
 //	}
 //
-//	@Test
-//	public void testRead() {
-//
-//		// 존재하는 게시물 번호로 테스트
-//		ContentVO content = mapper.read(45L);
-//
-//		log.info(content);
-//
-//	}
+	@Test
+	public void testRead() {
+
+		// 존재하는 게시물 번호로 테스트
+		ContentVO content = mapper.read("1");
+
+		log.info(content);
+
+	}
 //	@Test
 //	public void testDelete() {
 //

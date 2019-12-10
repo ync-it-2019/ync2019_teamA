@@ -3,8 +3,17 @@ package com.ync.project.front.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.ync.project.domain.Criteria;
+import com.ync.project.domain.PageDTO;
+import com.ync.project.front.service.BookmarkService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -20,21 +29,48 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/mypage/*")
 public class FrontMyPageController {
+	 
+	
 	@Autowired
-	 /**
+	private BookmarkService bookmarkService;
+	
+//	@PreAuthorize("hasRole('ROLE_USER')")
+	@GetMapping(value = "/mp_bookmark")
+	/**
 	  * @Method 설명 : 북마크 한 컨텐츠 목록 front/mp_bookmark 호출
 	  * @Method Name : mpBookmark
 	  * @Date : 2019. 10. 28.
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	@GetMapping(value = "/mp_bookmark")
-//	@PreAuthorize("hasRole('ROLE_USER')")
-	public String mpBookmark() {
+	public String mpBookmark(@RequestParam("userid") String userid, @ModelAttribute("cri") 
+	Criteria cri, Model model) {
 
 		log.info("mpbookmark!");
-
+		model.addAttribute("bmk", bookmarkService.getList(cri, userid));
+		//model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		//model.addAttribute("del", bookmarkService.delete(bookmark));
+		int total = bookmarkService.getTotal(cri);
+		
+		log.info("total: " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		return "front/mp_bookmark";
+	}
+	
+	//삭제 반드시 post
+	@PostMapping("/rm_bookmark")
+	//@PreAuthorize("principal.username == #writer")
+	public String delete(@RequestParam("userid") String userid, @ModelAttribute("cri") 
+	Criteria cri, RedirectAttributes rttr, String title, Long bookmark) {
+		log.info("remove... " + title);
+		
+		if (bookmarkService.delete(bookmark)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+
+		
+		return "redirect:/front/mp_bookmark" + cri.getListLink();
 	}
 	
 	/**

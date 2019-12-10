@@ -13,7 +13,9 @@ import lombok.Data;
 @Data
 public class DonationVO {
 	private Date don_reg_date;	//후원일자
-	private String userid;		//회원이메일
+	private String userid;		//회원이메일우렬이왓다
 	private Long donation;		//후원금액
-	private Long Content_id;	//컨텐츠ID
+	private Long content_id;	//컨텐츠ID
+	private String title; 		//게임제목
+
 }

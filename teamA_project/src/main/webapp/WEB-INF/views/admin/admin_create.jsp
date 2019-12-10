@@ -78,15 +78,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<%-- content table --%>
 				<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
 				<h4 class="tittle-w3-agileits mb-4">관리자 등록</h4>
+				<form role="form" action="/admin/admin_create" 
+				method="post" enctype="multipart/form-data">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
       <table class="table">
         <tbody>
+        <tr>
+            <td width="150px">아이디</td>
+            <td colspan="3"><input type="text" name="userid" placeholder="email@email.com"/></td>
+          </tr>
+          <tr>
+            <td width="150px">비밀번호</td>
+            <td colspan="3"><input type="password" name="userpw" placeholder="****"/></td>
+          </tr>
           <tr>
             <td width="150px">이름</td>
             <td colspan="3"><input type="text" name="name" placeholder="name"/></td>
-          </tr>
-          <tr>
-            <td width="150px">아이디</td>
-            <td colspan="3"><input type="text" name="email" placeholder="email@email.com"/></td>
           </tr>
           <tr>
             <td width="150px">생년월일</td>
@@ -98,16 +105,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </tr>
           <tr>
             <td width="120px">관리자 권한 등급</td>
-            <td><input type="radio" name="grade" value="A"/>A</td>
-            <td><input type="radio" name="grade" value="B"/>B</td>
-            <td><input type="radio" name="grade" value="C"/>C</td>
+            <td><input type="radio" name="levels" value="A"/>A</td>
+            <td><input type="radio" name="levels" value="B"/>B</td>
+            <td><input type="radio" name="levels" value="C"/>C</td>
           </tr>
+          <input type="hidden" name="auth" value="ROLE_ADMIN"/>
         </tbody>
       </table>
-      <div align="center">
-      <input type="button" class="snip1535" name="submit" value="등록"/>
-      <input type="button" class="snip1535" name="cancel" value="취소"/>
-      </div>
+      <div style="text-align: center;">
+					<button type="submit" class="btn btn-default">등록</button>
+					<button type="reset" class="btn btn-default">다시 입력</button>
+				</div>
+      </form>
      </div>
             <!--// Grids Info -->
             <!--// Grids Content -->

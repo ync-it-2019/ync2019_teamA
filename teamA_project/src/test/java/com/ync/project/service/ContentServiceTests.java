@@ -1,14 +1,11 @@
 package com.ync.project.service;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.ync.project.domain.ContentVO;
 import com.ync.project.front.service.ContentService;
 
 import lombok.extern.log4j.Log4j;
@@ -69,13 +66,13 @@ public class ContentServiceTests {
 //		log.info(service.get(44L));
 //	}
 	
-	@Test
-	public void testDelete() {
-
-		// 게시물 번호의 존재 여부를 확인하고 테스트할 것
-		log.info("REMOVE RESULT: " + service.remove(44L));
-
-	}
+//	@Test
+//	public void testDelete() {
+//
+//		// 게시물 번호의 존재 여부를 확인하고 테스트할 것
+//		log.info("REMOVE RESULT: " + service.remove(44L));
+//
+//	}
 
 //	@Test
 //	public void testUpdate() {
@@ -89,5 +86,11 @@ public class ContentServiceTests {
 //		content.setTitle("제목 수정합니다.");
 //		log.info("MODIFY RESULT: " + service.modify(content));
 //	}
+	
+	@Test
+	public void testRead() {
+		service.read("1");
+		
+	}
 
 }

@@ -6,6 +6,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html lang="en">
 
 <head>
@@ -79,106 +81,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
 				<h4 class="tittle-w3-agileits mb-4">관리자 조회</h4>
       <table class="table">
+      
         <thead>
           <tr>
             <th>#</th>
             <th>관리자 ID</th>
-            <th>등록 일자</th>
+            <th>관리자 이름</th>
+            <th>전화번호</th>
+            <th>관리자 레벨</th>
             <th>관리자 해제</th>
           </tr>
         </thead>
 
-          <tr class="active">
-            <th scope="row">1</th>
-            <td style = "cursor:pointer;" onClick = " location.href='adminmodify' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">admin1</td>
-            <td>2019-10-18</td>
-            <td>
-              <input type="button"
-                       value="해제"
-                       onclick=alert("해제되었습니다.")>
-            </td>
-          </tr>
+          <c:forEach items="${list}" var="member" varStatus="status">
+			<c:set var="tmpchk" value="0"/>
+			<tr>
+				<td><c:out value="${(param.pageNum-1) * (param.amount) + status.count}" /></td>
+				<td style="color:blue;">
+					<a class='move' href='<c:out value="${member.userid}"/>'>
+					<c:out value="${member.userid}" />
+					</a>
+				</td>						
+				<td><c:out value="${member.name}" /></td>				
+				<td><c:out value="${member.phone}" /></td>						
+				<td><c:out value="${member.levels}" /></td>
+				<td><form action="/admin/admin_management" method="post"><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /><input type="hidden" name="userid" value="${member.userid}"><button type="submit" id="revoke" class="snip1535">해제</button></form></td>		
+			</tr>
+		</c:forEach>
+    
+     </table>
+     	<!--  Pagination 시작 -->
+  				<script src="/resources/js/bootstrap.js"></script>
+				<div class='pull-right'>
+					<ul class="pagination">
+					
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
 
-          <tr>
-            <th scope="row">2</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">admin2 </td>
-            <td>2019-10-18</td>
-            <td>
-              <input type="button"
-                       value="해제"
-                       onclick=alert("해제되었습니다.")>
-            </td>
-          </tr>
-          <tr class="success">
-            <th scope="row">3</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">admin3</td>
-            <td>2019-10-18</td>
-            <td>
-              <input type="button"
-                       value="해제"
-                       onclick=alert("해제되었습니다.")>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">admin4</td>
-            <td>2019-10-18</td>
-            <td>
-              <input type="button"
-                       value="해제"
-                       onclick=alert("해제되었습니다.")>
-            </td>
-          </tr>
-          <tr class="info">
-            <th scope="row">5</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">admin5</td>
-            <td>2019-10-18</td>
-            <td>
-              <input type="button"
-                       value="해제"
-                       onclick=alert("해제되었습니다.")>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">admin6</td>
-            <td>2019-10-18</td>
-            <td>
-              <input type="button"
-                       value="해제"
-                       onclick=alert("해제되었습니다.")>
-            </td>
-          </tr>
-          <tr class="warning">
-            <th scope="row">7</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">admin7</td>
-            <td>2019-10-18</td>
-              <td>
-                <input type="button"
-                         value="해제"
-                         onclick=alert("해제되었습니다.")>
-              </td>
-          </tr>
-          <tr>
-            <th scope="row">8</th>
-            <td style = "cursor:pointer;" onClick = " location.href='index.html' " onMouseOver = " window.status = 'index.html' "
-            onMouseOut = " window.status = '' ">admin8</td>
-            <td>2019-10-18</td>
-            <td>
-              <input type="button"
-                       value="해제"
-                       onclick=alert("해제되었습니다.")>
-            </td>
-          </tr>       
-      </table>
-     </div>
+						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+						</c:if>
+
+					</ul>
+				</div>
+				<!--  Pagination 끝 -->
+				<!-- Form 시작 -->
+				<form id='actionForm' action="admin_management" method='get'>
+					<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+					<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+				</form>
+				<!-- Form 끝 -->
+    	 	</div>
             <!--// Grids Info -->
             <!--// Grids Content -->
 
@@ -193,6 +153,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 
 
+  
+  
+  
+	
+	
   <!-- Required common Js -->
   <script src='/resources/js/jquery-2.2.3.min.js'></script>
   <!-- //Required common Js -->
@@ -243,7 +208,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Js for bootstrap working-->
   <script src="/resources/js/bootstrap.min.js"></script>
   <!-- //Js for bootstrap working -->
+  <!--  event script  -->
+  <script type="text/javascript">
+	$(document).ready(function() {
+		var result = '<c:out value="${result}"/>';
+		
+		checkModal(result);
 
+		history.replaceState({}, null, null);
+
+		function checkModal(result) {
+
+			if (result === '' || history.state) {
+				return;
+			}
+
+			if (parseInt(result) > 0) {
+				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+			}
+
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location = "/board/register";
+		});
+		
+		var actionForm = $("#actionForm");
+
+		// 페이지 번호 클릭 이벤트
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			// console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		// 상세보기 클릭 이벤트
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input name='userid' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/admin/member_info_detail");
+			actionForm.submit();
+		});
+	});
+</script>
   </body>
 
   </html>

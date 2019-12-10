@@ -101,12 +101,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         				</thead>
 
 						<c:forEach items="${content_list }" var="cList" varStatus="cLVar">
-          					<tr class="active">
+          					<tr class="active" style="cursor:pointer;" class="move"
+          							onClick="self.location.href='/game_content?content_id= ${cList.content_id}'">
           						<th scope="row"><c:out value="${cList.content_id }"/></th>
-            					<td style = 	"cursor:pointer;" 
-            									onClick = " location.href='index.html' " 
-            									onMouseOver = " window.status = 'index.html' " 
-            									onMouseOut = " window.status = '' ">
+            					<td >
             						<c:out value="${cList.title }"/>
             					</td>
             					<td>
@@ -119,13 +117,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             						</c:forEach>
             					</td>
             					<td>
-            						<fmt:formatDate value="${cList.reg_date }" pattern="YYYY.MM.dd"
+            						<fmt:formatDate value="${cList.reg_date }" pattern="YYYY/MM/dd HH:mm"
             										type="date" var="cLreg_date"/>
-            						<input type="text" readonly value="${cLreg_date }"/>
+            						${cLreg_date }
             					</td>
             					<td>
             						<button id='modalRemoveBtn' type="button" class="btn btn-danger"
-                       							value="" onclick='alert("삭제되었습니다.")'>
+                       							value="${cList.content_id }" onclick="if(confirm('삭제 하시겠습니까?')){location.href='content_management/remove_content?content_id=${cList.content_id }'}">
                        					삭제
                        				</button>
                        			</td>
@@ -155,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<!--  Pagination 끝 -->
 				<!-- Form 시작 -->
-				<form id='actionForm' action="member_info" method='get'>
+				<form id='actionForm' action="content_management" method='get'>
 				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 				</form>
@@ -246,22 +244,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			actionForm.submit();
 		});
 		
-		// 상세보기 클릭 이벤트
-		$(".move").on("click",function(e) {
-			e.preventDefault();
-			actionForm.append("<input name='userid' value='" + $(this).attr("href")	+ "'>");
-			actionForm.attr("action", "/admin/member_info_detail");
-			actionForm.submit();
-		});
 		
 
 		// 삭제 이벤트
 		$("button[data-oper='cList']").on("click", function(e){
-	    
 			operForm.find("#content_id").remove();
 			/* operForm.attr("action","/board/list") */
 			operForm.submit();
-	    
 		});
 		
 	});
