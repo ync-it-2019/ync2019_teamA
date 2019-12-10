@@ -116,4 +116,9 @@
 		like_cnt = #{like_cnt}
 		where content_id = #{content_id}
 	</update> -->
+	
+	<select id="getTotalCount" resultType="int">
+	 SELECT count(*) FROM TEAMABOOKMARK
+	 WHERE bookmark > 0
+	</select>
 </mapper>

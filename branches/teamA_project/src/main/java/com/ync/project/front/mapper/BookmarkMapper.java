@@ -24,11 +24,10 @@ public interface BookmarkMapper {
 			@Param("cri") Criteria cri,
 			@Param("userid") String userid);
 	
-//	public CommentPageDTO getListWithPaging(Criteria cri, Long content_id);
-	
 	public List<BookmarkVO> getListWithPaging(
 			@Param("cri") Criteria cri,
 			@Param("userid") String userid);
 	
-//	public int getCountByBookmark(Long bookmark);
+	
+	public int getTotalCount(Criteria cri);
 }

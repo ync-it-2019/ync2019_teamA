@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ync.project.domain.Criteria;
+import com.ync.project.domain.PageDTO;
 import com.ync.project.front.service.BookmarkService;
 
 import lombok.extern.log4j.Log4j;
@@ -47,7 +48,13 @@ public class FrontMyPageController {
 
 		log.info("mpbookmark!");
 		model.addAttribute("bmk", bookmarkService.getList(cri, userid));
+		//model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		//model.addAttribute("del", bookmarkService.delete(bookmark));
+		int total = bookmarkService.getTotal(cri);
+		
+		log.info("total: " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		return "front/mp_bookmark";
 	}
 	
