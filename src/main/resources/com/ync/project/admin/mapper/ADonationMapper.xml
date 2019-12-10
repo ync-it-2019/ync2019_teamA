@@ -141,16 +141,42 @@
 						content_id,
 						donation,
 						don_reg_date
-      				FROM	teamadonation
+      				FROM	teamadonation,
 					WHERE
-
   		]]>
-		<include refid="criteria"></include> 
+							<include refid="criteria"></include> 
       
 		<![CDATA[    
-      			rownum <= #{pageNum} * #{amount}
-      			)
+			      			rownum <= #{pageNum} * #{amount}
+			      			
+      				)
   			WHERE rn > (#{pageNum} -1) * #{amount}   
+		]]>
+	</select>
+	
+	
+	<select id="getListWithPagingAndContent" resultType="com.ync.project.domain.DonationVO">
+		<![CDATA[
+			SELECT	userid,
+        			title,
+    	    		donation,
+        			don_reg_date
+			FROM	(SELECT /*+INDEX_DESC(teamadonation XPKTEAMADONATION) */
+							rownum rn,
+        					do.userid,
+        					cc.title,
+    	    				do.donation,
+        					do.don_reg_date
+      				FROM	teamadonation do, teamaCreaterContent cc
+					WHERE
+  		]]>
+							<include refid="criteria"></include> 
+      
+		<![CDATA[    
+			      			rownum <= #{pageNum} * #{amount}
+			      	AND 	do.content_id = cc.content_id 		
+      				)
+  			WHERE	rn > (#{pageNum} -1) * #{amount}
 		]]>
 	</select>
 	
