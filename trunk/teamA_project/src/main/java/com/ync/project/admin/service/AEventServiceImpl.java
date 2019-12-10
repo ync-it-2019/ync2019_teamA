@@ -22,7 +22,7 @@ public class AEventServiceImpl implements AEventService{
 
 		log.info("register......" + event);
 
-		mapper.insertSelectKey(event);
+		mapper.insert(event);
 	}
 
 

@@ -40,4 +40,6 @@ public class ContentVO {
 	private String media4;			//
 	private Long donation;
 	private Long money_temp;
+	
+	private String gname;
 }

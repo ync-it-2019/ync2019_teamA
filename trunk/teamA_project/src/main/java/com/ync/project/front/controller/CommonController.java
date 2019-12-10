@@ -1,5 +1,7 @@
 package com.ync.project.front.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +23,7 @@ public class CommonController {
 	}
 
 	@GetMapping("/login")
-	public String loginInput(String error, String logout, Model model) {
+	public String loginInput(String error, String logout, Model model, HttpServletRequest request) {
 
 		log.info("error : " + error);
 		log.info("logout : " + logout);
@@ -33,6 +35,9 @@ public class CommonController {
 		if (logout != null) {
 			model.addAttribute("logout", "Logout!!");
 		}
+		
+		String referer = request.getHeader("Referer");
+	    request.getSession().setAttribute("prevPage", referer);
 		
 		return "/front/login";
 	}

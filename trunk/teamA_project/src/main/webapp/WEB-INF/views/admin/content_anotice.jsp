@@ -106,7 +106,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</td>
 									<td><c:out value="공지사항" /></td>
 									<td><c:out value="${notice.userid}" /></td>
-									<td><c:out value="${notice.reg_date}" /></td>
+									<td>
+										<fmt:formatDate var="resultRegDt" value="${notice.reg_date}" pattern="yyyy/MM/dd HH:mm"/>
+										${resultRegDt}
+									</td>
 									<c:if test="${param.notice_id==notice.notice_id}">
 										<tr>
 											<td></td>

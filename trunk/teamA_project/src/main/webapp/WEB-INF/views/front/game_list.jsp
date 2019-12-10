@@ -78,7 +78,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content.content_id}"><img src="${content.media2}" alt="" /> <a>${content.title}</a></a></td>
 											<td class="w3-list-info">${content.age_rate}</td>
 											<td>${content.platform}</td>
-											<td>${content.genre_id}</td>
+											<td>${content.gname}</td>
 											<td>${content.hit}</td>
 										  </tr>
 										  </c:forEach>
@@ -111,7 +111,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content1.content_id}"><img src="${content1.media2}" alt="" /> <a>${content1.title}</a></a></td>
 											<td class="w3-list-info">${content1.age_rate}</td>
 											<td>${content1.platform}</td>
-											<td>${content1.genre_id}</td>
+											<td>${content1.gname}</td>
 											<td>${content1.hit}</td>
 										  </tr>
 										  </c:forEach>
@@ -142,7 +142,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content2.content_id}"><img src="${content2.media2}" alt="" /> <a>${content2.title}</a></a></td>
 											<td class="w3-list-info">${content2.age_rate}</a></td>
 											<td>${content2.platform}</td>
-											<td>${content2.genre_id}</td>
+											<td>${content2.gname}</td>
 											<td>${content2.hit}</td>
 										  </tr>
 										  </c:forEach>
@@ -173,7 +173,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content3.content_id}"><img src="${content3.media2}" alt="" /> <a>${content3.title}</a></a></td>
 											<td class="w3-list-info">${content3.age_rate}</a></td>
 											<td>${content3.platform}</td>
-											<td>${content3.genre_id}</td>
+											<td>${content3.gname}</td>
 											<td>${content3.hit}</td>
 										  </tr>
 										  </c:forEach>
@@ -204,7 +204,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content4.content_id}"><img src="${content4.media2}" alt="" /> <a>${content4.title}</a></a></td>
 											<td class="w3-list-info">${content4.age_rate}</a></td>
 											<td>${content4.platform}</td>
-											<td>${content4.genre_id}</td>
+											<td>${content4.gname}</td>
 											<td>${content4.hit}</td>
 										  </tr>
 										  </c:forEach>
@@ -236,7 +236,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content5.content_id}"><img src="${content5.media2}" alt="" /> <a>${content5.title}</a></a></td>
 											<td class="w3-list-info">${content5.age_rate}</a></td>
 											<td>${content5.platform}</td>
-											<td>${content5.genre_id}</td>
+											<td>${content5.gname}</td>
 											<td>${content5.hit}</td>
 										  </tr>
 										  </c:forEach>
@@ -268,7 +268,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content6.content_id}"><img src="${content6.media2}" alt="" /> <a>${content6.title}</a></a></td>
 											<td class="w3-list-info">${content6.age_rate}</a></td>
 											<td>${content6.platform}</td>
-											<td>${content6.genre_id}</td>
+											<td>${content6.gname}</td>
 											<td>${content6.hit}</td>
 										  </tr>
 										  </c:forEach>
@@ -300,7 +300,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content7.content_id}"><img src="${content7.media2}" alt="" /> <a>${content7.title}</a></a></td>
 											<td class="w3-list-info">${content7.age_rate}</a></td>
 											<td>${content7.platform}</td>
-											<td>${content7.genre_id}</td>
+											<td>${content7.gname}</td>
 											<td>${content7.hit}</td>
 										  </tr>
 										  </c:forEach>
@@ -332,7 +332,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content8.content_id}"><img src="${content8.media2}" alt="" /> <a>${content8.title}</a></a></td>
 											<td class="w3-list-info">${content8.age_rate}</a></td>
 											<td>${content8.platform}</td>
-											<td>${content8.genre_id}</td>
+											<td>${content8.gname}</td>
 											<td>${content8.hit}</td>
 										  </tr>
 										  </c:forEach>
@@ -364,7 +364,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<td class="w3-list-img"><a href="http://localhost:8080/front/game_content?content_id=${content9.content_id}"><img src="${content9.media2}" alt="" /> <a>${content9.title}</a></a></td>
 											<td class="w3-list-info">${content9.age_rate}</a></td>
 											<td>${content9.platform}</td>
-											<td>${content9.genre_id}</td>
+											<td>${content9.gname}</td>
 											<td>${content9.hit}</td>
 										  </tr>
 										  </c:forEach>

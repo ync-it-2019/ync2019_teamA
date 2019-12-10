@@ -14,9 +14,9 @@ public interface AEventMapper {
 	
 	public int delete(Long event_id); 						// 이벤트 삭제하기
 	
-	public void insert(EventVO event);						// 이벤트글 삽입
+	public void insert(EventVO EventVO);						// 이벤트글 삽입
 
-	public Integer insertSelectKey(EventVO notice); 		// 게시글 번호
+	public Integer insertSelectKey(EventVO EventVO); 		// 게시글 번호
 
 	public List<EventVO> getListWithPaging(Criteria cri);	// 이벤트 글 페이징
 

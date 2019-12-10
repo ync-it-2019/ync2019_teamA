@@ -1,8 +1,16 @@
 package com.ync.project.admin.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ync.project.admin.service.ADonationService;
+import com.ync.project.admin.service.AMemberService;
+import com.ync.project.domain.Criteria;
+import com.ync.project.domain.PageDTO;
+import com.ync.project.front.service.ContentService;
 
 import lombok.extern.log4j.Log4j;
 /**
@@ -15,6 +23,9 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/admin/*")
 public class AdminDonationController {
+	@Autowired
+	private ADonationService dService;
+	
 	
 	/**
 	  * @Method 설명 : admin/member_donation.jsp 호출
@@ -25,11 +36,12 @@ public class AdminDonationController {
 	  */
 	@GetMapping(value = "/member_donation")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String donation() {
-
-		log.info("Welcome donation!");
-	
-		return "admin/member_donation";
+	public void donation(Criteria cri, Model model) {
+		
+		int total = dService.getTotal(cri);
+		
+		model.addAttribute("ADonation_list", dService.getListWithPagingAndContent(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
 	/**

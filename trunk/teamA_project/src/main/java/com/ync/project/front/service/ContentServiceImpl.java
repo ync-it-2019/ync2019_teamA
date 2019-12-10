@@ -33,7 +33,7 @@ public class ContentServiceImpl implements ContentService{
 	}
 
 	@Override
-	public ContentVO get(Long content_id) {
+	public ContentVO read(String content_id) {
 		// TODO Auto-generated method stub
 		log.info("get........" + content_id);
 		

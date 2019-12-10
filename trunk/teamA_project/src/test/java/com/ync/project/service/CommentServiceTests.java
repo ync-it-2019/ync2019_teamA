@@ -23,7 +23,7 @@ public class CommentServiceTests {
 	private CommentService service;
 
 //	@Test
-//	public void testExist() {
+//	public void teWHEREstExist() {
 //
 //		log.info(service);
 //	}

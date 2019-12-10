@@ -26,6 +26,13 @@ public class AMemberServiceImpl implements AMemberService {
 
 		mapper.insert(member);
 	}
+	
+	//관리자 등록
+	public void admin_register(MemberVO admin_member) {
+		log.info("register......" + admin_member);
+
+		mapper.admin_insert(admin_member);
+	}
 
 	// 멤버 상세보기
 	public MemberVO get(String userid) {
@@ -42,7 +49,24 @@ public class AMemberServiceImpl implements AMemberService {
 
 		return mapper.update(member) == 1;
 	};
+	
+	//창작자 강등
+	public boolean creater_modify(String userid) {
 
+		log.info("modify......" + userid);
+
+		return mapper.creater_modify(userid) == 1;
+	};
+
+	//창작자 휴면
+	public boolean creater_status(String userid) {
+
+		log.info("modify......" + userid);
+
+		return mapper.creater_status(userid) == 1;
+	};
+
+	
 	// 멤버 삭제
 	public boolean remove(String userid) {
 
@@ -108,6 +132,24 @@ public class AMemberServiceImpl implements AMemberService {
 	public GDonationVO getGetDonationToUser(String userid) {
 		log.info("get Get Donation To User......");
 		return mapper.getGetDonationToUser(userid);
+	}
+
+	@Override
+	public List<MemberVO> getAdminList() {
+		// TODO Auto-generated method stub
+		return mapper.getAdminList();
+	}
+
+	@Override
+	public List<MemberVO> getAdminListWithPaging(Criteria cri) {
+		// TODO Auto-generated method stub
+		return mapper.getAdminListWithPaging(cri);
+	}
+
+	@Override
+	public int revoke(String userid) {
+		log.info("revoke....");
+		return mapper.revoke(userid);
 	};
 	
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값

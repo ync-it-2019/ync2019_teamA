@@ -19,19 +19,19 @@ public class AInquiryServiceImpl implements AInquiryService {
 	private AInquiryMapper mapper;
 	
 	// 문의 등록
-	public void register(InquiryVO inquiry_id) {
+	public void register(InquiryVO InquiryVO) {
 
-		log.info("register......" + inquiry_id);
+		log.info("register......" + InquiryVO);
 
-		mapper.insert(inquiry_id);
+		mapper.insert(InquiryVO);
 	}
 	
 	// 문의 댓글 등록
-	public void commentRegister(InquiryVO inquiry_id) {
+	public void commentRegister(InquiryVO InquiryVO) {
 
-		log.info("register......" + inquiry_id);
+		log.info("register......" + InquiryVO);
 
-		mapper.insertComment(inquiry_id);
+		mapper.insertComment(InquiryVO);
 	}
 	
 	// 문의 상세보기

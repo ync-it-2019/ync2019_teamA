@@ -19,15 +19,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
+
+
 <script type="application/x-javascript">
-	
-	
-	
-	
-	
-	
-	
-	
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
 		}, false);
@@ -35,15 +29,9 @@
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
-	
-
-
-
-
-
-
-
 </script>
+
+
 <!-- //for-mobile-apps -->
 <link href="/resources/css/bootstrap.css" rel="stylesheet"
 	type="text/css" media="all" />
@@ -68,6 +56,12 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
 	rel='stylesheet' type='text/css'>
 <!--//web-fonts-->
+
+<style>
+	.admBtnPosition{display:inline-blokck; margin-left:4px;}
+	.regBtnPosition{display:inline-blokck; margin-left:4px;}
+	.logoutPosition{position:absolute; right:0px;}
+</style>
 </head>
 
 <body>
@@ -85,9 +79,9 @@
 							<button type="button" class="navbar-toggle"
 								data-toggle="collapse"
 								data-target="#bs-example-navbar-collapse-1">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+								<span class="icon-bar"></span>
 							</button>
 							<h1>
 								<a href="/front/index"><span>I</span>ndie <span>S</span>ponsor</a>
@@ -97,9 +91,11 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="dropdown"><a href="game_intro"
-									class="dropdown-toggle" data-toggle="dropdown">게임소식 <b
-										class="caret"></b></a>
+								<li class="dropdown">
+									<a href="game_intro" class="dropdown-toggle"
+										data-toggle="dropdown">게임소식 
+										<b class="caret"></b>
+									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
@@ -119,10 +115,13 @@
 											</div>
 											<div class="clearfix"></div>
 										</li>
-									</ul></li>
-								<li class="dropdown"><a href="funding.html"
-									class="dropdown-toggle" data-toggle="dropdown">펀 딩<b
-										class="caret"></b></a>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="funding.html"
+										class="dropdown-toggle" data-toggle="dropdown">펀 딩
+										<b class="caret"></b>
+									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
@@ -137,10 +136,13 @@
 											</div>
 											<div class="clearfix"></div>
 										</li>
-									</ul></li>
-								<li class="dropdown"><a href="game.html"
-									class="dropdown-toggle" data-toggle="dropdown">게 임<b
-										class="caret"></b></a>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="game.html" class="dropdown-toggle"
+										data-toggle="dropdown">게 임
+										<b class="caret"></b>
+									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
@@ -167,10 +169,13 @@
 											</div>
 											<div class="clearfix"></div>
 										</li>
-									</ul></li>
-								<li class="dropdown"><a href="user_help.jsp"
-									class="dropdown-toggle" data-toggle="dropdown">고객센터<b
-										class="caret"></b></a>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="user_help.jsp" class="dropdown-toggle"
+										data-toggle="dropdown">고객센터
+										<b class="caret"></b>
+									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
@@ -185,9 +190,9 @@
 											</div>
 											<div class="clearfix"></div>
 										</li>
-									</ul></li>
+									</ul>
+								</li>
 							</ul>
-
 						</div>
 						<div class="clearfix"></div>
 					</nav>
@@ -204,18 +209,18 @@
 							</form>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 			<!--//header-w3l-->
 			<!--/banner-info-->
+			
 			<div class="baner-info">
 				<h3>
 					당신에게 맞는 <span>인디</span>게임을 <span>찾아</span>보세요
 				</h3>
 				<h4>당신의 후원이 더욱 재밌는 게임을 만듭니다.</h4>
-				<br /> <br /> <a class="w3_play_icon1" href="#small-dialog1">
+				<br><br>
+				<a class="w3_play_icon1" href="#small-dialog1">
 					추천게임 플레이 영상 </a>
 			</div>
 			<!--/banner-ingo-->
@@ -223,6 +228,7 @@
 	</div>
 	<!--/banner-section-->
 	<!--//main-header-->
+	
 	<!--/banner-bottom-->
 	<div class="w3_agilits_banner_bootm">
 		<div class="w3_agilits_inner_bottom">
@@ -232,44 +238,38 @@
 						<li><a href="/login" class="login">로그인</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAnonymous()">
-						<li><a href="/join" class="login reg"
-							data-target="#myModal5">회원가입</a></li>
+						<li><a href="/join" class="login reg" data-target="#myModal5">회원가입</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<sec:authentication property="principal.username" var="user_id" />
-						<li style="margin-left: 0em"><a href="/"
-							class="login">${user_id}</a></li>
+						<li style="margin-left: 0em">
+							<a href="/"	class="login">${user_id}</a>
+						</li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
-						<li style="margin-left: 0em"><a href="/front/mp_withdraw"
-							class="login" style="margin-left: 0em">마이 페이지</a></li>
+						<li style="margin-left: 0em">
+							<a href="/front/mp_withdraw" class="login" style="margin-left: 0em">마이 페이지</a>
+						</li>
 					</sec:authorize>
 					
 					<!-- Admin Menus -->
-					<sec:authorize
-						access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
-						<li style="margin-left: 40em">
-							<a href="/logout" class="login">로그아웃</a>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<li class="admBtnPosition">
+							<a href="#" id="admBtn" class="login reg" data-target="#myModal5">어드민페이지</a>
 						</li>
 					</sec:authorize>
-					<sec:authorize
-						access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
-						<li style="margin-left: 20em">
-							<button id='admBtn' type="button" class="btn btn-xs pull-right">어드민 페이지</button></li>
+					<sec:authorize access="hasRole('ROLE_CREATER') or hasRole('ROLE_ADMIN')">
+						<li class="regBtnPosition">
+							<a href="#" id="regBtn" class="login reg" data-target="#myModal5">게임등록</a>
 						</li>
-					</sec:authorize>
-					<sec:authorize
-						access="hasRole('ROLE_CREATER') or hasRole('ROLE_ADMIN')">
-						<li style="margin-left: 4em">
-						<button id='regBtn' type="button" class="btn btn-xs pull-right">게임등록</button></li>
 					</sec:authorize>
 					<!-- //Admin Menus -->
 					
-					<sec:authorize access="hasRole('ROLE_CREATER')">
-						<li style="margin-left: 20em"><a href="/logout"
-							class="login">로그아웃</a></li>
+					<sec:authorize access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN') or hasRole('ROLE_CREATER')">
+						<li class="logoutPosition">
+							<a href="/logout" class="login">로그아웃</a>
+						</li>
 					</sec:authorize>
-					
 				</ul>
 			</div>
 			<div class="col-md-6 wthree_share_agile"></div>
