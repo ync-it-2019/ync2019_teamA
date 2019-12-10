@@ -35,6 +35,8 @@ public interface ADonationService {
 	public int getTotalDonation();				//총 후원 금액 리턴
 	
 	public int creatersGetDonation();			//모든 창작자들이 받은 후원 금액
+	
+	public List<DonationVO> getListWithPagingAndContent(Criteria cri); //조인한 리스트
 
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
