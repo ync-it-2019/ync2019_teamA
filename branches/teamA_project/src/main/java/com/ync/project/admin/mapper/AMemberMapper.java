@@ -23,6 +23,10 @@ public interface AMemberMapper {
 	public int delete(String userid);						//회원 탈퇴/삭제
 
 	public int update(MemberVO MemberVO); 					//회원정보 수정
+	
+	public int creater_modify(String userid);				//창작자 강등
+	
+	public int creater_status(String userid);				//창작자 휴면
 
 	public int getTotalCount(Criteria cri);					//멤버 전체 수
 	
