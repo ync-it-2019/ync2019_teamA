@@ -58,8 +58,8 @@
 <!--//web-fonts-->
 
 <style>
-	.admBtnPosition{position:absolute; left:16em;}
-	.regBtnPosition{position:absolute; left:24em;}
+	.admBtnPosition{display:inline-blokck; margin-left:4px;}
+	.regBtnPosition{display:inline-blokck; margin-left:4px;}
 	.logoutPosition{position:absolute; right:0px;}
 </style>
 </head>
@@ -79,9 +79,9 @@
 							<button type="button" class="navbar-toggle"
 								data-toggle="collapse"
 								data-target="#bs-example-navbar-collapse-1">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+								<span class="icon-bar"></span>
 							</button>
 							<h1>
 								<a href="/front/index"><span>I</span>ndie <span>S</span>ponsor</a>
@@ -91,9 +91,11 @@
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="dropdown"><a href="game_intro"
-									class="dropdown-toggle" data-toggle="dropdown">게임소식 <b
-										class="caret"></b></a>
+								<li class="dropdown">
+									<a href="game_intro" class="dropdown-toggle"
+										data-toggle="dropdown">게임소식 
+										<b class="caret"></b>
+									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
@@ -113,10 +115,13 @@
 											</div>
 											<div class="clearfix"></div>
 										</li>
-									</ul></li>
-								<li class="dropdown"><a href="funding.html"
-									class="dropdown-toggle" data-toggle="dropdown">펀 딩<b
-										class="caret"></b></a>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="funding.html"
+										class="dropdown-toggle" data-toggle="dropdown">펀 딩
+										<b class="caret"></b>
+									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
@@ -131,10 +136,13 @@
 											</div>
 											<div class="clearfix"></div>
 										</li>
-									</ul></li>
-								<li class="dropdown"><a href="game.html"
-									class="dropdown-toggle" data-toggle="dropdown">게 임<b
-										class="caret"></b></a>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="game.html" class="dropdown-toggle"
+										data-toggle="dropdown">게 임
+										<b class="caret"></b>
+									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
@@ -161,10 +169,13 @@
 											</div>
 											<div class="clearfix"></div>
 										</li>
-									</ul></li>
-								<li class="dropdown"><a href="user_help.jsp"
-									class="dropdown-toggle" data-toggle="dropdown">고객센터<b
-										class="caret"></b></a>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="user_help.jsp" class="dropdown-toggle"
+										data-toggle="dropdown">고객센터
+										<b class="caret"></b>
+									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
 											<div class="col-sm-4">
@@ -179,9 +190,9 @@
 											</div>
 											<div class="clearfix"></div>
 										</li>
-									</ul></li>
+									</ul>
+								</li>
 							</ul>
-
 						</div>
 						<div class="clearfix"></div>
 					</nav>
@@ -198,18 +209,18 @@
 							</form>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 			<!--//header-w3l-->
 			<!--/banner-info-->
+			
 			<div class="baner-info">
 				<h3>
 					당신에게 맞는 <span>인디</span>게임을 <span>찾아</span>보세요
 				</h3>
 				<h4>당신의 후원이 더욱 재밌는 게임을 만듭니다.</h4>
-				<br /> <br /> <a class="w3_play_icon1" href="#small-dialog1">
+				<br><br>
+				<a class="w3_play_icon1" href="#small-dialog1">
 					추천게임 플레이 영상 </a>
 			</div>
 			<!--/banner-ingo-->
@@ -259,7 +270,6 @@
 							<a href="/logout" class="login">로그아웃</a>
 						</li>
 					</sec:authorize>
-					
 				</ul>
 			</div>
 			<div class="col-md-6 wthree_share_agile"></div>
