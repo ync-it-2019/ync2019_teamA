@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ync.project.admin.service.ADonationService;
+import com.ync.project.admin.service.AMemberService;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.PageDTO;
 import com.ync.project.front.service.ContentService;
@@ -23,10 +24,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/admin/*")
 public class AdminDonationController {
 	@Autowired
-	private ADonationService ADonation;
-	
-	@Autowired
-	private ContentService content;
+	private ADonationService dService;
 	
 	
 	/**
@@ -39,13 +37,10 @@ public class AdminDonationController {
 	@GetMapping(value = "/member_donation")
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void donation(Criteria cri, Model model) {
-
-		log.info("Welcome donation!");
 		
-		int total = ADonation.getTotal(cri);
+		int total = dService.getTotal(cri);
 		
-		model.addAttribute("ADonation_list", ADonation.getList());
-
+		model.addAttribute("ADonation_list", dService.getListWithPagingAndContent(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
