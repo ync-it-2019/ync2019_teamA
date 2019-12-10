@@ -4,8 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -87,59 +86,70 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="outer-w3-agile mt-3" data-example-id="contextual-table">
 				<h4 class="tittle-w3-agileits mb-4">후원 관리</h4>
 					<table class="table">
-
 						<thead>
 							<tr>
 								<th scope="col">NO</th>
-								<th scope="col">입금자</th>
+								<th scope="col">입금자 아이디</th>
 								<th scope="col">후원한 게임</th>
 								<th scope="col">후원한 금액</th>
-								<th scope="col">수수료</th>
-								<th scope="col">결제 방식</th>
-								<th scope="col">최근 후원 일자</th>
+								<th scope="col">수수료</th>							
+								<th scope="col">후원 일자</th>
 							</tr>
 						</thead>
-							
-
-
 						<tbody>
-							<c:forEach items="${ADonation_list}" var="donation" varStatus="pNo">
-								
-							
+							<c:forEach items="${ADonation_list}" var="donation" varStatus="status">														
 								<c:set var="tmpchk" value="0"/>
 								<tr>
-									<td><c:out value="${(param.pageNum-1) * (param.amount) + pNo.count}" /></td>
+									<td><c:out value="${(param.pageNum-1) * (param.amount) + status.count}" /></td>
 									<td><c:out value="${donation.userid}" /></td>								
 									<td><c:out value="${donation.title}" /></td>
 									<td><fmt:formatNumber value="${donation.donation}" type="number" />￦</td>	
 									<td><fmt:formatNumber value="${donation.donation/10}" type="number" />￦</td>								
-									<td></td>
 									<td>
 										<fmt:formatDate var="resultRegDt" value="${donation.don_reg_date}" pattern="yyyy/MM/dd HH:mm"/>
 										${resultRegDt}
-									</td>
-									
-								</tr>
-						
+									</td>									
+								</tr>						
 							</c:forEach>
 							
 						</tbody>
 						
 						
 					</table>
+				<!--  Pagination 시작 -->
+  				<script src="/resources/js/bootstrap.js"></script>
+				<div class='pull-right'>
+					<ul class="pagination">
+					
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+						</c:if>
+
+					</ul>
 				</div>
-				<!--// Stats -->
-				<!-- Copyright -->
-				<div
-					class="copyright-w3layouts py-xl-3 py-2 mt-xl-5 mt-4 text-center">
-					<p>
-						© 2018 Modernize . All Rights Reserved | Design by <a
-							href="http://w3layouts.com/"> W3layouts </a>
-					</p>
+				<!--  Pagination 끝 -->
+				<!-- Form 시작 -->
+				<form id='actionForm' action="member_donation" method='get'>
+					<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+					<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+				</form>
+				<!-- Form 끝 -->
+	    	 	</div>
+			
 				</div>
-				<!--// Copyright -->
+
 		</div>
-	</div>
+	
 
 
 	<!-- Required common Js -->
@@ -160,35 +170,92 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--// loading-gif Js -->
 
 	<!-- Sidebar-nav Js -->
-	<script>
-		$(document).ready(function() {
-			$('#sidebarCollapse').on('click', function() {
-				$('#sidebar').toggleClass('active');
-			});
-		});
-	</script>
-	<!--// Sidebar-nav Js -->
-	<!-- profile-widget-dropdown js-->
-	<script src="/resources/js/script.js"></script>
-	<!--// profile-widget-dropdown js-->
-	<!-- dropdown nav -->
-	<script>
-		$(document).ready(function() {
-			$(".dropdown").hover(function() {
-				$('.dropdown-menu', this).stop(true, true).slideDown("fast");
-				$(this).toggleClass('open');
-			}, function() {
-				$('.dropdown-menu', this).stop(true, true).slideUp("fast");
-				$(this).toggleClass('open');
-			});
-		});
-	</script>
-	<!-- //dropdown nav -->
+  <script>
+    $(document).ready(function() {
+      $('#sidebarCollapse').on('click', function() {
+        $('#sidebar').toggleClass('active');
+      });
+    });
+  </script>
+  <!--// Sidebar-nav Js -->
 
-	<!-- Js for bootstrap working-->
-	<script src="/resources/js/bootstrap.min.js"></script>
-	<!-- //Js for bootstrap working -->
+  
+  <!-- profile-widget-dropdown js-->
+  <script src="/resources/js/script.js"></script>
+  <!--// profile-widget-dropdown js-->
 
+  <!-- dropdown nav -->
+  <script>
+    $(document).ready(function() {
+      $(".dropdown").hover(
+        function() {
+          $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+          $(this).toggleClass('open');
+        },
+        function() {
+          $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+          $(this).toggleClass('open');
+        }
+      );
+    });
+  </script>
+  <!-- //dropdown nav -->
+  <!-- Js for bootstrap working-->
+  <script src="/resources/js/bootstrap.min.js"></script>
+  <!-- //Js for bootstrap working -->
+  
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var result = '<c:out value="${result}"/>';
+		
+		checkModal(result);
+
+		history.replaceState({}, null, null);
+
+		function checkModal(result) {
+
+			if (result === '' || history.state) {
+				return;
+			}
+
+			if (parseInt(result) > 0) {
+				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+			}
+
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location = "/board/register";
+		});
+		
+		var actionForm = $("#actionForm");
+
+		// 페이지 번호 클릭 이벤트
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			// console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		// 상세보기 클릭 이벤트
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input name='userid' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/admin/member_info_detail");
+			actionForm.submit();
+		});
+	});
+</script>
+
+	<!-- Copyright -->
+            <div class="copyright-w3layouts py-xl-3 py-2 mt-xl-5 mt-4 text-center">
+                <p>© 2018 Modernize . All Rights Reserved | Design by
+                    <a href="#"> W3layouts </a>
+                </p>
+            </div>
+   <!--// Copyright -->
 </body>
 
 </html>
