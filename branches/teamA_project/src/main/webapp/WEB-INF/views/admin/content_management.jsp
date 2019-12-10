@@ -101,12 +101,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         				</thead>
 
 						<c:forEach items="${content_list }" var="cList" varStatus="cLVar">
-          					<tr class="active">
+          					<tr class="active" style="cursor:pointer;" class="move"
+          							onClick="self.location.href='/game_content?content_id= ${cList.content_id}'">
           						<th scope="row"><c:out value="${cList.content_id }"/></th>
-            					<td style = 	"cursor:pointer;" 
-            									onClick = " location.href='index.html' " 
-            									onMouseOver = " window.status = 'index.html' " 
-            									onMouseOut = " window.status = '' ">
+            					<td >
             						<c:out value="${cList.title }"/>
             					</td>
             					<td>
@@ -246,13 +244,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			actionForm.submit();
 		});
 		
-		// 상세보기 클릭 이벤트
-		$(".move").on("click",function(e) {
-			e.preventDefault();
-			actionForm.append("<input name='userid' value='" + $(this).attr("href")	+ "'>");
-			actionForm.attr("action", "/admin/member_info_detail");
-			actionForm.submit();
-		});
 		
 
 		// 삭제 이벤트
