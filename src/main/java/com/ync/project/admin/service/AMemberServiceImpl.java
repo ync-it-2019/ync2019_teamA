@@ -137,19 +137,19 @@ public class AMemberServiceImpl implements AMemberService {
 	@Override
 	public List<MemberVO> getAdminList() {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.getAdminList();
 	}
 
 	@Override
 	public List<MemberVO> getAdminListWithPaging(Criteria cri) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.getAdminListWithPaging(cri);
 	}
 
 	@Override
 	public int revoke(String userid) {
-		// TODO Auto-generated method stub
-		return 0;
+		log.info("revoke....");
+		return mapper.revoke(userid);
 	};
 	
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
