@@ -30,8 +30,9 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
 		});
 
+		String reconnect = (String) request.getSession().getAttribute("prevPage");
 		log.warn("ROLE NAMES: " + roleNames);
 
-		response.sendRedirect("/");
+		response.sendRedirect(reconnect);
 	}
 }

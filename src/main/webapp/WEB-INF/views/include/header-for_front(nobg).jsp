@@ -471,7 +471,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 			self.location = "/game_content_writeform";
 		});
 		$("#lgoutBtn").on("click", function() {
-			self.location = "/front/logout";
+			self.location = "/logout";
 		});
 	</script>
 	<!-- //Button Action -->
