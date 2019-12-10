@@ -140,15 +140,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                               </td>
                           </tr>
                       </tbody>
-                  </table>
-                  			<form role="form" action="/admin/creator_modify" 
-				method="post" enctype="multipart/form-data">
-				<input type="hidden" name="auth" value="ROLE_USER" id="auth">			
-                  <div style="text-align: center;">
-					<button type="submit" class="btn btn-default" id="auth">창작자 강등</button>
-					<button type="submit" class="btn btn-default">휴면 복귀</button>
+                  </table><div style="display:inline">
+                  			<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+                  <a href="/admin/creater_modifying?userid=${member_info.userid}">
+					<button type="submit" class="btn btn-default">창작자 강등</button></a>
+				 <a href="/admin/creater_status?userid=${member_info.userid}">
+				<button type="submit" class="btn btn-default">휴면 복귀</button></a>
 				</div>
-				</form>
               </div>
           <!--// Stats -->
           
@@ -264,7 +263,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	
 	<script type="text/javascript">
-	
+	$(document).ready(function() {
+		
+	});
 	</script>
 
 </body>
