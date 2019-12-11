@@ -248,7 +248,7 @@
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<li style="margin-left: 0em">
-							<a href="/front/mp_withdraw" class="login" style="margin-left: 0em">마이 페이지</a>
+							<a href="/mp_selfcheck" class="login" style="margin-left: 0em">마이 페이지</a>
 						</li>
 					</sec:authorize>
 					
