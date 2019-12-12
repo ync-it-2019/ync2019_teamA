@@ -1,9 +1,9 @@
 package com.ync.project.front.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -129,6 +129,23 @@ public class FrontMyPageController {
 		log.info("mprequestCreator!");
 
 		return "front/mp_request_creator";
+	}
+	
+	 /**
+	  * @Method 설명 : 창작자 신청 입력 정보 update
+	  * @Method Name : request_creator
+	  * @Date : 2019. 12. 12.
+	  * @작성자 : 김길재
+	  * @param r_creator
+	  * @param rttr
+	  * @return
+	  */
+	@PostMapping("/mp_request_creator")
+	@PreAuthorize("isAuthenticated()")
+	public String request_creator(MemberVO r_creator, RedirectAttributes rttr) {
+		mService.request_creator(r_creator);
+		rttr.addFlashAttribute("result", r_creator.getUserid());
+		return "redirect:/mypage/mp_request_creator";
 	}
 	
 	 /**
