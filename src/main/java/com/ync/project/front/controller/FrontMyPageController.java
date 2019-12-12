@@ -41,8 +41,7 @@ public class FrontMyPageController {
 	@Autowired
 	private MemberService mService;
 	
-//	@PreAuthorize("hasRole('ROLE_USER')")
-	@GetMapping(value = "/mp_bookmark")
+
 	/**
 	  * @Method 설명 : 북마크 한 컨텐츠 목록 front/mp_bookmark 호출
 	  * @Method Name : mpBookmark
@@ -50,11 +49,15 @@ public class FrontMyPageController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	public String mpBookmark(@RequestParam("userid") String userid, @ModelAttribute("cri") 
-	Criteria cri, Model model) {
+	@GetMapping(value = "/mp_bookmark")
+//	@PreAuthorize("hasRole('ROLE_USER')")
+	public String mpBookmark(@ModelAttribute("cri") Criteria cri, Model model) {
 
-		log.info("mpbookmark!");
-		model.addAttribute("bmk", bookmarkService.getList(cri, userid));
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		CustomUser user = (CustomUser) authentication.getPrincipal();
+		
+		log.info("mpbookmark! for " + user.getUsername());
+		model.addAttribute("bmk", bookmarkService.getList(cri, user.getUsername()));
 		//model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		//model.addAttribute("del", bookmarkService.delete(bookmark));
 		int total = bookmarkService.getTotal(cri);
