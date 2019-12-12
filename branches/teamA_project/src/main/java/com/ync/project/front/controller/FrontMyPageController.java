@@ -1,7 +1,9 @@
 package com.ync.project.front.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ync.project.domain.Criteria;
+import com.ync.project.domain.MemberVO;
 import com.ync.project.domain.PageDTO;
 import com.ync.project.front.service.BookmarkService;
+import com.ync.project.front.service.MemberService;
+import com.ync.project.security.domain.CustomUser;
 
 import lombok.extern.log4j.Log4j;
 
@@ -30,9 +35,11 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/mypage/*")
 public class FrontMyPageController {
 	 
-	
 	@Autowired
 	private BookmarkService bookmarkService;
+	
+	@Autowired
+	private MemberService mService;
 	
 //	@PreAuthorize("hasRole('ROLE_USER')")
 	@GetMapping(value = "/mp_bookmark")
@@ -134,6 +141,19 @@ public class FrontMyPageController {
 
 		log.info("withdraw!");
 
+		return "front/mp_selfcheck";
+	}
+	
+	@PostMapping(value = "/mp_selfcheck")
+	public String mpWithdrawChecked(Model model, RedirectAttributes rttr, String userpw) {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		CustomUser user = (CustomUser) authentication.getPrincipal();
+		
+		String userid =  user.getUsername();
+		
+		log.info("mp With draw checked User VO......" + userid + " and, " + userpw);
+		
 		return "front/mp_withdraw";
 	}
 	

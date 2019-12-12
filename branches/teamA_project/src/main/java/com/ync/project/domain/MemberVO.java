@@ -29,6 +29,7 @@ public class MemberVO {
 	private String sns; //SNS 계정
 	private String other_address; //추가 연락처
 	private String auth;
+	
 	private List<AuthVO> authList;
 //	private boolean enabled;
 //

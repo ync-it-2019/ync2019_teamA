@@ -51,6 +51,15 @@
 		]]>
 	</select>
 	
+	<select id="checkUser" resultType="com.ync.project.domain.MemberVO">
+	<![CDATA[
+		SELECT	COUNT(*) AS status
+		FROM	teamamember
+		WHERE	userid = #{userid}
+		AND		userpw = #{userpw} 
+		]]>
+	</select>
+	
 	<insert id="insert">
 		<![CDATA[
 			INSERT	INTO	teamamember(

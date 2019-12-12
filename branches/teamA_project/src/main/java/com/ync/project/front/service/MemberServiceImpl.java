@@ -44,4 +44,20 @@ public class MemberServiceImpl implements MemberService {
 		log.info("findPassword......" + member);
 	}
 
+	@Override
+	public MemberVO get(String userid) {
+		// TODO Auto-generated method stub
+		log.info("read User informations by ......" + userid);
+		
+		return mapper.read(userid);
+	}
+
+	@Override
+	public MemberVO checkPassword(MemberVO member) {
+		// TODO Auto-generated method stub
+		log.info("Check User information Service by ......" + member);
+		
+		return mapper.checkUser(member);
+	}
+
 }
