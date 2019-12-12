@@ -147,24 +147,24 @@
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="content/">액션</a></li>
-													<li><a href="adventure.jsp">어드밴처</a></li>
-													<li><a href="strategy.jsp">전략</a></li>
-													<li><a href="rollplaying.jsp">롤 플레잉</a></li>
+													<li><a href="game_list?#all">전체 리스트</a></li>
+													<li><a href="game_list?#action">액션</a></li>
+													<li><a href="game_list?#adventure">어드밴처</a></li>
+													<li><a href="game_list?#roguelike">로그라이크</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="casual.jsp">캐쥬얼</a></li>
-													<li><a href="single.jsp">싱글플레이</a></li>
-													<li><a href="simul.jsp">시뮬레이션</a></li>
-													<li><a href="first.jsp">앞서 해보기</a></li>
+													<li><a href="game_list?#puzzle">퍼즐</a></li>
+													<li><a href="game_list?#rhythm">리듬</a></li>
+													<li><a href="game_list?#simulation">시뮬레이션</a></li>
+													<li><a href="game_list?#horror">호러</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="puzzle.jsp">퍼즐</a></li>
-													<li><a href="2d.jsp">2D</a></li>
+													<li><a href="game_list?#strategy">전략</a></li>
+													<li><a href="game_list?#casual">캐쥬얼</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -561,97 +561,64 @@
 	<script src="/resources/js/jquery-1.11.1.min.js"></script>
 	<!-- Dropdown-Menu-JavaScript -->
 	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-							var result = '<c:out value="${result}"/>';
+		$(document).ready(function() {
+			var result = '<c:out value="${result}"/>';
+			checkModal(result);
+			history.replaceState({}, null, null);
+			function checkModal(result) {
+				if (result === '' || history.state) {
+					return;
+				}
+				if (parseInt(result) > 0) {
+					$(".modal-body").html(
+						"게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+				}
+				$("#myModal").modal("show");
+			}
 
-							checkModal(result);
-
-							history.replaceState({}, null, null);
-
-							function checkModal(result) {
-
-								if (result === '' || history.state) {
-									return;
-								}
-
-								if (parseInt(result) > 0) {
-									$(".modal-body").html(
-											"게시글 " + parseInt(result)
-													+ " 번이 등록되었습니다.");
-								}
-
-								$("#myModal").modal("show");
-							}
-
-							$("#regBtn").on("click", function() {
-								self.location = "/game_content_writeform";
-							});
+			$("#regBtn").on("click", function() {
+				self.location = "/game_content_writeform";
+			});
 							
-							$("#admBtn").on("click", function() {
-								self.location = "/admin/admin_main";
-							});
+			$("#admBtn").on("click", function() {
+				self.location = "/admin/admin_main";
+			});
 
-							var actionForm = $("#actionForm");
+			var actionForm = $("#actionForm");
 
-							// 페이지 번호 클릭 이벤트
-							$(".paginate_button a").on(
-									"click",
-									function(e) {
-										e.preventDefault();
-										// console.log('click');
-										actionForm
-												.find("input[name='pageNum']")
-												.val($(this).attr("href"));
-										actionForm.submit();
-									});
+			// 페이지 번호 클릭 이벤트
+			$(".paginate_button a").on("click",	function(e) {
+				e.preventDefault();
+				// console.log('click');
+				actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+				actionForm.submit();
+			});
 
-							// 상세보기 클릭 이벤트
-							$(".move")
-									.on(
-											"click",
-											function(e) {
-												e.preventDefault();
-												actionForm
-														.append("<input type='hidden' name='bno' value='"
-																+ $(this).attr(
-																		"href")
-																+ "'>");
-												actionForm.attr("action",
-														"/board/get");
-												actionForm.submit();
-											});
+			// 상세보기 클릭 이벤트
+			$(".move").on("click", function(e) {
+				e.preventDefault();
+				actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href") + "'>");
+				actionForm.attr("action","/board/get");
+				actionForm.submit();
+			});
 
-							// 검색 버튼 클릭 이벤트
-							var searchForm = $("#searchForm");
-							$("#searchForm button")
-									.on(
-											"click",
-											function(e) {
-												if (!searchForm.find(
-														"option:selected")
-														.val()) {
-													alert("검색종류를 선택하세요");
-													return false;
-												}
+			// 검색 버튼 클릭 이벤트
+			var searchForm = $("#searchForm");
+			$("#searchForm button").on("click", function(e) {
+				if (!searchForm.find("option:selected").val()) {
+					alert("검색종류를 선택하세요");
+					return false;
+				}
+				if (!searchForm.find("input[name='keyword']").val()) {
+					alert("키워드를 입력하세요");
+					return false;
+				}
 
-												if (!searchForm
-														.find(
-																"input[name='keyword']")
-														.val()) {
-													alert("키워드를 입력하세요");
-													return false;
-												}
-
-												searchForm
-														.find(
-																"input[name='pageNum']")
-														.val("1");
-												e.preventDefault();
-												searchForm.submit();
-											});
-						});
+				searchForm.find("input[name='pageNum']").val("1");
+				e.preventDefault();
+				searchForm.submit();
+			});
+		});
 	</script>
 	<!-- //Dropdown-Menu-JavaScript -->
 
