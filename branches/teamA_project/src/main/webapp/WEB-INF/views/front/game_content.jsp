@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<hr>
 					<div class="single video_agile_player">
 						<div data-video="${board.media1}" id="video">
-							<img src="${board.media2}"  class="img-responsive" >
+							<img src="${board.media2}"  class="img-responsive"  style="width:100%; height:500px">
 						</div>
 					</div>
 					</div>

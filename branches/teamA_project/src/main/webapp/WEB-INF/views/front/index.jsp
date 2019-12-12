@@ -327,7 +327,7 @@
 									<div class="col-md-7 wthree_agile-movies_list">
 										<c:forEach items="${content1}" var="content1">
 											<div class="w3l-movie-gride-agile">
-												<a href="single.jsp" class="hvr-sweep-to-bottom"><img
+												<a href="game_content?content_id=${content1.content_id}" class="hvr-sweep-to-bottom"><img
 													src="${content1.media2}" title="자세히" class="img-responsive"
 													alt=" " style="width: 300px; height: 200px">
 													<div class="w3l-action-icon">
@@ -336,7 +336,7 @@
 												<div class="mid-1 agileits_w3layouts_mid_1_home" >
 													<div class="w3l-movie-text"  style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width:120px; height: 25px">
 														<h6>
-															<a href="single.jsp"><c:out value="${content1.title}" /></a>
+															<a href="game_content?content_id=${content1.content_id}"><c:out value="${content1.title}" /></a>
 														</h6>
 													</div>
 													<div class="mid-2 agile_mid_2_home">
@@ -413,7 +413,7 @@
 									<div class="col-md-7 wthree_agile-movies_list">
 										<c:forEach items="${content3}" var="content3">
 											<div class="w3l-movie-gride-agile">
-												<a href="single.jsp" class="hvr-sweep-to-bottom"><img
+												<a href="game_content?content_id=${content3.content_id}" class="hvr-sweep-to-bottom"><img
 													src="${content3.media2}" title="자세히" class="img-responsive"
 													alt=" " style="width: 300px; height: 200px">
 													<div class="w3l-action-icon">
@@ -422,7 +422,7 @@
 												<div class="mid-1 agileits_w3layouts_mid_1_home">
 													<div class="w3l-movie-text" style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width:120px; height: 25px">
 														<h6>
-															<a href="single.jsp"><c:out value="${content3.title}" /></a>
+															<a href="game_content?content_id=${content3.content_id}"><c:out value="${content3.title}" /></a>
 														</h6>
 													</div>
 													<div class="mid-2 agile_mid_2_home">
@@ -498,7 +498,7 @@
 									<div class="col-md-7 wthree_agile-movies_list">
 										<c:forEach items="${content5}" var="content5">
 											<div class="w3l-movie-gride-agile">
-												<a href="single.jsp" class="hvr-sweep-to-bottom"><img
+												<a href="game_content?content_id=${content5.content_id}" class="hvr-sweep-to-bottom"><img
 													src="${content5.media2}" title="자세히" class="img-responsive"
 													alt=" " style="width: 300px; height: 200px">
 													<div class="w3l-action-icon">
@@ -507,7 +507,7 @@
 												<div class="mid-1 agileits_w3layouts_mid_1_home">
 													<div class="w3l-movie-text" style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width:120px; height: 25px">
 														<h6>
-															<a href="single.jsp"><c:out value="${content5.title}" /></a>
+															<a href="game_content?content_id=${content5.content_id}"><c:out value="${content5.title}" /></a>
 														</h6>
 													</div>
 													<div class="mid-2 agile_mid_2_home">
