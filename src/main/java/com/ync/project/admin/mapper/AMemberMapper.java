@@ -19,6 +19,8 @@ public interface AMemberMapper {
 	public List<MemberVO> getListWithPaging(Criteria cri);	//멤버 페이징
 	
 	public List<MemberVO> getListWithPagingWithCreater(Criteria cri); //창작자 페이징
+	
+	public List<MemberVO> getListWithPagingWithCreater_request(Criteria cri);
 
 	public int delete(String userid);						//회원 탈퇴/삭제
 
@@ -27,6 +29,10 @@ public interface AMemberMapper {
 	public int creater_modify(String userid);				//창작자 강등
 	
 	public int creater_status(String userid);				//창작자 휴면
+	
+	public int creater_accept(String userid);
+	
+	public int creater_cancle(String userid);
 
 	public int getTotalCount(Criteria cri);					//멤버 전체 수
 	
@@ -45,4 +51,8 @@ public interface AMemberMapper {
 	public GDonationVO getGetDonationToUser(String userid);
 	
 	public int revoke(String userid);						//권한 강등
+
+	
+
+	
 }
