@@ -241,10 +241,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
   </div>
   <!--//banner-bottom Logins-->
   <!-- Modal1 -->
-  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
+<!--   <div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
 
     <div class="modal-dialog">
-      <!-- Modal content-->
+      Modal content
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -271,13 +271,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- //Modal1 -->
   <!-- Modal1 -->
-  <div class="modal fade" id="myModal5" tabindex="-1" role="dialog">
+  <!-- <div class="modal fade" id="myModal5" tabindex="-1" role="dialog">
 
     <div class="modal-dialog">
-      <!-- Modal content-->
+      Modal content
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -301,7 +301,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- //Modal1 -->
   <!-- breadcrumb -->
   
