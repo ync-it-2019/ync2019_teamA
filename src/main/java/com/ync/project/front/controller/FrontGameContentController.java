@@ -8,7 +8,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -51,39 +50,36 @@ public class FrontGameContentController {
 		String content_id = request.getParameter("content_id");
 		
 		log.info("gamecontent!");
-		// Model 객체에 service.getList()에서 return 받은 값을 "list"라는 변수에 담아서 던져준다.
-		// model 객체는 Spring에서 알아서 view쪽에 던져준다.
 		model.addAttribute("board", service.read(content_id));
 		return "front/game_content";
 	}
+
 	
-//	@GetMapping(value = "/game_content")
-//	public String gameContent() {
-//
-//		return "front/game_content";
-//		
-//		
-//	}
-	
+	/**
+	  * @Method 설명 : 창작자 게임등록 폼[get] front/game_content_writeform 호출
+	  * @Method Name : game_content_register
+	  * @Date : 2019. 12. 12.
+	  * @작성자 : 석준영
+	  * @return 게임등록 양식
+	  */
 	@GetMapping("/game_content_writeform")
 	@PreAuthorize("isAuthenticated()")
-	public String register() { 
+	public String game_content_register() { 
 		log.info("등록 양식 가져오기........");
-		
 		return "front/game_content_writeform";
 	}
 
 
-	 /**
-	  * @Method 설명 : 컨텐츠 글쓰기 폼 front/game_content_writeform 호출
-	  * @Method Name : gameContentWriteForm
-	  * @Date : 2019. 10. 28.
-	  * @작성자 : 허 민
+	/**
+	  * @Method 설명 :  창작자 게임등록 폼[post] front/game_content_writeform 호출
+	  * @Method Name : game_content_register
+	  * @Date : 2019. 12. 12.
+	  * @작성자 : 석준영
 	  * @return 
 	  */
 	@PostMapping("/game_content_writeform")
 	@PreAuthorize("isAuthenticated()")
-	public String register(MultipartFile[] uploadFile, ContentVO content, RedirectAttributes rttr) {
+	public String game_content_register(MultipartFile[] uploadFile, ContentVO content, RedirectAttributes rttr) {
 		log.warn("글등록하기......");
 		int index = 0;
 		for (MultipartFile multipartFile : uploadFile) {
@@ -104,20 +100,6 @@ public class FrontGameContentController {
 				index++;
 			}
 		}
-		log.warn(content.getTitle());
-		log.warn(content.getContent_intro());
-		log.warn(content.getTag());
-		log.warn(content.getAge_rate());
-		log.warn(content.getGame_launch());
-		log.warn(content.getDon_attainment());
-		log.warn(content.getUserid());
-		log.warn(content.getPlatform());
-		log.warn(content.getLanguages());
-		log.warn(content.getMedia1());
-		log.warn(content.getMedia2());
-		log.warn(content.getMedia3());
-		log.warn(content.getMedia4());
-		log.warn(content.getGenre_id());
 		service.register(content);
 		rttr.addFlashAttribute("result", content.getContent_id());
 		return "redirect:/";

@@ -25,27 +25,22 @@ import lombok.extern.log4j.Log4j;
 public class FrontNoticeController {
 	@Autowired
 	private NoticeService service;
+	
 	 /**
 	  * @Method 설명 :
-	  * @Method Name : notice
+	  * @Method Name : notice_list
 	  * @Date : 2019. 10. 28.
 	  * @작성자 : 석준영
 	  * @return 공지사항 컨트롤러 생성
 	  */
-	
 	@GetMapping("/notice")
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public void list(Criteria cri, Model model) {
-		
-//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
-
+	public void notice_list(Criteria cri, Model model) {
 		int total = service.getTotal(cri);
 		
 		log.info("list:11111 " + cri);
 		log.info("total:1111 " + total);
 		model.addAttribute("list", service.getListWithPaging(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
-	
 	}
 	
 	
