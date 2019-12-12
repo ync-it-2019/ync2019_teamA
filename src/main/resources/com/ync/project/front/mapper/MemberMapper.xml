@@ -66,7 +66,7 @@
 								userid,
 								name,
 								birth,
-								phone,
+								hone,
 								userpw
 							)
 							VALUES(
@@ -88,6 +88,18 @@
 					bank_account = #{bank_account},
 					sns = #{sns},
 					other_address = #{other_address}
+			WHERE	userid = #{userid}
+		]]>
+	</update>
+	
+	<update id="request_creator">
+		<![CDATA[
+			UPDATE	teamamember
+			SET		creater_name = #{creater_name},
+					sns = #{sns},
+					bank_account = #{bank_account},
+					levels = 'C',
+					status = '2'			
 			WHERE	userid = #{userid}
 		]]>
 	</update>
