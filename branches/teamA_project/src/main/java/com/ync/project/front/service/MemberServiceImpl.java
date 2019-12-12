@@ -59,5 +59,12 @@ public class MemberServiceImpl implements MemberService {
 		
 		return mapper.checkUser(member);
 	}
+	
+	@Override
+	public boolean request_creator(MemberVO r_creator) {
+		log.info("modify......" + r_creator);
+
+		return mapper.request_creator(r_creator) == 1;
+	}
 
 }
