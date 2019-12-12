@@ -86,7 +86,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content.age_rate}</td>
 											<td>${content.platform}</td>
-											<td>${content.gname}</td>
+											<td>${content.genre_name}</td>
 											<td>${content.hit}</td>
 										</tr>
 									</c:forEach>
@@ -123,7 +123,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content1.age_rate}</td>
 											<td>${content1.platform}</td>
-											<td>${content1.gname}</td>
+											<td>${content1.genre_name}</td>
 											<td>${content1.hit}</td>
 										</tr>
 									</c:forEach>
@@ -160,7 +160,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content2.age_rate}</td>
 											<td>${content2.platform}</td>
-											<td>${content2.gname}</td>
+											<td>${content2.genre_name}</td>
 											<td>${content2.hit}</td>
 										</tr>
 									</c:forEach>
@@ -197,7 +197,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content3.age_rate}</td>
 											<td>${content3.platform}</td>
-											<td>${content3.gname}</td>
+											<td>${content3.genre_name}</td>
 											<td>${content3.hit}</td>
 										</tr>
 									</c:forEach>
@@ -234,7 +234,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content4.age_rate}</td>
 											<td>${content4.platform}</td>
-											<td>${content4.gname}</td>
+											<td>${content4.genre_name}</td>
 											<td>${content4.hit}</td>
 										</tr>
 									</c:forEach>
@@ -271,7 +271,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content5.age_rate}</td>
 											<td>${content5.platform}</td>
-											<td>${content5.gname}</td>
+											<td>${content5.genre_name}</td>
 											<td>${content5.hit}</td>
 										</tr>
 									</c:forEach>
@@ -308,7 +308,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content6.age_rate}</td>
 											<td>${content6.platform}</td>
-											<td>${content6.gname}</td>
+											<td>${content6.genre_name}</td>
 											<td>${content6.hit}</td>
 										</tr>
 									</c:forEach>
@@ -345,7 +345,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content7.age_rate}</td>
 											<td>${content7.platform}</td>
-											<td>${content7.gname}</td>
+											<td>${content7.genre_name}</td>
 											<td>${content7.hit}</td>
 										</tr>
 									</c:forEach>
@@ -382,7 +382,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content8.age_rate}</td>
 											<td>${content8.platform}</td>
-											<td>${content8.gname}</td>
+											<td>${content8.genre_name}</td>
 											<td>${content8.hit}</td>
 										</tr>
 									</c:forEach>
@@ -419,7 +419,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</td>
 											<td class="w3-list-info">${content9.age_rate}</td>
 											<td>${content9.platform}</td>
-											<td>${content9.gname}</td>
+											<td>${content9.genre_name}</td>
 											<td>${content9.hit}</td>
 										</tr>
 									</c:forEach>

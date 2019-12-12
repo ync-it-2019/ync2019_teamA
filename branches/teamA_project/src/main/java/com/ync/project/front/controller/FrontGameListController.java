@@ -24,7 +24,7 @@ import lombok.extern.log4j.Log4j;
 public class FrontGameListController {
 	@Autowired
 
-	private GameListService service;
+	private GameListService gService;
 
 	/**
 	 * @Method 설명 : 게임 리스트 game_list.jsp 호출
@@ -37,16 +37,16 @@ public class FrontGameListController {
 	@GetMapping(value = "/game_list")
 	public String gameList(Criteria cri, Model model) {
 
-		model.addAttribute("content", service.getList());
-		model.addAttribute("content1", service.getList1());
-		model.addAttribute("content2", service.getList2());
-		model.addAttribute("content3", service.getList3());
-		model.addAttribute("content4", service.getList4());
-		model.addAttribute("content5", service.getList5());
-		model.addAttribute("content6", service.getList6());
-		model.addAttribute("content7", service.getList7());
-		model.addAttribute("content8", service.getList8());
-		model.addAttribute("content9", service.getList9());
+		model.addAttribute("content", gService.getList());
+		model.addAttribute("content1", gService.getList1());
+		model.addAttribute("content2", gService.getList2());
+		model.addAttribute("content3", gService.getList3());
+		model.addAttribute("content4", gService.getList4());
+		model.addAttribute("content5", gService.getList5());
+		model.addAttribute("content6", gService.getList6());
+		model.addAttribute("content7", gService.getList7());
+		model.addAttribute("content8", gService.getList8());
+		model.addAttribute("content9", gService.getList9());
 		
 //		model.addAttribute("list", service.getListWithPaging(cri));
 //		int total = service.getTotal(cri);

@@ -23,7 +23,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
@@ -55,7 +55,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
@@ -87,7 +87,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
@@ -119,7 +119,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
@@ -151,7 +151,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
@@ -183,7 +183,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
@@ -215,7 +215,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
@@ -247,7 +247,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
@@ -279,7 +279,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
@@ -311,7 +311,7 @@
 					media4,
 					content_id,
 					c.genre_id,
-					g.genre_name gname,
+					g.genre_name genre_name,
 					hit,
 					like_cnt
 			FROM	TEAMACREATERCONTENT c,
