@@ -20,6 +20,8 @@ public interface MemberMapper {
 	public int getTotalCount(Criteria cri);					//멤버 전체 수
 	
 	public void insert(MemberVO member); 					//회원추가
+
+	public int request_creator(MemberVO r_creator); 		//창작자 신청
 	
 	public MemberVO checkUser(MemberVO member);					//회원 정보 확인
 	
