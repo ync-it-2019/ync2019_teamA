@@ -23,6 +23,10 @@ public interface AMemberService {
 	
 	public boolean creater_status(String userid);
 	
+	public boolean creater_accept(String userid);
+	
+	public boolean creater_cancle(String userid);
+	
 	// 멤버 삭제
 	public boolean remove(String userid);
 	
@@ -38,6 +42,8 @@ public interface AMemberService {
 	public List<MemberVO> getListWithPaging(Criteria cri);
 	
 	public List<MemberVO> getListWithPagingWithCreater(Criteria cri);
+	
+	public List<MemberVO> getListWithPagingWithCreater_request(Criteria cri);
 
 	// 멤버 전체 수
 	public int getTotal(Criteria cri);
@@ -57,6 +63,10 @@ public interface AMemberService {
 
 	
 	public int revoke(String userid);			//권한 해제 
+
+	
+
+	
 
 	
 }
