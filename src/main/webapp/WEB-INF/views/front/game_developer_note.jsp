@@ -59,7 +59,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="agile_featured_movies">
 			<div class="inner-agile-w3l-part-head">
 				<h3 class="w3l-inner-h-title"><c:out value="${change_log_content.title}"/></h3>
-				<p class="w3ls_head_para"><c:out value="${change_log_content.tag}"/></p>
+				<p class="w3ls_head_para">
+					|
+					<c:forTokens var ="item" items = "${change_log_content.tag}" delims = "/">
+						<a>${item} | </a>
+					</c:forTokens>
+				</p>
 			</div>
 			<div class="latest-news-agile-info">
 				<div class="col-md-8 latest-news-agile-left-content">
@@ -75,18 +80,60 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</div>
 					<c:if test ="${not empty changelog_comment.userid}">
-						<div style="text-align:center"><h2>유저 댓글</h2></div>
-						<div class="admin-text">
+						<div class="admin-text"  style="text-align:center" >
 							<h5>작성자 : <c:out value="${changelog_comment.userid}"/></h5>
 							<div class="admin-text-left">
 								<a href="#"><img src="/resources/img/best_user.jpg" alt=""></a>
 							</div>
 							<div class="admin-text-right">
 								<h3><c:out value="${changelog_comment.content}"/></h3>
+								<div></div>
 								<span><a href="#"><fmt:formatDate pattern="yyyy-MM-dd" value="${changelog_comment.reg_date}" /> </a></span>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
+					</c:if>
+					<c:if test ="${change_log_content.cmedia1 != '1'}">
+					<div class="slideshow-container">
+						
+						<div class="mySlides fade">
+						  <div class="numbertext">1 / 4</div>
+						  <img src="${change_log_content.cmedia1}" width="700px" height="300px">
+						</div>
+						<c:if test ="${change_log_content.cmedia2 ne '1'}">
+						<div class="mySlides fade">
+						  <div class="numbertext">2 / 4</div>
+						  <img src="${change_log_content.cmedia2}" width="700px" height="300px">
+						</div>
+						</c:if>
+						<c:if test ="${change_log_content.cmedia3 ne '1'}">
+						<div class="mySlides fade">
+						  <div class="numbertext">3 / 4</div>
+						  <img src="${change_log_content.cmedia3}" width="700px" height="300px">
+						</div>
+						</c:if>
+						<c:if test ="${change_log_content.cmedia4 ne '1'}">
+						<div class="mySlides fade">
+						  <div class="numbertext">4 / 4</div>
+						  <img src="${change_log_content.cmedia4}" width="700px" height="300px">
+						</div>
+						</c:if>
+					</div>
+					</c:if>
+					<br>
+					<c:if test ="${change_log_content.cmedia1 ne '1'}">
+					<div style="text-align:center">
+					  <span class="dot"></span> 
+					  <c:if test ="${change_log_content.cmedia2 ne '1'}">
+					  <span class="dot"></span> 
+					  </c:if>
+					  <c:if test ="${change_log_content.cmedia3 ne '1'}">
+					  <span class="dot"></span> 
+					  </c:if>
+					  <c:if test ="${change_log_content.cmedia4 ne '1'}">
+					  <span class="dot"></span> 
+					  </c:if>
+					</div>
 					</c:if>
 					<div class="response" style="text-align:center">
 						<h4>패치노트</h4>
@@ -106,11 +153,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 latest-news-agile-right-content">
 
-					<h3 class="side-t-w3l-agile">이전 <span>게임노트</span></h3>
+					<h3 class="side-t-w3l-agile">이전 <span>패치노트</span></h3>
 						<ul class="side-bar-agile">
 							<c:forEach items="${patch_note_List}" var="patch">
-							<li><a href="single.html"><c:out value ="${patch.patch_log}"/></a>
-								<p><fmt:formatDate pattern="yyyy-MM-dd" value="${patch.reg_date}" /></p>
+							<li><a class='move' href='<c:out value="${patch.change_log_id}"/>'><c:out value ="${patch.patch_log}"/></a>
+								<p>	<c:out value ="[${patch.version}]"/> <fmt:formatDate pattern="yyyy-MM-dd" value="${patch.reg_date}" /></p>
 							</li>
 							</c:forEach>
 						</ul>
@@ -125,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="single.html"><img src="${other.media2}" alt=" " class="img-responsive"></a>
 										</div>
 										<div class="wom-right">
-											<h5><a href="/game_develpoer_note?${other.change_log_id}"><c:out value="${other.title}"/></a></h5>
+											<h5><a class='move' href='<c:out value="${other.change_log_id}"/>'><c:out value="${other.title}"/></a></h5>
 											<p><c:out value ="${other.patch_log}"/></p>
 											<ul class="w3l-sider-list">
 												<li><i class="fa fa-clock-o" aria-hidden="true"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${other.reg_date}" /></li>
@@ -140,11 +187,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="clearfix"></div>
 			</div>
-
+		
 		</div>
 	</div>
 	<!--//content-inner-section-->
-
+<form id='actionForm' action="/game_developer_note" method='get'>
+		<input type='hidden' name='pageNum' value='${param.pageNum}'>
+		<input type='hidden' name='amount' value='${param.amount}'>
+</form>
 
 	<!--/footer-bottom-->
 <div>
@@ -229,24 +279,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 		});
 	</script>
-	<link href="resources/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
 	<script src="resources/js/owl.carousel.js"></script>
-	<script>
-		$(document).ready(function() {
-			$("#owl-demo").owlCarousel({
-
-				autoPlay: 3000, //Set AutoPlay to 3 seconds
-				autoPlay: true,
-				navigation: true,
-
-				items: 5,
-				itemsDesktop: [640, 4],
-				itemsDesktopSmall: [414, 3]
-
-			});
-
-		});
-	</script>
+	<script type="text/javascript"
+		src="/resources/js/jquery.zoomslider.min.js"></script>
 
 	<!--/script-->
 	<script type="text/javascript" src="resources/js/move-top.js"></script>
@@ -263,22 +298,82 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-							var defaults = {
-					  			containerID: 'toTop', // fading element id
-								containerHoverID: 'toTopHover', // fading element hover id
-								scrollSpeed: 1200,
-								easingType: 'linear'
-					 		};
-							*/
+		$(document)
+				.ready(
+						function() {
+							var actionForm = $("#actionForm");
 
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
+							// 상세보기 클릭 이벤트
+							$(".move")
+									.on(
+											"click",
+											function(e) {
+												e.preventDefault();
+												actionForm
+														.append("<input type='hidden' name='change_log_id' value='"
+																+ $(this).attr(
+																		"href")
+																+ "'>");
+												actionForm
+														.attr("action",
+																"/game_developer_note");
+												actionForm.submit();
+											});
+							var result = '<c:out value="${result}"/>';
+							 
+							checkModal(result);
 
-		});
+							history.replaceState({}, null, null);
+
+							function checkModal(result) {
+
+								if (result === '' || history.state) {
+									return;
+								}
+
+								if (parseInt(result) > 0) {
+									$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+								}
+
+								$("#myModal").modal("show");
+							}
+							
+							var actionForm = $("#actionForm");
+
+							// 페이지 번호 클릭 이벤트
+							$(".paginate_button a").on("click", function(e) {
+								e.preventDefault();
+								// console.log('click');
+								actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+								actionForm.submit();
+							});
+	
+						});
 	</script>
+	<!-- 슬라이드 쇼를 위한  함수 -->
+	<script>
+	var slideIndex = 0;
+	showSlides();
+	
+	function showSlides() {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("dot");
+	  for (i = 0; i < slides.length; i++) {
+	    slides[i].style.display = "none";  
+	  }
+	  slideIndex++;
+	  if (slideIndex > slides.length) {slideIndex = 1}    
+	  for (i = 0; i < dots.length; i++) {
+	    dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";  
+	  dots[slideIndex-1].className += " active";
+	  setTimeout(showSlides, 2000); // Change image every 2 seconds
+	}
+	</script>
+	<!-- 슬라이드 쇼를 위한  함수 -->
+	
 	<!--end-smooth-scrolling-->
 	<script src="resources/js/bootstrap.js"></script>
 

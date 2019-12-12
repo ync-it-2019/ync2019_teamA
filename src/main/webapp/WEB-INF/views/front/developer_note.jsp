@@ -58,7 +58,7 @@
 						<div class="mid-1 agileits_w3layouts_mid_1_home">
 							<div class="w3l-movie-text">
 								<h6>
-									<a href="game_developer_note"><c:out value="${dnote.title}" /></a>
+									<a class = 'move' href="<c:out value="${dnote.change_log_id}"/>"><c:out value="${dnote.title}" /></a>
 								</h6>
 							</div>
 							<div>
