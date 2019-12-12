@@ -227,6 +227,24 @@
 			WHERE	userid = #{userid}
 		]]>
 	</update>
+	
+	<update id="creater_accept">
+		<![CDATA[
+			UPDATE	teamamember
+			SET		levels = 'B',
+					status = '1',
+					auth = 'ROLE_CREATER'
+			WHERE	userid = #{userid}
+		]]>
+	</update>
+	
+	<update id="creater_cancle">
+		<![CDATA[
+			UPDATE	teamamember
+			SET		status = '1'
+			WHERE	userid = #{userid}
+		]]>
+	</update>
 
 	<select id="getTotalCount" resultType="int">
 		SELECT	count(*)
@@ -333,7 +351,45 @@
 						sns,
 						other_address
       				FROM	teamamember
-					WHERE 	auth LIKE 'ROLE_CREATER' AND
+					WHERE 	auth LIKE 'ROLE_CREATER' AND status LIKE '1' AND levels LIKE 'B' AND
+  		]]>
+		<include refid="criteria"></include> 
+      
+		<![CDATA[    
+      			rownum <= #{pageNum} * #{amount}
+      			)
+  			WHERE rn > (#{pageNum} -1) * #{amount}   
+		]]>
+	</select>
+	
+	<select id="getListWithPagingWithCreater_request" resultType="com.ync.project.domain.MemberVO">
+		<![CDATA[
+			SELECT	userid,
+        			name,
+    	    		userpw,
+        			birth,
+        			NVL(phone,'없음') phone,
+        			creater_name,
+        			NVL(bank_account,'없음') bank_account,
+        			levels,
+        			status,
+        			NVL(sns,'없음') sns,
+        			NVL(other_address,'없음') other_address
+			FROM	(SELECT /*+INDEX_DESC(teamamember pk_board) */
+						rownum rn,
+        				userid,
+						name,
+						birth,
+						phone,
+						userpw,
+						creater_name,
+						bank_account,
+						levels,
+						status,
+						sns,
+						other_address
+      				FROM	teamamember
+					WHERE 	auth LIKE 'ROLE_USER' AND status LIKE '2' AND levels LIKE 'C' AND
   		]]>
 		<include refid="criteria"></include> 
       
