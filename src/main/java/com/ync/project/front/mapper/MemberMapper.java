@@ -21,6 +21,8 @@ public interface MemberMapper {
 	
 	public void insert(MemberVO member); 					//회원추가
 	
+	public MemberVO checkUser(MemberVO member);					//회원 정보 확인
+	
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 }
