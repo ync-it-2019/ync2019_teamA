@@ -11,11 +11,11 @@ import com.ync.project.front.service.HomeService;
 
 import lombok.extern.log4j.Log4j;
 
-/**
+ /**
   * @FileName	: FrontHomeController.java
-  * @Date		: 2019. 10. 28. 
-  * @Author		: 김길재
-  * @프로그램 설명 :
+  * @Date		: 2019. 12. 12. 
+  * @Author		: 석준영
+  * @프로그램 설명 : 매인화면 컨트롤러
   */
 @Controller
 @Log4j
@@ -24,15 +24,14 @@ public class FrontHomeController {
 	@Autowired
 	private HomeService service;
 	
+	
 	 /**
-	  * @Method 설명 : 메인 화면 index.jsp 호출
+	  * @Method 설명 : 매인화면 게임 리스트 front/index 호출
 	  * @Method Name : home
-	  * @Date : 2019. 10. 28.
-	  * @작성자 : 김길재
+	  * @Date : 2019. 12. 12.
+	  * @작성자 : 석준영
 	  * @return
 	  */
-	
-	
 	@GetMapping(value = "/*")
 	public String home(Model model) {
 		
