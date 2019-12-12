@@ -44,16 +44,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 				<ul id="myTab" class="nav nav-tabs" role="tablist">
-					<li role="presentation"><a href="#all" role="tab" id="all-tab" data-toggle="tab" aria-controls="all">전체</a></li>
-					<li role="presentation"><a href="#action" role="tab" id="a-tab" data-toggle="tab" aria-controls="a">액션</a></li>
-					<li role="presentation"><a href="#adventure" role="tab" id="b-tab" data-toggle="tab" aria-controls="b">어드벤쳐</a></li>
-					<li role="presentation"><a href="#roguelike" role="tab" id="c-tab" data-toggle="tab" aria-controls="c">로그라이크</a></li>
-					<li role="presentation"><a href="#puzzle" role="tab" id="d-tab" data-toggle="tab" aria-controls="d">퍼즐</a></li>
-					<li role="presentation"><a href="#rhythm" role="tab" id="e-tab" data-toggle="tab" aria-controls="e">리듬</a></li>
-					<li role="presentation"><a href="#horror" role="tab" id="f-tab" data-toggle="tab" aria-controls="f">호러</a></li>
-					<li role="presentation"><a href="#simulation" role="tab" id="g-tab" data-toggle="tab" aria-controls="g">시뮬레이션</a></li>
-					<li role="presentation"><a href="#casual" role="tab" id="h-tab" data-toggle="tab" aria-controls="h">캐주얼</a></li>
-					<li role="presentation"><a href="#strategy" role="tab" id="i-tab" data-toggle="tab" aria-controls="i">전략</a></li>
+					<li role="presentation"><a href="#all" 			role="tab" id="all-tab" data-toggle="tab" aria-controls="all">전체</a></li>
+					<li role="presentation"><a href="#action" 		role="tab" id="a-tab" data-toggle="tab" aria-controls="a">액션</a></li>
+					<li role="presentation"><a href="#adventure"	role="tab" id="b-tab" data-toggle="tab" aria-controls="b">어드벤쳐</a></li>
+					<li role="presentation"><a href="#roguelike"	role="tab" id="c-tab" data-toggle="tab" aria-controls="c">로그라이크</a></li>
+					<li role="presentation"><a href="#puzzle" 		role="tab" id="d-tab" data-toggle="tab" aria-controls="d">퍼즐</a></li>
+					<li role="presentation"><a href="#rhythm" 		role="tab" id="e-tab" data-toggle="tab" aria-controls="e">리듬</a></li>
+					<li role="presentation"><a href="#horror" 		role="tab" id="f-tab" data-toggle="tab" aria-controls="f">호러</a></li>
+					<li role="presentation"><a href="#simulation" 	role="tab" id="g-tab" data-toggle="tab" aria-controls="g">시뮬레이션</a></li>
+					<li role="presentation"><a href="#casual" 		role="tab" id="h-tab" data-toggle="tab" aria-controls="h">캐주얼</a></li>
+					<li role="presentation"><a href="#strategy" 	role="tab" id="i-tab" data-toggle="tab" aria-controls="i">전략</a></li>
 				</ul>
 				
 				<div id="myTabContent" class="tab-content">
@@ -459,6 +459,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 	</script>
+	
 	<script>
 		$(document).ready(function () {
 			$('#horizontalTab').easyResponsiveTabs({
@@ -480,6 +481,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				width: 'auto',
 				fit: true
 			});
+		});
+		
+		$(function(){
+			if (location.hash == "#all"){
+				$('.nav-tabs').find('li').eq(0).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#all').addClass('active in').siblings().removeClass('active in');
+				
+			} else if(location.hash == "#action"){
+				$('.nav-tabs').find('li').eq(1).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#action').addClass('active in').siblings().removeClass('active in');
+				
+			} else if(location.hash == "#adventure"){
+				$('.nav-tabs').find('li').eq(2).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#adventure').addClass('active in').siblings().removeClass('active in');
+				
+			}else if(location.hash == "#roguelike"){
+				$('.nav-tabs').find('li').eq(3).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#roguelike').addClass('active in').siblings().removeClass('active in');
+				
+			}else if(location.hash == "#puzzle"){
+				$('.nav-tabs').find('li').eq(4).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#puzzle').addClass('active in').siblings().removeClass('active in');
+				
+			}else if(location.hash == "#rhythm"){
+				$('.nav-tabs').find('li').eq(5).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#rhythm').addClass('active in').siblings().removeClass('active in');
+				
+			}else if(location.hash == "#horror"){
+				$('.nav-tabs').find('li').eq(6).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#horror').addClass('active in').siblings().removeClass('active in');
+				
+			}else if(location.hash == "#simulation"){
+				$('.nav-tabs').find('li').eq(7).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#simulation').addClass('active in').siblings().removeClass('active in');
+				
+			}else if(location.hash == "#casual"){
+				$('.nav-tabs').find('li').eq(8).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#casual').addClass('active in').siblings().removeClass('active in');
+				
+			}else if(location.hash == "#strategy"){
+				$('.nav-tabs').find('li').eq(9).addClass('active').siblings().removeClass();
+				$('.tab-content').find('#strategy').addClass('active in').siblings().removeClass('active in');
+			}
 		});
 	</script>
 
