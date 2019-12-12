@@ -64,7 +64,7 @@
 </style>
 </head>
 
-<body>
+<body style="display: block; ">
 	<!--/main-header-->
 	<!--/banner-section-->
 	<div id="demo-1"
@@ -298,21 +298,21 @@
 													style="width: 500px; height: 290px" />
 											</div>
 										</div>
-										<div class="player-text">
+										<div class="player-text" style="height:300px">
 											<p class="fexi_header">
 												<c:out value="${content.title}" />
 											</p>
 											<p class="fexi_header_para">
-												<span class="conjuring_w3">게임설명<label>:</label></span>${content.content_intro}
+												<span>게임설명 </span><label>:</label>${content.content_intro}
 											</p>
 											<p class="fexi_header_para">
-												<span>출시날짜<label>:</label></span>2019년 3월 29일
+												<span>출시날짜 </span> <label>:</label><fmt:formatDate pattern="yyyy-MM-dd" value="${content.reg_date}" />
 											</p>
 											<p class="fexi_header_para">
-												<span>TAG<label>:</label>
-												</span> <a href="genre.jsp">${content.tag}</a> | <a
-													href="genre.jsp">${content.media3}</a> | <a
-													href="genre.jsp">${content.media4} </a>
+												<span>TAG</span><label>:</label>|
+												<c:forTokens var ="item" items = "${content.tag}" delims = "/">
+													<a>${item} | </a>
+												</c:forTokens>
 											</p>
 											<p class="fexi_header_para fexi_header_para1">
 												<span>별점<label>:</label></span> <a href="#"><i
@@ -333,8 +333,8 @@
 													<div class="w3l-action-icon">
 														<i class="fa fa-play-circle-o" aria-hidden="true"></i>
 													</div> </a>
-												<div class="mid-1 agileits_w3layouts_mid_1_home">
-													<div class="w3l-movie-text">
+												<div class="mid-1 agileits_w3layouts_mid_1_home" >
+													<div class="w3l-movie-text"  style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width:120px; height: 25px">
 														<h6>
 															<a href="single.jsp"><c:out value="${content1.title}" /></a>
 														</h6>
@@ -384,7 +384,7 @@
 													style="width: 500px; height: 290px" />
 											</div>
 										</div>
-										<div class="player-text">
+										<div class="player-text"  style="height:300px">
 											<p class="fexi_header">
 												<c:out value="${content2.title}" />
 											</p>
@@ -392,13 +392,13 @@
 												<span class="conjuring_w3">게임설명<label>:</label></span>${content2.content_intro}
 											</p>
 											<p class="fexi_header_para">
-												<span>출시날짜<label>:</label></span>2019년 3월 29일
+												<span>출시날짜<label>:</label></span><fmt:formatDate pattern="yyyy-MM-dd" value="${content2.reg_date}" />
 											</p>
 											<p class="fexi_header_para">
-												<span>TAG<label>:</label>
-												</span> <a href="genre.jsp">${content2.tag}</a> | <a
-													href="genre.jsp">${content2.media3}</a> | <a
-													href="genre.jsp">${content2.media4} </a>
+												<span>TAG</span><label>:</label>|
+												<c:forTokens var ="item" items = "${content2.tag}" delims = "/">
+													<a>${item} | </a>
+												</c:forTokens>
 											</p>
 											<p class="fexi_header_para fexi_header_para1">
 												<span>별점<label>:</label></span> <a href="#"><i
@@ -420,7 +420,7 @@
 														<i class="fa fa-play-circle-o" aria-hidden="true"></i>
 													</div> </a>
 												<div class="mid-1 agileits_w3layouts_mid_1_home">
-													<div class="w3l-movie-text">
+													<div class="w3l-movie-text" style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width:120px; height: 25px">
 														<h6>
 															<a href="single.jsp"><c:out value="${content3.title}" /></a>
 														</h6>
@@ -469,7 +469,7 @@
 													style="width: 500px; height: 290px" />
 											</div>
 										</div>
-										<div class="player-text">
+										<div class="player-text"  style="height:300px">
 											<p class="fexi_header">
 												<c:out value="${content4.title}" />
 											</p>
@@ -477,13 +477,13 @@
 												<span class="conjuring_w3">게임설명<label>:</label></span>${content4.content_intro}
 											</p>
 											<p class="fexi_header_para">
-												<span>출시날짜<label>:</label></span>2019년 3월 29일
+												<span>출시날짜<label>:</label></span><fmt:formatDate pattern="yyyy-MM-dd" value="${content4.reg_date}" />
 											</p>
 											<p class="fexi_header_para">
-												<span>TAG<label>:</label>
-												</span> <a href="genre.jsp">${content4.tag}</a> | <a
-													href="genre.jsp">${content4.media3}</a> | <a
-													href="genre.jsp">${content4.media4} </a>
+												<span>TAG</span><label>:</label>|
+												<c:forTokens var ="item" items = "${content4.tag}" delims = "/">
+													<a>${item} | </a>
+												</c:forTokens>
 											</p>
 											<p class="fexi_header_para fexi_header_para1">
 												<span>별점<label>:</label></span> <a href="#"><i
@@ -505,7 +505,7 @@
 														<i class="fa fa-play-circle-o" aria-hidden="true"></i>
 													</div> </a>
 												<div class="mid-1 agileits_w3layouts_mid_1_home">
-													<div class="w3l-movie-text">
+													<div class="w3l-movie-text" style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width:120px; height: 25px">
 														<h6>
 															<a href="single.jsp"><c:out value="${content5.title}" /></a>
 														</h6>
