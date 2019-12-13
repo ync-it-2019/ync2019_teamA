@@ -17,13 +17,13 @@ public interface HomeService {
 		public void register(ContentVO content);
 		
 		// 글 상세보기
-		public ContentVO get();
+		public ContentVO latest_first();
 		
 		// 글 상세보기
-		public ContentVO get1();
+		public ContentVO invite_first();
 		
 		// 글 상세보기
-		public ContentVO get2();
+		public ContentVO recommend_first();
 		
 		// 글 수정
 		public boolean modify(ContentVO content);
@@ -32,13 +32,13 @@ public interface HomeService {
 		public boolean remove(Long bno);
 		
 		// 전체 글 목록
-		public List<ContentVO> getList();
+		public List<ContentVO> latest_other();
 		
 		// 전체 글 목록
-		public List<ContentVO> getList1();
+		public List<ContentVO> invite_other();
 		
 		// 전체 글 목록
-		public List<ContentVO> getList2();
+		public List<ContentVO> recommend_other();
 				
 		// 글 목록 페이징 
 		public List<ContentVO> getListWithPaging(Criteria cri);
