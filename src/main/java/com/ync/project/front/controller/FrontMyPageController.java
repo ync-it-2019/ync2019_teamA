@@ -89,21 +89,6 @@ public class FrontMyPageController {
 		return "redirect:/front/mp_bookmark" + cri.getListLink();
 	}
 	
-	/**
-	  * @Method 설명 : 펀딩한 게임 목록 front/mp_bookmark 호출
-	  * @Method Name : mpDonationGame
-	  * @Date : 2019. 10. 28.
-	  * @작성자 : 허 민
-	  * @return
-	  */
-	@GetMapping(value = "/mp_donation_game")
-//	@PreAuthorize("hasRole('ROLE_USER')")
-	public String mpDonationGame() {
-
-		log.info("mpdonationgame!");
-
-		return "front/mp_donation_game";
-	}
 	
 	 /**
 	  * @Method 설명 : 펀딩중인 컨텐츠 목록 front/mp_funding
@@ -214,7 +199,7 @@ public class FrontMyPageController {
 	  * @return
 	  */
 	@GetMapping(value = "/mp_selfcheck")
-//	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("isAuthenticated()")
 	public String mpSelfCheck() {
 
 		log.info("selfcheck!");
@@ -226,7 +211,7 @@ public class FrontMyPageController {
 	private MypageService mpService;
 	
 	@GetMapping(value = "/mp_uploadcontent")
-//	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("isAuthenticated()")
 	public String mpUploadcontent(Criteria cri, Model model) {
 		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -236,10 +221,37 @@ public class FrontMyPageController {
 
 		model.addAttribute("content", mpService.getList(cri));
 		
-		int total = mpService.getTotal(cri);
+		int total = mpService.getUploadTotal(cri);
 		
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		return "front/mp_uploadcontent";
+	}
+
+	 /**
+	  * @Method 설명 : 펀딩한 게임 목록 front/mp_bookmark 호출
+	  * @Method Name : mpDonationContent
+	  * @Date : 2019. 12. 13.
+	  * @작성자 : 허 민
+	  * @param cri
+	  * @param model
+	  * @return
+	  */
+	@GetMapping(value = "/mp_donation_game")
+	@PreAuthorize("isAuthenticated()")
+	public String mpDonationContent(Criteria cri, Model model) {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		CustomUser user = (CustomUser) authentication.getPrincipal();
+		
+		cri.setUserid(user.getUsername());
+
+		model.addAttribute("content", mpService.getFundList(cri));
+		
+		int total = mpService.getFundTotal(cri);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		
+		return "front/mp_donation_game";
 	}
 	
 	
