@@ -50,6 +50,40 @@
 		]]>
 	</select>
 	
+	<select id="mpgetList"
+		resultType="com.ync.project.domain.ContentVO">
+	
+		<![CDATA[
+		SELECT 	rownum rn,
+				title,
+				don_reg,
+				reg_date,			
+				money_temp,
+				content_id
+			
+		FROM 	(
+				SELECT /*+index(teamacreatercontent xpkteamacreatercontent */
+				 		rownum rn,
+						title,
+						don_reg,
+						reg_date,
+						MONEY_TEMP,
+						content_id
+				FROM 	teamacreatercontent
+				WHERE   userid = #{userid}
+				AND	 	
+		]]>
+				<include refid="criteria"></include> 
+      
+		<![CDATA[    
+				rownum <= #{pageNum} * #{amount}
+      			)
+  			WHERE rn > (#{pageNum} -1) * #{amount}   
+		]]>
+		
+		
+	</select>
+	
 	
 	<select id="getList1"
 		resultType="com.ync.project.domain.ContentVO">
