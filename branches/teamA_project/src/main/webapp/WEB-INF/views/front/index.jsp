@@ -105,7 +105,7 @@
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/front/notice">공지 사항</a></li>
+													<li><a href="/notice">공지 사항</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
