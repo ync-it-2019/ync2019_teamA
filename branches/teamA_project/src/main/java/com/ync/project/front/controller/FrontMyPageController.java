@@ -55,6 +55,68 @@ public class FrontMyPageController {
 	private MypageService mpService;
 
 	/**
+	  * @Method 설명 : 회원 정보 상세 화면 불러오기
+	  * @Method Name : mp_Member_detail
+	  * @Date : 2019. 12. 13.
+	  * @작성자 : 김길재
+	  * @param model
+	  * @return
+	  */
+	@GetMapping(value = "/mp_member_detail")
+//	@PreAuthorize("hasRole('ROLE_USER')")
+	public String mp_Member_detail(Model model) {
+
+		log.info("Welcome Info detail!");
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		CustomUser userid = (CustomUser) authentication.getPrincipal();
+		
+		model.addAttribute("member_info", mService.read_member(userid.getUsername()));
+		
+		return "front/mp_member_detail";
+	}
+
+	 /**
+	  * @Method 설명 : 회원 정보 수정 불러오기
+	  * @Method Name : mp_Member_modify
+	  * @Date : 2019. 12. 13.
+	  * @작성자 : 김길재
+	  * @param model
+	  * @return
+	  */
+	@GetMapping(value = "/mp_member_modify")
+//	@PreAuthorize("hasRole('ROLE_USER')")
+	public String mp_Member_modify(Model model) {
+
+		
+		log.info("Welcome Info detail!");
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		CustomUser userid = (CustomUser) authentication.getPrincipal();
+		
+		model.addAttribute("member_info", mService.read_member(userid.getUsername()));
+		
+		return "front/mp_member_modify";
+	}
+	
+	 /**
+	  * @Method 설명 : 회원 정보 수정 입력 값 보내기
+	  * @Method Name : mp_member_modify
+	  * @Date : 2019. 12. 13.
+	  * @작성자 : 김길재
+	  * @param userid
+	  * @param rttr
+	  * @return
+	  */
+	@PostMapping("/mp_member_modify")
+	@PreAuthorize("isAuthenticated()")
+	public String mp_member_modify(MemberVO userid, RedirectAttributes rttr) {
+		mService.member_modify(userid);
+		rttr.addFlashAttribute("result", userid.getUserid());
+		return "redirect:/mypage/mp_member_detail";
+	}
+	
+	/**
 	  * @Method 설명 : 북마크 한 컨텐츠 목록 front/mp_bookmark 호출
 	  * @Method Name : mpBookmark
 	  * @Date : 2019. 10. 28.
@@ -122,11 +184,12 @@ public class FrontMyPageController {
 		return "front/mp_funding";
 	}
 	
+	 
 	 /**
-	  * @Method 설명 : 창작자 신청 front/mp_request_creator
+	  * @Method 설명 : 창작자 신청 페이지 호출
 	  * @Method Name : mpRequestCreator
-	  * @Date : 2019. 10. 28.
-	  * @작성자 : 허 민
+	  * @Date : 2019. 12. 13.
+	  * @작성자 : 김길재
 	  * @return
 	  */
 	@GetMapping(value = "/mp_request_creator")
