@@ -11,10 +11,10 @@
 							title like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'C'.toString()">
-							content like '%'||#{keyword}||'%'
+							content_intro like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'W'.toString()">
-							writer like '%'||#{keyword}||'%'
+							userid like '%'||#{keyword}||'%'
 						</when>
 						<when test="type == 'G'.toString()">
 							tag like '%'||#{keyword}||'%'

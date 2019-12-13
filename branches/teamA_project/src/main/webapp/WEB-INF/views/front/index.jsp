@@ -84,7 +84,7 @@
 								<span class="icon-bar"></span>
 							</button>
 							<h1>
-								<a href="/front/index"><span>I</span>ndie <span>S</span>ponsor</a>
+								<a href="/"><span>I</span>ndie <span>S</span>ponsor</a>
 							</h1>
 						</div>
 						<!-- navbar-header -->
@@ -199,8 +199,9 @@
 							<!-- cd-header-buttons -->
 						</div>
 						<div id="cd-search" class="cd-search">
-							<form action="game_list" method="post">
-								<input name="Search" type="search" placeholder="Search...">
+							<form id="serachForm" action="game_list_all" method="get">
+								<input type='hidden' name='type' value='TWCG' />
+								<input name="keyword" type="search" placeholder="Search...">
 							</form>
 						</div>
 					</div>
@@ -597,13 +598,25 @@
 				actionForm.submit();
 			});
 
-			// 검색 버튼 클릭 이벤트
+			// --검색 버튼 클릭 이벤트--
+      		$(".page-item a").on("click", function(e) {
+         		e.preventDefault();
+         		if(keyword != ''){
+            		actionForm.append("<input type='hidden' name='type' value='<c:out value="${pageMaker.cri.type}"/>' />");
+            		actionForm.append("<input type='hidden' name='keyword' value='"+ keyword+"' />");
+         		}
+         		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+         		actionForm.submit();
+			});
+			
 			var searchForm = $("#searchForm");
-			$("#searchForm button").on("click", function(e) {
-				if (!searchForm.find("option:selected").val()) {
+			
+			$("#searchForm ").on("click", function(e) {
+				/* if (!searchForm.find("option:selected").val()) {
 					alert("검색종류를 선택하세요");
 					return false;
-				}
+				} */
+				
 				if (!searchForm.find("input[name='keyword']").val()) {
 					alert("키워드를 입력하세요");
 					return false;
@@ -613,6 +626,7 @@
 				e.preventDefault();
 				searchForm.submit();
 			});
+			// --//검색 버튼 클릭 이벤트--
 		});
 	</script>
 	<!-- //Dropdown-Menu-JavaScript -->
@@ -653,11 +667,14 @@
 		<iframe src="https://www.youtube.com/embed/zEmm1dpLCx0"
 			frameborder="0"
 			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-			allowfullscreen></iframe>
+			allowfullscreen>
+		</iframe>
 		<div id="small-dialog2" class="mfp-hide">
-			<iframe
-				src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
+			<iframe	src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0">
+			</iframe>
 		</div>
+	</div>
+	
 		<script>
 			$(document).ready(
 					function() {
@@ -699,8 +716,7 @@
 				});
 			});
 		</script>
-		<link href="/resources/css/owl.carousel.css" rel="stylesheet"
-			type="text/css" media="all">
+		<link href="/resources/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all"/>
 		<script src="/resources/js/owl.carousel.js"></script>
 		<script>
 			$(document).ready(function() {
