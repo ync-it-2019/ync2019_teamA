@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ync.project.domain.BookmarkVO;
 import com.ync.project.domain.ContentVO;
+import com.ync.project.domain.Criteria;
 import com.ync.project.domain.Criteria2;
 import com.ync.project.domain.FundVO;
 
@@ -39,6 +40,8 @@ public interface FundingService {
 	
 	// 전체 글 목록
 	public List<ContentVO> getList();
+	
+	public List<ContentVO> mpgetList(Criteria cri); //후원받은 게시글 목록
 	
 	public List<ContentVO> getFundNow(); //게시글 목록
 

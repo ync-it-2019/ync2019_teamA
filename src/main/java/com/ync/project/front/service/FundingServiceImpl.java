@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ync.project.domain.BookmarkVO;
 import com.ync.project.domain.ContentVO;
+import com.ync.project.domain.Criteria;
 import com.ync.project.domain.Criteria2;
 import com.ync.project.domain.FundVO;
 import com.ync.project.front.mapper.FundingMapper;
@@ -60,7 +60,12 @@ public class FundingServiceImpl implements FundingService{
 		log.info("getList.......");
 		return mapper.getList();
 	}
-
+	
+	@Override
+	public List<ContentVO> mpgetList(Criteria cri) {
+		// 후원받은 게임 게시물 목록
+		return mapper.mpgetList(cri);
+	}
  
 	@Override
 	public List<ContentVO> getListWithPaging() {
@@ -129,5 +134,8 @@ public class FundingServiceImpl implements FundingService{
 		// TODO Auto-generated method stub
 		return mapper.read2(content_id);
 	}
+
+
+	
 	
 }

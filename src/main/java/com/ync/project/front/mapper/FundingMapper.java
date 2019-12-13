@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ync.project.domain.BookmarkVO;
 import com.ync.project.domain.ContentVO;
+import com.ync.project.domain.Criteria;
 import com.ync.project.domain.Criteria2;
 import com.ync.project.domain.FundVO;
 
@@ -15,6 +16,8 @@ import com.ync.project.domain.FundVO;
   * @프로그램 설명 : 펀딩 목록 페이지 Mapper interface
   */
 public interface FundingMapper {
+		public List<ContentVO> mpgetList(Criteria cri); //게시글 목록
+	
 		public List<ContentVO> getList(); //게시글 목록
 	
 		public List<ContentVO> getList1(); //게시글 목록
