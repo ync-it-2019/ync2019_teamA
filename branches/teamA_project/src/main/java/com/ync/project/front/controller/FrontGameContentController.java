@@ -105,6 +105,7 @@ public class FrontGameContentController {
 		}
 		service.register(content);
 		rttr.addFlashAttribute("result", content.getContent_id());
+		
 		return "redirect:/";
 	}
 

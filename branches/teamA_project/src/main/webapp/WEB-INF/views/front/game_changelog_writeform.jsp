@@ -143,6 +143,8 @@
 				alert("게임의 태그를 설정해 주세요");
 				$("input[name=tag]").focus();
 				return false;
+			}else{
+				alert("패치노트 등록이 완료되었습니다.");
 			}
 
 			

@@ -53,6 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 	.regBtnPosition{position:absolute; left:24em;} */
 	.admBtnPosition{display:inline-blokck; margin-left:4px;}
 	.regBtnPosition{display:inline-blokck; margin-left:4px;}
+	.chBtnPosition{display:inline-blokck; margin-left:4px;}
 	.logoutPosition{position:absolute; right:0px;}
 </style>
 </head>
@@ -210,6 +211,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						<li class="regBtnPosition">
 						<a href="#" id="regBtn" class="login reg" data-target="#myModal5">게임등록</a>
 					</li>
+					<li class="chBtnPosition">
+							<a href="#" id="chBtn" class="login reg" data-target="#myModal5">패치노트 등록</a>
+						</li>
 				</sec:authorize>
 				<!-- //Admin Menus -->
 				

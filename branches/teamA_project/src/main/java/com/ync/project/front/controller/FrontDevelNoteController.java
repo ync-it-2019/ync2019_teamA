@@ -46,7 +46,7 @@ public class FrontDevelNoteController {
 	  * @Method Name : game_developer_note
 	  * @Date : 2019. 12. 12.
 	  * @작성자 : 석준영
-	  * @return 
+	  * @return 개발노트 리스트와 페이징
 	  */
 	@GetMapping(value = "/developer_note")
 	public String developerNote(Criteria cri, Model model) {
@@ -66,7 +66,7 @@ public class FrontDevelNoteController {
 	  * @Method Name : game_developer_note
 	  * @Date : 2019. 12. 12.
 	  * @작성자 : 석준영
-	  * @return
+	  * @return 개발노트 상세보기
 	  */
 	@GetMapping(value = "/game_developer_note")
 	public String gameDeveloperNote(@RequestParam("change_log_id") Long change_log_id, @ModelAttribute("cri") Criteria cri, Model model) {
@@ -80,7 +80,13 @@ public class FrontDevelNoteController {
 		return "/front/game_developer_note";
 	}
 	
-	
+	 /**
+	  * @Method 설명 : 개발노트 작성폼 가져오기 front/game_changelog_writeform 호출
+	  * @Method Name : game_changelog_Write
+	  * @Date : 2019. 12. 13.
+	  * @작성자 : 석준영
+	  * @return 개발노트 작성 폼
+	  */
 	@GetMapping("/game_changelog_writeform")
 	@PreAuthorize("isAuthenticated()")
 	public String game_changelog_Write(@RequestParam("userid") String userid,Model model) { 
@@ -89,6 +95,13 @@ public class FrontDevelNoteController {
 		return "front/game_changelog_writeform";
 	}
 	
+	 /**
+	  * @Method 설명 : 개발노트 작성폼 DB 입력하기 front/game_changelog_writeform 호출
+	  * @Method Name : game_changelog_Write
+	  * @Date : 2019. 12. 13.
+	  * @작성자 : 석준영
+	  * @return 입력 후 개발노트 페이지로
+	  */
 	@PostMapping(value = "/game_changelog_writeform")
 	@PreAuthorize("isAuthenticated()")
 	public String game_changelog_Write(MultipartFile[] uploadFile, ChangelogVO chlog, RedirectAttributes rttr) {
@@ -115,14 +128,6 @@ public class FrontDevelNoteController {
 				index++;
 			}
 		}
-		log.warn(chlog.getMedia1());
-		log.warn(chlog.getMedia2());
-		log.warn(chlog.getMedia3());
-		log.warn(chlog.getMedia4());
-		log.warn(chlog.getPatch_log());
-		log.warn(chlog.getVersion());
-		log.warn(chlog.getGame_launch());
-		log.warn(chlog.getContent_id());
 		service.register(chlog);
 		rttr.addFlashAttribute("result", chlog.getChange_log_id());
 		return "redirect:/developer_note";

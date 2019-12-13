@@ -672,11 +672,8 @@
 
 	<div id="small-dialog1" class="mfp-hide">
 		<!-- 추천게임 플레이 영상 -->
-		<iframe src="https://www.youtube.com/embed/zEmm1dpLCx0"
-			frameborder="0"
-			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-			allowfullscreen>
-		</iframe>
+		<iframe width="900" height="400" src="https://www.youtube.com/embed/-SAx52L8iHs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
 		<div id="small-dialog2" class="mfp-hide">
 			<iframe	src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0">
 			</iframe>
