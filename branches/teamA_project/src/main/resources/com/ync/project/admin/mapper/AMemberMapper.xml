@@ -241,7 +241,10 @@
 	<update id="creater_cancle">
 		<![CDATA[
 			UPDATE	teamamember
-			SET		status = '1'
+			SET		creater_name = NULL,
+					bank_account = NULL,
+					status = '1',
+					sns = NULL
 			WHERE	userid = #{userid}
 		]]>
 	</update>
