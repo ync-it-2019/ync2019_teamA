@@ -16,6 +16,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>종료된 펀딩</title>
 <!-- for-mobile-apps -->
 <link rel="stylesheet" type="text/css" href="/resources/css/style-endfund.css" />
+ <script type="application/x-javascript">
+	
+    addEventListener("load", function() {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  
+</script>
+ <script>
+    $(function() {
+    	
+    });
+
+    $(document).ready(function(){
+    	$("#btn1").click(function(){
+            alert("이미 종료된 펀딩입니다.");
+            return false;
+        });
+});
+
+  </script>
+</head>
 <body>
 <!--/main-header-->
 	
@@ -83,8 +108,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</div>
 								</div>
 								<div class="mdl-card__actions mdl-card--border">
-									<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-										Fund
+									<a href="" id="btn1" 
+									class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+									onclick="alert('이미 종료됨')">
+										펀딩하기
 									</a>
 								</div>
 							</div>
@@ -104,5 +131,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp"
 			flush="false" />
 	</div>
+	<a href="#home" id="toTop" class="scroll" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
 </body>
 </html>

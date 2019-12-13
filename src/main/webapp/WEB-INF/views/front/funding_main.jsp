@@ -16,6 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>진행중인 펀딩</title>
 <!-- for-mobile-apps -->
 <link rel="stylesheet" type="text/css" href="/resources/css/style-endfund.css" />
+</head>
 <body>
 <!--/main-header-->
 	
@@ -81,7 +82,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</div>
 								</div>
 								<div class="mdl-card__actions mdl-card--border">
-									<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+									<a href="/front/fund_now?content_id=${list.content_id}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
 										Fund
 									</a>
 								</div>
