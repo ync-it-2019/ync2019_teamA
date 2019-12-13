@@ -37,14 +37,11 @@ public class MemberServiceTests {
 //		log.info("생성된 아이디: " + member.getUserid());
 //	}
 	
-	@Test
-	public void testdelete() {
-		MemberVO member = new MemberVO();
-		
-		member.setUserid("test123@mail.com");
-		
-		
-			
-		service.withdraw(member);
-	}
+//	@Test
+//	public void testdelete() {
+//		MemberVO member = new MemberVO();
+//		
+//		member.setUserid("test123@mail.com");
+//		service.withdraw(member);
+//	}
 }
