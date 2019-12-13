@@ -46,14 +46,14 @@ public class MemberMapperTests {
 //		log.info(vo);
 //	}
 	
-	@Test
-	public void testDelete() { 
-		
-		MemberVO member = new MemberVO();
-		member.setUserid("test123@mail.com");
-		
-		
-		mapper.delete(member);
-
-	}
+//	@Test
+//	public void testDelete() { 
+//		
+//		MemberVO member = new MemberVO();
+//		member.setUserid("test123@mail.com");
+//		
+//		
+//		mapper.delete(member);
+//
+//	}
 }
