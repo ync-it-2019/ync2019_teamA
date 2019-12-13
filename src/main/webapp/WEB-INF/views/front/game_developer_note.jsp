@@ -152,12 +152,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 
 					</div>
-				<sec:authentication property="principal" var="pinfo"/>
-				<sec:authorize access="isAuthenticated()">
-					<c:if test="${pinfo.username eq change_log_content.userid}">
-						<button data-oper='modify' class="btn btn-default" >Modify</button>
-					</c:if> 
-				</sec:authorize>
 				</div>
 				
 				
