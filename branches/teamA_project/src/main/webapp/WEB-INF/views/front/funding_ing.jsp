@@ -32,6 +32,7 @@
     	if(start > 100){
     		  start = 100;
     		}
+    	'<sec:authorize access="isAuthenticated()">'
     	for(var i = 0; i < 1; i++) {
     		'<c:forEach items="${bmkcheck}" var="bmkcheck" varStatus="status">'
     		'${bmkcheck.bookmark}';
@@ -43,7 +44,7 @@
     		}
     		'</c:forEach>'
     	}
-    	
+    	'</sec:authorize>'
       $('.count').each(function() {
         $(this).prop('Counter', 0).animate({
           Counter: $(this).text()
