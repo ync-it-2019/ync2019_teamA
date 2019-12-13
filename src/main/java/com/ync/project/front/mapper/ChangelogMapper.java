@@ -18,7 +18,7 @@ public interface ChangelogMapper {
 	
 	public void insert(ChangelogVO changelog); //게시글 추가
 	
-	public List<ChangelogVO> getListWithPaging(Criteria cri);
+	public List<ChangelogVO> getListWithPaging(Criteria cri); //게시글 목록, 페이징
 	
 	public Integer insertSelectKey(ChangelogVO changelog); //게시글 번호
 	
