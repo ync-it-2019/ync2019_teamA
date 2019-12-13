@@ -34,13 +34,15 @@ public class FrontNoticeController {
 	  * @return 공지사항 컨트롤러 생성
 	  */
 	@GetMapping("/notice")
-	public void notice_list(Criteria cri, Model model) {
+	public String notice_list(Criteria cri, Model model) {
 		int total = service.getTotal(cri);
 		
 		log.info("list:11111 " + cri);
 		log.info("total:1111 " + total);
 		model.addAttribute("list", service.getListWithPaging(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
+
+		return "front/notice";
 	}
 	
 	
