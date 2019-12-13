@@ -6,6 +6,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<!-- Grids Info -->
 						<div class="outer-w3-agile mt-3">
 
-							<h4>My page > 게임 라이브러리 > 후원 한 게임</h4>
+							<h4>My page > 창작자 신청</h4>
 
 						</div>
 
@@ -60,7 +65,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="outer-w3-agile mt-3"
 							data-example-id="contextual-table">
 							<form role="form" action="/mypage/mp_request_creator"
-								method="post" enctype="multipart/form-data">
+								method="post" enctype="multipart/form-data" name="request" onsubmit = "return check_onclick()">
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" />
 								<table class="table">
@@ -76,20 +81,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<tr>
 											<th class="text-nowrap" scope="row">아이디(E-MAIL)</th>
 											<th colspan="5">
-											<input type="text" name="userid" value="">
+											<c:out value="${member_info.userid }" />
+											<input type="hidden" name=userid value="${member_info.userid }"> 
 											</th>
 										</tr>
 										<tr>
 											<th class="text-nowrap" scope="row">SNS</th>
-											<th colspan="5">
-											<!-- <select name="mail" size="1">
-													<option value="daegu" selected>facebook</option>
-													<option value="gukmin" selected>blog</option>
-													<option value="hana" selected>instagram</option>
-													<option value="uri" selected>twitter</option>
-
-											</select> --> 
-											<input type="text" name="sns" value="">
+											<th colspan="5"><input type="text" name="sns" value="">
 											</th>
 										</tr>
 										<tr>
@@ -97,14 +95,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<th class="text-nowrap" scope="row">계좌번호</th>
 
 											<th colspan="5">
-											<!-- <select name="bank" size="1">
-													<option value="daegu" selected>대구은행</option>
-													<option value="gukmin" selected>국민은행</option>
-													<option value="hana" selected>하나은행</option>
-													<option value="uri" selected>우리은행</option>
-													<option value="kakao" selected>카카오뱅크</option>
-													<option value="toss" selected>토스</option>
-											</select> -->
 											 <input type="text" name="bank_account" value=""></th>
 
 										</tr>
@@ -123,14 +113,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 													개인정보보호 ο 본 협회는 만14세 미만 아동의 개인정보를 수집하는 경우 법정대리인의 동의를 받습니다. ο
 													만14세 미만 아동의 법정대리인은 아동의 개인정보의 열람, 정정, 동의철회를 요청할 수 있으며, 이러한
 													요청이 있을 경우 본 협회는 지체없이 필요한 조치를 취합니다. 이하 생략...</div> <label>
-													<input type=checkbox> &nbsp 동의합니다.</label></th>
+													<input type=checkbox name="accept" id="accept"> &nbsp 동의합니다.</label></th>
 
 										</tr>
 									</thead>
 
 								</table>
+								<div style="text-align: center;">
 								<button type="submit" class="btn btn-primary">Submit</button>
 								<button type="reset" class="btn btn-default">Reset</button>
+								</div>
 							</form>
 						</div>
 
@@ -153,6 +145,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div>
 		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp" flush="false" />
 	</div>
-
+<script>
+		function check_onclick(){
+			var chk1=document.request.accept.checked;
+			
+			if($("input[name=creater_name]").val() == ""){
+				alert("창작자명을 입력해주세요.");
+				$("input[name=creater_name]").focus();
+				return false;
+			}
+			
+			if($("input[name=sns]").val() == ""){
+				alert("SNS를 입력해주세요.");
+				$("input[name=sns]").focus();
+				return false;
+			}
+			if($("input[name=bank_account]").val() == ""){
+				alert("은행 정보를 입력해주세요");
+				$("input[name=bank_account]").focus();
+				return false;
+			}
+			
+	        if(!chk1){
+	            alert('약관1에 동의해 주세요');
+	            return false;
+	        }
+		}
+	</script>
+	
 </body>
 </html>
