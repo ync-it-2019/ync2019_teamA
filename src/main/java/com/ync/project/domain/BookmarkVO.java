@@ -14,9 +14,9 @@ import lombok.Data;
   */
 @Data
 public class BookmarkVO {
-	private Long userid;		//회원 이메일
+	private String userid;		//회원 이메일
 	private Date reg_date;		//등록일자
-	private String content_id;	//컨텐츠ID
+	private Long content_id;	//컨텐츠ID
 	private Long bookmark;		//즐겨찾기ID
 	private String title;		//즐겨찾기한 컨텐츠 타이틀
 	private String tag;		//즐겨찾기한 컨텐츠 장르태그
