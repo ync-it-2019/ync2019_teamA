@@ -36,6 +36,24 @@ import lombok.extern.log4j.Log4j;
 		    return mapper.getTotalCount(cri);
 		}
 		
+		@Override
+		public List<ContentVO> getFundList(Criteria cri) {
+			
+			return mapper.getFundList(cri);
+		}
+
+		@Override
+		public int getUploadTotal(Criteria cri) {
+			// TODO Auto-generated method stub
+			return mapper.getUploadTotalCount(cri);
+		}
+
+		@Override
+		public int getFundTotal(Criteria cri) {
+			// TODO Auto-generated method stub
+			return mapper.getFundTotalCount(cri);
+		}
+		
 
 		
 	}

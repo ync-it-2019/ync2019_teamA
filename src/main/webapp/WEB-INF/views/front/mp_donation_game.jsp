@@ -4,8 +4,12 @@ author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +55,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 						<!-- Grids Info -->
 						<div class="outer-w3-agile mt-3">
-							<h4>My page > 게임 라이브러리 > 후원 한 게임</h4>
+							<h4>My page > 게임 라이브러리 > 후원 한 게임</h4><br>
+							<h4>표시된 펀딩 컨텐츠 수 : <span>${fn:length(content)}</span></h4><br><!-- 카운팅 넣기 -->
 						</div>
 
 
@@ -61,100 +66,56 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 								<thead>
 									<tr>
-										<th>#</th>
+										<th>No.</th>
 										<th>게임 이름</th>
-										<th>게임 장르</th>
-										<th>후원 금액</th>
+										<th>게임 장르 및 태그</th>
+										<th>후원한 금액</th>
 									</tr>
 								</thead>
-
+								<tbody>
+								<c:forEach items="${content}" var="content" varStatus="status">
 								<tr class="active">
-									<th scope="row">1</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">Risk of rain2</td>
-
-									<td>얼리 억세스</td>
-									<td>5000원</td>
+									<th scope="row">${status.count}</th>
+									<td><a href="/front/fund_now?content_id=${content.content_id}">${content.title}</a></td>
+									<td>${content.tag}</td>
+									<td>${content.donation}</td>
 								</tr>
-
-								<tr>
-									<th scope="row">2</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">ori and the Blind
-										Forest</td>
-									<td>플랫 포머</td>
-									<td>10000원</td>
-								</tr>
-								<tr class="success">
-									<th scope="row">3</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">isaac</td>
-									<td>액션, 어드벤쳐</td>
-									<td>5000원</td>
-								</tr>
-								<tr>
-									<th scope="row">4</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">Stellar Fox</td>
-									<td>퍼즐</td>
-									<td>20000원</td>
-								</tr>
-								<tr class="info">
-									<th scope="row">5</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">After the end</td>
-									<td>퍼즐</td>
-									<td>15000원</td>
-								</tr>
-								<tr>
-									<th scope="row">6</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">DeadCells</td>
-									<td>액션</td>
-									<td>5000원</td>
-								</tr>
-								<tr class="warning">
-									<th scope="row">7</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">선리스 스키즈</td>
-									<td>어드벤쳐</td>
-									<td>5000원</td>
-								</tr>
-								<tr>
-									<th scope="row">8</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">텍스터 시스트</td>
-									<td>어드벤쳐</td>
-									<td>10000원</td>
-								</tr>
-								<tr class="danger">
-									<th scope="row">9</th>
-									<td style="cursor: pointer;"
-										onClick=" location.href='index.html' "
-										onMouseOver=" window.status = 'index.html' "
-										onMouseOut=" window.status = '' ">아일랜더즈</td>
-									<td>퍼즐</td>
-									<td>20000원</td>
-								</tr>
+								</c:forEach>
+								</tbody>
 
 							</table>
+							
+							
 						</div>
+						<!--  Pagination 시작 -->
+				
+				<div class='pull-right'>
+					<ul class="pagination">
+						
+						<!--페이지 번호 이벤트 처리 -->
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="<c:url value="${pageMaker.endPage +1}"/>">Next</a></li>
+						</c:if>
+					
+					</ul>
+					
+					<form id='actionForm' action="/mypage/mp_donation_game" method='get'>
+					<input type='hidden' name='pageNum' value= '${pageMaker.cri.pageNum }'>
+					<input type='hidden' name='amount' value= '${pageMaker.cri.amount }'>
+					</form>
+				</div>
+				
+				<!--  Pagination 끝 -->
 					</section>
 					<div class="container-fluid"></div>
 				</nav>
@@ -174,6 +135,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div>
 		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp" flush="false" />
 	</div>
-
+	
+<script type="text/javascript">
+  $(document).ready(function() {
+     var result = '<c:out value="${result}"/>';
+     checkModal(result);
+     history.replaceState({}, null, null);
+     function checkModal(result) {
+        if (result === '' || history.state) {
+           return;
+        }
+        
+        if (parseInt(result) > 0) {
+           $(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+        }
+        
+        $("#myModal").modal("show");
+     }
+     
+     $("#regBtn").on("click", function() {
+        self.location = "/mypage/mp_donation_game";
+     });
+     	
+     var actionForm = $("#actionForm");
+     
+     $(".paginate_button a").on("click", function(e) {
+        e.preventDefault();
+        console.log('click');
+        actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+        actionForm.submit();
+     });
+     
+     
+  });
+</script>
 </body>
 </html>

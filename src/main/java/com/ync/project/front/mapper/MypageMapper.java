@@ -20,8 +20,12 @@ public interface MypageMapper {
 	public List<ContentVO> getList(Criteria cri); //업로드 목록
 
 	public int getTotalCount(Criteria cri);	 //게시글  수
-
-
+	
+	public int getUploadTotalCount(Criteria cri);	 //업로드게시글  수
+	
+	public int getFundTotalCount(Criteria cri); //펀딩한 컨텐츠 수
+	
+	public List<ContentVO> getFundList(Criteria cri); //펀딩한 게임 목록
 
 	
 }

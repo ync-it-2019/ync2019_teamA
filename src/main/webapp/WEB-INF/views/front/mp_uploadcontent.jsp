@@ -109,7 +109,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					
 					</ul>
 					
-					<form id='actionForm' action="/mypage/mp_uploadcontent?userid=${content.userid}'" method='get'>
+					<form id='actionForm' action="/mypage/mp_uploadcontent" method='get'>
 					<input type='hidden' name='pageNum' value= '${pageMaker.cri.pageNum }'>
 					<input type='hidden' name='amount' value= '${pageMaker.cri.amount }'>
 					</form>
@@ -156,7 +156,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
      }
      
      $("#regBtn").on("click", function() {
-        self.location = "/mypage/mp_bookmark'";
+        self.location = "/mypage/mp_uploadcontent";
      });
      	
      var actionForm = $("#actionForm");
