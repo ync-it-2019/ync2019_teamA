@@ -119,7 +119,7 @@ public class FundingServiceImpl implements FundingService{
 
 
 	@Override
-	public ContentVO read(String content_id) {
+	public ContentVO read(Long content_id) {
 		// TODO Auto-generated method stub
 		return mapper.read(content_id);
 	}
