@@ -77,7 +77,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<c:forEach items="${content}" var="content" varStatus="status">
 								<tr class="active">
 									<th scope="row">${status.count}</th>
-									<td>${content.title}</td>
+									<td><a href="/game_content?content_id=${content.content_id}">${content.title}</a></td>
 									<td>${content.tag}</td>
 									<td>${content.hit}</td>
 								</tr>
