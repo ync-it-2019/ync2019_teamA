@@ -118,7 +118,6 @@
 	</insert>
 
 	<insert id="insertSelectKey">
-
 		<selectKey keyProperty="content_id" order="BEFORE"
 			resultType="long">
 			SELECT seq_content.nextval
@@ -148,7 +147,8 @@
 						VALUES(
 							#{title},
 							#{content_intro},
-							sysdate, sysdate, 
+							sysdate, 
+							sysdate, 
 							#{tag}, 
 							#{age_rate},
 							sysdate, 
