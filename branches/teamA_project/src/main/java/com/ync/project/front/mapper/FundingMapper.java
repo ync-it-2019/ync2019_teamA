@@ -2,10 +2,8 @@ package com.ync.project.front.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
+import com.ync.project.domain.BookmarkVO;
 import com.ync.project.domain.ContentVO;
-
 import com.ync.project.domain.Criteria2;
 import com.ync.project.domain.FundVO;
 
@@ -45,7 +43,7 @@ public interface FundingMapper {
 
 		public void insert(FundVO fund); //게시글 추가
 
-		public ContentVO read(Long content_id); //게시글 내용
+		public ContentVO read(String content_id); //게시글 내용
 		
 		public ContentVO read2(Long content_id); //게시글 불러오기
 		
