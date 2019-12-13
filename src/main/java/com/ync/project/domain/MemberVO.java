@@ -31,6 +31,8 @@ public class MemberVO {
 	private String auth;
 	
 	private List<AuthVO> authList;
+	
+	private String donation;		// 프론트에서 회원정보 확인시의 값
 //	private boolean enabled;
 //
 //	private Date regDate;
