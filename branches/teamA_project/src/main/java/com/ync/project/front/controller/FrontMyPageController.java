@@ -1,9 +1,14 @@
 package com.ync.project.front.controller;
 
+import java.security.Principal;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +23,7 @@ import com.ync.project.domain.MemberVO;
 import com.ync.project.domain.PageDTO;
 import com.ync.project.front.service.BookmarkService;
 import com.ync.project.front.service.MemberService;
+import com.ync.project.front.service.MypageService;
 import com.ync.project.security.domain.CustomUser;
 
 import lombok.extern.log4j.Log4j;
@@ -149,20 +155,45 @@ public class FrontMyPageController {
 	}
 	
 	 /**
-	  * @Method 설명 : 회원탈퇴 front/withdraw
+	  * @Method 설명 : 회원 탈퇴 기능을 구현하려 했으나 비밀번호 암호화 문제로 실패
 	  * @Method Name : mpWithdraw
 	  * @Date : 2019. 10. 28.
-	  * @작성자 : 허 민
+	  * @작성자 : 김정현
 	  * @return
 	  */
-	@GetMapping(value = "/withdraw")
-//	@PreAuthorize("hasRole('ROLE_USER')")
-	public String mpWithdraw() {
-
-		log.info("withdraw!");
-
-		return "front/mp_selfcheck";
+	@GetMapping(value = "/mp_withdraw")
+	@PreAuthorize("hasRole('ROLE_USER')")
+	public String getMpWithdraw(Principal principal) {
+		
+		log.info("get withdraw");
+		return "front/mp_withdraw";
 	}
+	
+	
+	@Autowired
+	BCryptPasswordEncoder passEncoder;
+	@PostMapping(value = "/mp_withdraw")
+	@PreAuthorize("hasRole('ROLE_USER')")
+	public String postMpWithdraw(HttpSession session, MemberVO vo, RedirectAttributes rttr) {
+		
+		
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String oldPass = member.getUserpw();
+		String newPass = vo.getUserpw();
+		
+		boolean passMatch = passEncoder.matches(newPass, oldPass);
+		
+		if(passMatch==false) {
+			rttr.addFlashAttribute("msg", false);
+			return "redirect:/front/mp_withdraw";
+		}
+		
+		mService.withdraw(vo);
+		
+		log.info("get withdraw");
+		return "redirect:/";
+	}
+	
 	
 	@PostMapping(value = "/mp_selfcheck")
 	public String mpWithdrawChecked(Model model, RedirectAttributes rttr, String userpw) {
@@ -174,7 +205,7 @@ public class FrontMyPageController {
 		
 		log.info("mp With draw checked User VO......" + userid + " and, " + userpw);
 		
-		return "front/mp_withdraw";
+		return "front/mp_selfcheck";
 	}
 	
 	 /**
@@ -191,6 +222,26 @@ public class FrontMyPageController {
 		log.info("selfcheck!");
 
 		return "front/mp_selfcheck";
+	}
+	
+	@Autowired
+	private MypageService mpService;
+	
+	@GetMapping(value = "/mp_uploadcontent")
+//	@PreAuthorize("hasRole('ROLE_USER')")
+	public String mpUploadcontent(Criteria cri, Model model) {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		CustomUser user = (CustomUser) authentication.getPrincipal();
+		
+		cri.setUserid(user.getUsername());
+
+		model.addAttribute("content", mpService.getList(cri));
+		
+		int total = mpService.getTotal(cri);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		return "front/mp_uploadcontent";
 	}
 	
 	
