@@ -115,7 +115,9 @@
 				NVL(ct.media3,0) AS media3,
 				NVL(ct.media4,0) AS media4,
 				ct.tag,
-				cl.reg_date
+				cl.reg_date,
+				ct.userid,
+				cl.change_log_id
 		from 	teamachangelog cl,
 			 	teamacreatercontent ct
 		where   change_log_id = #{change_log_id} 
