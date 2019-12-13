@@ -393,6 +393,7 @@ WHERE   	content_id = #{content_id}
 		WHERE content_id = #{content_id}	
 	</delete>
 	
+	
 	<select id="getListWithPaging"
 		resultType="com.ync.project.domain.ContentVO">
 		
@@ -555,9 +556,6 @@ WHERE   	content_id = #{content_id}
          GROUP BY c.content_id
    	]]>
 	</select>
-	
-	
-	
 	
 	
 	<select id="getTotalCount" resultType="int">

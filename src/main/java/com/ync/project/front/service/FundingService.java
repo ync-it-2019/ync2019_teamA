@@ -2,6 +2,7 @@ package com.ync.project.front.service;
 
 import java.util.List;
 
+import com.ync.project.domain.BookmarkVO;
 import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria2;
 import com.ync.project.domain.FundVO;
@@ -30,7 +31,8 @@ public interface FundingService {
 	public boolean modify(ContentVO content) throws Exception;
 	
 	//글 불러오기
-	public ContentVO read(Long content_id); //게시글 내용
+	public ContentVO read(String content_id); //게시글 내용
+	
 
 	// 글 삭제
 	public boolean remove(Long bno);
@@ -50,4 +52,5 @@ public interface FundingService {
 	public int getTotal(Criteria2 cri2);
 	
 	public ContentVO read2(Long content_id); //게시글 불러오기
+	
 }

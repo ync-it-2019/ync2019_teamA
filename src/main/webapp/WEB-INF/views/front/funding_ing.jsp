@@ -28,10 +28,22 @@
   <script>
     $(function() {
     	var start = '<fmt:formatNumber value="${(fundnow.money_temp / fundnow.don_attainment) * 100}" pattern="#" type="number" />';
-    	
+    	var check = 1;
     	if(start > 100){
     		  start = 100;
     		}
+    	for(var i = 0; i < 1; i++) {
+    		'<c:forEach items="${bmkcheck}" var="bmkcheck" varStatus="status">'
+    		'${bmkcheck.bookmark}';
+    		'${bmkcheck.userid}';
+    		if('${bmkcheck.bookmark}' == 1 && '${bmkcheck.userid}' == '<sec:authentication property = "principal.username"/>') {
+    			$("#bmkinsert").hide();
+    		}else {
+    			$("#bmkdelete").hide();
+    		}
+    		'</c:forEach>'
+    	}
+    	
       $('.count').each(function() {
         $(this).prop('Counter', 0).animate({
           Counter: $(this).text()
@@ -93,8 +105,34 @@
 			flush="false" />
 	</div>
 	<div class="funding">
-	<br><div><c:out value="${fundnow.title}"/><br></div><br>
-	<div class="funding__total">등록일자 : <fmt:formatDate value="${fundnow.reg_date}"/> 등록자 : <c:out value="${fundnow.userid}"/></div><br>
+	<br><div><c:out value="${fundnow.title}"/></div>
+	
+	<sec:authorize access="isAuthenticated()">
+	<div class="funding__payment">
+	<form role ="form" action = "/front/bmkInsert" method = "post">
+	<input type="hidden" name="content_id"
+                        value="${fundnow.content_id}" />
+    <input type="hidden" name="userid"
+                        value = "<sec:authentication property = "principal.username"/>" />                    
+	<input type="hidden" name="${_csrf.parameterName}"
+                        value="${_csrf.token}" /> 
+    <div style="float: left; width: 50%;"><button type="submit" class="funding__option" id = "bmkinsert"><em><h3>북마크 등록</h3></em></button></div>                   
+                        
+	</form>
+	<form role ="form" action = "/front/bmkDelete" method = "post">
+	<input type="hidden" name="content_id"
+                        value="${fundnow.content_id}" />
+    <input type="hidden" name="userid"
+                        value = "<sec:authentication property = "principal.username"/>" />                    
+	<input type="hidden" name="${_csrf.parameterName}"
+                        value="${_csrf.token}" /> 
+    <div style="float: left; width: 50%;"><button type="submit" class="funding__option" id = "bmkdelete"><em><h3>북마크 해제</h3></em></button></div>                     
+                        
+	</form>
+	</div>
+	</sec:authorize>
+	
+	<br><br><div class="funding__total">등록일자 : <fmt:formatDate value="${fundnow.reg_date}"/> 등록자 : <c:out value="${fundnow.userid}"/></div><br>
 	<div class="funding__total">태그 및 장르 : <c:out value="${fundnow.tag}"/></div>
 	<div class="funding__total"><br>목표 펀딩금액<br>￦<fmt:formatNumber value="${fundnow.don_attainment}" type="number" maxFractionDigits="3"/></div><br>
 	<div><img src="<c:out value="${fundnow.media2}"/>"></div><br>
@@ -130,6 +168,8 @@
     <div class="funding__amount" id="amount">후원할 금액<br> 0원</div>
   </div>
 	<form role ="form" action = "/front/fund_now" method = "post">
+	
+	
 	<input type="hidden" name='money_temp' value='<c:out value="0"/>' />   
   	<input type="hidden" name="userid"
                         value = "<sec:authentication property = "principal.username"/>" /> 
@@ -138,17 +178,16 @@
   	<input type="hidden" name="${_csrf.parameterName}"
                         value="${_csrf.token}" />  
   <div class="funding__payment">
-    <div style="float: left; width: 32%;"><button type="button" class="funding__option" id="btn1"><em>10,000</em></span></button></div>
-    <div style="float: left; width: 32%;"><button type="button" class="funding__option" id="btn2"><em>30,000</em></span></button></div>
-    <div style="float: left; width: 32%;"><button type="button" class="funding__option" id="btn3"><em>50,000</em></span></button></div>
+    <div style="float: left; width: 32%;"><button type="button" class="funding__option" id="btn1"><em>10,000</em></button></div>
+    <div style="float: left; width: 32%;"><button type="button" class="funding__option" id="btn2"><em>30,000</em></button></div>
+    <div style="float: left; width: 32%;"><button type="button" class="funding__option" id="btn3"><em>50,000</em></button></div>
     
     <div class="payment" ><button id="pay" value="0" type="submit" name="donation" data-oper='modify'>펀딩하기</button></div><br>
     
   </div>
   
                                                      
-  
-	</form>
+  </form>
 	</sec:authorize>
   <div class="social">
     <div class="social-share facebook">

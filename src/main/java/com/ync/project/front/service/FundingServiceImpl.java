@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ync.project.domain.BookmarkVO;
 import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria2;
 import com.ync.project.domain.FundVO;
@@ -118,7 +119,7 @@ public class FundingServiceImpl implements FundingService{
 
 
 	@Override
-	public ContentVO read(Long content_id) {
+	public ContentVO read(String content_id) {
 		// TODO Auto-generated method stub
 		return mapper.read(content_id);
 	}
