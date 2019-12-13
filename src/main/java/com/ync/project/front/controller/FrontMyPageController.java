@@ -188,8 +188,6 @@ public class FrontMyPageController {
 			return "redirect:/front/mp_withdraw";
 		}
 		
-		mService.withdraw(vo);
-		
 		log.info("get withdraw");
 		return "redirect:/";
 	}
