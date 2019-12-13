@@ -51,6 +51,9 @@ public class FrontGameContentController {
 		
 		log.info("gamecontent!");
 		model.addAttribute("board", service.read(content_id));
+		if(service.readHit(content_id) != 0) {
+			log.info("success raise hit");
+		}
 		return "front/game_content";
 	}
 

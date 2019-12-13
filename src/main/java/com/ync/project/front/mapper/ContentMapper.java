@@ -24,11 +24,13 @@ public interface ContentMapper {
 
 		public ContentVO read(String content_id); //게시글 내용
 
-		public int delete(Long content_id); //게시글 삭제
+		public int delete(String content_id); //게시글 삭제
 
 		public int update(ContentVO content); //게시글 수정
 
 		public int getTotalCount(Criteria cri); //게시글 전체 수
+		
+		public int readHit(String content_id);
 
 		// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 		public void updateReplyCnt(@Param("content_id") Long content_id, @Param("amount") int amount);

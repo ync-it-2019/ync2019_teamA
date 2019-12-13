@@ -49,7 +49,7 @@ public class ContentServiceImpl implements ContentService{
 	}
 
 	@Override
-	public boolean remove(Long content_id) {
+	public boolean remove(String content_id) {
 		// TODO Auto-generated method stub
 		log.info("remove........" + content_id);
 		
@@ -74,6 +74,13 @@ public class ContentServiceImpl implements ContentService{
 	public int getTotal(Criteria cri) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public int readHit(String content_id) {
+		// TODO Auto-generated method stub
+		log.info("Read content and raise Hit to ....."+content_id);
+		return mapper.readHit(content_id);
 	}
 
 	
