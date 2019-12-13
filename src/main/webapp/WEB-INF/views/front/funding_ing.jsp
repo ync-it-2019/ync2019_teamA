@@ -117,7 +117,7 @@
                         value = "<sec:authentication property = "principal.username"/>" />                    
 	<input type="hidden" name="${_csrf.parameterName}"
                         value="${_csrf.token}" /> 
-    <div style="float: left; width: 50%;"><button type="submit" class="funding__option" id = "bmkinsert"><em><h3>북마크 등록</h3></em></button></div>                   
+    <div style="float: left; width: 50%;"><button type="submit" class="funding__option" id = "bmkinsert"><em><h3>즐겨찾기 등록</h3></em></button></div>                   
                         
 	</form>
 	<form role ="form" action = "/front/bmkDelete" method = "post">
@@ -127,7 +127,7 @@
                         value = "<sec:authentication property = "principal.username"/>" />                    
 	<input type="hidden" name="${_csrf.parameterName}"
                         value="${_csrf.token}" /> 
-    <div style="float: left; width: 50%;"><button type="submit" class="funding__option" id = "bmkdelete"><em><h3>북마크 해제</h3></em></button></div>                     
+    <div style="float: left; width: 50%;"><button type="submit" class="funding__option" id = "bmkdelete"><em><h3>즐겨찾기 해제</h3></em></button></div>                     
                         
 	</form>
 	</div>
