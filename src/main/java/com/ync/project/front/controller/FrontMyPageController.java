@@ -22,6 +22,7 @@ import com.ync.project.domain.Criteria;
 import com.ync.project.domain.MemberVO;
 import com.ync.project.domain.PageDTO;
 import com.ync.project.front.service.BookmarkService;
+import com.ync.project.front.service.FundingService;
 import com.ync.project.front.service.MemberService;
 import com.ync.project.front.service.MypageService;
 import com.ync.project.security.domain.CustomUser;
@@ -47,6 +48,11 @@ public class FrontMyPageController {
 	@Autowired
 	private MemberService mService;
 	
+	@Autowired
+	private FundingService fService;
+	
+	@Autowired
+	private MypageService mpService;
 
 	/**
 	  * @Method 설명 : 북마크 한 컨텐츠 목록 front/mp_bookmark 호출
@@ -97,12 +103,22 @@ public class FrontMyPageController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
+	
+	
 	@GetMapping(value = "/mp_funding")
 //	@PreAuthorize("hasRole('ROLE_USER')")
-	public String mpFunding() {
+	public String mpFunding(Criteria cri, Model model) {
 
-		log.info("mpdonationgame!");
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		CustomUser user = (CustomUser) authentication.getPrincipal();
+		
+		cri.setUserid(user.getUsername());
 
+		model.addAttribute("content", fService.mpgetList(cri));
+		
+		int total = mpService.getTotal(cri);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		return "front/mp_funding";
 	}
 	
@@ -206,9 +222,7 @@ public class FrontMyPageController {
 
 		return "front/mp_selfcheck";
 	}
-	
-	@Autowired
-	private MypageService mpService;
+
 	
 	@GetMapping(value = "/mp_uploadcontent")
 	@PreAuthorize("isAuthenticated()")
@@ -253,9 +267,5 @@ public class FrontMyPageController {
 		
 		return "front/mp_donation_game";
 	}
-	
-	
-	
-	
 	
 }
