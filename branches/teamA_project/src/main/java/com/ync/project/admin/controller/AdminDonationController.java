@@ -1,16 +1,15 @@
 package com.ync.project.admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ync.project.admin.service.ADonationService;
-import com.ync.project.admin.service.AMemberService;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.PageDTO;
-import com.ync.project.front.service.ContentService;
 
 import lombok.extern.log4j.Log4j;
 /**
@@ -22,6 +21,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/admin/*")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class AdminDonationController {
 	@Autowired
 	private ADonationService dService;
@@ -35,7 +35,6 @@ public class AdminDonationController {
 	  * @return call jsp view
 	  */
 	@GetMapping(value = "/member_donation")
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void donation(Criteria cri, Model model) {
 		
 		int total = dService.getTotal(cri);
