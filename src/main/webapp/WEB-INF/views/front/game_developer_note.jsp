@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!DOCTYPE html>
 <html>
 
@@ -150,7 +152,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 
 					</div>
+				<sec:authentication property="principal" var="pinfo"/>
+				<sec:authorize access="isAuthenticated()">
+					<c:if test="${pinfo.username eq change_log_content.userid}">
+						<button data-oper='modify' class="btn btn-default" >Modify</button>
+					</c:if> 
+				</sec:authorize>
 				</div>
+				
+				
 				<div class="col-md-4 latest-news-agile-right-content">
 
 					<h3 class="side-t-w3l-agile">이전 <span>패치노트</span></h3>

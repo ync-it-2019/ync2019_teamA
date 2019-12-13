@@ -190,6 +190,8 @@
 				alert("사진 하나를 입력해주세요.");
 				$("input[id=media2]").focus();
 				return false;
+			}else{
+				alert("게임 입력이 완료되었습니다.");
 			}
 		}
 	</script>
