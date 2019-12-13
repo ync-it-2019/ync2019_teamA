@@ -1,16 +1,23 @@
 package com.ync.project.front.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ync.project.domain.ChangelogVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.domain.PageDTO;
 import com.ync.project.front.service.ChangelogService;
+import com.ync.project.util.UploadUtils;
 
 import lombok.extern.log4j.Log4j;
 
@@ -27,6 +34,9 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/*")
 public class FrontDevelNoteController {
+	
+	@Value("${globalConfig.uploadPath}")
+	private String uploadPath;
 	
 	@Autowired
 	private ChangelogService service;
@@ -68,6 +78,54 @@ public class FrontDevelNoteController {
 		model.addAttribute("patch_note_List", service.getpatch_note(change_log_id));
 		model.addAttribute("other_patch", service.getother_patch(change_log_id));
 		return "/front/game_developer_note";
+	}
+	
+	
+	@GetMapping("/game_changelog_writeform")
+	@PreAuthorize("isAuthenticated()")
+	public String game_changelog_Write(@RequestParam("userid") String userid,Model model) { 
+		log.info("등록 양식 가져오기........");
+		model.addAttribute("mygame_list", service.getMygame_list(userid));
+		return "front/game_changelog_writeform";
+	}
+	
+	@PostMapping(value = "/game_changelog_writeform")
+	@PreAuthorize("isAuthenticated()")
+	public String game_changelog_Write(MultipartFile[] uploadFile, ChangelogVO chlog, RedirectAttributes rttr) {
+		log.info("패치노트 등록하기........");
+		int index = 0;
+		for (MultipartFile multipartFile : uploadFile) {
+			// 실제로 upload된 file이 있을때만 upload 시킨다. 
+			if (multipartFile.getSize() > 0) {
+				switch (index) {
+				case 0:
+					chlog.setMedia1(UploadUtils.uploadFormPost(multipartFile,uploadPath));
+					break;
+				case 1:
+					chlog.setMedia2(UploadUtils.uploadFormPost(multipartFile,uploadPath));
+					break;
+				case 2:
+					chlog.setMedia3(UploadUtils.uploadFormPost(multipartFile,uploadPath));
+					break;
+				default:
+					chlog.setMedia4(UploadUtils.uploadFormPost(multipartFile,uploadPath));
+					break;
+				}
+				//list.add(UploadUtils.uploadFormPost(multipartFile));
+				index++;
+			}
+		}
+		log.warn(chlog.getMedia1());
+		log.warn(chlog.getMedia2());
+		log.warn(chlog.getMedia3());
+		log.warn(chlog.getMedia4());
+		log.warn(chlog.getPatch_log());
+		log.warn(chlog.getVersion());
+		log.warn(chlog.getGame_launch());
+		log.warn(chlog.getContent_id());
+		service.register(chlog);
+		rttr.addFlashAttribute("result", chlog.getChange_log_id());
+		return "redirect:/developer_note";
 	}
 	
 }
