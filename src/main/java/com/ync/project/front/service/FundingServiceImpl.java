@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria2;
+import com.ync.project.domain.FundVO;
 import com.ync.project.front.mapper.FundingMapper;
 
 import lombok.extern.log4j.Log4j;
@@ -26,24 +27,17 @@ public class FundingServiceImpl implements FundingService{
 	private FundingMapper mapper;
 	
 	@Override
-	public void register(ContentVO content) {
+	public void insert(FundVO fund) {
 		// TODO Auto-generated method stub
 		
-		log.info("register........" + content);
+		log.info("register........" + fund);
 		
-		mapper.insertSelectKey(content);
+		mapper.insert(fund);
 	}
 
-	@Override
-	public ContentVO get() {
-		// TODO Auto-generated method stub
-		log.info("get........" );
-		
-		return mapper.read();
-	}
 
 	@Override
-	public boolean modify(ContentVO content) {
+	public boolean modify (ContentVO content) throws Exception{
 		// TODO Auto-generated method stub
 		log.info("modify........" + content);
 		
@@ -53,7 +47,7 @@ public class FundingServiceImpl implements FundingService{
 	@Override
 	public boolean remove(Long content_id) {
 		// TODO Auto-generated method stub
-		log.info("remove........" + content_id);
+	                   	log.info("remove........" + content_id);
 		
 		return mapper.delete(content_id) == 1;
 	}
@@ -66,13 +60,6 @@ public class FundingServiceImpl implements FundingService{
 		return mapper.getList();
 	}
 
-	@Override
-	public List<ContentVO> getList1() {
-		// TODO Auto-generated method stub
-		
-		log.info("getList1.......");
-		return mapper.getList1();
-	}
  
 	@Override
 	public List<ContentVO> getListWithPaging() {
@@ -100,80 +87,46 @@ public class FundingServiceImpl implements FundingService{
 	      return mapper.getTotalCount(cri2);
 	   }
 
-	@Override
-	public ContentVO get1() {
-		// TODO Auto-generated method stub
-		log.info("get1........");
-		return mapper.read1();
-	}
-
-	@Override
-	public List<ContentVO> getList2() {
-		log.info("getgList2.......");
-		return mapper.getList2();
-	}
-
-	@Override
-	public ContentVO get2() {
-		// TODO Auto-generated method stub
-		log.info("get2........");
-		return mapper.read2();
-	}
-
-	@Override
-	public List<ContentVO> getList3() {
-		// TODO Auto-generated method stub
-		log.info("getgList3.......");
-		return mapper.getList3();
-	}
-
-	@Override
-	public List<ContentVO> getList4() {
-		// TODO Auto-generated method stub
-		log.info("getgList4.......");
-		return mapper.getList4();
-	}
-
-	@Override
-	public List<ContentVO> getList5() {
-		// TODO Auto-generated method stub
-		log.info("getgList5.......");
-		return mapper.getList5();
-	}
-
-	@Override
-	public List<ContentVO> getList6() {
-		// TODO Auto-generated method stub
-		log.info("getgList6.......");
-		return mapper.getList6();
-	}
-
-	@Override
-	public List<ContentVO> getList7() {
-		// TODO Auto-generated method stub
-		log.info("getgList7.......");
-		return mapper.getList7();
-	}
-
-	@Override
-	public List<ContentVO> getList8() {
-		// TODO Auto-generated method stub
-		log.info("getgList8.......");
-		return mapper.getList8();
-	}
-
-	@Override
-	public List<ContentVO> getList9() {
-		// TODO Auto-generated method stub
-		log.info("getgList9.......");
-		return mapper.getList9();
-	}
 
 	@Override
 	public List<ContentVO> getFundNow() {
 		// TODO Auto-generated method stub
 		log.info("getFundingNow.......");
 		return mapper.getFundNow();
+	}
+
+
+	@Override
+	public ContentVO get() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public ContentVO get1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public ContentVO get2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public ContentVO read(Long content_id) {
+		// TODO Auto-generated method stub
+		return mapper.read(content_id);
+	}
+	
+	@Override
+	public ContentVO read2(Long content_id) {
+		// TODO Auto-generated method stub
+		return mapper.read2(content_id);
 	}
 	
 }
