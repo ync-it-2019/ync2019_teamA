@@ -4,9 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ync.project.domain.ContentVO;
+import com.ync.project.domain.Criteria;
 import com.ync.project.domain.Criteria2;
+import com.ync.project.domain.FundVO;
 import com.ync.project.domain.PageDTO2;
 import com.ync.project.front.service.FundingService;
 
@@ -75,15 +83,31 @@ public class FrontFundController {
 	  * @작성자 : 허 민
 	  * @return
 	  */
-	@GetMapping(value = "/fundnow")
-	public String fundnow() {
+	@GetMapping(value = {"/fund_now", "/update"})
+	public String fundnow(@RequestParam("content_id") Long content_id, String userid, Model model) {
 
-		log.info("Funding!");
+		model.addAttribute("fundnow", service.read(content_id));
+		log.info("End Fund!");
 	
 		return "front/funding_ing";
 	}
-
-	 
 	
+	@PostMapping(value = "/fund_now")
+	public String fundgo(@RequestParam("content_id") Long content_id, FundVO fund) {
+
+		service.insert(fund);
+//		log.info("insert: " + fund);
+	
+		return "redirect:/front/fund_now?content_id=" + content_id;
+
+	}
+	 
+	@PostMapping(value = "/update")
+	public void fundgo2(ContentVO content) throws Exception {
+
+		service.modify(content);
+		
+		log.info("modify: " + content);
+	}
 	
 }
