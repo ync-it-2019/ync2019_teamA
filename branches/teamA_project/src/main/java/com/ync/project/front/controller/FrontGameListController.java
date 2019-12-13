@@ -89,7 +89,7 @@ public class FrontGameListController {
 	@GetMapping(value = "/game_list_all")
 	public String alllist(Criteria cri, Model model) {
 		
-		String genre = ""; 
+		String genre = "_all"; 
 		int total = gService.getTotal(cri);
 		model.addAttribute("genreContent", gService.getListWithPaging(cri));
 		
