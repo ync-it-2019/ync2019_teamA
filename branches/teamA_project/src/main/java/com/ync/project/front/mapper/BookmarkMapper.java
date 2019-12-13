@@ -30,4 +30,10 @@ public interface BookmarkMapper {
 	
 	
 	public int getTotalCount(Criteria cri);
+	
+	public void bmkInsert(BookmarkVO bmk); //북마크 추가
+	
+	public int bmkDelete(Long content_id); //북마크 삭제
+	
+	public List<BookmarkVO> bmkRead(String content_id);
 }
