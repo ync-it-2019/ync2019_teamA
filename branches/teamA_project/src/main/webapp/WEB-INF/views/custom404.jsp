@@ -37,7 +37,7 @@
 			</div>
 			<h2>404 - Page not found</h2>
 			<p>페이지를 찾을 수 없습니다.</p>
-			<a href="#">Go To Homepage</a>
+			<a href="/">Go To Homepage</a>
 		</div>
 	</div>
 

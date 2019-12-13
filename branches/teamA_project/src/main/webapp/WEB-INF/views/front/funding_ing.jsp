@@ -106,11 +106,12 @@
 			flush="false" />
 	</div>
 	<div class="funding">
+	<br><a href="/fund_main" style="float: left; width: 10%;"><h3>펀딩 메인</h3></a><h3 style="float: left; width: 10%;"> > ${fundnow.title}</h3>
 	<br><div><c:out value="${fundnow.title}"/></div>
 	
 	<sec:authorize access="isAuthenticated()">
 	<div class="funding__payment">
-	<form role ="form" action = "/front/bmkInsert" method = "post">
+	<form role ="form" action = "/bmkInsert" method = "post">
 	<input type="hidden" name="content_id"
                         value="${fundnow.content_id}" />
     <input type="hidden" name="userid"
@@ -120,7 +121,7 @@
     <div style="float: left; width: 50%;"><button type="submit" class="funding__option" id = "bmkinsert"><em><h3>즐겨찾기 등록</h3></em></button></div>                   
                         
 	</form>
-	<form role ="form" action = "/front/bmkDelete" method = "post">
+	<form role ="form" action = "/bmkDelete" method = "post">
 	<input type="hidden" name="content_id"
                         value="${fundnow.content_id}" />
     <input type="hidden" name="userid"
@@ -168,7 +169,7 @@
   <div class="funding">
     <div class="funding__amount" id="amount">후원할 금액<br> 0원</div>
   </div>
-	<form role ="form" action = "/front/fund_now" method = "post">
+	<form role ="form" action = "/fund_now" method = "post">
 	
 	
 	<input type="hidden" name='money_temp' value='<c:out value="0"/>' />   

@@ -28,7 +28,6 @@ import lombok.extern.log4j.Log4j;
   */
 @Controller
 @Log4j
-@RequestMapping("/front/*")
 public class FrontFundController {
 	@Autowired
 	private FundingService service;
@@ -96,7 +95,7 @@ public class FrontFundController {
 		service.insert(fund);
 //		log.info("insert: " + fund);
 	
-		return "redirect:/front/fund_now?content_id=" + content_id;
+		return "redirect:/fund_now?content_id=" + content_id;
 
 	}
 	 
@@ -115,7 +114,7 @@ public class FrontFundController {
 		
 		log.info("modify: " + bmk);
 		
-		return "redirect:/front/fund_now?content_id=" + content_id;
+		return "redirect:/fund_now?content_id=" + content_id;
 	}
 	
 	@PostMapping(value = "/bmkDelete")
@@ -125,7 +124,7 @@ public class FrontFundController {
 		
 		log.info("modify: " + content_id);
 		
-		return "redirect:/front/fund_now?content_id=" + content_id;
+		return "redirect:/fund_now?content_id=" + content_id;
 	}
 	
 }

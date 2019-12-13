@@ -50,6 +50,35 @@
 		]]>
 	</select>
 	
+	<select id="getFundList" resultType="com.ync.project.domain.ContentVO">
+	<![CDATA[
+		SELECT 	rownum rn,
+				title,
+				tag,
+				content_id,
+				donation
+		FROM 	(
+				SELECT /*+index(teamacreatercontent xpkteamacreatercontent */
+				 		rownum rn,
+						cc.title,
+						cc.tag,
+						done.content_id,
+						done.donation
+				FROM 	teamacreatercontent cc,
+						teamadonation done
+				WHERE   done.userid = #{userid}
+				AND		cc.content_id = done.content_id
+				AND	 	
+		]]>
+				<include refid="criteria"></include> 
+      
+		<![CDATA[    
+				rownum <= #{pageNum} * #{amount}
+      			)
+  			WHERE rn > (#{pageNum} -1) * #{amount}   
+		]]>
+	</select>
+	
 	<!-- <insert id="insertSelectKey">
 
 		<selectKey keyProperty="content_id" order="BEFORE"
@@ -76,6 +105,15 @@
 	WHERE	content_id = #{content_id} 
 	</select>
 
+	<select id="getUploadTotalCount" resultType="int">
+	 SELECT count(*) FROM teamacreatercontent
+	 WHERE 	userid = #{userid}
+	</select>
+	
+	<select id="getFundTotalCount" resultType="int">
+	 SELECT count(*) FROM teamadonation
+	 WHERE 	userid = #{userid}
+	</select>
 	
 	<select id="getTotalCount" resultType="int">
 	 SELECT count(*) FROM TEAMABOOKMARK
