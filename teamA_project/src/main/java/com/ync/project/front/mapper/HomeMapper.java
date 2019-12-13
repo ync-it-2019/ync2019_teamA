@@ -14,11 +14,11 @@ import com.ync.project.domain.Criteria;
   * @프로그램 설명 :  게시판 Mapper interface
   */
 public interface HomeMapper {
-		public List<ContentVO> getList(); //게시글 목록
+		public List<ContentVO> getlatestList(); //게시글 목록
 		
-		public List<ContentVO> getList1(); //게시글 목록
+		public List<ContentVO> getinviteList(); //게시글 목록
 		
-		public List<ContentVO> getList2(); //게시글 목록
+		public List<ContentVO> getrecommendList(); //게시글 목록
 
 		public List<ContentVO> getListWithPaging(Criteria cri); //게시글 페이징
 
@@ -26,11 +26,11 @@ public interface HomeMapper {
 
 		public Integer insertSelectKey(ContentVO content); //게시글 번호
 
-		public ContentVO read(); //게시글 내용
+		public ContentVO latestread(); //게시글 내용
 		
-		public ContentVO read1(); //게시글 내용
+		public ContentVO inviteread(); //게시글 내용
 		
-		public ContentVO read2(); //게시글 내용
+		public ContentVO recommendread(); //게시글 내용
 		
 		public int delete(Long content_id); //게시글 삭제
 

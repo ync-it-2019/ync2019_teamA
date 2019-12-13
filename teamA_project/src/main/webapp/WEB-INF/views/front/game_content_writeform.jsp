@@ -22,19 +22,18 @@
 		<div class="panel-body">
 			<div class="alert alert-info">제목과 내용을 입력해주세요.</div>
 			<form role="form" action="/game_content_writeform" 
-				method="post" enctype="multipart/form-data">
-				
+				method="post" enctype="multipart/form-data" name="writeform" onsubmit = "return check_onclick()">
 				<input type="hidden" name="media2" value="">
 				<input type="hidden" name="media3" value="">
 				<input type="hidden" name="media4" value="">
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 				<div class="form-group">
-					<label>제목</label> <input class="form-control" name='title'>
+					<label style="color:red">제목</label> <input class="form-control" name='title'>
 				</div>
 				
 				<div class="form-group">
-					<label>내용</label>
+					<label style="color:red">내용</label>
 					<textarea class="form-control" rows="6" name='content_intro'></textarea>
 				</div>
 				
@@ -46,7 +45,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label>나이제한</label>
+					<label style="color:red">나이제한</label>
                     <select name="age_rate" class="form-control" size="1">
 						<option value="1" selected>전체</option>
 						<option value="7" >7세 이상</option>
@@ -57,26 +56,26 @@
 				</div>
 				
 				<div class="form-group">
-					<label>태그(총 3개, 각 태그 사이에 / 입력)</label>
+					<label style="color:red">태그(총 3개, 각 태그 사이에 / 입력)</label>
 					<input class="form-control" name='tag' placeholder="example/예시/Action">
 				</div>
 				
 				<div class="form-group">
-					<label>유투브 주소</label>
+					<label style="color:red">유투브 주소</label>
 					<input class="form-control" name='media1' placeholder="'유튜브 url을 복사하여 붙여넣기'">
 				</div>
 				
 				<div class="form-group">
-					<label>출시 플랫폼</label>
+					<label style="color:red">출시 플랫폼</label>
 					<input class="form-control" name='platform' value="PC"><br>
 					
-					<label>지원 언어</label>
+					<label style="color:red">지원 언어</label>
 					<input class="form-control" name='languages' value="Korean"><br>
 					
 					<label>목표 후원금액</label>
 					<input class="form-control" name='don_attainment' maxlength=10 value="1000000"><br>
 					
-					<label>대표 장르ID</label>
+					<label style="color:red">대표 장르ID</label>
                     <select name="genre_id" class="form-control" size="1">
 						<option value="1" selected>액션</option>
 						<option value="2" >어드벤쳐</option>
@@ -93,7 +92,7 @@
 				<br>
 				<div class="form-group">
 					<div class="btn btn-default btn-file"> 게임실행 URL
-						<input class="form-control" name='game_launch' type='url'>
+						<input class="form-control" name='game_launch' type='url' value = "https://www.">
 					</div>
 				</div>
 				<br>
@@ -101,24 +100,22 @@
 				<div class="form-group">
 					<div class="btn btn-default btn-file">
 						<i class="fa fa-paperclip"></i>
-						<label>게임 이미지파일 1</label>
-						<input type="file" class="form-control" name='uploadFile'>
+						<label style="color:red">게임 이미지파일 1</label>
+						<input type="file" class="form-control" name='uploadFile' id="media2">
 					</div>
-
-					<div class="btn btn-default btn-file" style="margin-left:8em">
+					<div class="btn btn-default btn-file" style="margin-left:3em">
 						<i class="fa fa-paperclip"></i>
 						<label>게임 이미지파일 2</label>
 						<input type="file" class="form-control" name='uploadFile'>
 					</div>
-
-					<div class="btn btn-default btn-file" style="margin-left:8em">
+					<div class="btn btn-default btn-file" style="margin-left:3em">
 						<i class="fa fa-paperclip"></i>
 						<label>게임 이미지파일 3</label>
 						<input type="file" class="form-control" name='uploadFile'>
 					</div>
 				</div>
 				
-				<p class="help-block">Max. 32MB</p>
+				<div style="text-align:center"><p class="help-block">Max. 32MB</p></div>
 				<br>
 				<br>
 				<div style="text-align: center;">
@@ -144,7 +141,61 @@
 	</a>
 
 	<script src="/resources/js/jquery-1.11.1.min.js"></script>
-
+	<script>
+		function check_onclick(){
+			if($("input[name=title]").val() == ""){
+				alert("게임 제목을 입력해주세요.");
+				$("input[name=title]").focus();
+				return false;
+			}
+			
+			if($("textarea[name=content_intro]").val() == ""){
+				alert("게임 소개를 작성해주세요.");
+				$("textarea[name=content_intro]").focus();
+				return false;
+			}
+			if($("select[name=age_rate]").val() == ""){
+				alert("게임의 태그를 설정해 주세요");
+				$("input[name=age_rate]").focus();
+				return false;
+			}
+			if($("input[name=tag]").val() == ""){
+				alert("게임의 태그를 설정해 주세요");
+				$("input[name=tag]").focus();
+				return false;
+			}
+			if($("input[name=media1]").val() == ""){
+				alert("유투브 주소를 입력해 주세요.");
+				$("input[name=media1]").focus();
+				return false;
+			}
+			if($("input[name=platform]").val() == ""){
+				alert("지원하는 플랫폼을 적어주세요.");
+				$("input[name=platform]").focus();
+				return false;
+			}
+			if($("input[name=languages]").val() == ""){
+				alert("지원하는 언어를 입력해주세요.");
+				$("input[name=languages]").focus();
+				return false;
+			}
+			
+			if($("select[name=genre_id]").val() == ""){
+				alert("지원하는 언어를 입력해주세요.");
+				$("select[name=genre_id]").focus();
+				return false;
+			}
+			
+			if($("input[id=media2]").val() == ""){
+				alert("사진 하나를 입력해주세요.");
+				$("input[id=media2]").focus();
+				return false;
+			}else{
+				alert("게임 입력이 완료되었습니다.");
+			}
+		}
+	</script>
+	
 	<!-- Dropdown-Menu-JavaScript -->
 	<script>
 		$(document).ready(function() {

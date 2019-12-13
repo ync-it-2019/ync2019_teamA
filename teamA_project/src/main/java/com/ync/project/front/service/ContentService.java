@@ -23,7 +23,7 @@ public interface ContentService {
 		public boolean modify(ContentVO content);
 		
 		// 글 삭제
-		public boolean remove(Long bno);
+		public boolean remove(String content_id);
 		
 		// 전체 글 목록
 		public List<ContentVO> getList();
@@ -34,4 +34,6 @@ public interface ContentService {
 
 		//추가
 		 public int getTotal(Criteria cri);
+		 
+		public int readHit(String content_id);
 }

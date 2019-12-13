@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -37,28 +40,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!-- <p class="w3ls_head_para">Add short Description</p> -->
 			</div>
 			<div class="w3_mail_grids">
-				<form action="#" method="post">
+				<form action="/inquiry" method="post">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 						<span class="input input--ichiro">
-							<input class="input__field input__field--ichiro" type="text" id="input-25" placeholder=" " required="">
+							<input class="input__field input__field--ichiro" type="text" id="input-25" name="title" placeholder=" " required="">
 							<label class="input__label input__label--ichiro" for="input-25">
-								<span class="input__label-content input__label-content--ichiro">Your Name</span>
+								<span class="input__label-content input__label-content--ichiro"> 제목 </span>
 							</label>
 						</span>
 						<span class="input input--ichiro">
-							<input class="input__field input__field--ichiro" type="email" id="input-26" placeholder=" " required="">
+							<sec:authentication property="principal.username" var="userid" />
+							<input class="input__field input__field--ichiro" type="text" id="input-26" value="${userid }" name="userid" placeholder=" " readonly>
 							<label class="input__label input__label--ichiro" for="input-26">
-								<span class="input__label-content input__label-content--ichiro">Your Email</span>
-							</label>
-						</span>
-						<span class="input input--ichiro">
-							<input class="input__field input__field--ichiro" type="number" id="input-27" placeholder=" " required="">
-							<label class="input__label input__label--ichiro" for="input-27">
-								<span class="input__label-content input__label-content--ichiro">Your Phone Number</span>
+								<span class="input__label-content input__label-content--ichiro"> Email주소 </span>
 							</label>
 						</span>
 
 					<div class="col-md-12 w3_agile_mail_grid two">
-						<textarea name="Message" placeholder="Your Message" required=""></textarea>
+						<textarea name="content" placeholder="Your Message" required=""></textarea>
 						<input type="submit" value="Submit">
 					</div>
 					<div class="clearfix"> </div>

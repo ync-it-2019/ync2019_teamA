@@ -25,24 +25,35 @@ public class MemberMapperTests {
 //		MemberVO vo = mapper.read("tjrwnsdud2@naver.com");
 //	}
 //	
-	@Test
-	public void testInsert() { 
-		
-		MemberVO vo = new MemberVO();
-		vo.setUserid("hyeon@mail.com");
-		vo.setName("jeonghyeon");
-		vo.setBirth("960202");
-		vo.setPhone("01039290412");
-		vo.setUserpw("1234");
-		vo.setCreater_name("another");
-		vo.setBank_account(null);
-		vo.setDonation_accept("1");
-		vo.setLevels("1");
-		vo.setStatus("1");
-		vo.setSns(null);
-		vo.setOther_address(null);
-		
-		mapper.insert(vo);
-		log.info(vo);
-	}
+//	@Test
+//	public void testInsert() { 
+//		
+//		MemberVO vo = new MemberVO();
+//		vo.setUserid("hyeon@mail.com");
+//		vo.setName("jeonghyeon");
+//		vo.setBirth("960202");
+//		vo.setPhone("01039290412");
+//		vo.setUserpw("1234");
+//		vo.setCreater_name("another");
+//		vo.setBank_account(null);
+//		vo.setDonation_accept("1");
+//		vo.setLevels("1");
+//		vo.setStatus("1");
+//		vo.setSns(null);
+//		vo.setOther_address(null);
+//		
+//		mapper.insert(vo);
+//		log.info(vo);
+//	}
+	
+//	@Test
+//	public void testDelete() { 
+//		
+//		MemberVO member = new MemberVO();
+//		member.setUserid("test123@mail.com");
+//		
+//		
+//		mapper.delete(member);
+//
+//	}
 }

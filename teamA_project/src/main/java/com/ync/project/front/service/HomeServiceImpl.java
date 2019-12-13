@@ -35,11 +35,11 @@ public class HomeServiceImpl implements HomeService{
 	}
 
 	@Override
-	public ContentVO get() {
+	public ContentVO latest_first() {
 		// TODO Auto-generated method stub
 		log.info("get........" );
 		
-		return mapper.read();
+		return mapper.latestread();
 	}
 
 	@Override
@@ -59,11 +59,11 @@ public class HomeServiceImpl implements HomeService{
 	}
 
 	@Override
-	public List<ContentVO> getList() {
+	public List<ContentVO> latest_other() {
 		// TODO Auto-generated method stub
 		
 		log.info("getList.......");
-		return mapper.getList();
+		return mapper.getlatestList();
 	}
  
 	@Override
@@ -79,30 +79,30 @@ public class HomeServiceImpl implements HomeService{
 	}
 
 	@Override
-	public ContentVO get1() {
+	public ContentVO invite_first() {
 		// TODO Auto-generated method stub
 		log.info("get1........");
-		return mapper.read1();
+		return mapper.inviteread();
 	}
 
 	@Override
-	public List<ContentVO> getList1() {
+	public List<ContentVO> invite_other() {
 		log.info("getList1.......");
-		return mapper.getList1();
+		return mapper.getinviteList();
 	}
 
 	@Override
-	public ContentVO get2() {
+	public ContentVO recommend_first() {
 		// TODO Auto-generated method stub
 		log.info("get2........");
-		return mapper.read2();
+		return mapper.recommendread();
 	}
 
 	@Override
-	public List<ContentVO> getList2() {
+	public List<ContentVO> recommend_other() {
 		// TODO Auto-generated method stub
 		log.info("getList2.......");
-		return mapper.getList2();
+		return mapper.getrecommendList();
 	}
 	
 }

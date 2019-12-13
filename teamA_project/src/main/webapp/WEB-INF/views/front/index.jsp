@@ -60,11 +60,12 @@
 <style>
 	.admBtnPosition{display:inline-blokck; margin-left:4px;}
 	.regBtnPosition{display:inline-blokck; margin-left:4px;}
+	.chBtnPosition{display:inline-blokck; margin-left:4px;}
 	.logoutPosition{position:absolute; right:0px;}
 </style>
 </head>
 
-<body>
+<body style="display: block; ">
 	<!--/main-header-->
 	<!--/banner-section-->
 	<div id="demo-1"
@@ -84,7 +85,7 @@
 								<span class="icon-bar"></span>
 							</button>
 							<h1>
-								<a href="/front/index"><span>I</span>ndie <span>S</span>ponsor</a>
+								<a href="/"><span>I</span>ndie <span>S</span>ponsor</a>
 							</h1>
 						</div>
 						<!-- navbar-header -->
@@ -100,17 +101,12 @@
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/game_intro">게임 소식</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-4">
-												<ul class="multi-column-dropdown">
 													<li><a href="developer_note">개발 노트</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/front/notice">공지 사항</a></li>
+													<li><a href="/notice">공지 사항</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -126,12 +122,12 @@
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="fund/main">진행중인 펀딩</a></li>
+													<li><a href="fund_main">진행중인 펀딩</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="fund/end">종료된 펀딩</a></li>
+													<li><a href="fund_end">종료된 펀딩</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -147,24 +143,24 @@
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="content/">액션</a></li>
-													<li><a href="adventure.jsp">어드밴처</a></li>
-													<li><a href="strategy.jsp">전략</a></li>
-													<li><a href="rollplaying.jsp">롤 플레잉</a></li>
+													<li><a href="game_list?#all">전체 리스트</a></li>
+													<li><a href="game_list?#action">액션</a></li>
+													<li><a href="game_list?#adventure">어드밴처</a></li>
+													<li><a href="game_list?#roguelike">로그라이크</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="casual.jsp">캐쥬얼</a></li>
-													<li><a href="single.jsp">싱글플레이</a></li>
-													<li><a href="simul.jsp">시뮬레이션</a></li>
-													<li><a href="first.jsp">앞서 해보기</a></li>
+													<li><a href="game_list?#puzzle">퍼즐</a></li>
+													<li><a href="game_list?#rhythm">리듬</a></li>
+													<li><a href="game_list?#simulation">시뮬레이션</a></li>
+													<li><a href="game_list?#horror">호러</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="puzzle.jsp">퍼즐</a></li>
-													<li><a href="2d.jsp">2D</a></li>
+													<li><a href="game_list?#strategy">전략</a></li>
+													<li><a href="game_list?#casual">캐쥬얼</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -180,12 +176,12 @@
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="front/faq">FAQ</a></li>
+													<li><a href="faq">FAQ</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="front/inquiry">1:1 문의</a></li>
+													<li><a href="inquiry">1:1 문의</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -204,8 +200,9 @@
 							<!-- cd-header-buttons -->
 						</div>
 						<div id="cd-search" class="cd-search">
-							<form action="login.html" method="post">
-								<input name="Search" type="search" placeholder="Search...">
+							<form id="serachForm" action="game_list_all" method="get">
+								<input type='hidden' name='type' value='TWCG' />
+								<input name="keyword" type="search" placeholder="Search...">
 							</form>
 						</div>
 					</div>
@@ -243,12 +240,12 @@
 					<sec:authorize access="isAuthenticated()">
 						<sec:authentication property="principal.username" var="user_id" />
 						<li style="margin-left: 0em">
-							<a href="/"	class="login">${user_id}</a>
+							<a href="/mypage/mp_member_detail"	class="login">${user_id}</a>
 						</li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<li style="margin-left: 0em">
-							<a href="/front/mp_withdraw" class="login" style="margin-left: 0em">마이 페이지</a>
+							<a href="/mypage/mp_bookmark" class="login" style="margin-left: 0em">마이 페이지</a>
 						</li>
 					</sec:authorize>
 					
@@ -261,6 +258,9 @@
 					<sec:authorize access="hasRole('ROLE_CREATER') or hasRole('ROLE_ADMIN')">
 						<li class="regBtnPosition">
 							<a href="#" id="regBtn" class="login reg" data-target="#myModal5">게임등록</a>
+						</li>
+						<li class="chBtnPosition">
+							<a href="#" id="chBtn" class="login reg" data-target="#myModal5">패치노트 등록</a>
 						</li>
 					</sec:authorize>
 					<!-- //Admin Menus -->
@@ -284,8 +284,8 @@
 				<div id="horizontalTab">
 					<ul class="resp-tabs-list">
 						<li>최신순</li>
-						<li>평점순</li>
-						<li>다운로드순</li>
+						<li>조회순</li>
+						<li>추천순</li>
 					</ul>
 					<div class="resp-tabs-container">
 						<div class="tab1">
@@ -293,26 +293,26 @@
 								<div class="w3_agile_featured_movies">
 									<div class="col-md-5 video_agile_player">
 										<div class="video-grid-single-page-agileits">
-											<div data-video="${content.media1}" id="video">
-												<img src="${content.media2}" alt="" class="img-responsive"
+											<div data-video="${latest_first.media1}" id="video">
+												<img src="${latest_first.media2}" alt="" class="img-responsive"
 													style="width: 500px; height: 290px" />
 											</div>
 										</div>
-										<div class="player-text">
+										<div class="player-text" style="height:300px">
 											<p class="fexi_header">
-												<c:out value="${content.title}" />
+												<c:out value="${latest_first.title}" />
 											</p>
 											<p class="fexi_header_para">
-												<span class="conjuring_w3">게임설명<label>:</label></span>${content.content_intro}
+												<span>게임설명 </span><label>:</label>${latest_first.content_intro}
 											</p>
 											<p class="fexi_header_para">
-												<span>출시날짜<label>:</label></span>2019년 3월 29일
+												<span>출시날짜 </span> <label>:</label><fmt:formatDate pattern="yyyy-MM-dd" value="${latest_first.reg_date}" />
 											</p>
 											<p class="fexi_header_para">
-												<span>TAG<label>:</label>
-												</span> <a href="genre.jsp">${content.tag}</a> | <a
-													href="genre.jsp">${content.media3}</a> | <a
-													href="genre.jsp">${content.media4} </a>
+												<span>TAG</span><label>:</label>|
+												<c:forTokens var ="item" items = "${latest_first.tag}" delims = "/">
+													<a>${item} | </a>
+												</c:forTokens>
 											</p>
 											<p class="fexi_header_para fexi_header_para1">
 												<span>별점<label>:</label></span> <a href="#"><i
@@ -325,18 +325,18 @@
 										</div>
 									</div>
 									<div class="col-md-7 wthree_agile-movies_list">
-										<c:forEach items="${content1}" var="content1">
+										<c:forEach items="${latest_other}" var="content1">
 											<div class="w3l-movie-gride-agile">
-												<a href="single.jsp" class="hvr-sweep-to-bottom"><img
+												<a href="game_content?content_id=${content1.content_id}" class="hvr-sweep-to-bottom"><img
 													src="${content1.media2}" title="자세히" class="img-responsive"
 													alt=" " style="width: 300px; height: 200px">
 													<div class="w3l-action-icon">
 														<i class="fa fa-play-circle-o" aria-hidden="true"></i>
 													</div> </a>
-												<div class="mid-1 agileits_w3layouts_mid_1_home">
-													<div class="w3l-movie-text">
+												<div class="mid-1 agileits_w3layouts_mid_1_home" >
+													<div class="w3l-movie-text"  style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width:120px; height: 25px">
 														<h6>
-															<a href="single.jsp"><c:out value="${content1.title}" /></a>
+															<a href="game_content?content_id=${content1.content_id}"><c:out value="${content1.title}" /></a>
 														</h6>
 													</div>
 													<div class="mid-2 agile_mid_2_home">
@@ -379,26 +379,26 @@
 								<div class="w3_agile_featured_movies">
 									<div class="col-md-5 video_agile_player">
 										<div class="video-grid-single-page-agileits">
-											<div data-video="${content2.media1}" id="video1">
-												<img src="${content2.media2}" alt="" class="img-responsive"
+											<div data-video="${invite_first.media1}" id="video1">
+												<img src="${invite_first.media2}" alt="" class="img-responsive"
 													style="width: 500px; height: 290px" />
 											</div>
 										</div>
-										<div class="player-text">
+										<div class="player-text"  style="height:300px">
 											<p class="fexi_header">
-												<c:out value="${content2.title}" />
+												<c:out value="${invite_first.title}" />
 											</p>
 											<p class="fexi_header_para">
-												<span class="conjuring_w3">게임설명<label>:</label></span>${content2.content_intro}
+												<span class="conjuring_w3">게임설명<label>:</label></span>${invite_first.content_intro}
 											</p>
 											<p class="fexi_header_para">
-												<span>출시날짜<label>:</label></span>2019년 3월 29일
+												<span>출시날짜<label>:</label></span><fmt:formatDate pattern="yyyy-MM-dd" value="${invite_first.reg_date}" />
 											</p>
 											<p class="fexi_header_para">
-												<span>TAG<label>:</label>
-												</span> <a href="genre.jsp">${content2.tag}</a> | <a
-													href="genre.jsp">${content2.media3}</a> | <a
-													href="genre.jsp">${content2.media4} </a>
+												<span>TAG</span><label>:</label>|
+												<c:forTokens var ="item" items = "${invite_first.tag}" delims = "/">
+													<a>${item} | </a>
+												</c:forTokens>
 											</p>
 											<p class="fexi_header_para fexi_header_para1">
 												<span>별점<label>:</label></span> <a href="#"><i
@@ -411,18 +411,18 @@
 										</div>
 									</div>
 									<div class="col-md-7 wthree_agile-movies_list">
-										<c:forEach items="${content3}" var="content3">
+										<c:forEach items="${invite_other}" var="content3">
 											<div class="w3l-movie-gride-agile">
-												<a href="single.jsp" class="hvr-sweep-to-bottom"><img
+												<a href="game_content?content_id=${content3.content_id}" class="hvr-sweep-to-bottom"><img
 													src="${content3.media2}" title="자세히" class="img-responsive"
 													alt=" " style="width: 300px; height: 200px">
 													<div class="w3l-action-icon">
 														<i class="fa fa-play-circle-o" aria-hidden="true"></i>
 													</div> </a>
 												<div class="mid-1 agileits_w3layouts_mid_1_home">
-													<div class="w3l-movie-text">
+													<div class="w3l-movie-text" style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width:120px; height: 25px">
 														<h6>
-															<a href="single.jsp"><c:out value="${content3.title}" /></a>
+															<a href="game_content?content_id=${content3.content_id}"><c:out value="${content3.title}" /></a>
 														</h6>
 													</div>
 													<div class="mid-2 agile_mid_2_home">
@@ -464,26 +464,26 @@
 								<div class="w3_agile_featured_movies">
 									<div class="col-md-5 video_agile_player">
 										<div class="video-grid-single-page-agileits">
-											<div data-video="${content4.media1}" id="video2">
-												<img src="${content4.media2}" alt="" class="img-responsive"
+											<div data-video="${recommend_first.media1}" id="video2">
+												<img src="${recommend_first.media2}" alt="" class="img-responsive"
 													style="width: 500px; height: 290px" />
 											</div>
 										</div>
-										<div class="player-text">
+										<div class="player-text"  style="height:300px">
 											<p class="fexi_header">
-												<c:out value="${content4.title}" />
+												<c:out value="${recommend_first.title}" />
 											</p>
 											<p class="fexi_header_para">
-												<span class="conjuring_w3">게임설명<label>:</label></span>${content4.content_intro}
+												<span class="conjuring_w3">게임설명<label>:</label></span>${recommend_first.content_intro}
 											</p>
 											<p class="fexi_header_para">
-												<span>출시날짜<label>:</label></span>2019년 3월 29일
+												<span>출시날짜<label>:</label></span><fmt:formatDate pattern="yyyy-MM-dd" value="${recommend_first.reg_date}" />
 											</p>
 											<p class="fexi_header_para">
-												<span>TAG<label>:</label>
-												</span> <a href="genre.jsp">${content4.tag}</a> | <a
-													href="genre.jsp">${content4.media3}</a> | <a
-													href="genre.jsp">${content4.media4} </a>
+												<span>TAG</span><label>:</label>|
+												<c:forTokens var ="item" items = "${recommend_first.tag}" delims = "/">
+													<a>${item} | </a>
+												</c:forTokens>
 											</p>
 											<p class="fexi_header_para fexi_header_para1">
 												<span>별점<label>:</label></span> <a href="#"><i
@@ -496,18 +496,18 @@
 										</div>
 									</div>
 									<div class="col-md-7 wthree_agile-movies_list">
-										<c:forEach items="${content5}" var="content5">
+										<c:forEach items="${recommend_other}" var="content5">
 											<div class="w3l-movie-gride-agile">
-												<a href="single.jsp" class="hvr-sweep-to-bottom"><img
+												<a href="game_content?content_id=${content5.content_id}" class="hvr-sweep-to-bottom"><img
 													src="${content5.media2}" title="자세히" class="img-responsive"
 													alt=" " style="width: 300px; height: 200px">
 													<div class="w3l-action-icon">
 														<i class="fa fa-play-circle-o" aria-hidden="true"></i>
 													</div> </a>
 												<div class="mid-1 agileits_w3layouts_mid_1_home">
-													<div class="w3l-movie-text">
+													<div class="w3l-movie-text" style="overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width:120px; height: 25px">
 														<h6>
-															<a href="single.jsp"><c:out value="${content5.title}" /></a>
+															<a href="game_content?content_id=${content5.content_id}"><c:out value="${content5.title}" /></a>
 														</h6>
 													</div>
 													<div class="mid-2 agile_mid_2_home">
@@ -561,97 +561,81 @@
 	<script src="/resources/js/jquery-1.11.1.min.js"></script>
 	<!-- Dropdown-Menu-JavaScript -->
 	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-							var result = '<c:out value="${result}"/>';
+		$(document).ready(function() {
+			var result = '<c:out value="${result}"/>';
+			checkModal(result);
+			history.replaceState({}, null, null);
+			function checkModal(result) {
+				if (result === '' || history.state) {
+					return;
+				}
+				if (parseInt(result) > 0) {
+					$(".modal-body").html(
+						"게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+				}
+				$("#myModal").modal("show");
+			}
 
-							checkModal(result);
-
-							history.replaceState({}, null, null);
-
-							function checkModal(result) {
-
-								if (result === '' || history.state) {
-									return;
-								}
-
-								if (parseInt(result) > 0) {
-									$(".modal-body").html(
-											"게시글 " + parseInt(result)
-													+ " 번이 등록되었습니다.");
-								}
-
-								$("#myModal").modal("show");
-							}
-
-							$("#regBtn").on("click", function() {
-								self.location = "/game_content_writeform";
-							});
+			$("#regBtn").on("click", function() {
+				self.location = "/game_content_writeform";
+			});
+			var userid = '<c:out value="${user_id}"/>';
+			$("#chBtn").on("click", function() {
+				self.location = "/game_changelog_writeform?userid=" + userid;
+			});
 							
-							$("#admBtn").on("click", function() {
-								self.location = "/admin/admin_main";
-							});
+			$("#admBtn").on("click", function() {
+				self.location = "/admin/admin_main";
+			});
 
-							var actionForm = $("#actionForm");
+			var actionForm = $("#actionForm");
 
-							// 페이지 번호 클릭 이벤트
-							$(".paginate_button a").on(
-									"click",
-									function(e) {
-										e.preventDefault();
-										// console.log('click');
-										actionForm
-												.find("input[name='pageNum']")
-												.val($(this).attr("href"));
-										actionForm.submit();
-									});
+			// 페이지 번호 클릭 이벤트
+			$(".paginate_button a").on("click",	function(e) {
+				e.preventDefault();
+				// console.log('click');
+				actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+				actionForm.submit();
+			});
 
-							// 상세보기 클릭 이벤트
-							$(".move")
-									.on(
-											"click",
-											function(e) {
-												e.preventDefault();
-												actionForm
-														.append("<input type='hidden' name='bno' value='"
-																+ $(this).attr(
-																		"href")
-																+ "'>");
-												actionForm.attr("action",
-														"/board/get");
-												actionForm.submit();
-											});
+			// 상세보기 클릭 이벤트
+			$(".move").on("click", function(e) {
+				e.preventDefault();
+				actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href") + "'>");
+				actionForm.attr("action","/board/get");
+				actionForm.submit();
+			});
 
-							// 검색 버튼 클릭 이벤트
-							var searchForm = $("#searchForm");
-							$("#searchForm button")
-									.on(
-											"click",
-											function(e) {
-												if (!searchForm.find(
-														"option:selected")
-														.val()) {
-													alert("검색종류를 선택하세요");
-													return false;
-												}
+			// --검색 버튼 클릭 이벤트--
+      		$(".page-item a").on("click", function(e) {
+         		e.preventDefault();
+         		if(keyword != ''){
+            		actionForm.append("<input type='hidden' name='type' value='<c:out value="${pageMaker.cri.type}"/>' />");
+            		actionForm.append("<input type='hidden' name='keyword' value='"+ keyword+"' />");
+         		}
+         		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+         		actionForm.submit();
+			});
+			
+			var searchForm = $("#searchForm");
+			
+			$("#searchForm ").on("click", function(e) {
+				/* if (!searchForm.find("option:selected").val()) {
+					alert("검색종류를 선택하세요");
+					return false;
+				} */
+				
+				if (!searchForm.find("input[name='keyword']").val()) {
+					alert("키워드를 입력하세요");
+					return false;
+				}
 
-												if (!searchForm
-														.find(
-																"input[name='keyword']")
-														.val()) {
-													alert("키워드를 입력하세요");
-													return false;
-												}
-
-												searchForm
-														.find(
-																"input[name='pageNum']")
-														.val("1");
-												e.preventDefault();
-												searchForm.submit();
-											});
-						});
+				searchForm.find("input[name='pageNum']").val("1");
+				e.preventDefault();
+				searchForm.submit();
+			});
+			// --//검색 버튼 클릭 이벤트--
+		});
 	</script>
 	<!-- //Dropdown-Menu-JavaScript -->
 
@@ -688,14 +672,14 @@
 
 	<div id="small-dialog1" class="mfp-hide">
 		<!-- 추천게임 플레이 영상 -->
-		<iframe src="https://www.youtube.com/embed/zEmm1dpLCx0"
-			frameborder="0"
-			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-			allowfullscreen></iframe>
+		<iframe width="900" height="400" src="https://www.youtube.com/embed/-SAx52L8iHs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
 		<div id="small-dialog2" class="mfp-hide">
-			<iframe
-				src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
+			<iframe	src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0">
+			</iframe>
 		</div>
+	</div>
+	
 		<script>
 			$(document).ready(
 					function() {
@@ -737,8 +721,7 @@
 				});
 			});
 		</script>
-		<link href="/resources/css/owl.carousel.css" rel="stylesheet"
-			type="text/css" media="all">
+		<link href="/resources/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all"/>
 		<script src="/resources/js/owl.carousel.js"></script>
 		<script>
 			$(document).ready(function() {

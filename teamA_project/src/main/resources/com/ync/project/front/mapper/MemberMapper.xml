@@ -8,6 +8,7 @@
 		<result property="userpw" column="userpw"/>
 		<result property="name" column="name"/>
 		<result property="birth" column="birth"/>
+		<result property="phone" column="phone"/>
 		<result property="creater_name" column="creater_name"/>
 		<result property="bank_account" column="bank_account"/>
 		<result property="donation_accept" column="donation_accept"/>
@@ -15,8 +16,8 @@
 		<result property="status" column="status"/>
 		<result property="sns" column="sns"/>
 		<result property="other_address" column="other_address"/>
-		<collection property="authList" resultMap="authMap">
-		</collection> 
+		<result property="donation" column="donation"/>
+		<collection property="authList" resultMap="authMap"></collection> 
 	</resultMap>
 	
 	<resultMap type="com.ync.project.domain.AuthVO" id="authMap">
@@ -51,13 +52,48 @@
 		]]>
 	</select>
 	
+	<select id="read_member" resultMap="memberMap">
+	<![CDATA[
+	SELECT	userid,
+			name,
+			birth,
+			phone,
+			userpw,
+			creater_name,
+			bank_account,
+			donation_accept,
+			levels,
+			status,
+			sns,
+			other_address,
+			auth,
+			d.getdonations donation
+	FROM	teamamember m,
+			(SELECT	SUM(donation) getdonations
+			FROM	teamadonation
+			WHERE	userid = #{userid}
+			) d
+	WHERE	userid = #{userid} 
+		]]>
+	</select>
+	
+	
+	<select id="checkUser" resultMap="memberMap">
+	<![CDATA[
+		SELECT	COUNT(*) AS status
+		FROM	teamamember
+		WHERE	userid = #{userid}
+		AND		userpw = #{userpw} 
+		]]>
+	</select>
+	
 	<insert id="insert">
 		<![CDATA[
 			INSERT	INTO	teamamember(
 								userid,
 								name,
 								birth,
-								phone,
+								hone,
 								userpw
 							)
 							VALUES(
@@ -79,6 +115,29 @@
 					bank_account = #{bank_account},
 					sns = #{sns},
 					other_address = #{other_address}
+			WHERE	userid = #{userid}
+		]]>
+	</update>
+	
+	<update id="request_creator">
+		<![CDATA[
+			UPDATE	teamamember
+			SET		creater_name = #{creater_name},
+					sns = #{sns},
+					bank_account = #{bank_account},
+					levels = 'C',
+					status = '2'			
+			WHERE	userid = #{userid}
+		]]>
+	</update>
+	
+	<update id="member_modify">
+		<![CDATA[
+			UPDATE	teamamember
+			SET		phone = #{phone},
+					other_address = #{other_address},
+					sns = #{sns},
+					bank_account = #{bank_account}
 			WHERE	userid = #{userid}
 		]]>
 	</update>

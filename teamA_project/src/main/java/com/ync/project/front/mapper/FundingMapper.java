@@ -2,11 +2,11 @@ package com.ync.project.front.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
+import com.ync.project.domain.BookmarkVO;
 import com.ync.project.domain.ContentVO;
-
+import com.ync.project.domain.Criteria;
 import com.ync.project.domain.Criteria2;
+import com.ync.project.domain.FundVO;
 
 
  /**
@@ -16,6 +16,8 @@ import com.ync.project.domain.Criteria2;
   * @프로그램 설명 : 펀딩 목록 페이지 Mapper interface
   */
 public interface FundingMapper {
+		public List<ContentVO> mpgetList(Criteria cri); //게시글 목록
+	
 		public List<ContentVO> getList(); //게시글 목록
 	
 		public List<ContentVO> getList1(); //게시글 목록
@@ -42,23 +44,17 @@ public interface FundingMapper {
 		
 		public List<ContentVO> getListEndFund(); // 종료 펀딩
 
-		public void insert(ContentVO content); //게시글 추가
+		public void insert(FundVO fund); //게시글 추가
 
-		public Integer insertSelectKey(ContentVO content); //게시글 번호
-
-		public ContentVO read(); //게시글 내용
+		public ContentVO read(Long content_id); //게시글 내용
 		
-		public ContentVO read1(); //게시글 내용
-		
-		public ContentVO read2(); //게시글 내용
+		public ContentVO read2(Long content_id); //게시글 불러오기
 		
 		public int delete(Long content_id); //게시글 삭제
 
-		public int update(ContentVO content); //게시글 수정
+		public int update(ContentVO content) throws Exception; //게시글 수정
 
 		public int getTotalCount(Criteria2 cri2); //게시글 전체 수
 
-		// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
-		public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 	}
 

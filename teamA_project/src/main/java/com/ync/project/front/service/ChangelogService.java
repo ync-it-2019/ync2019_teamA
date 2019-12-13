@@ -34,10 +34,15 @@ public interface ChangelogService {
 		//추가
 		 public int getTotal(Criteria cri);
 
-		 
+		//게임 댓글
 		public ChangelogVO getchangelog_comment(Long change_log_id);
-
+		
+		//패치노트 글 가져오기
 		public List<ChangelogVO> getpatch_note(Long change_log_id);
-
+		
+		//현재 게임을 제외한 패치노트 글 가져오기
 		public List<ChangelogVO> getother_patch(Long change_log_id);
+		
+		//현재 게임을 제외한 패치노트 글 가져오기
+		public List<ChangelogVO> getMygame_list(String userid);
 }

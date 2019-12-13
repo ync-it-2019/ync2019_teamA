@@ -36,6 +36,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="/resources/css/font-awesome.css" rel="stylesheet">
 <script type="text/javascript"
 	src="/resources/js/modernizr-2.6.2.min.js"></script>
+<script type="text/javascript"
+	src="/resources/imgslide.js"></script>
 <!--/web-fonts-->
 <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700'
 	rel='stylesheet' type='text/css'>
@@ -54,102 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=Neucha'
 	rel='stylesheet' type='text/css'>
 </head>
-<style>
-* {
-	box-sizing: border-box;
-}
 
-body {
-	font-family: Verdana, sans-serif;
-}
-
-.mySlides {
-	display: none;
-}
-
-img {
-	vertical-align: middle;
-}
-
-/* Slideshow container */
-.slideshow-container {
-	max-width: 1000px;
-	position: relative;
-	margin: auto;
-}
-
-/* Caption text */
-.text {
-	color: #f2f2f2;
-	font-size: 15px;
-	padding: 8px 12px;
-	position: absolute;
-	bottom: 8px;
-	width: 100%;
-	text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-	color: #f2f2f2;
-	font-size: 12px;
-	padding: 8px 12px;
-	position: absolute;
-	top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-	height: 15px;
-	width: 15px;
-	margin: 0 2px;
-	background-color: #bbb;
-	border-radius: 50%;
-	display: inline-block;
-	transition: background-color 0.6s ease;
-}
-
-.active {
-	background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-	-webkit-animation-name: fade;
-	-webkit-animation-duration: 1.5s;
-	animation-name: fade;
-	animation-duration: 1.5s;
-}
-
-@
--webkit-keyframes fade {
-	from {opacity: .4
-}
-
-to {
-	opacity: 1
-}
-
-}
-@
-keyframes fade {
-	from {opacity: .4
-}
-
-to {
-	opacity: 1
-}
-
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-	.text {
-		font-size: 11px
-	}
-}
-</style>
-<!-- slideshow style 태그 -->
 
 <body>
 	<!--/main-header-->
@@ -163,97 +70,144 @@ to {
 	<div class="w3_content_agilleinfo_inner">
 		<div class="agile_featured_movies">
 			<div class="inner-agile-w3l-part-head">
-				<h3 class="w3l-inner-h-title">Risk of Rain2</h3>
-				<p class="w3ls_head_para">HOPOO GAMES</p>
+				<h3 class="w3l-inner-h-title">${board.title}</h3>			
 			</div>
 			<div class="latest-news-agile-info">
 
 
 				<!-- 슬라이드 쇼-->
-				
+					<div class="response">
+					<h4>트레일러 영상</h4>
+					<hr>
 					<div class="single video_agile_player">
-						<div data-video="IeLNqCrCtWs" id="video">
-							<img src="/resources/img/risk_main.jpg" alt=""
-								class="img-responsive">
+						<div data-video="${board.media1}" id="video">
+							<img src="${board.media2}"  class="img-responsive"  style="width:100%; height:500px">
 						</div>
 					</div>
-					<div style="text-align: center">
-						<h4>Risk Of Rain 2 – Early Access Launch Trailer</h4>
-						&nbsp;
 					</div>
-					<div class="single-agile-shar-buttons">
-
-
-						<!-- Place this tag where you want the +1 button to render. -->
-						<div class="g-plusone" data-size="medium"></div>
-
-						<!-- Place this tag after the last +1 button tag. -->
-						<!-- <script type="text/javascript">
-																  (function() {
-																	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-																	po.src = 'https://apis.google.com/js/platform.js';
-																	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-																  })();
-																</script> -->
-					</div>
-					<div class="slideshow-container" style="text-align: center">
+					<br><br><br>
 					
-						<div class="mySlides fade">
-							<img src="/resources/img/risk1.jpg" width="1000px"/>
-						</div>
-
-						<div class="mySlides fade">
-
-							<img src="/resources/img/risk2.jpg" width="1000px"/>
-						</div>
-
-						<div class="mySlides fade">
-
-							<img src="/resources/img/risk3.jpg" width="1000px"/>
-						</div>
-
-						<div class="mySlides fade">
-
-							<img src="/resources/img/risk4.jpg" width="1000px"/>
-						</div>
-
-
 					
+					<div class="response">
+					<h4>Image</h4>
+					
+					<c:if test="${not empty board.media2}">
+						<div class="slideshow-container">
+							
+							<div class="mySlides fade">
+							   <img src="${board.media2}" style="width:100%; height:500px" >
+							</div>
+							<c:if test="${not empty board.media3}">
+							<div class="mySlides fade">
+							  <img src="${board.media3}" style="width:100%; height:500px">
+							</div>
+							</c:if>
+							<c:if test="${not empty board.media4}">
+							<div class="mySlides fade">
+							  <img src="${board.media4}" style="width:100%; height:500px">
+							</div>	
+							</c:if>					
+						</div>
+					</c:if>
+						<br>
+						
+						<c:if test="${not empty board.media2}">
+						<div style="text-align:center">
+						  <span class="dot"></span> 
+						  <c:if test="${not empty board.media3}">
+						 	 <span class="dot"></span> 
+						  </c:if>
+						  <c:if test="${not empty board.media4}">
+						  	<span class="dot"></span> 
+						  </c:if>
+						</div>
+						</c:if>
 				</div>
-					<br>
-					<div style="text-align: center">
-						<span class="dot"></span> <span class="dot"></span> 
-						<span class="dot"></span> <span class="dot"></span> 
-					</div>
-					</div>
-					<div class="admin-text">
-
-						<h5>상세 내용</h5>
+			
+					
+						
+						
+						
+						
+						<script>
+						var slideIndex = 0;
+						showSlides();
+						
+						function showSlides() {
+						  var i;
+						  var slides = document.getElementsByClassName("mySlides");
+						  var dots = document.getElementsByClassName("dot");
+						  for (i = 0; i < slides.length; i++) {
+						    slides[i].style.display = "none";  
+						  }
+						  slideIndex++;
+						  if (slideIndex > slides.length) {slideIndex = 1}    
+						  for (i = 0; i < dots.length; i++) {
+						    dots[i].className = dots[i].className.replace(" active", "");
+						  }
+						  slides[slideIndex-1].style.display = "block";  
+						  dots[slideIndex-1].className += " active";
+						  setTimeout(showSlides, 2000); // Change image every 2 seconds
+						}
+						</script>
+					
+					<div class="response">
+					<h4>상세 내용</h4>
+					<hr>
+					
+					<div class="admin-text">		
+					
 						<div class="admin-text-left">
-							<a href="#"><img src="/resources/img/risk4.jpg" width="250px"></a>
+							<a href="#"><img src="${board.media2}" width="500px;" height="150px" ></a>
+							창작자 이름  <br /><div>${board.creater_name}</div>
 						</div>
 						<div class="admin-text-right">
-							<p>고전 멀티플레이 로그류 게임인 Risk of Rain이 추가 차원과 도전적인 액션을 더해 돌아왔습니다.
-								혼자 플레이하거나 최대 네 명까지 친구들과 팀을 이루어 몰려드는 몬스터와 싸우고, 새로운 전리품을 잠금 해제하며
-								행성을 탈출하는 방법을 찾아내세요.</p>
+							 ${board.content_intro}<br />
+						<hr>							 		 
 						</div>
+						<div class="admin-text-right">
+							 플랫폼 : ${board.platform}<br />				
+						</div>					
 						<br />
-
-
-
+						<div class="admin-text-right">					
+							 지원 언어 : ${board.languages}	
+							</div>					
+						<br />
+						<div class="admin-text-right">					
+							 이용 연령 : ${board.age_rate}
+							</div>					
+						<br />
+						<div class="admin-text-right">					
+							 태그  : ${board.tag}
+							</div>					
+						<br />
+						<div class="admin-text-right">					
+							 장르  : ${board.genre_name}
+							</div>					
+						<br />
+					
 						<div class="clearfix"></div>
 					</div>
-
-
+					</div>
+					
 					<div class="response">
-						<h4>Comments</h4>
-						<hr>
-
-						
-
+					<h4>Launch</h4>
+					<hr>
+					
+					<div class="admin-text">
+					<h5>실행 경로  :  <a href="${board.game_launch}">${board.game_launch}</a>	</h5>				
+					</div>
+					<br />
 						<div class="clearfix"></div>
+					</div>
+				
 					
 				</div>
+		</div>
+	</div>
+	<div class="response">
+	<h4>Comments</h4>
+	<hr>
 <!-- 댓글 출력 부분 -->
 <div class='row'>
 
@@ -291,7 +245,7 @@ to {
    <!-- ./ end row -->
 </div>
 <!-- 댓글 출력 부분 -->
-				
+</div>	
 				<!-- 댓글 Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
    aria-labelledby="myModalLabel" aria-hidden="true">
@@ -333,11 +287,8 @@ to {
 <!-- /댓글 modal -->
 
 
-			</div>
-		</div>
-
 		<!-- ./ end row -->
-	</div>
+
 	<!-- 댓글 출력 부분 -->
 	<!--//content-inner-section-->
 	<!--/footer-bottom-->
@@ -348,7 +299,7 @@ to {
 	<a href="#home" id="toTop" class="scroll" style="display: block;">
 		<span id="toTopHover" style="opacity: 1;"> </span>
 	</a>
-	
+
 	<!-- 댓글 출력 script -->
 	<script type="text/javascript" src="/resources/js/reply.js?v=1"></script>
 	
@@ -727,9 +678,7 @@ width: 'auto',
 fit: true
 });
 });
-</script>
-	<link href="/resources/css/owl.carousel.css" rel="stylesheet"
-		type="text/css" media="all">
+</script>	
 	<script src="/resources/js/owl.carousel.js"></script>
 	<script>
 	$(document).ready(function() {
@@ -778,29 +727,7 @@ fit: true
 
 	<!--end-smooth-scrolling-->
 	<script src="/resources/js/bootstrap.js"></script>
-	<!-- 슬라이드 쇼를 위한  함수 -->
-	<script>
-				var slideIndex = 0;
-				showSlides();
-
-				function showSlides() {
-					var i;
-					var slides = document.getElementsByClassName("mySlides");
-					var dots = document.getElementsByClassName("dot");
-					for (i = 0; i < slides.length; i++) {
-						slides[i].style.display = "none";
-					}
-					slideIndex++;
-					if (slideIndex > slides.length) {slideIndex = 1}
-					for (i = 0; i < dots.length; i++) {
-						dots[i].className = dots[i].className.replace(" active", "");
-					}
-					slides[slideIndex-1].style.display = "block";
-					dots[slideIndex-1].className += " active";
-					setTimeout(showSlides, 2000); // Change image every 2 seconds
-				}
-	</script>
-	<!-- 슬라이드 쇼를 위한  함수 -->
 	
+
 </body>
 </html>

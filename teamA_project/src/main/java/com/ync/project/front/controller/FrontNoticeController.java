@@ -21,62 +21,27 @@ import lombok.extern.log4j.Log4j;
   */
 @Controller
 @Log4j
-@RequestMapping("/front/*")
+@RequestMapping("/*")
 public class FrontNoticeController {
 	@Autowired
 	private NoticeService service;
+	
 	 /**
 	  * @Method 설명 :
-	  * @Method Name : notice
+	  * @Method Name : notice_list
 	  * @Date : 2019. 10. 28.
 	  * @작성자 : 석준영
 	  * @return 공지사항 컨트롤러 생성
 	  */
-	
 	@GetMapping("/notice")
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public void list(Criteria cri, Model model) {
-		
-//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
-
+	public String notice_list(Criteria cri, Model model) {
 		int total = service.getTotal(cri);
 		
 		log.info("list:11111 " + cri);
 		log.info("total:1111 " + total);
 		model.addAttribute("list", service.getListWithPaging(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
-	
-	}
-	
-	
-	 /**
-	  * @Method 설명 : 빠른 답변 front/faq 호출
-	  * @Method Name : faq
-	  * @Date : 2019. 10. 21.
-	  * @작성자 : 김길재
-	  * @return
-	  */
-	@GetMapping(value = "/faq")
-	public String faq() {
 
-		log.info("faq!");
-	
-		return "front/faq";
-	}
-	
-
-	 /**
-	  * @Method 설명 : 1대1문의 front/inquiry 호출
-	  * @Method Name : inquiry
-	  * @Date : 2019. 10. 28.
-	  * @작성자 : 허 민
-	  * @return
-	  */
-	@GetMapping(value = "/inquiry")
-	public String inquiry() {
-
-		log.info("inquiry!");
-	
-		return "front/inquiry";
+		return "front/notice";
 	}
 }

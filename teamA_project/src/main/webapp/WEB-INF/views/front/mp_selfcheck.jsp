@@ -60,16 +60,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="outer-w3-agile mt-3"
 							data-example-id="contextual-table">
 							<div style="">
-								<table class="table">
-									<thead>
+								<form method="post" action="mp_selfcheck" >
+									<table class="table">
 										<tr>
 											<th class="text-nowrap" scope="row">비밀번호 확인</th>
-											<th colspan="5" width="50%"><input type="text" name=""
-												value=""></th>
+											<th colspan="5" width="50%">
+												<input type="password" name="userpw" value="">
+											</th>
 										</tr>
-								</table>
-								<button type="submit" class="btn btn-primary">Submit</button>
-								<button type="reset" class="btn btn-default">Reset</button>
+									</table>
+									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="reset" class="btn btn-default">Reset</button>
+								</form>
 							</div>
 						</div>
 					</section>

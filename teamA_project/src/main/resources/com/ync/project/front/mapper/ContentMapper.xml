@@ -2,6 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ync.project.front.mapper.ContentMapper">
 
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	
 	<select id="getList"
 		resultType="com.ync.project.domain.ContentVO">
 	<![CDATA[
@@ -98,7 +118,6 @@
 	</insert>
 
 	<insert id="insertSelectKey">
-
 		<selectKey keyProperty="content_id" order="BEFORE"
 			resultType="long">
 			SELECT seq_content.nextval
@@ -128,7 +147,8 @@
 						VALUES(
 							#{title},
 							#{content_intro},
-							sysdate, sysdate, 
+							sysdate, 
+							sysdate, 
 							#{tag}, 
 							#{age_rate},
 							sysdate, 
@@ -148,12 +168,33 @@
 	</insert>
 
 
-	<select id="read" resultType="com.ync.project.domain.ContentVO">
-		SELECT *
-		FROM teamacreatercontent
-		WHERE content_id = #{content_id}
+	<select id="read" resultType="com.ync.project.domain.ContentVO">	
+		
+		SELECT  tc.TITLE,
+				tc.CONTENT_ID,
+				tc.AGE_RATE,
+				tc.LANGUAGES,
+				tc.MEDIA1,
+				tc.MEDIA2,
+				tc.MEDIA3,
+				tc.MEDIA4,
+				tc.CONTENT_INTRO,
+				tc.GAME_LAUNCH,
+				tc.TAG,
+				tc.PLATFORM,
+				gr.genre_name,		
+				tm.creater_name
+		FROM    teamacreatercontent tc, teamamember tm, teamagenre gr
+		WHERE 	content_id = #{content_id}
+		AND   	tc.userid = tm.userid
+		AND     tc.genre_id = gr.genre_id
 	</select>
 
+	<update id="readHit">
+		UPDATE	teamacreatercontent
+		SET		hit = hit + 1
+		WHERE	content_id = #{content_id}
+	</update>
 
 	<delete id="delete">
 		DELETE teamacreatercontent

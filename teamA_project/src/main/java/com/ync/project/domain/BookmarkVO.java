@@ -21,12 +21,4 @@ public class BookmarkVO {
 	private String title;		//즐겨찾기한 컨텐츠 타이틀
 	private String tag;		//즐겨찾기한 컨텐츠 장르태그
 	
-	public String getListLinked() {
-		
-		String str;
-		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
-			.queryParam("pageNum", this.userid);
-			
-		return builder.toUriString();
-	}
 }

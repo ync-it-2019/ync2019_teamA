@@ -26,61 +26,61 @@ public class GameListServiceTests {
 		service.getList().forEach(content -> log.info(content));
 	}
 	
-	@Test
-	public void testGetListAction() {
-		
-		service.getList1().forEach(content -> log.info(content));
-
-	}
-	
-	@Test
-	public void testGetListAdventure() {
-		
-		service.getList2().forEach(content -> log.info(content));
-
-	}
-	
-	@Test
-	public void testGetListRogueLike() {
-		
-		service.getList3().forEach(content -> log.info(content));
-	}
-	
-	@Test
-	public void testGetListPuzzle() {
-		
-		service.getList4().forEach(content -> log.info(content));
-	}
-	
-	@Test
-	public void testGetListRhythm() {
-		
-		service.getList5().forEach(content -> log.info(content));
-	}
-	
-	@Test
-	public void testGetListHorror() {
-		
-		service.getList6().forEach(content -> log.info(content));
-
-	}
-	
-	@Test
-	public void testGetListSimulation() {
-		
-		service.getList7().forEach(content -> log.info(content));
-	}
-	
-	@Test
-	public void testGetListCasual() {
-		
-		service.getList8().forEach(content -> log.info(content));
-	}
-	
-	@Test
-	public void testGetListStrategy() {
-		
-		service.getList9().forEach(content -> log.info(content));
-	}
+//	@Test
+//	public void testGetListAction() {
+//		
+//		service.getList1().forEach(content -> log.info(content));
+//
+//	}
+//	
+//	@Test
+//	public void testGetListAdventure() {
+//		
+//		service.getList2().forEach(content -> log.info(content));
+//
+//	}
+//	
+//	@Test
+//	public void testGetListRogueLike() {
+//		
+//		service.getList3().forEach(content -> log.info(content));
+//	}
+//	
+//	@Test
+//	public void testGetListPuzzle() {
+//		
+//		service.getList4().forEach(content -> log.info(content));
+//	}
+//	
+//	@Test
+//	public void testGetListRhythm() {
+//		
+//		service.getList5().forEach(content -> log.info(content));
+//	}
+//	
+//	@Test
+//	public void testGetListHorror() {
+//		
+//		service.getList6().forEach(content -> log.info(content));
+//
+//	}
+//	
+//	@Test
+//	public void testGetListSimulation() {
+//		
+//		service.getList7().forEach(content -> log.info(content));
+//	}
+//	
+//	@Test
+//	public void testGetListCasual() {
+//		
+//		service.getList8().forEach(content -> log.info(content));
+//	}
+//	
+//	@Test
+//	public void testGetListStrategy() {
+//		
+//		service.getList9().forEach(content -> log.info(content));
+//	}
 
 }

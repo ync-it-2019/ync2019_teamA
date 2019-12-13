@@ -22,6 +22,18 @@ public interface MemberService {
 	
 	//비밀번호 찾기
 	public void findPassword(MemberVO member);
+
+
+	public boolean request_creator(MemberVO r_creator);
 	
-	
+	//회원정보 가져오기
+	public MemberVO get(String userid);
+
+	//비밀번호 확인
+	public MemberVO checkPassword(MemberVO member);
+
+	public MemberVO read_member(String string);
+
+	public boolean member_modify(MemberVO userid);
+
 }

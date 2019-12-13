@@ -25,4 +25,11 @@ public interface BookmarkService {
 		public BookmarkPageDTO getListWithPaging(Criteria cri, String userid);
 		
 		public int getTotal(Criteria cri);
+		
+		public void bmkInsert(BookmarkVO bmk); //북마크 추가
+		
+		public boolean bmkDelete(Long content_id); //북마크 삭제
+		
+		//글 불러오기
+		public List<BookmarkVO> bmkRead(Long content_id); //게시글 내용
 }

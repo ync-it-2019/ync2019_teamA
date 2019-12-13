@@ -150,8 +150,27 @@ public class AMemberServiceImpl implements AMemberService {
 	public int revoke(String userid) {
 		log.info("revoke....");
 		return mapper.revoke(userid);
+	}
+
+	@Override
+	public List<MemberVO> getListWithPagingWithCreater_request(Criteria cri) {
+		log.info("get List with criteria : " + cri);
+		return mapper.getListWithPagingWithCreater_request(cri);
 	};
 	
+	public boolean creater_accept(String userid) {
+
+		log.info("modify......" + userid);
+
+		return mapper.creater_accept(userid) == 1;
+	};
+	
+	public boolean creater_cancle(String userid) {
+
+		log.info("modify......" + userid);
+
+		return mapper.creater_cancle(userid) == 1;
+	};
 	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
 //	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 }
