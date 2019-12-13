@@ -125,24 +125,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						<li>
 							<div class="col-sm-4">
 								<ul class="multi-column-dropdown">
-									<li><a href="game_list?#all">전체 리스트</a></li>
-									<li><a href="game_list?#action">액션</a></li>
-									<li><a href="game_list?#adventure">어드밴처</a></li>
-									<li><a href="game_list?#roguelike">로그라이크</a></li>
+									<li><a href="/game_list?#all">전체 리스트</a></li>
+									<li><a href="/game_list?#action">액션</a></li>
+									<li><a href="/game_list?#adventure">어드밴처</a></li>
+									<li><a href="/game_list?#roguelike">로그라이크</a></li>
 								</ul>
 							</div>
 							<div class="col-sm-4">
 								<ul class="multi-column-dropdown">
-									<li><a href="game_list?#puzzle">퍼즐</a></li>
-									<li><a href="game_list?#rhythm">리듬</a></li>
-									<li><a href="game_list?#simulation">시뮬레이션</a></li>
-									<li><a href="game_list?#horror">호러</a></li>
+									<li><a href="/game_list?#puzzle">퍼즐</a></li>
+									<li><a href="/game_list?#rhythm">리듬</a></li>
+									<li><a href="/game_list?#simulation">시뮬레이션</a></li>
+									<li><a href="/game_list?#horror">호러</a></li>
 								</ul>
 							</div>
 							<div class="col-sm-4">
 								<ul class="multi-column-dropdown">
-									<li><a href="game_list?#strategy">전략</a></li>
-									<li><a href="game_list?#casual">캐쥬얼</a></li>
+									<li><a href="/game_list?#strategy">전략</a></li>
+									<li><a href="/game_list?#casual">캐쥬얼</a></li>
 								</ul>
 							</div>
 							<div class="clearfix"></div>

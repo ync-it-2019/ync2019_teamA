@@ -34,36 +34,46 @@ public interface GameListService {
 	// 전체 글 목록
 	public List<ContentVO> getList();
 
-	// 전체 글 목록
-	public List<ContentVO> getList1();
+	// 어드벤쳐 장르 목록
+	public List<ContentVO> getListWithPageByAdventure(Criteria cri);
+	
+	// 액션 장르 목록
+	public List<ContentVO> Act(Criteria cri);
 
-	// 전체 글 목록
-	public List<ContentVO> getList2();
+	// 로그라이크 장르 목록
+	public List<ContentVO> getListWithPageByRoguelike(Criteria cri);
 
-	// 전체 글 목록
-	public List<ContentVO> getList3();
+	// 퍼즐 장르 목록
+	public List<ContentVO> getListWithPageByPuzzle(Criteria cri);
 
-	// 전체 글 목록
-	public List<ContentVO> getList4();
+	// 리듬 장르 목록
+	public List<ContentVO> getListWithPageByRhythm(Criteria cri);
 
-	// 전체 글 목록
-	public List<ContentVO> getList5();
+	// 호러 장르 목록
+	public List<ContentVO> getListWithPageByHorror(Criteria cri);
 
-	// 전체 글 목록
-	public List<ContentVO> getList6();
+	// 시뮬레이션 장르 목록
+	public List<ContentVO> getListWithPageBySimulation(Criteria cri);
 
-	// 전체 글 목록
-	public List<ContentVO> getList7();
+	// 캐쥬얼 장르 목록
+	public List<ContentVO> getListWithPageByCasual(Criteria cri);
 
-	// 전체 글 목록
-	public List<ContentVO> getList8();
-
-	// 전체 글 목록
-	public List<ContentVO> getList9();
+	// 전략 장르 목록
+	public List<ContentVO> getListWithPageByStrategy(Criteria cri);
 
 	// 글 목록 페이징
 	public List<ContentVO> getListWithPaging(Criteria cri);
 
 	// 추가
 	public int getTotal(Criteria cri);
+
+	public int getactTotal(Criteria cri);
+	public int getadvTotal(Criteria cri);
+	public int getrogTotal(Criteria cri);
+	public int getpuzTotal(Criteria cri);
+	public int getrhyTotal(Criteria cri);
+	public int gethorTotal(Criteria cri);
+	public int getsimTotal(Criteria cri);
+	public int getcasTotal(Criteria cri);
+	public int getstrTotal(Criteria cri);
 }

@@ -55,13 +55,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<li role="presentation"><a href="#casual" 		role="tab" id="h-tab" data-toggle="tab" aria-controls="h">캐주얼</a></li>
 					<li role="presentation"><a href="#strategy" 	role="tab" id="i-tab" data-toggle="tab" aria-controls="i">전략</a></li>
 				</ul>
-				
+				<script src="/resources/js/bootstrap.js"></script>
 				<div id="myTabContent" class="tab-content">
 					<div role="tabpanel" class="tab-pane fade in active" id="all" aria-labelledby="all-tab">
 						<div class="agile-news-table">
 							<div class="w3ls-news-result">
 								<!-- 카운팅 넣기 -->
-								<h4>Search Results : <span>${fn:length(content)}</span></h4>
+								<h4>Search Results : <span>${total }</span></h4>
 							</div>
 							<table id="table-breakpoint">
 								<thead>
@@ -75,11 +75,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${content}" var="content" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content.content_id}'">
+									<c:forEach items="${allContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
 											<td>${status.count}</td>
 											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content.content_id}">
+												<a href="game_content?content_id=${content.content_id}">
 													<img src="${content.media2}" alt="" />
 													${content.title}
 												</a>
@@ -92,50 +92,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</c:forEach>
 								</tbody>
 							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_all"> 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
 						</div>
 					</div>
 					
 					<div role="tabpanel" class="tab-pane fade" id="action" aria-labelledby="a-tab">
 						<div class="agile-news-table">
 							<div class="w3ls-news-result">
-								<h4>Search Results : <span>${fn:length(content1)}</span></h4>
-							</div>
-							<table id="table-breakpoint1">
-								<thead>
-									<tr>
-										<th>순위</th>
-										<th>제목</th>
-										<th>게임연령등급</th>
-										<th>지원플랫폼</th>
-										<th>장르</th>
-										<th>조회수</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${content1}" var="content1" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content1.content_id}'">
-											<td>${status.count}</td>
-											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content1.content_id}">
-													<img src="${content1.media2}" alt="" />
-													${content1.title}
-												</a>
-											</td>
-											<td class="w3-list-info">${content1.age_rate}</td>
-											<td>${content1.platform}</td>
-											<td>${content1.genre_name}</td>
-											<td>${content1.hit}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					
-					<div role="tabpanel" class="tab-pane fade" id="adventure" aria-labelledby="b-tab">
-						<div class="agile-news-table">
-							<div class="w3ls-news-result">
-								<h4>Search Results : <span>${fn:length(content2)}</span></h4>
+								<h4>Search Results : <span>${acttotal }</span></h4>
 							</div>
 							<table id="table-breakpoint2">
 								<thead>
@@ -149,30 +119,81 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${content2}" var="content2" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content2.content_id}'">
+									<c:forEach items="${actContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
 											<td>${status.count}</td>
 											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content2.content_id}">
-													<img src="${content2.media2}" alt="" />
-													${content2.title}
+												<a href="game_content?content_id=${content.content_id}">
+													<img src="${content.media2}" alt="" />
+													${content.title}
 												</a>
 											</td>
-											<td class="w3-list-info">${content2.age_rate}</td>
-											<td>${content2.platform}</td>
-											<td>${content2.genre_name}</td>
-											<td>${content2.hit}</td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_name}</td>
+											<td>${content.hit}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_action">액션 장르 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
 						</div>
 					</div>
 					
+					<div role="tabpanel" class="tab-pane fade" id="adventure" aria-labelledby="b-tab">
+						<div class="agile-news-table">
+							<div class="w3ls-news-result">
+								<h4>Search Results : <span>${advtotal }</span></h4>
+							</div>
+							<table id="table-breakpoint2">
+								<thead>
+									<tr>
+										<th>순위</th>
+										<th>제목</th>
+										<th>게임연령등급</th>
+										<th>지원플랫폼</th>
+										<th>장르</th>
+										<th>조회수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${advContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
+											<td>${status.count}</td>
+											<td class="w3-list-img">
+												<a href="game_content?content_id=${content.content_id}">
+													<img src="${content.media2}" alt="" />
+													${content.title}
+												</a>
+											</td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_name}</td>
+											<td>${content.hit}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_adventure">어드벤쳐 장르 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
+						</div>
+					</div>
+	
 					<div role="tabpanel" class="tab-pane fade" id="roguelike" aria-labelledby="c-tab">
 						<div class="agile-news-table">
 							<div class="w3ls-news-result">
-								<h4>Search Results : <span>${fn:length(content3)}</span></h4>
+								<h4>Search Results : <span>${rogtotal}</span></h4>
 							</div>
 							<table id="table-breakpoint3">
 								<thead>
@@ -186,30 +207,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${content3}" var="content3" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content3.content_id}'">
+									<c:forEach items="${rogContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
 											<td>${status.count}</td>
 											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content3.content_id}">
-													<img src="${content3.media2}" alt="" />
-													${content3.title}
+												<a href="game_content?content_id=${content.content_id}">
+													<img src="${content.media2}" alt="" />
+													${content.title}
 												</a>
 											</td>
-											<td class="w3-list-info">${content3.age_rate}</td>
-											<td>${content3.platform}</td>
-											<td>${content3.genre_name}</td>
-											<td>${content3.hit}</td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_name}</td>
+											<td>${content.hit}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_roguelike">로그라이크 장르 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
 						</div>
 					</div>
 					
 					<div role="tabpanel" class="tab-pane fade" id="puzzle" aria-labelledby="d-tab">
 						<div class="agile-news-table">
 							<div class="w3ls-news-result">
-								<h4>Search Results : <span>${fn:length(content4)}</span></h4>
+								<h4>Search Results : <span>${puztotal }</span></h4>
 							</div>
 							<table id="table-breakpoint4">
 								<thead>
@@ -223,30 +251,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${content4}" var="content4" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content4.content_id}'">
+									<c:forEach items="${puzContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
 											<td>${status.count}</td>
 											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content4.content_id}">
-													<img src="${content4.media2}" alt="" />
-													${content4.title}
+												<a href="game_content?content_id=${content.content_id}">
+													<img src="${content.media2}" alt="" />
+													${content.title}
 												</a>
 											</td>
-											<td class="w3-list-info">${content4.age_rate}</td>
-											<td>${content4.platform}</td>
-											<td>${content4.genre_name}</td>
-											<td>${content4.hit}</td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_name}</td>
+											<td>${content.hit}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_puzzle">퍼즐 장르 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
 						</div>
 					</div>
 					
 					<div role="tabpanel" class="tab-pane fade" id="rhythm" aria-labelledby="e-tab">
 						<div class="agile-news-table">
 							<div class="w3ls-news-result">
-								<h4>Search Results : <span>${fn:length(content5)}</span></h4>
+								<h4>Search Results : <span>${rhytotal }</span></h4>
 							</div>
 							<table id="table-breakpoint5">
 								<thead>
@@ -260,30 +295,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${content5}" var="content5" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content5.content_id}'">
+									<c:forEach items="${rhyContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
 											<td>${status.count}</td>
 											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content5.content_id}">
-													<img src="${content5.media2}" alt="" />
-													${content5.title}
+												<a href="game_content?content_id=${content.content_id}">
+													<img src="${content.media2}" alt="" />
+													${content.title}
 												</a>
 											</td>
-											<td class="w3-list-info">${content5.age_rate}</td>
-											<td>${content5.platform}</td>
-											<td>${content5.genre_name}</td>
-											<td>${content5.hit}</td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_name}</td>
+											<td>${content.hit}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_rhythm">리듬 장르 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
 						</div>
 					</div>
 							
 					<div role="tabpanel" class="tab-pane fade" id="horror" aria-labelledby="f-tab">
 						<div class="agile-news-table">
 							<div class="w3ls-news-result">
-								<h4>Search Results : <span>${fn:length(content6)}</span></h4>
+								<h4>Search Results : <span>${hortotal }</span></h4>
 							</div>
 							<table id="table-breakpoint6">
 								<thead>
@@ -297,30 +339,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${content6}" var="content6" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content6.content_id}'">
+									<c:forEach items="${horContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
 											<td>${status.count}</td>
 											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content6.content_id}">
-													<img src="${content6.media2}" alt="" />
-													${content6.title}
+												<a href="game_content?content_id=${content.content_id}">
+													<img src="${content.media2}" alt="" />
+													${content.title}
 												</a>
 											</td>
-											<td class="w3-list-info">${content6.age_rate}</td>
-											<td>${content6.platform}</td>
-											<td>${content6.genre_name}</td>
-											<td>${content6.hit}</td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_name}</td>
+											<td>${content.hit}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_horror">호러 장르 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
 						</div>
 					</div>
 							
 					<div role="tabpanel" class="tab-pane fade" id="simulation" aria-labelledby="g-tab">
 						<div class="agile-news-table">
 							<div class="w3ls-news-result">
-								<h4>Search Results : <span>${fn:length(content7)}</span></h4>
+								<h4>Search Results : <span>${simtotal }</span></h4>
 							</div>
 							<table id="table-breakpoint7">
 								<thead>
@@ -334,30 +383,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${content7}" var="content7" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content7.content_id}'">
+									<c:forEach items="${simContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
 											<td>${status.count}</td>
 											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content7.content_id}">
-													<img src="${content7.media2}" alt="" />
-													${content7.title}
+												<a href="game_content?content_id=${content.content_id}">
+													<img src="${content.media2}" alt="" />
+													${content.title}
 												</a>
 											</td>
-											<td class="w3-list-info">${content7.age_rate}</td>
-											<td>${content7.platform}</td>
-											<td>${content7.genre_name}</td>
-											<td>${content7.hit}</td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_name}</td>
+											<td>${content.hit}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_simulation">시뮬레이션 장르 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
 						</div>
 					</div>
 							
 					<div role="tabpanel" class="tab-pane fade" id="casual" aria-labelledby="h-tab">
 						<div class="agile-news-table">
 							<div class="w3ls-news-result">
-								<h4>Search Results : <span>${fn:length(content8)}</span></h4>
+								<h4>Search Results : <span>${castotal }</span></h4>
 							</div>
 							<table id="table-breakpoint8">
 								<thead>
@@ -371,30 +427,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${content8}" var="content8" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content8.content_id}'">
+									<c:forEach items="${casContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
 											<td>${status.count}</td>
 											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content8.content_id}">
-													<img src="${content8.media2}" alt="" />
-													${content8.title}
+												<a href="game_content?content_id=${content.content_id}">
+													<img src="${content.media2}" alt="" />
+													${content.title}
 												</a>
 											</td>
-											<td class="w3-list-info">${content8.age_rate}</td>
-											<td>${content8.platform}</td>
-											<td>${content8.genre_name}</td>
-											<td>${content8.hit}</td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_name}</td>
+											<td>${content.hit}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_casual">캐쥬얼 장르 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
 						</div>
 					</div>
 							
 					<div role="tabpanel" class="tab-pane fade" id="strategy" aria-labelledby="i-tab">
 						<div class="agile-news-table">
 							<div class="w3ls-news-result">
-								<h4>Search Results : <span>${fn:length(content9)}</span></h4>
+								<h4>Search Results : <span>${strtotal }</span></h4>
 							</div>
 							<table id="table-breakpoint9">
 								<thead>
@@ -408,29 +471,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${content9}" var="content9" varStatus="status">
-										<tr onClick = "location.href='http://localhost:8080/front/game_content?content_id=${content9.content_id}'">
+									<c:forEach items="${strContent}" var="content" varStatus="status">
+										<tr onClick = "location.href='game_content?content_id=${content.content_id}'">
 											<td>${status.count}</td>
 											<td class="w3-list-img">
-												<a href="http://localhost:8080/front/game_content?content_id=${content9.content_id}">
-													<img src="${content9.media2}" alt="" />
-													${content9.title}
+												<a href="game_content?content_id=${content.content_id}">
+													<img src="${content.media2}" alt="" />
+													${content.title}
 												</a>
 											</td>
-											<td class="w3-list-info">${content9.age_rate}</td>
-											<td>${content9.platform}</td>
-											<td>${content9.genre_name}</td>
-											<td>${content9.hit}</td>
+											<td class="w3-list-info">${content.age_rate}</td>
+											<td>${content.platform}</td>
+											<td>${content.genre_name}</td>
+											<td>${content.hit}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
+							<!-- 더보기 버튼 -->
+							<div class="col-md-2 " style="{margin:2px 2px 2px 2px;align:center;}">
+								<ul class="w3-tag2">
+									<li><a href="game_list_strategy">전략 장르 더보기</a></li>
+								 </ul>
+							</div>
+							<!-- //더보기 버튼 -->
 						</div>
 					</div>
 						
+				
+				
 				</div>
 			</div>
 		</div>
+		
 	</div>
 	<!--//content-inner-section-->
 
@@ -527,5 +600,79 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		});
 	</script>
 
+	<!-- 페이징 관련 스크립트 -->
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var result = '<c:out value="${result}"/>';
+		
+		checkModal(result);
+
+		history.replaceState({}, null, null);
+
+		function checkModal(result) {
+
+			if (result === '' || history.state) {
+				return;
+			}
+
+			if (parseInt(result) > 0) {
+				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+			}
+
+			$("#myModal").modal("show");
+		}
+		
+		$("#regBtn").on("click", function() {
+			self.location = "/board/register";
+		});
+		
+		var actionForm = $("#actionForm");
+
+		// 페이지 번호 클릭 이벤트
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			// console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
+		
+		// 상세보기 클릭 이벤트
+		$(".move").on("click",function(e) {
+			e.preventDefault();
+			actionForm.append("<input name='inquiry_id' value='" + $(this).attr("href")	+ "'>");
+			actionForm.attr("action", "/");
+			actionForm.submit();
+		});
+	});
+	</script>
+	<!-- //페이징 관련 스크립트 -->
+	
+						<%-- <!--  Pagination 시작 -->
+				<div class='pull-right'>
+					<ul class="pagination">
+					
+						<c:if test="${actMaker.prev}">
+							<li class="paginate_button previous"><a href="${actMaker.startPage -1}">Previous</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${actMaker.startPage}"	end="${actMaker.endPage}">
+							<li class="paginate_button  ${actMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${actMaker.next}">
+							<li class="paginate_button next"><a href="${actMaker.endPage +1 }">Next</a></li>
+						</c:if>
+
+					</ul>
+				</div>
+				<!--  Pagination 끝 -->
+				<!-- Form 시작 -->
+				<form id='actionForm' action="game_list?#action" method='get'>
+					<input type='hidden' name='pageNum' value='${actMaker.cri.pageNum}'>
+					<input type='hidden' name='amount' value="${actMaker.cri.amount}">
+				</form>
+				<!-- Form 끝 --> --%>
 </body>
 </html>
