@@ -180,10 +180,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			$("#myModal").modal("show");
 		}
 		
-		$("#regBtn").on("click", function() {
-			self.location = "/board/register";
-		});
-		
 		var actionForm = $("#actionForm");
 
 		// 페이지 번호 클릭 이벤트
