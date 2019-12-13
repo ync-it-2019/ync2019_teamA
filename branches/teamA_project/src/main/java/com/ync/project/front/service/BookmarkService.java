@@ -31,5 +31,5 @@ public interface BookmarkService {
 		public boolean bmkDelete(Long content_id); //북마크 삭제
 		
 		//글 불러오기
-		public List<BookmarkVO> bmkRead(String content_id); //게시글 내용
+		public List<BookmarkVO> bmkRead(Long content_id); //게시글 내용
 }
