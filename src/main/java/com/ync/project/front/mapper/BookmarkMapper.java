@@ -35,5 +35,5 @@ public interface BookmarkMapper {
 	
 	public int bmkDelete(Long content_id); //북마크 삭제
 	
-	public List<BookmarkVO> bmkRead(String content_id);
+	public List<BookmarkVO> bmkRead(Long content_id);
 }

@@ -83,7 +83,7 @@ public class BookmarkServiceImpl implements BookmarkService {
 	}
 
 	@Override
-	public List<BookmarkVO> bmkRead(String content_id) {
+	public List<BookmarkVO> bmkRead(Long content_id) {
 		// TODO Auto-generated method stub
 		return mapper.bmkRead(content_id);
 	}
