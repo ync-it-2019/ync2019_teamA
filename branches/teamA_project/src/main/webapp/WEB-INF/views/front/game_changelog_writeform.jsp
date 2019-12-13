@@ -32,8 +32,8 @@
 				<div class="form-group" align = "center" style="color:red; text-align:center" >
 					<label>패치노트를 작성할 게임을 선택해 주세요.</label>
                     <select name="content_id" class="form-control" size="1">
-                    	<c:forEach items="${mygame_list}" var="content">
-							<option value="${content.content_id}" id="game">${content.content_id}.${content.title}</option>
+                    	<c:forEach items="${mygame_list}" var="content" varStatus="status">
+							<option value="${content.content_id}" id="game">[${status.count}]${content.title}</option>
 						</c:forEach>
 					</select>
 				</div>
