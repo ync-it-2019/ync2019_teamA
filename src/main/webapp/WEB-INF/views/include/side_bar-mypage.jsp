@@ -45,7 +45,7 @@
 							<li><a href="/mypage/mp_funding">· 후원 받은 게임</a></li>
 							</sec:authorize>
 						</ul></li>
-						<li><a href="/mypage/mp_inquiry"> <i class="fas fa-address-card"></i>
+						<li><a href="/inquiry"> <i class="fas fa-address-card"></i>
 							1대1 문의
 					</a></li>
 					<sec:authorize access="hasRole('ROLE_USER')">
