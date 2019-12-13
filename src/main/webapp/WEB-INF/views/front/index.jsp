@@ -60,6 +60,7 @@
 <style>
 	.admBtnPosition{display:inline-blokck; margin-left:4px;}
 	.regBtnPosition{display:inline-blokck; margin-left:4px;}
+	.chBtnPosition{display:inline-blokck; margin-left:4px;}
 	.logoutPosition{position:absolute; right:0px;}
 </style>
 </head>
@@ -258,6 +259,9 @@
 						<li class="regBtnPosition">
 							<a href="#" id="regBtn" class="login reg" data-target="#myModal5">게임등록</a>
 						</li>
+						<li class="chBtnPosition">
+							<a href="#" id="chBtn" class="login reg" data-target="#myModal5">패치노트 등록</a>
+						</li>
 					</sec:authorize>
 					<!-- //Admin Menus -->
 					
@@ -280,8 +284,8 @@
 				<div id="horizontalTab">
 					<ul class="resp-tabs-list">
 						<li>최신순</li>
-						<li>평점순</li>
-						<li>다운로드순</li>
+						<li>조회순</li>
+						<li>추천순</li>
 					</ul>
 					<div class="resp-tabs-container">
 						<div class="tab1">
@@ -574,6 +578,10 @@
 
 			$("#regBtn").on("click", function() {
 				self.location = "/game_content_writeform";
+			});
+			var userid = '<c:out value="${user_id}"/>';
+			$("#chBtn").on("click", function() {
+				self.location = "/game_changelog_writeform?userid=" + userid;
 			});
 							
 			$("#admBtn").on("click", function() {
