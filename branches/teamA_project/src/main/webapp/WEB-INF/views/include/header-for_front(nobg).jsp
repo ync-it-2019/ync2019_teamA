@@ -83,19 +83,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 										class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
-										<div class="col-sm-4">
+											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/front/game_intro">게임 소식</a></li>
+													<li><a href="/developer_note">개발 노트</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/front/developer_note">개발 노트</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-4">
-												<ul class="multi-column-dropdown">
-													<li><a href="/front/notice">공지사항</a></li>
+													<li><a href="/notice">공지사항</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
