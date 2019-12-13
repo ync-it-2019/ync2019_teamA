@@ -17,7 +17,9 @@ public interface InquiryMapper {
 	
 	public InquiryVO read(Long inquiry_id); //문의내용 상세보기
 	
-	public void insert(InquiryVO inquery); //문의목록 추가
+	public int insert(InquiryVO vo); //문의목록 추가
 	
 	public int delete(Long inquiry_id); //문의 삭제
+
+	public int update(InquiryVO vo);
 }
