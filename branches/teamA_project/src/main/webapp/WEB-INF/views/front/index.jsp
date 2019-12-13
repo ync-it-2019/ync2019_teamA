@@ -293,24 +293,24 @@
 								<div class="w3_agile_featured_movies">
 									<div class="col-md-5 video_agile_player">
 										<div class="video-grid-single-page-agileits">
-											<div data-video="${content.media1}" id="video">
-												<img src="${content.media2}" alt="" class="img-responsive"
+											<div data-video="${latest_first.media1}" id="video">
+												<img src="${latest_first.media2}" alt="" class="img-responsive"
 													style="width: 500px; height: 290px" />
 											</div>
 										</div>
 										<div class="player-text" style="height:300px">
 											<p class="fexi_header">
-												<c:out value="${content.title}" />
+												<c:out value="${latest_first.title}" />
 											</p>
 											<p class="fexi_header_para">
-												<span>게임설명 </span><label>:</label>${content.content_intro}
+												<span>게임설명 </span><label>:</label>${latest_first.content_intro}
 											</p>
 											<p class="fexi_header_para">
-												<span>출시날짜 </span> <label>:</label><fmt:formatDate pattern="yyyy-MM-dd" value="${content.reg_date}" />
+												<span>출시날짜 </span> <label>:</label><fmt:formatDate pattern="yyyy-MM-dd" value="${latest_first.reg_date}" />
 											</p>
 											<p class="fexi_header_para">
 												<span>TAG</span><label>:</label>|
-												<c:forTokens var ="item" items = "${content.tag}" delims = "/">
+												<c:forTokens var ="item" items = "${latest_first.tag}" delims = "/">
 													<a>${item} | </a>
 												</c:forTokens>
 											</p>
@@ -325,7 +325,7 @@
 										</div>
 									</div>
 									<div class="col-md-7 wthree_agile-movies_list">
-										<c:forEach items="${content1}" var="content1">
+										<c:forEach items="${latest_other}" var="content1">
 											<div class="w3l-movie-gride-agile">
 												<a href="game_content?content_id=${content1.content_id}" class="hvr-sweep-to-bottom"><img
 													src="${content1.media2}" title="자세히" class="img-responsive"
@@ -379,24 +379,24 @@
 								<div class="w3_agile_featured_movies">
 									<div class="col-md-5 video_agile_player">
 										<div class="video-grid-single-page-agileits">
-											<div data-video="${content2.media1}" id="video1">
-												<img src="${content2.media2}" alt="" class="img-responsive"
+											<div data-video="${invite_first.media1}" id="video1">
+												<img src="${invite_first.media2}" alt="" class="img-responsive"
 													style="width: 500px; height: 290px" />
 											</div>
 										</div>
 										<div class="player-text"  style="height:300px">
 											<p class="fexi_header">
-												<c:out value="${content2.title}" />
+												<c:out value="${invite_first.title}" />
 											</p>
 											<p class="fexi_header_para">
-												<span class="conjuring_w3">게임설명<label>:</label></span>${content2.content_intro}
+												<span class="conjuring_w3">게임설명<label>:</label></span>${invite_first.content_intro}
 											</p>
 											<p class="fexi_header_para">
-												<span>출시날짜<label>:</label></span><fmt:formatDate pattern="yyyy-MM-dd" value="${content2.reg_date}" />
+												<span>출시날짜<label>:</label></span><fmt:formatDate pattern="yyyy-MM-dd" value="${invite_first.reg_date}" />
 											</p>
 											<p class="fexi_header_para">
 												<span>TAG</span><label>:</label>|
-												<c:forTokens var ="item" items = "${content2.tag}" delims = "/">
+												<c:forTokens var ="item" items = "${invite_first.tag}" delims = "/">
 													<a>${item} | </a>
 												</c:forTokens>
 											</p>
@@ -411,7 +411,7 @@
 										</div>
 									</div>
 									<div class="col-md-7 wthree_agile-movies_list">
-										<c:forEach items="${content3}" var="content3">
+										<c:forEach items="${invite_other}" var="content3">
 											<div class="w3l-movie-gride-agile">
 												<a href="game_content?content_id=${content3.content_id}" class="hvr-sweep-to-bottom"><img
 													src="${content3.media2}" title="자세히" class="img-responsive"
@@ -464,24 +464,24 @@
 								<div class="w3_agile_featured_movies">
 									<div class="col-md-5 video_agile_player">
 										<div class="video-grid-single-page-agileits">
-											<div data-video="${content4.media1}" id="video2">
-												<img src="${content4.media2}" alt="" class="img-responsive"
+											<div data-video="${recommend_first.media1}" id="video2">
+												<img src="${recommend_first.media2}" alt="" class="img-responsive"
 													style="width: 500px; height: 290px" />
 											</div>
 										</div>
 										<div class="player-text"  style="height:300px">
 											<p class="fexi_header">
-												<c:out value="${content4.title}" />
+												<c:out value="${recommend_first.title}" />
 											</p>
 											<p class="fexi_header_para">
-												<span class="conjuring_w3">게임설명<label>:</label></span>${content4.content_intro}
+												<span class="conjuring_w3">게임설명<label>:</label></span>${recommend_first.content_intro}
 											</p>
 											<p class="fexi_header_para">
-												<span>출시날짜<label>:</label></span><fmt:formatDate pattern="yyyy-MM-dd" value="${content4.reg_date}" />
+												<span>출시날짜<label>:</label></span><fmt:formatDate pattern="yyyy-MM-dd" value="${recommend_first.reg_date}" />
 											</p>
 											<p class="fexi_header_para">
 												<span>TAG</span><label>:</label>|
-												<c:forTokens var ="item" items = "${content4.tag}" delims = "/">
+												<c:forTokens var ="item" items = "${recommend_first.tag}" delims = "/">
 													<a>${item} | </a>
 												</c:forTokens>
 											</p>
@@ -496,7 +496,7 @@
 										</div>
 									</div>
 									<div class="col-md-7 wthree_agile-movies_list">
-										<c:forEach items="${content5}" var="content5">
+										<c:forEach items="${recommend_other}" var="content5">
 											<div class="w3l-movie-gride-agile">
 												<a href="game_content?content_id=${content5.content_id}" class="hvr-sweep-to-bottom"><img
 													src="${content5.media2}" title="자세히" class="img-responsive"
