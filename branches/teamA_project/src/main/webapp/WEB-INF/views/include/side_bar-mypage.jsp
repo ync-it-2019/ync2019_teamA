@@ -4,7 +4,7 @@
     <nav id="sidebar">
 				<div class="sidebar-header">
 					<h2>
-						<a href="index.html">마이 페이지</a>
+						<a href="/mypage/mp_bookmark">마이 페이지</a>
 					</h2>
 					<span><i class="far fa-list-alt"></i></span>
 				</div>
