@@ -13,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-<title>창작자 조회</title>
+<title>창작자 신청</title>
 <!-- Meta Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
