@@ -26,6 +26,6 @@ public interface MypageMapper {
 	public int getFundTotalCount(Criteria cri); //펀딩한 컨텐츠 수
 	
 	public List<ContentVO> getFundList(Criteria cri); //펀딩한 게임 목록
-
-	
 }
+
+

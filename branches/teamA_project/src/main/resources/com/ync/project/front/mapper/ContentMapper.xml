@@ -168,10 +168,26 @@
 	</insert>
 
 
-	<select id="read" resultType="com.ync.project.domain.ContentVO">
-		SELECT *
-		FROM teamacreatercontent
-		WHERE content_id = #{content_id}
+	<select id="read" resultType="com.ync.project.domain.ContentVO">	
+		
+		SELECT  tc.TITLE,
+				tc.CONTENT_ID,
+				tc.AGE_RATE,
+				tc.LANGUAGES,
+				tc.MEDIA1,
+				tc.MEDIA2,
+				tc.MEDIA3,
+				tc.MEDIA4,
+				tc.CONTENT_INTRO,
+				tc.GAME_LAUNCH,
+				tc.TAG,
+				tc.PLATFORM,
+				gr.genre_name,		
+				tm.creater_name
+		FROM    teamacreatercontent tc, teamamember tm, teamagenre gr
+		WHERE 	content_id = #{content_id}
+		AND   	tc.userid = tm.userid
+		AND     tc.genre_id = gr.genre_id
 	</select>
 
 	<update id="readHit">

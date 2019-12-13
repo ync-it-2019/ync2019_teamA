@@ -44,4 +44,5 @@ public class ContentVO {
 	private String creater_name; // 창작자 이름
 	private String genre_name; //장르 이름
 	
+	
 }

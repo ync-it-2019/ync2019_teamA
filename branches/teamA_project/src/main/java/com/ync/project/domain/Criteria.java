@@ -24,7 +24,7 @@ public class Criteria {
 	private String keyword;
 
 	private String userid; //사용자 유저아이디 
-	
+	private String content_id;
 	public Criteria() {
 		this(1, 10);
 	}
