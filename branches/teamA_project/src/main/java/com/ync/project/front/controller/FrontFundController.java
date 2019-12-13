@@ -82,7 +82,7 @@ public class FrontFundController {
 	  * @return
 	  */
 	@GetMapping(value = {"/fund_now", "/update", "/bmkInsert", "/bmkDelete"})
-	public String fundnow(@RequestParam("content_id") String content_id, String userid, Model model) {
+	public String fundnow(@RequestParam("content_id") Long content_id, String userid, Model model) {
 		model.addAttribute("fundnow", service.read(content_id));
 		model.addAttribute("bmkcheck", bService.bmkRead(content_id));
 		log.info("End Fund!");

@@ -31,7 +31,7 @@ public interface FundingService {
 	public boolean modify(ContentVO content) throws Exception;
 	
 	//글 불러오기
-	public ContentVO read(String content_id); //게시글 내용
+	public ContentVO read(Long content_id); //게시글 내용
 	
 
 	// 글 삭제
