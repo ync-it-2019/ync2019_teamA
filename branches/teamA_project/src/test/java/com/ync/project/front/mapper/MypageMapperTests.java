@@ -30,4 +30,14 @@ public class MypageMapperTests {
 		
 	}
 	
+	@Test
+	public void testGetFundList() {
+	Criteria cri = new Criteria();
+	cri.setUserid("tjrwnsdud2@naver.com");
+	
+	mapper.getFundList(cri);
+		
+		
+	}
+	
 }
