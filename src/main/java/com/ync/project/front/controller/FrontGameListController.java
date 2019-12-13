@@ -71,17 +71,6 @@ public class FrontGameListController {
 		model.addAttribute("simtotal", simtotal);
 		model.addAttribute("castotal", castotal);
 		model.addAttribute("strtotal", strtotal);
-
-//		model.addAttribute("pageMaker", new PageDTO(cri, total));
-//		model.addAttribute("actMaker", new PageDTO(cri, acttotal));
-//		model.addAttribute("advMaker", new PageDTO(cri, advtotal));
-//		model.addAttribute("rogMaker", new PageDTO(cri, rogtotal));
-//		model.addAttribute("puzMaker", new PageDTO(cri, puztotal));
-//		model.addAttribute("rhyMaker", new PageDTO(cri, rhytotal));
-//		model.addAttribute("horMaker", new PageDTO(cri, hortotal));
-//		model.addAttribute("simMaker", new PageDTO(cri, simtotal));
-//		model.addAttribute("casMaker", new PageDTO(cri, castotal));
-//		model.addAttribute("strMaker", new PageDTO(cri, strtotal));
 		
 		return "front/game_list";
 	}

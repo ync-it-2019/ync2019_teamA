@@ -100,11 +100,6 @@
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/game_intro">게임 소식</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-4">
-												<ul class="multi-column-dropdown">
 													<li><a href="developer_note">개발 노트</a></li>
 												</ul>
 											</div>
