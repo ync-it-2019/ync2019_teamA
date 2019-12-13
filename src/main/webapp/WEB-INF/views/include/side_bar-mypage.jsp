@@ -1,4 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!DOCTYPE html>
   <!-- side bar -->
     <nav id="sidebar">
@@ -26,7 +31,9 @@
 					</a>
 						<ul class="collapse list-unstyled" id="list-menu">
 							<li><a href="/mypage/mp_bookmark">· 즐겨찾기</a></li>
+							<sec:authorize access="hasRole('ROLE_CREATER')">
 							<li><a href="/mypage/mp_uploadcontent">· 업로드한 컨텐츠</a></li>
+							</sec:authorize>
 						</ul></li>
 					<li><a href="#customer-center" data-toggle="collapse"
 						aria-expanded="false"> <i class="fas fa-edit"></i> 후원
@@ -34,14 +41,18 @@
 					</a>
 						<ul class="collapse list-unstyled" id="customer-center">
 							<li><a href="/mypage/mp_donation_game">· 후원 한 게임</a></li>
+							<sec:authorize access="hasRole('ROLE_CREATER')">
 							<li><a href="/mypage/mp_funding">· 후원 받은 게임</a></li>
+							</sec:authorize>
 						</ul></li>
 						<li><a href="/mypage/mp_inquiry"> <i class="fas fa-address-card"></i>
 							1대1 문의
 					</a></li>
+					<sec:authorize access="hasRole('ROLE_USER')">
 					<li><a href="/mypage/mp_request_creator"> <i class="fas fa-address-card"></i>
 							창작자 신청
 					</a></li>
+					</sec:authorize>
 					<li><a href="/mypage/mp_withdraw"> <i class="fas fa-address-card"></i>
 							회원 탈퇴
 					</a></li>
