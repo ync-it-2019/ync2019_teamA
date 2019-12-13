@@ -41,5 +41,8 @@ public class ContentVO {
 	private Long donation;
 	private Long money_temp;
 	
-	private String gname;
+	private String creater_name; // 창작자 이름
+	private String genre_name; //장르 이름
+	
+	
 }

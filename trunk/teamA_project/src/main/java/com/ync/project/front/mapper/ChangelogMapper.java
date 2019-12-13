@@ -18,7 +18,7 @@ public interface ChangelogMapper {
 	
 	public void insert(ChangelogVO changelog); //게시글 추가
 	
-	public List<ChangelogVO> getListWithPaging(Criteria cri);
+	public List<ChangelogVO> getListWithPaging(Criteria cri); //게시글 목록, 페이징
 	
 	public Integer insertSelectKey(ChangelogVO changelog); //게시글 번호
 	
@@ -26,12 +26,12 @@ public interface ChangelogMapper {
 	
 	public int getTotalCount(Criteria cri); //게시글 전체 수
 
-	// 2개 이상의 파라미터를 넘기기위해 @Param 사용. 댓글 추가/삭제 시 amount에 1/-1 값
-	public void updateReplyCnt(@Param("change_log_id") Long content_id, @Param("amount") int amount);
+	public ChangelogVO readComment(Long change_log_id);			//댓글 가져오기
 
-	public ChangelogVO readComment(Long change_log_id);
+	public List<ChangelogVO> readpatchnoteList(Long change_log_id);	//보고있는 패치노트 게임의 다른 패치노트
 
-	public List<ChangelogVO> readpatchnoteList(Long change_log_id);
-
-	public List<ChangelogVO> readother_patch(Long change_log_id);
+	public List<ChangelogVO> readother_patch(Long change_log_id);	//보고있는 패치노트 게임이 아닌 다른 게임의 패치노트
+	
+	public List<ChangelogVO> getMygame_list(String userid);			//나의 게임 리스트
+	
 }

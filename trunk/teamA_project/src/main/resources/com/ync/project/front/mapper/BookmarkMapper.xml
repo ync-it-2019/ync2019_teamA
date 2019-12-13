@@ -92,6 +92,24 @@
 		WHERE	bookmark = #{bookmark}
 	</delete>
 	
+	<insert id="bmkInsert">
+		insert into teamabookmark (userid, content_id, bookmark)
+		values (#{userid}, #{content_id}, 1)
+	</insert>
+	
+	<select id="bmkRead" resultType="com.ync.project.domain.BookmarkVO">
+	SELECT	content_id,
+			bookmark,
+			userid
+	FROM 	teamabookmark
+	WHERE 	content_id = #{content_id}
+	</select>
+	
+	<delete id="bmkDelete">
+		DELETE teamabookmark
+		WHERE  content_id = #{content_id}
+	</delete>
+	
 	<!-- <update id="update">
 		update teamacreatercontent
 		set 

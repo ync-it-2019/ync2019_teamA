@@ -53,6 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 	.regBtnPosition{position:absolute; left:24em;} */
 	.admBtnPosition{display:inline-blokck; margin-left:4px;}
 	.regBtnPosition{display:inline-blokck; margin-left:4px;}
+	.chBtnPosition{display:inline-blokck; margin-left:4px;}
 	.logoutPosition{position:absolute; right:0px;}
 </style>
 </head>
@@ -83,19 +84,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 										class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<li>
-										<div class="col-sm-4">
+											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/front/game_intro">게임 소식</a></li>
+													<li><a href="/developer_note">개발 노트</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="/front/developer_note">개발 노트</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-4">
-												<ul class="multi-column-dropdown">
-													<li><a href="/front/notice">공지사항</a></li>
+													<li><a href="/notice">공지사항</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -107,12 +103,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
                     <li>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="../fund/main">진행중인 펀딩</a></li>
+                          <li><a href="/fund_main">진행중인 펀딩</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="../fund/end">종료된 펀딩</a></li>
+                          <li><a href="/fund_end">종료된 펀딩</a></li>
                         </ul>
                       </div>
                       <div class="clearfix"></div>
@@ -121,33 +117,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
                 </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">게 임<b class="caret"></b></a>
-                  <ul class="dropdown-menu multi-column columns-3">
-                    <li>
-                      <div class="col-sm-4">
-                        <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">액션</a></li>
-                          <li><a href="genre.html">어드밴처</a></li>
-                          <li><a href="genre.html">전략</a></li>
-                          <li><a href="genre.html">롤 플레잉</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-sm-4">
-                        <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">캐쥬얼</a></li>
-                          <li><a href="genre.html">싱글플레이</a></li>
-                          <li><a href="genre.html">시뮬레이션</a></li>
-                          <li><a href="genre.html">앞서 해보기</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-sm-4">
-                        <ul class="multi-column-dropdown">
-                          <li><a href="genre.html">퍼즐</a></li>
-                          <li><a href="genre.html">2D</a></li>
-                        </ul>
-                      </div>
-                      <div class="clearfix"></div>
-                    </li>
-                  </ul>
+					<ul class="dropdown-menu multi-column columns-3">
+						<li>
+							<div class="col-sm-4">
+								<ul class="multi-column-dropdown">
+									<li><a href="/game_list?#all">전체 리스트</a></li>
+									<li><a href="/game_list?#action">액션</a></li>
+									<li><a href="/game_list?#adventure">어드밴처</a></li>
+									<li><a href="/game_list?#roguelike">로그라이크</a></li>
+								</ul>
+							</div>
+							<div class="col-sm-4">
+								<ul class="multi-column-dropdown">
+									<li><a href="/game_list?#puzzle">퍼즐</a></li>
+									<li><a href="/game_list?#rhythm">리듬</a></li>
+									<li><a href="/game_list?#simulation">시뮬레이션</a></li>
+									<li><a href="/game_list?#horror">호러</a></li>
+								</ul>
+							</div>
+							<div class="col-sm-4">
+								<ul class="multi-column-dropdown">
+									<li><a href="/game_list?#strategy">전략</a></li>
+									<li><a href="/game_list?#casual">캐쥬얼</a></li>
+								</ul>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					</ul>
                 </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">고객센터<b class="caret"></b></a>
@@ -155,12 +151,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
                     <li>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="../front/faq">FAQ</a></li>
+                          <li><a href="/faq">FAQ</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="../front/inquiry">1:1 문의</a></li>
+                          <li><a href="/inquiry">1:1 문의</a></li>
                         </ul>
                       </div>
                       <div class="clearfix"></div>
@@ -173,18 +169,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
             </div>
             <div class="clearfix"> </div>
           </nav>
-          <div class="w3ls_search">
-            <div class="cd-main-header">
-              <ul class="cd-header-buttons">
-                <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
-              </ul> <!-- cd-header-buttons -->
-            </div>
-            <div id="cd-search" class="cd-search">
-              <form action="#" method="post">
-                <input name="Search" type="search" placeholder="Search...">
-              </form>
-            </div>
-          </div>
 
         </div>
 
@@ -208,7 +192,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				<sec:authorize access="isAuthenticated()">
 					<sec:authentication property="principal.username" var="user_id" />
 					<li style="margin-left: 0em">
-						<a href="/mp_selfcheck"	class="login">${user_id}</a>
+						<a href="/mypage/mp_member_detail"	class="login">${user_id}</a>
 					</li>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
@@ -227,6 +211,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						<li class="regBtnPosition">
 						<a href="#" id="regBtn" class="login reg" data-target="#myModal5">게임등록</a>
 					</li>
+					<li class="chBtnPosition">
+							<a href="#" id="chBtn" class="login reg" data-target="#myModal5">패치노트 등록</a>
+						</li>
 				</sec:authorize>
 				<!-- //Admin Menus -->
 				
@@ -241,10 +228,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
   </div>
   <!--//banner-bottom Logins-->
   <!-- Modal1 -->
-  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
+<!--   <div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
 
     <div class="modal-dialog">
-      <!-- Modal content-->
+      Modal content
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -271,13 +258,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- //Modal1 -->
   <!-- Modal1 -->
-  <div class="modal fade" id="myModal5" tabindex="-1" role="dialog">
+  <!-- <div class="modal fade" id="myModal5" tabindex="-1" role="dialog">
 
     <div class="modal-dialog">
-      <!-- Modal content-->
+      Modal content
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -301,7 +288,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- //Modal1 -->
   <!-- breadcrumb -->
   

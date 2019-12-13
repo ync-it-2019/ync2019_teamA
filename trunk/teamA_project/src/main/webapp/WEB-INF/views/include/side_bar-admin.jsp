@@ -69,6 +69,9 @@
             <i class="fas fa-angle-down fa-pull-right"></i>
           </a>
           <ul class="collapse list-unstyled" id="developer">
+          <li>
+              <a href="creater_request">· 창작자 신청</a>
+            </li>
             <li>
               <a href="creater_info">· 창작자 조회</a>
             </li>

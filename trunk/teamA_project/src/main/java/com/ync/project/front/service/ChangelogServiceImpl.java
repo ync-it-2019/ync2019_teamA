@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ync.project.domain.ChangelogVO;
-import com.ync.project.domain.ContentVO;
 import com.ync.project.domain.Criteria;
 import com.ync.project.front.mapper.ChangelogMapper;
 
@@ -91,6 +90,12 @@ public class ChangelogServiceImpl implements ChangelogService {
 		log.info("get otehr changelog_comment......" + change_log_id);
 		
 		return mapper.readother_patch(change_log_id);
+	}
+
+	@Override
+	public List<ChangelogVO> getMygame_list(String userid) {
+		log.info("get mygame list......" + userid);
+		return mapper.getMygame_list(userid);
 	}
 	
 }

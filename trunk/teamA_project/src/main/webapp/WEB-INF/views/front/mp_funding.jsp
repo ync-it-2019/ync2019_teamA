@@ -6,6 +6,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,38 +66,53 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<th scope="col">컨텐츠 이름</th>
 										<th scope="col">후원 받은 금액</th>
 										<th scope="col">후원 시작한 일자</th>
-										<th scope="col">후원 남은 일자</th>
-										<th scope="col">컨텐츠 링크</th>
-									</tr>
+										<th scope="col">후원 종료 일자</th>
+																		</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<th scope="row">3</th>
-										<td>지뢰 찾기</td>
-										<td>50000</td>
-										<td>2019-09-28</td>
-										<td>7일</td>
-										<th scope="col">컨텐츠 링크</th>
-									</tr>
-									<tr>
-										<th scope="row">2</th>
-										<td>지뢰 찾기</td>
-										<td>50000</td>
-										<td>2019-09-28</td>
-										<td>7일</td>
-										<th scope="col">컨텐츠 링크</th>
-									</tr>
-									<tr>
-										<th scope="row">1</th>
-										<td>지뢰 찾기</td>
-										<td>50000</td>
-										<td>2019-09-28</td>
-										<td>7일</td>
-										<th scope="col">컨텐츠 링크</th>
-									</tr>
+								<c:forEach items="${content}" var="content" varStatus="status">
+									<tr class="active">
+									<th scope="row">${status.count}</th>
+									<td><a href="/game_content?content_id=${content.content_id}">${content.title}</a></td>
+									<td>${content.money_temp}</td>
+									<td>${content.reg_date}</td>
+									<td>${content.don_reg}</td>
+									</tr>	
+								</c:forEach>												
 								</tbody>
 							</table>
+									<!--  Pagination 시작 -->
+				
+				<div class='pull-right'>
+				<c:forEach items="${content}" var="content" begin="0" end="0">
+					<ul class="pagination">
+						
+						<!--페이지 번호 이벤트 처리 -->
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
 
+						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a href="<c:url value="${pageMaker.endPage +1}/&userid/=${bmk.userid}"/>">Next</a></li>
+						</c:if>
+					
+					</ul>
+					
+					<form id='actionForm' action="/mypage/mp_funding" method='get'>
+					<input type='hidden' name='pageNum' value= '${pageMaker.cri.pageNum }'>
+					<input type='hidden' name='amount' value= '${pageMaker.cri.amount }'>
+					</form>
+					</c:forEach>
+				</div>
+				
+				<!--  Pagination 끝 -->
+							
 
 						</div>
 					</section>
@@ -115,5 +135,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<jsp:include page="/WEB-INF/views/include/footer_mp.jsp" flush="false" />
 	</div>
 
+
+<script type="text/javascript">
+  $(document).ready(function() {
+     var result = '<c:out value="${result}"/>';
+     checkModal(result);
+     history.replaceState({}, null, null);
+     function checkModal(result) {
+        if (result === '' || history.state) {
+           return;
+        }
+        
+        if (parseInt(result) > 0) {
+           $(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+        }
+        
+        $("#myModal").modal("show");
+     }
+     
+     $("#regBtn").on("click", function() {
+        self.location = "/mypage/mp_uploadcontent";
+     });
+     	
+     var actionForm = $("#actionForm");
+     
+     $(".paginate_button a").on("click", function(e) {
+        e.preventDefault();
+        console.log('click');
+        actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+        actionForm.submit();
+     });
+     
+     
+  });
+</script>
 </body>
 </html>

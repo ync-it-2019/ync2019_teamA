@@ -41,95 +41,95 @@ public class GameListMapperTests {
 //
 //	}
 	
-	@Test
-	public void testGetListAction() {
-		
-		mapper.getList1().forEach((gameList1) -> {
-			log.info("==================");
-			log.info(gameList1);
-			});
-
-	}
-	
-	@Test
-	public void testGetListAdventure() {
-		
-		mapper.getList2().forEach((gameList2) -> {
-			log.info("==================");
-			log.info(gameList2);
-			});
-
-	}
-	
-	@Test
-	public void testGetListRogueLike() {
-		
-		mapper.getList3().forEach((gameList3) -> {
-			log.info("==================");
-			log.info(gameList3);
-			});
-
-	}
-	
-	@Test
-	public void testGetListPuzzle() {
-		
-		mapper.getList4().forEach((gameList4) -> {
-			log.info("==================");
-			log.info(gameList4);
-			});
-
-	}
-	
-	@Test
-	public void testGetListRhythm() {
-		
-		mapper.getList5().forEach((gameList5) -> {
-			log.info("==================");
-			log.info(gameList5);
-			});
-
-	}
-	
-	@Test
-	public void testGetListHorror() {
-		
-		mapper.getList5().forEach((gameList6) -> {
-			log.info("==================");
-			log.info(gameList6);
-			});
-
-	}
-	
-	@Test
-	public void testGetListSimulation() {
-		
-		mapper.getList5().forEach((gameList7) -> {
-			log.info("==================");
-			log.info(gameList7);
-			});
-
-	}
-	
-	@Test
-	public void testGetListCasual() {
-		
-		mapper.getList5().forEach((gameList8) -> {
-			log.info("==================");
-			log.info(gameList8);
-			});
-
-	}
-	
-	@Test
-	public void testGetListStrategy() {
-		
-		mapper.getList5().forEach((gameList9) -> {
-			log.info("==================");
-			log.info(gameList9);
-			});
-
-	}
+//	@Test
+//	public void testGetListAction() {
+//		
+//		mapper.getListWithPageByAction(cri).forEach((gameList1) -> {
+//			log.info("==================");
+//			log.info(gameList1);
+//			});
+//
+//	}
+//	
+//	@Test
+//	public void testGetListAdventure() {
+//		
+//		mapper.getList2().forEach((gameList2) -> {
+//			log.info("==================");
+//			log.info(gameList2);
+//			});
+//
+//	}
+//	
+//	@Test
+//	public void testGetListRogueLike() {
+//		
+//		mapper.getList3().forEach((gameList3) -> {
+//			log.info("==================");
+//			log.info(gameList3);
+//			});
+//
+//	}
+//	
+//	@Test
+//	public void testGetListPuzzle() {
+//		
+//		mapper.getList4().forEach((gameList4) -> {
+//			log.info("==================");
+//			log.info(gameList4);
+//			});
+//
+//	}
+//	
+//	@Test
+//	public void testGetListRhythm() {
+//		
+//		mapper.getList5().forEach((gameList5) -> {
+//			log.info("==================");
+//			log.info(gameList5);
+//			});
+//
+//	}
+//	
+//	@Test
+//	public void testGetListHorror() {
+//		
+//		mapper.getList5().forEach((gameList6) -> {
+//			log.info("==================");
+//			log.info(gameList6);
+//			});
+//
+//	}
+//	
+//	@Test
+//	public void testGetListSimulation() {
+//		
+//		mapper.getList5().forEach((gameList7) -> {
+//			log.info("==================");
+//			log.info(gameList7);
+//			});
+//
+//	}
+//	
+//	@Test
+//	public void testGetListCasual() {
+//		
+//		mapper.getList5().forEach((gameList8) -> {
+//			log.info("==================");
+//			log.info(gameList8);
+//			});
+//
+//	}
+//	
+//	@Test
+//	public void testGetListStrategy() {
+//		
+//		mapper.getList5().forEach((gameList9) -> {
+//			log.info("==================");
+//			log.info(gameList9);
+//			});
+//
+//	}
 
 //	@Test
 //	public void testPaging() {

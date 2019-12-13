@@ -2,8 +2,11 @@ package com.ync.project.front.service;
 
 import java.util.List;
 
+import com.ync.project.domain.BookmarkVO;
 import com.ync.project.domain.ContentVO;
+import com.ync.project.domain.Criteria;
 import com.ync.project.domain.Criteria2;
+import com.ync.project.domain.FundVO;
 
 
  /**
@@ -14,7 +17,7 @@ import com.ync.project.domain.Criteria2;
   */
 public interface FundingService {
 	// 글 등록
-	public void register(ContentVO content);
+	public void insert(FundVO fund);
 
 	// 글 상세보기
 	public ContentVO get();
@@ -26,40 +29,19 @@ public interface FundingService {
 	public ContentVO get2();
 
 	// 글 수정
-	public boolean modify(ContentVO content);
+	public boolean modify(ContentVO content) throws Exception;
+	
+	//글 불러오기
+	public ContentVO read(Long content_id); //게시글 내용
+	
 
 	// 글 삭제
 	public boolean remove(Long bno);
 	
 	// 전체 글 목록
 	public List<ContentVO> getList();
-
-	// 전체 글 목록
-	public List<ContentVO> getList1();
-
-	// 전체 글 목록
-	public List<ContentVO> getList2();
-
-	// 전체 글 목록
-	public List<ContentVO> getList3();
-
-	// 전체 글 목록
-	public List<ContentVO> getList4();
-
-	// 전체 글 목록
-	public List<ContentVO> getList5();
-
-	// 전체 글 목록
-	public List<ContentVO> getList6();
-
-	// 전체 글 목록
-	public List<ContentVO> getList7();
-
-	// 전체 글 목록
-	public List<ContentVO> getList8();
-
-	// 전체 글 목록
-	public List<ContentVO> getList9();
+	
+	public List<ContentVO> mpgetList(Criteria cri); //후원받은 게시글 목록
 	
 	public List<ContentVO> getFundNow(); //게시글 목록
 
@@ -71,4 +53,7 @@ public interface FundingService {
 
 	// 추가
 	public int getTotal(Criteria2 cri2);
+	
+	public ContentVO read2(Long content_id); //게시글 불러오기
+	
 }

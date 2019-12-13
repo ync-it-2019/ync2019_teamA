@@ -28,9 +28,7 @@ public class GameListServiceImpl implements GameListService{
 	@Override
 	public void register(ContentVO content) {
 		// TODO Auto-generated method stub
-		
 		log.info("register........" + content);
-		
 		mapper.insertSelectKey(content);
 	}
 
@@ -38,7 +36,6 @@ public class GameListServiceImpl implements GameListService{
 	public ContentVO get() {
 		// TODO Auto-generated method stub
 		log.info("get........" );
-		
 		return mapper.read();
 	}
 
@@ -46,7 +43,6 @@ public class GameListServiceImpl implements GameListService{
 	public boolean modify(ContentVO content) {
 		// TODO Auto-generated method stub
 		log.info("modify........" + content);
-		
 		return mapper.update(content) == 1;
 	}
 
@@ -54,54 +50,34 @@ public class GameListServiceImpl implements GameListService{
 	public boolean remove(Long content_id) {
 		// TODO Auto-generated method stub
 		log.info("remove........" + content_id);
-		
 		return mapper.delete(content_id) == 1;
 	}
 	
 	@Override
 	public List<ContentVO> getList() {
 		// TODO Auto-generated method stub
-		
 		log.info("getList.......");
 		return mapper.getList();
-	}
-
-	@Override
-	public List<ContentVO> getList1() {
-		// TODO Auto-generated method stub
-		
-		log.info("getList1.......");
-		return mapper.getList1();
 	}
  
 	@Override
 	public List<ContentVO> getListWithPaging(Criteria cri) {
 		// TODO Auto-generated method stub
-		
 		log.info("get List with criteria: " + cri);
-		
 		return mapper.getListWithPaging(cri);
 	}
 
-	   @Override
-	   public int getTotal(Criteria cri) {
-	      
-	      log.info("get total count");
-	      
-	      return mapper.getTotalCount(cri);
-	   }
+	@Override
+	public int getTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
 
 	@Override
 	public ContentVO get1() {
 		// TODO Auto-generated method stub
 		log.info("get1........");
 		return mapper.read1();
-	}
-
-	@Override
-	public List<ContentVO> getList2() {
-		log.info("getgList2.......");
-		return mapper.getList2();
 	}
 
 	@Override
@@ -112,52 +88,119 @@ public class GameListServiceImpl implements GameListService{
 	}
 
 	@Override
-	public List<ContentVO> getList3() {
+	public List<ContentVO> Act(Criteria cri) {
 		// TODO Auto-generated method stub
-		log.info("getgList3.......");
-		return mapper.getList3();
+		log.info("Get List Action Genre Paginations....");
+		return mapper.Act(cri);
 	}
 
 	@Override
-	public List<ContentVO> getList4() {
+	public List<ContentVO> getListWithPageByAdventure(Criteria cri) {
 		// TODO Auto-generated method stub
-		log.info("getgList4.......");
-		return mapper.getList4();
+		log.info("Get List Adventure Genre Paginations....");
+		return mapper.getListWithPageByAdventure(cri);
 	}
 
 	@Override
-	public List<ContentVO> getList5() {
+	public List<ContentVO> getListWithPageByRoguelike(Criteria cri) {
 		// TODO Auto-generated method stub
-		log.info("getgList5.......");
-		return mapper.getList5();
+		log.info("Get List Roguelike Genre Paginations....");
+		return mapper.getListWithPageByRoguelike(cri);
 	}
 
 	@Override
-	public List<ContentVO> getList6() {
+	public List<ContentVO> getListWithPageByPuzzle(Criteria cri) {
 		// TODO Auto-generated method stub
-		log.info("getgList6.......");
-		return mapper.getList6();
+		log.info("Get List Puzzle Genre Paginations....");
+		return mapper.getListWithPageByPuzzle(cri);
 	}
 
 	@Override
-	public List<ContentVO> getList7() {
+	public List<ContentVO> getListWithPageByRhythm(Criteria cri) {
 		// TODO Auto-generated method stub
-		log.info("getgList7.......");
-		return mapper.getList7();
+		log.info("Get List Rhythm Genre Paginations....");
+		return mapper.getListWithPageByRhythm(cri);
 	}
 
 	@Override
-	public List<ContentVO> getList8() {
+	public List<ContentVO> getListWithPageByHorror(Criteria cri) {
 		// TODO Auto-generated method stub
-		log.info("getgList8.......");
-		return mapper.getList8();
+		log.info("Get List Horror Genre Paginations....");
+		return mapper.getListWithPageByHorror(cri);
 	}
 
 	@Override
-	public List<ContentVO> getList9() {
+	public List<ContentVO> getListWithPageBySimulation(Criteria cri) {
 		// TODO Auto-generated method stub
-		log.info("getgList9.......");
-		return mapper.getList9();
+		log.info("Get List Simulation Genre Paginations....");
+		return mapper.getListWithPageBySimulation(cri);
 	}
-	
+
+	@Override
+	public List<ContentVO> getListWithPageByCasual(Criteria cri) {
+		// TODO Auto-generated method stub
+		log.info("Get List Casual Genre Paginations....");
+		return mapper.getListWithPageByCasual(cri);
+	}
+
+	@Override
+	public List<ContentVO> getListWithPageByStrategy(Criteria cri) {
+		// TODO Auto-generated method stub
+		log.info("Get List Strategy Genre Paginations....");
+		return mapper.getListWithPageByStrategy(cri);
+	}
+
+	@Override
+	public int getactTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getactTotal(cri);
+	}
+
+	@Override
+	public int getadvTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getadvTotal(cri);
+	}
+
+	@Override
+	public int getrogTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getrogTotal(cri);
+	}
+
+	@Override
+	public int getpuzTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getpuzTotal(cri);
+	}
+
+	@Override
+	public int getrhyTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getrhyTotal(cri);
+	}
+
+	@Override
+	public int gethorTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.gethorTotal(cri);
+	}
+
+	@Override
+	public int getsimTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getsimTotal(cri);
+	}
+
+	@Override
+	public int getcasTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getcasTotal(cri);
+	}
+
+	@Override
+	public int getstrTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getstrTotal(cri);
+	}
 }

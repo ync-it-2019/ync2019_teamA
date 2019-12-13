@@ -3,6 +3,7 @@ package com.ync.project.admin.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/admin/*")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class AdminCreaterController {
 	
 	@Autowired
@@ -60,7 +62,7 @@ public class AdminCreaterController {
 	  * @return
 	  */
 	@GetMapping(value = "/creater_modifying")
-	public String creater_modifying(@RequestParam("userid") String userid, HttpServletRequest request, Model model, Criteria cri) {
+	public String creater_modifying(@RequestParam("userid") String userid, HttpServletRequest request) {
 
 		
 		log.info("Welcome Info detail!");
@@ -82,7 +84,7 @@ public class AdminCreaterController {
 	  * @return
 	  */
 	@GetMapping(value = "/creater_status")
-	public String creater_status(@RequestParam("userid") String userid, HttpServletRequest request, Model model, Criteria cri) {
+	public String creater_status(@RequestParam("userid") String userid, HttpServletRequest request) {
 
 		
 		log.info("Welcome Info detail!");
@@ -114,4 +116,53 @@ public class AdminCreaterController {
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
+	@GetMapping(value = "/creater_request")
+	public void creater_request(Criteria cri, Model model) {
+		int total = mService.getTotalCreater(cri);
+		
+		log.info("list:11111 " + cri);
+		log.info("total:1111 " + total);
+//		model.addAttribute("list", service.getList());
+		
+		model.addAttribute("list", mService.getListWithPagingWithCreater_request(cri));
+		model.addAttribute("list_getdon", mService.getGetDonation(cri));
+		model.addAttribute("list_givedon", mService.getGiveDonation(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+	}
+	
+	 /**
+	  * @Method 설명 : 창작자 신청 관리자 승인
+	  * @Method Name : creater_accept
+	  * @Date : 2019. 12. 12.
+	  * @작성자 : 김길재
+	  * @param userid
+	  * @param request
+	  * @return
+	  */
+	@GetMapping(value = "/creater_accept")
+	public String creater_accept(@RequestParam("userid") String userid, HttpServletRequest request) {		
+		log.info("Welcome Info detail!");
+		
+		mService.creater_accept(userid);
+		
+		return "redirect:/admin/creater_request";
+	}
+	
+	 /**
+	  * @Method 설명 : 창작자 신청 관리자 거부
+	  * @Method Name : creater_cancle
+	  * @Date : 2019. 12. 12.
+	  * @작성자 : 김길재
+	  * @param userid
+	  * @param request
+	  * @return
+	  */
+	@GetMapping(value = "/creater_cancle")
+	public String creater_cancle(@RequestParam("userid") String userid, HttpServletRequest request) {		
+		log.info("Welcome Info detail!");
+		
+		mService.creater_cancle(userid);
+		
+		return "redirect:/admin/creater_request";
+	}
 }

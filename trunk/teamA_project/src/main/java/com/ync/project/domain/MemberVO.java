@@ -29,7 +29,10 @@ public class MemberVO {
 	private String sns; //SNS 계정
 	private String other_address; //추가 연락처
 	private String auth;
+	
 	private List<AuthVO> authList;
+	
+	private String donation;		// 프론트에서 회원정보 확인시의 값
 //	private boolean enabled;
 //
 //	private Date regDate;
