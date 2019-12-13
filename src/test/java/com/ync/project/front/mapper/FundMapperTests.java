@@ -1,6 +1,4 @@
 package com.ync.project.front.mapper;
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +6,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ync.project.domain.ContentVO;
+import com.ync.project.domain.FundVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -31,26 +30,61 @@ public class FundMapperTests {
 	@Autowired
 	private FundingMapper mapper;
 	
-	//펀딩 메인
-	@Test
-	public void testGetListMain() {
-		
-		mapper.getListWithPaging().forEach((gameList) -> {
-			log.info("==================");
-			log.info(gameList);
-			});
-
-	}
-	
-	//펀딩 종료
+//	//펀딩 메인
+//	@Test
+//	public void testGetListMain() {
+//		
+//		mapper.getListWithPaging().forEach((gameList) -> {
+//			log.info("==================");
+//			log.info(gameList);
+//			});
+//
+//	}
+//	
+//	//펀딩 종료
+//		@Test
+//		public void testGetListEnd() {
+//			
+//			mapper.getListEndFund().forEach((gameList) -> {
+//				log.info("==================");
+//				log.info(gameList);
+//				});
+//
+//		}
+		//상세 페이지
 		@Test
-		public void testGetListEnd() {
-			
-			mapper.getListEndFund().forEach((gameList) -> {
-				log.info("==================");
-				log.info(gameList);
-				});
+		public void testRead() {
 
+			// 존재하는 게시물 번호로 테스트
+			ContentVO content = mapper.read(1L);
+
+			log.info(content);
+
+		}
+		
+//		//추가
+//		@Test
+//		public void testInsert() {
+//			FundVO content = new FundVO();
+//			content.setContent_id(1L);
+//			content.setDonation(30000L);
+//			content.setUserid("tjrwnsdud2@naver.com");
+//			mapper.insert(content);	
+//	
+//			log.info(content);
+//		}
+		
+		//값 변경
+		@Test
+		public void testUpdate() throws Exception {
+			ContentVO content = new ContentVO();
+			// 실행전 존재하는 번호인지 확인할 것
+			content.setContent_id(1L);
+			content.setMoney_temp(50000L);
+	
+			int count = mapper.update(content);
+			log.info("UPDATE COUNT: " + count);
+	
 		}
 
 //	@Test
