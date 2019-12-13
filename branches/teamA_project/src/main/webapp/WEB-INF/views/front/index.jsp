@@ -122,12 +122,12 @@
 										<li>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="fund/main">진행중인 펀딩</a></li>
+													<li><a href="fund_main">진행중인 펀딩</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<li><a href="fund/end">종료된 펀딩</a></li>
+													<li><a href="fund_end">종료된 펀딩</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>

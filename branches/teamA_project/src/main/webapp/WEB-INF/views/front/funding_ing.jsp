@@ -39,8 +39,6 @@
     		'${bmkcheck.userid}';
     		if('${bmkcheck.bookmark}' == 1 && '${bmkcheck.userid}' == '<sec:authentication property = "principal.username"/>') {
     			$("#bmkinsert").hide();
-    		}else {
-    			$("#bmkdelete").hide();
     		}
     		'</c:forEach>'
     	}
