@@ -192,7 +192,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				<sec:authorize access="isAuthenticated()">
 					<sec:authentication property="principal.username" var="user_id" />
 					<li style="margin-left: 0em">
-						<a href="/mp_selfcheck"	class="login">${user_id}</a>
+						<a href="/mypage/mp_member_detail"	class="login">${user_id}</a>
 					</li>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">

@@ -240,7 +240,7 @@
 					<sec:authorize access="isAuthenticated()">
 						<sec:authentication property="principal.username" var="user_id" />
 						<li style="margin-left: 0em">
-							<a href="/"	class="login">${user_id}</a>
+							<a href="/mypage/mp_member_detail"	class="login">${user_id}</a>
 						</li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
