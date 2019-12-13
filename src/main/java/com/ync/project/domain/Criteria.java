@@ -23,6 +23,8 @@ public class Criteria {
 	private String type;
 	private String keyword;
 
+	private String userid; //사용자 유저아이디 
+	
 	public Criteria() {
 		this(1, 10);
 	}
