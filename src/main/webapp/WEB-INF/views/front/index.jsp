@@ -204,7 +204,7 @@
 							<!-- cd-header-buttons -->
 						</div>
 						<div id="cd-search" class="cd-search">
-							<form action="login.html" method="post">
+							<form action="game_list" method="post">
 								<input name="Search" type="search" placeholder="Search...">
 							</form>
 						</div>
